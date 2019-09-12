@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store_name: MyString
+  store_city: MyString
+  store_address: MyString
+  store_city: MyString
+  store_country: MyString
+  store_state: MyString
+  store_area: MyString
+  store_map_link: MyString
+  stroe_active: false
+  store_on_time: 2019-09-12 16:56:44
+  store_close_time: 2019-09-12 16:56:44
+  vender: one
+
+two:
+  store_name: MyString
+  store_city: MyString
+  store_address: MyString
+  store_city: MyString
+  store_country: MyString
+  store_state: MyString
+  store_area: MyString
+  store_map_link: MyString
+  stroe_active: false
+  store_on_time: 2019-09-12 16:56:44
+  store_close_time: 2019-09-12 16:56:44
+  vender: two

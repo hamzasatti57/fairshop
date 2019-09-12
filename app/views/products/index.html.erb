@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product name</th>
+      <th>Product category</th>
+      <th>Product brand</th>
+      <th>Product model</th>
+      <th>Product warranty</th>
+      <th>Product color</th>
+      <th>Product isview</th>
+      <th>Product sale status</th>
+      <th>Product purchase price</th>
+      <th>Product sale price</th>
+      <th>Product cash on delivery</th>
+      <th>Product home delivery</th>
+      <th>Product return days</th>
+      <th>Product discount</th>
+      <th>Product material</th>
+      <th>Product quantity</th>
+      <th>Store</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.product_name %></td>
+        <td><%= product.product_category %></td>
+        <td><%= product.product_brand %></td>
+        <td><%= product.product_model %></td>
+        <td><%= product.product_warranty %></td>
+        <td><%= product.product_color %></td>
+        <td><%= product.product_isview %></td>
+        <td><%= product.product_sale_status %></td>
+        <td><%= product.product_purchase_price %></td>
+        <td><%= product.product_sale_price %></td>
+        <td><%= product.product_cash_on_delivery %></td>
+        <td><%= product.product_home_delivery %></td>
+        <td><%= product.product_return_days %></td>
+        <td><%= product.product_discount %></td>
+        <td><%= product.product_material %></td>
+        <td><%= product.product_quantity %></td>
+        <td><%= product.store %></td>
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>

@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_name: MyString
+  product_category: MyString
+  product_brand: MyString
+  product_model: MyString
+  product_warranty: MyString
+  product_color: MyString
+  product_isview: false
+  product_sale_status: false
+  product_purchase_price: 1
+  product_sale_price: 1
+  product_cash_on_delivery: false
+  product_home_delivery: false
+  product_return_days: 1
+  product_discount: 1
+  product_material: MyString
+  product_quantity: 1
+  store: one
+
+two:
+  product_name: MyString
+  product_category: MyString
+  product_brand: MyString
+  product_model: MyString
+  product_warranty: MyString
+  product_color: MyString
+  product_isview: false
+  product_sale_status: false
+  product_purchase_price: 1
+  product_sale_price: 1
+  product_cash_on_delivery: false
+  product_home_delivery: false
+  product_return_days: 1
+  product_discount: 1
+  product_material: MyString
+  product_quantity: 1
+  store: two

@@ -1,0 +1,24 @@
+
+<%= simple_form_for(@store) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :store_name %>
+    <%= f.input :store_city %>
+    <%= f.input :store_address %>
+    <%= f.input :store_city %>
+    <%= f.input :store_country %>
+    <%= f.input :store_state %>
+    <%= f.input :store_area %>
+    <%= f.input :store_map_link %>
+    <%= f.input :stroe_active %>
+    <%= f.input :store_on_time %>
+    <%= f.input :store_close_time %>
+    <%= f.association :vender %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
