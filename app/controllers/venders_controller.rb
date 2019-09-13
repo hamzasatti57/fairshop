@@ -1,5 +1,6 @@
 class VendersController < ApplicationController
   before_action :set_vender, only: [:show, :edit, :update, :destroy]
+  layout "layouts/admin_layout"
 
   # GET /venders
   # GET /venders.json
@@ -25,6 +26,7 @@ class VendersController < ApplicationController
   # POST /venders.json
   def create
     @vender = Vender.new(vender_params)
+    
 
     respond_to do |format|
       if @vender.save

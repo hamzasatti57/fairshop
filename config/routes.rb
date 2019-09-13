@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'admin_task/home'
   resources :products
   resources :stores
   resources :venders

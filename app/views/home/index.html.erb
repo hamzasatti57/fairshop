@@ -547,20 +547,24 @@
             <!-- ==========  Login wrapper ========== -->
 
             <div class="login-wrapper">
-                <form>
+                <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                     <div class="h4">Sign in</div>
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        <%= f.input :email,required: false,autofocus: true,input_html: { autocomplete: "email", placeholder: "Email", class: "form-control" } %>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <%= f.input :password,
+                            required: false,
+                            input_html: { autocomplete: "current-password", class: "form-control", id:"exampleInputPassword1", placeholder: "Password" }
+                         %>
                     </div>
+                    <%= f.button :submit, "Log in", class: 'btn btn-block btn-main' %>
+                <% end %>
                     <div class="form-group">
-                        <a href="#forgotpassword" class="open-popup">Forgot password?</a>
-                        <a href="#createaccount" class="open-popup">Don't have an account?</a>
+                        
                     </div>
-                    <button type="submit" class="btn btn-block btn-main">Submit</button>
-                </form>
+               
+                      
             </div>
 
             <!-- ==========  Cart wrapper ========== -->

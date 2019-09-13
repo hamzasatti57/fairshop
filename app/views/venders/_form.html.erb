@@ -1,9 +1,69 @@
+<style type="text/css">
+  /* ----- SimpleForm Styles ----- */
+.simple_form{
+  width: 100%;
+}
+.simple_form div.input {
+  width: 100%;
+  margin-bottom: 15px;
+  /*margin-left: 250px;*/
 
+  clear: both; /* Required for Webkit, but not for Gecko */
+}
+.simple_form input[type='text'], input[type='email']{
+height: 30px;
+border-radius: 5px;
+border: 2px solid gray;
+}
+
+.simple_form label {
+  float: left;
+  width: 50px;
+  text-align: center;
+  margin: 2px 10px;
+}
+
+
+
+div.boolean label, label.collection_radio_buttons {
+  float: none;
+  margin: 0;
+}
+
+label.collection_radio_buttons {
+  margin-right: 10px;
+  vertical-align: -2px;
+  margin-left: 2px;
+}
+
+.field_with_errors {
+  background-color: white;
+}
+
+.simple_form .error {
+  clear: left;
+  color: red;
+  display: block;
+  margin-left: 120px;
+}
+
+.simple_form .hint {
+  clear: left;
+  margin-left: 120px;
+  color: #555;
+  display: block;
+  font-style: italic;
+}
+
+
+
+</style>
 <%= simple_form_for(@vender) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+   
     <%= f.input :name %>
     <%= f.input :email %>
     <%= f.input :city %>
@@ -13,9 +73,10 @@
     <%= f.input :cnic %>
     <%= f.input :contact %>
     <%= f.input :country %>
+    <%= f.input :picture_name, as: :file%>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit,class: 'btn btn-success'%>
   </div>
 <% end %>
