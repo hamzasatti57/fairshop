@@ -11,10 +11,15 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
+gem 'jquery-rails'
+gem 'cancancan', '~> 1.10'
 gem 'devise'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'country_select'
+gem 'mini_magick', '~>4.9'
+gem 'activestorage-validator'
+
 
 
 

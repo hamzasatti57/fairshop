@@ -11,11 +11,12 @@
 // about supported directives.
 //
 
+//= require jquery
+//= require jquery_ujs
 //= require rails-ujs
-
 //= require activestorage
 //= require turbolinks
-//= require coreui/jquery.min.js
+// require coreui/jquery.min.js
 //= require coreui/popper.min.js
 //= require coreui/bootstrap.min.js
 //= require coreui/pace.min.js

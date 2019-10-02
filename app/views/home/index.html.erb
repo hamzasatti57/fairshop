@@ -42,7 +42,7 @@
                             <li>עִבְרִית</li>
                         </ul>
                     </li>
-                    <li><a href="javascript:void(0);" class="open-login"><i class="icon icon-user"></i></a></li>
+                    <li><a href="<%= new_user_session_path %>"><i class="icon icon-user"></i></a></li>
                     <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
                     <li><a href="javascript:void(0);" class="open-cart"><i class="icon icon-cart"></i> <span>3</span></a></li>
                 </ul>
@@ -210,7 +210,8 @@
                                         <div class="clearfix categories">
                                             <div class="row">
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
+
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -220,7 +221,8 @@
                                                         </figure>
                                                     </a>
                                                 </div>
-                                                
+
+
                                                 <!--icon item-->                                                
 
                                                 <div class="col-sm-3 col-xs-6">
@@ -232,7 +234,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -242,8 +244,8 @@
                                                         </figure>
                                                     </a>
                                                 </div>
-                                                
-                                                <!--icon item-->                                                
+
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -254,7 +256,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -265,7 +267,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -276,7 +278,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -287,7 +289,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -298,7 +300,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -309,7 +311,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -320,7 +322,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -331,7 +333,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -342,7 +344,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -353,7 +355,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -364,7 +366,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -375,7 +377,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -386,7 +388,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -397,7 +399,7 @@
                                                     </a>
                                                 </div>
                                                 
-                                                <!--icon item-->                                                
+                                                <!--icon item-->
 
                                                 <div class="col-sm-3 col-xs-6">
                                                     <a href="javascript:void(0);">
@@ -812,182 +814,184 @@
                 <div class="owl-icons">
 
                     <!-- === icon item === -->
-
+                  <% @categories.each do |category| %>
                     <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-sofa"></i>
-                            <figcaption>Sofa</figcaption>
-                        </figure>
+                      <figure>
+                      <i class="f-icon f-icon-sofa"></i>
+                      <figcaption><%= category.title %></figcaption>
+                      </figure>
                     </a>
+                  <% end %>
 
-                    <!-- === icon item === -->
+<!--
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-armchair"></i>
-                            <figcaption>Armchairs</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-armchair"></i>-->
+<!--                            <figcaption>Armchairs</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-chair"></i>
-                            <figcaption>Chairs</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-chair"></i>-->
+<!--                            <figcaption>Chairs</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-dining-table"></i>
-                            <figcaption>Dining tables</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-dining-table"></i>-->
+<!--                            <figcaption>Dining tables</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-media-cabinet"></i>
-                            <figcaption>Media storage</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-media-cabinet"></i>-->
+<!--                            <figcaption>Media storage</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-table"></i>
-                            <figcaption>Tables</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-table"></i>-->
+<!--                            <figcaption>Tables</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-bookcase"></i>
-                            <figcaption>Bookcase</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-bookcase"></i>-->
+<!--                            <figcaption>Bookcase</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-bedroom"></i>
-                            <figcaption>Bedroom</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-bedroom"></i>-->
+<!--                            <figcaption>Bedroom</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-nightstand"></i>
-                            <figcaption>Nightstand</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-nightstand"></i>-->
+<!--                            <figcaption>Nightstand</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-children-room"></i>
-                            <figcaption>Children room</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-children-room"></i>-->
+<!--                            <figcaption>Children room</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-kitchen"></i>
-                            <figcaption>Kitchen</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-kitchen"></i>-->
+<!--                            <figcaption>Kitchen</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-bathroom"></i>
-                            <figcaption>Bathroom</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-bathroom"></i>-->
+<!--                            <figcaption>Bathroom</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-wardrobe"></i>
-                            <figcaption>Wardrobe</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-wardrobe"></i>-->
+<!--                            <figcaption>Wardrobe</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-shoe-cabinet"></i>
-                            <figcaption>Shoe cabinet</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-shoe-cabinet"></i>-->
+<!--                            <figcaption>Shoe cabinet</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-office"></i>
-                            <figcaption>Office</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-office"></i>-->
+<!--                            <figcaption>Office</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-bar-set"></i>
-                            <figcaption>Bar sets</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-bar-set"></i>-->
+<!--                            <figcaption>Bar sets</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-lightning"></i>
-                            <figcaption>Lightning</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-lightning"></i>-->
+<!--                            <figcaption>Lightning</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-carpet"></i>
-                            <figcaption>Varpet</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
 
-                    <!-- === icon item === -->
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-carpet"></i>-->
+<!--                            <figcaption>Varpet</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
-                    <a href="#">
-                        <figure>
-                            <i class="f-icon f-icon-accessories"></i>
-                            <figcaption>Accessories</figcaption>
-                        </figure>
-                    </a>
+<!--                    <!-- === icon item === -->
+
+<!--                    <a href="#">-->
+<!--                        <figure>-->
+<!--                            <i class="f-icon f-icon-accessories"></i>-->
+<!--                            <figcaption>Accessories</figcaption>-->
+<!--                        </figure>-->
+<!--                    </a>-->
 
                 </div> <!--/owl-icons-->
             </div> <!--/container-->
         </section>
 
         <!-- ========================  Products widget ======================== -->
-
         <section class="products">
 
             <div class="container">
@@ -1547,7 +1551,7 @@
 
         <section class="blog">
 
-            <div class="container">
+              <div class="container">
 
                 <!-- === blog header === -->
 

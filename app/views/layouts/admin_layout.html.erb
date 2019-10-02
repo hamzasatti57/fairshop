@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Furnishia</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Furnishia</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
 
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&amp;subset=latin-ext" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script>
       window.dataLayer = window.dataLayer || [];
 
       function gtag() {
-        dataLayer.push(arguments);
+          dataLayer.push(arguments);
       }
       gtag('js', new Date());
       // Shared ID
       gtag('config', 'UA-118965717-3');
       // Bootstrap ID
       gtag('config', 'UA-118965717-5');
-    </script>
+  </script>
 
-  </head>
+</head>
 
-  <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
-     <!-- <div class="page-loader"></div> -->
-    <%= render template: "layouts/header/admin_header" %>
-    <div class="app-body">
-      <div class="sidebar">
-        <%= render template: "layouts/side_nav/admin_side_nav" %>
-          <button class="sidebar-minimizer brand-minimizer" type="button"></button>
-        </div>
-        <div style="">
-          <%= yield %>
-        </div>
-          
-        
-    </div>
-    <%= render template: "layouts/footer/footer" %>
-  </body>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+<!-- <div class="page-loader"></div> -->
+<%= render template: "layouts/header/admin_header" %>
+<div class="app-body">
+    <%= render template: "layouts/side_nav/admin_side_nav" %>
+
+  <div style="">
+    <%= yield %>
+  </div>
+
+
+</div>
+<%#= render template: "layouts/footer/footer" %>
+</body>
 </html>

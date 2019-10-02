@@ -1,0 +1,9 @@
+<%#= form_for(@user, html: {class: "form-horizontal", role: "form"} ) do |f| %>
+<%= render 'shared/errors', obj: category %>
+<%= form_for  category, category_form_attributes(category) do |f| %>
+  <div class="form-group">
+    <%= f.label :Title %>
+    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Category Title", autofocus: true %> <br/>
+  </div>
+  <%= f.submit class: "btn btn-block btn-primary"%>
+<% end %>

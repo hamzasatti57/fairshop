@@ -13897,7 +13897,7 @@ app-root {
 
 .app-body {
   display: -ms-flexbox;
-  display: flex;
+  /*display: flex;*/
   -ms-flex-direction: row;
   flex-direction: row;
   -ms-flex-positive: 1;
@@ -16394,3 +16394,12 @@ body {
   background-position: right calc(0.375em + 0.1875rem) center;
 }
 /*# sourceMappingURL=style.css.map */
+
+
+
+
+/****** Custom CSS ******/
+
+.login-page h1,p{
+    text-align: center;
+}

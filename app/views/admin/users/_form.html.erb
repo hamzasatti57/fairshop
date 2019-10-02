@@ -1,0 +1,41 @@
+<%#= form_for(@user, html: {class: "form-horizontal", role: "form"} ) do |f| %>
+<%= render 'shared/errors', obj: user %>
+<%= form_for  user, user_form_attributes(user) do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: "form-control", autocomplete: false, placeholder: "First Name", autofocus: true %> <br/>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: "form-control", autocomplete: false, placeholder: "Last Name" %> <br/>
+  </div>
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: "form-control", autocomplete: false, placeholder: "Username" %> <br/>
+  </div>
+  <div class="form-group">
+    <%= f.label :Email %>
+    <%= f.text_field :email, class: "form-control", autocomplete: false, placeholder: "Email" %> <br/>
+  </div>
+
+  <% if hide_password? user %>
+    <div class="form-group">
+      <%= f.label :Password %>
+      <%= f.password_field :password, class: "form-control", autocomplete: false, placeholder: "Password" %> <br/>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: false, placeholder: "Password" %> <br/>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.label :Category %>
+    <%= f.select(:category_id, options_for_select(category_options, selected: selected_category(user)), { prompt: "Please Select" }, { class: 'form-control' }) %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Active" %>
+    <%= f.check_box :active  %> <br />
+  </div>
+
+  <%= f.submit class: "btn btn-block btn-primary"%>
+<% end %>
