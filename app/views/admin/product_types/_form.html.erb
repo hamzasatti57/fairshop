@@ -1,0 +1,8 @@
+<%= render 'shared/errors', obj: product_type %>
+<%= form_for  product_type, product_type_form_attributes(product_type) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Product Type Title", autofocus: true %> <br/>
+  </div>
+  <%= f.submit class: "btn btn-block btn-primary"%>
+<% end %>

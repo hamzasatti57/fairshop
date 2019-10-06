@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   resources :products
   resources :stores
   resources :venders
@@ -13,8 +15,15 @@ Rails.application.routes.draw do
     get 'admin_task/home'
     resources :users
     resources :categories
+    resources :companies
+    resources :colors
+    resources :comments
+    resources :product_types
+    resources :product_categories
     resources :profiles
-    resources :projects do
+    resources :blogs
+    resources :advertisements
+        resources :projects do
       member do
         delete :delete_image_attachment
       end

@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   has_one :profile, dependent: :destroy
-  has_many :projects, dependent: :destroy
+  has_many :projects, through: :companies
   has_many :products, dependent: :destroy
+  has_many :companies, dependent: :destroy
   validates :username, presence: true,
             uniqueness:{case_sensitive: false},
             length:{minimum: 3, maximum: 25}
@@ -19,6 +20,7 @@ class User < ApplicationRecord
 
   belongs_to :category
   belongs_to :country
+
 
   before_validation :add_country
   after_create :create_profile

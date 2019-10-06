@@ -25,4 +25,5 @@
 //= require coreui/Chart.min.js
 //= require coreui/custom-tooltips.min.js
 //= require coreui/main.js
+//= require coreui/select2.min
 // require_tree .

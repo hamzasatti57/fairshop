@@ -13,30 +13,78 @@
 
   <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Product Title", autofocus: true %> <br/>
+    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Product_Category %>
+    <%= f.select(:product_category_id, options_for_select(product_category_options, selected: selected_product_category(product)), { prompt: "Please Select" }, { class: 'form-control' }) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Product_Type %>
+    <%= f.select(:product_type_id, options_for_select(product_type_options, selected: selected_product_type(product)), { prompt: "Please Select" }, { class: 'form-control' }) %>
   </div>
 
   <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, class: "form-control", autocomplete: false, placeholder: "Product Description", autofocus: true %> <br/>
+    <%= f.text_area :description, class: "form-control", autocomplete: false, placeholder: "Description", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :size %>
-    <%= f.text_field :size, class: "form-control", autocomplete: false, placeholder: "Product Size", autofocus: true %> <br/>
+    <%= f.label :inventory %>
+    <%= f.text_field :inventory, class: "form-control", autocomplete: false, placeholder: "Inventory", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
     <%= f.label :price %>
-    <%= f.text_field :price, class: "form-control", autocomplete: false, placeholder: "Product Price", autofocus: true %> <br/>
+    <%= f.text_field :price, class: "form-control", autocomplete: false, placeholder: "Price", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label "Stock" %>
-    <%= f.check_box :stock  %> <br />
+    <%= f.label :Colors %>
+
+    <select name="product[color_ids][]" multiple="multiple" class="form-control multiple-select" >
+      <option value="">Select Colors:</option>
+      <% Color.all.each do |color| %>
+      <option value="<%= color.id %>"><%= color.title%></option>
+      <% end %>
+    </select>
+    <%#= f.select(:color_id, options_for_select(color_options), { prompt: "Please Select" }, { class: 'form-control multiple-select', multiple: true }) %>
   </div>
+
+  <div class="form-group">
+    <%= f.label :length %> x
+    <%= f.label :width %> x
+    <%= f.label :height %> x
+    <br>
+    <%= f.text_field :length, class: "", autocomplete: false, placeholder: "Length", autofocus: true %> X
+    <%= f.text_field :width, class: "", autocomplete: false, placeholder: "Width", autofocus: true %> X
+    <%= f.text_field :width, class: "", autocomplete: false, placeholder: "Height", autofocus: true %> <br/>
+
+  </div>
+
+  <div class="form-group">
+    <%= f.label :status %>
+    <%= f.check_box :status %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :visibility %>
+    <%= f.check_box :visibility %> <br/>
+  </div>
+
+
+
+
 
   <%= f.file_field :images, multiple: true %><br><br>
 
   <%= f.submit class: "btn btn-block btn-primary"%>
 <% end %>
+
+<script>
+  $(function(){
+      $('.multiple-select').select2();
+  })
+</script>

@@ -1,0 +1,12 @@
+<%= render 'shared/errors', obj: color %>
+<%= form_for  color, color_form_attributes(color) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Color Title", autofocus: true %> <br/>
+  </div>
+  <div class="form-group">
+    <%= f.label :code %>
+    <%= f.text_field :code, class: "form-control", autocomplete: false, placeholder: "Color Code", autofocus: true %> <br/>
+  </div>
+  <%= f.submit class: "btn btn-block btn-primary"%>
+<% end %>

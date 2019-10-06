@@ -1,0 +1,18 @@
+<%= render 'shared/errors', obj: advertisement %>
+<%= form_for  advertisement, advertisement_form_attributes(advertisement) do |f| %>
+  <div class="Center">
+    <% if advertisement.image.attached? %>
+      <%= image_tag(url_for(advertisement.image.variant(resize: '200x200'))) %><br>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Advertisement Title", autofocus: true %> <br/>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", autocomplete: false, placeholder: "Advertisement Description", autofocus: true %> <br/>
+  </div>
+  <%= f.file_field :image %><br><br>
+  <%= f.submit class: "btn btn-block btn-primary"%>
+<% end %>

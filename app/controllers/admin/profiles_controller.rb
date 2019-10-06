@@ -13,7 +13,7 @@ class Admin::ProfilesController < AdminController
     # @profile = Profile.new(profile_params)
 
     if @profile.save
-      @profile.image.attach(params[:image])
+      # @profile.image.attach(params[:image])
       flash[:success] = "Profile successfully added"
       # redirect_to
     else

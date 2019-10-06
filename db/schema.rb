@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_27_093547) do
+ActiveRecord::Schema.define(version: 2019_10_06_144621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,10 +36,63 @@ ActiveRecord::Schema.define(version: 2019_09_27_093547) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "admin_advertisements", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "advertisements", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_id"
+  end
+
+  create_table "colors", force: :cascade do |t|
+    t.string "title"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "colors_products", id: false, force: :cascade do |t|
+    t.bigint "color_id"
+    t.bigint "product_id"
+    t.index ["color_id"], name: "index_colors_products_on_color_id"
+    t.index ["product_id"], name: "index_colors_products_on_product_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "title"
+    t.string "address"
+    t.string "contact"
+    t.string "individual_experience"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -48,16 +101,36 @@ ActiveRecord::Schema.define(version: 2019_09_27_093547) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "product_categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "product_types", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.string "description"
-    t.string "size"
-    t.string "price"
-    t.boolean "stock"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_products_on_user_id"
+    t.integer "inventory"
+    t.float "price"
+    t.float "length"
+    t.float "width"
+    t.float "height"
+    t.boolean "status"
+    t.boolean "visibility"
+    t.bigint "product_category_id"
+    t.bigint "product_type_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_products_on_company_id"
+    t.index ["product_category_id"], name: "index_products_on_product_category_id"
+    t.index ["product_type_id"], name: "index_products_on_product_type_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -79,8 +152,8 @@ ActiveRecord::Schema.define(version: 2019_09_27_093547) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_projects_on_user_id"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_projects_on_company_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -106,9 +179,15 @@ ActiveRecord::Schema.define(version: 2019_09_27_093547) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "products", "users"
+  add_foreign_key "categories", "categories", column: "parent_id"
+  add_foreign_key "colors_products", "colors"
+  add_foreign_key "colors_products", "products"
+  add_foreign_key "companies", "users"
+  add_foreign_key "products", "companies"
+  add_foreign_key "products", "product_categories"
+  add_foreign_key "products", "product_types"
   add_foreign_key "profiles", "users"
-  add_foreign_key "projects", "users"
+  add_foreign_key "projects", "companies"
   add_foreign_key "users", "categories"
   add_foreign_key "users", "countries"
 end

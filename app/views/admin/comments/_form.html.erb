@@ -1,0 +1,8 @@
+<%= render 'shared/errors', obj: comment %>
+<%= form_for  comment, comment_form_attributes(comment) do |f| %>
+  <div class="form-group">
+    <%= f.label :comment %>
+    <%= f.text_area :description, class: "form-control", autocomplete: false, placeholder: "Comment", autofocus: true %> <br/>
+  </div>
+  <%= f.submit class: "btn btn-block btn-primary"%>
+<% end %>

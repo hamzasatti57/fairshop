@@ -17,6 +17,7 @@ class Admin::ProductsController < AdminController
   def create
     # @product = current_user.products.new(product_params)
     if @product.save
+      @product.add_colors params[:product][:color_ids]
       @product.images.attach(params[:product][:images])
       flash[:success] = "Product successfully created"
       render 'show'
@@ -32,6 +33,7 @@ class Admin::ProductsController < AdminController
 
   def update
     if @product.update(product_params)
+      @product.update_colors params[:product][:color_ids]
       flash[:success] = "Product Updated Succesfully"
       render 'show'
     else
@@ -71,7 +73,8 @@ class Admin::ProductsController < AdminController
   end
 
   def product_params
-    params.required(:product).permit(:user_id , :title, :description, :size, :price, :stock, images: [])
+    params.required(:product).permit(:user_id , :title, :description, :inventory, :price, :length,
+                                     :width, :height, :status, :visibility, :product_category_id, :product_type_id, :color_id, images: [])
 
   end
 

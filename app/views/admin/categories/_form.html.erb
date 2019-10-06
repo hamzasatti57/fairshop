@@ -1,9 +1,25 @@
 <%#= form_for(@user, html: {class: "form-horizontal", role: "form"} ) do |f| %>
 <%= render 'shared/errors', obj: category %>
 <%= form_for  category, category_form_attributes(category) do |f| %>
+  <div>
+    <%= f.label :Category, "Add Category", :value => "false" %>
+    <%= f.radio_button :category, true ,:checked => true , onChange: "showcategory();"%>
+    <%= f.label :subcategory, " Add subcategory", :value => "false" %>
+    <%= f.radio_button :category, false, :checked => false, onChange: "showcategory();" %>
+  </div>
   <div class="form-group">
+      <div id="subcatdiv" style="display:none">
+        <%= f.label :Category %>
+        <%= f.select(:parent_id, options_for_select(category_options), { prompt: "Please Select" }, { class: 'form-control' }) %>
+      </div>
     <%= f.label :Title %>
-    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Category Title", autofocus: true %> <br/>
+    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
   </div>
   <%= f.submit class: "btn btn-block btn-primary"%>
 <% end %>
+<script>
+  function showcategory() {
+      $('#subcatdiv').toggle();
+  }
+</script>
+

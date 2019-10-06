@@ -59,11 +59,7 @@ class Admin::ProjectsController < AdminController
   private
 
     def load_user_project
-      if action_name == 'new'
-        @project = current_user.projects.new
-      elsif action_name == 'create'
-        @project = current_user.projects.new(project_params)
-      end
+      @project = Project.new
     end
 
     def load_projects
@@ -71,7 +67,7 @@ class Admin::ProjectsController < AdminController
     end
 
     def project_params
-      params.required(:project).permit(:title, :description, :user_id, images: [])
+      params.required(:project).permit(:title, :description, :company_id, images: [])
     end
     def get_project
       @project = Project.find(params[:id])

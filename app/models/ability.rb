@@ -10,8 +10,8 @@ class Ability
       end
     elsif user.vendor?
       can :create, Project
-      can :manage, Project, ["user_id = ?", user.id] do |project|
-        project.user_id == user.id
+      can :manage, Project, ["company_id IN (?)", user.companies.pluck(:id)] do |project|
+        user.companies.pluck(:id).include? project.company_id
         end
       can :create, Product
       can :manage, Product, ["user_id = ?", user.id] do |product|
