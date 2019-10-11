@@ -17,11 +17,13 @@
           <h4>Category: </h4><br>
           <p><%= @profile.user_category_title %></p><br>
           <h4>Contact: </h4><br>
-          <p><%= @profile.contact_detail %></p><br>
-          <h4>Date of Birth: </h4><br>
-          <p><%= date_of_birth @profile %></p><br>
-          <h4>Gender: </h4><br>
-          <p><%= @profile.gender %></p><br>
+          <p><%= @profile.phone%></p><br>
+          <h4>Address: </h4><br>
+          <p><%= @profile.address%></p><br>
+<!--          <h4>Date of Birth: </h4><br>-->
+<!--          <p><%#= date_of_birth @profile %></p><br>-->
+<!--          <h4>Gender: </h4><br>-->
+<!--          <p><%#= @profile.gender %></p><br>-->
           <h4>Descrption: </h4><br>
           <p><%= @profile.description %></p><br>
           <h4>Facebook: </h4><br>
@@ -30,11 +32,9 @@
           <p><%= @profile.instagram %></p><br>
           <h4>Twitter: </h4><br>
           <p><%= @profile.twitter %></p><br>
-
           <div class="article-actions">
             <%= link_to "Edit",  edit_admin_profile_path(@profile), class: "btn btn-xs btn-primary" %>
           </div>
-
         </div>
       </div>
     </div>

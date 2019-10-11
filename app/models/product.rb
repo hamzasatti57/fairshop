@@ -1,9 +1,22 @@
 class Product < ApplicationRecord
+
+  # has_many :punches, as: :punchable, dependent: :destroy
   has_many_attached :images
-  belongs_to :user
   belongs_to :product_category
   belongs_to :product_type
+  belongs_to :company
+  # belongs_to :user, through: :company
+  # has_many :user, through: :company
   has_and_belongs_to_many :colors
+  acts_as_punchable
+  scope :search_filter, -> (product_category_id, product_type_id, price_range) {
+    filters = {}
+    price_range = price_range.split(',').map{ |s| s.to_f }
+    filters[:product_category_id] = product_category_id if product_category_id != ""
+    filters[:product_type_id] = product_type_id if product_type_id != ""
+    filters[:price] = price_range.first..price_range.last
+    where(filters)
+  }
 
   def add_colors color_ids
     if color_ids.present?
@@ -19,5 +32,23 @@ class Product < ApplicationRecord
       self.colors << colors
     end
   end
+
+  def user
+    self.company.user
+  end
+  scope :search, -> (q, location) {
+    if q && location
+      profiles = Profile.where('lower(address) LIKE ?', "%#{location.downcase}%")
+      if profiles.any?
+        users = User.where(id: profiles.pluck(:user_id))
+        companies = Company.where(user_id: users.ids)
+        where("company_id IN (?) AND lower(title) LIKE ?", companies.ids, "%#{q.downcase}%")
+      else
+        where('lower(title) LIKE ?', "%#{q.downcase}%")
+      end
+    else
+      []
+    end
+  }
 
 end

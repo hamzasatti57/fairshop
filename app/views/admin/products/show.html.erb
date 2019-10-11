@@ -5,6 +5,7 @@
         <strong>Product</strong>
       </div>
       <div class="card-body">
+        <h2 align="center">Company: <%= @product.company.title %></h2><br>
         <h2 align="center">Product: <%= @product.title %></h2>
         <div class="well col-xs-8 col-xs-offset-2">
           <div class="Center">
@@ -13,17 +14,45 @@
             <% end %>
           </div>
           <br>
+          <h4>Product Category: </h4><br>
+          <p><%= @product.product_category.title%></p>
+          <br>
+          <h4>Product Type: </h4><br>
+          <p><%= @product.product_type.title%></p>
+          <br>
           <h4>Description: </h4><br>
           <p><%= @product.description%></p>
           <br>
-          <h4>Size: </h4><br>
-          <p><%#= @product.size%></p>
+          <h4>Inventory: </h4><br>
+          <p><%= @product.inventory%></p>
           <br>
           <h4>Price: </h4><br>
           <p><%= @product.price%></p>
           <br>
-          <h4>Stock: </h4><br>
-          <p><%= @product.stock ? 'In stock' : 'Out of stock'%></p>
+          <h4>Colors: </h4><br>
+          <% @product.colors.each do |color| %>
+            <p><%= color.title %> </p>
+            <% end %>
+          <br>
+          <h4>Dimension: LxWxH </h4><br>
+          <p>
+              <% unless @product.length.nil? %>
+              <%= @product.length%>
+            <% end %>
+            <% unless @product.width.nil? %>
+              x <%= @product.width %>
+            <% end %>
+            <% unless @product.height.nil? %>
+              x <%= @product.height %>
+              <% end %>
+          </p>
+          <br>
+          <h4>Status: </h4><br>
+          <p><%= @product.status%></p>
+          <br>
+          <h4>Visibility: </h4><br>
+          <p><%= @product.visibility%></p>
+          <br>
           <div class="article-actions">
             <%= link_to "Edit",  edit_admin_product_path(@product), class: "btn btn-xs btn-primary" %>
           </div>

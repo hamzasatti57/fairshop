@@ -1,9 +1,33 @@
 Rails.application.routes.draw do
 
-
-  resources :products
+  resources :cities
+  resources :products do
+    collection do
+      post :popular_list
+      get :popular_list
+    end
+  end
   resources :stores
   resources :venders
+  resources :vendors do
+    collection do
+      post :popular_list
+      get :popular_list
+      post :popular_architect
+      get :popular_architect
+      post :popular_interior_designer
+      get :popular_interior_designer
+    end
+  end
+  resources :projects
+  resources :blogs
+  resources :home do
+    collection do
+      post :search
+      get :search
+    end
+  end
+
 
   devise_for :users, controllers: {
       sessions: 'users/sessions',
@@ -21,9 +45,10 @@ Rails.application.routes.draw do
     resources :product_types
     resources :product_categories
     resources :profiles
+    resources :cities
     resources :blogs
     resources :advertisements
-        resources :projects do
+    resources :projects do
       member do
         delete :delete_image_attachment
       end

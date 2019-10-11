@@ -2,7 +2,7 @@ class Admin::CompaniesController < AdminController
   before_action :get_company, only: [:show, :edit, :update, :destroy]
 
   def index
-    @companies = Company.all
+    @companies = current_user.companies.all
   end
 
   def new
@@ -42,7 +42,7 @@ class Admin::CompaniesController < AdminController
   private
 
   def company_params
-    params.required(:company).permit(:title, :address, :contact, :individual_experience , :image)
+    params.required(:company).permit(:title, :address, :contact, :individual_experience , :user_id, :image)
   end
 
   def get_company

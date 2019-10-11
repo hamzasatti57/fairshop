@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-lg-8 offset-2">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Listing all Cities</div>
+      <div class="card-body">
+        <table class="table table-responsive-sm">
+          <thead>
+          <tr>
+            <th>Name</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @cities.each do |city| %>
+            <tr>
+              <td><%= city.title %></td>
+              <td><%= link_to "Edit",  edit_admin_city_path(city), class: "btn btn-xs btn-primary" %></td>
+              <td><%= link_to "Delete", admin_city_path(city), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

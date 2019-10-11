@@ -4,7 +4,7 @@
   <% @project.images.each do |image| %>
     <div id="image_<%= image.signed_id %>">
       <%= image_tag(url_for(image.variant(resize: '200x200'))) %>
-      <%= link_to 'Remove', delete_image_attachment_admin_project_path(image.signed_id, project_id: @project.id),
+      <%= link_to 'Remove', delete_image_attachment_admin_project_path(image_id: image.signed_id, id: @project.id),
                   method: :delete,
                   remote: true,
                   data: { confirm: 'Are you sure?' } %>
@@ -16,10 +16,7 @@
     <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Project Title", autofocus: true %> <br/>
   </div>
 
-  <div class="form-group">
-    <%= f.label :Company %>
-    <%= f.select(:company_id, options_for_select(company_options, selected: selected_company(project)), { prompt: "Please Select" }, { class: 'form-control' }) %>
-  </div>
+
 
   <div class="form-group">
     <%= f.label :description %>

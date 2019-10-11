@@ -1,0 +1,11 @@
+<%= render 'shared/errors', obj: city %>
+<%= form_for  city, city_form_attributes(city) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+  </div>
+  <%= f.file_field :image %>
+  <br>
+  <br>
+  <%= f.submit class: "btn btn-block btn-primary"%>
+<% end %>

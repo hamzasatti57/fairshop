@@ -2,6 +2,7 @@ class Admin::ProductsController < AdminController
   before_action :load_products, only: :index
   before_action :load_user_product, only: [:new, :create]
   load_and_authorize_resource
+
   def index
     # @products = current_user.products
   end
@@ -16,9 +17,12 @@ class Admin::ProductsController < AdminController
 
   def create
     # @product = current_user.products.new(product_params)
+    @product = current_user.products.new(product_params.merge(company_id: current_user.companies.first.id))
     if @product.save
       @product.add_colors params[:product][:color_ids]
-      @product.images.attach(params[:product][:images])
+      # if @product.images.attached?
+      #   @product.images.attach(params[:product][:images])
+      # end
       flash[:success] = "Product successfully created"
       render 'show'
     else
@@ -33,7 +37,7 @@ class Admin::ProductsController < AdminController
 
   def update
     if @product.update(product_params)
-      @product.update_colors params[:product][:color_ids]
+      # @product.update_colors params[:product][:color_ids]
       flash[:success] = "Product Updated Succesfully"
       render 'show'
     else
@@ -47,8 +51,8 @@ class Admin::ProductsController < AdminController
   end
 
   def delete_image_attachment
-    product = Product.find(params[:product_id])
-    @image = ActiveStorage::Blob.find_signed(params[:id])
+    product = Product.find(params[:id])
+    @image = ActiveStorage::Blob.find_signed(params[:image_id])
     @image.attachments.destroy_all
 
     respond_to do |format|
@@ -61,11 +65,12 @@ class Admin::ProductsController < AdminController
 
   private
   def load_user_product
-    if action_name == 'new'
-      @product = current_user.products.new
-    elsif action_name == 'create'
-      @product = current_user.products.new(product_params)
-    end
+    # if action_name == 'new'
+    #   @product = current_user.products.new
+    # elsif action_name == 'create'
+    #   @product = current_user.products.new(product_params)
+    # end
+    @products = Product.new
   end
 
   def load_products

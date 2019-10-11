@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_06_144621) do
+ActiveRecord::Schema.define(version: 2019_10_11_092326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,14 @@ ActiveRecord::Schema.define(version: 2019_10_06_144621) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "parent_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
   create_table "colors", force: :cascade do |t|
@@ -139,11 +147,12 @@ ActiveRecord::Schema.define(version: 2019_10_06_144621) do
     t.string "twitter"
     t.integer "gender"
     t.date "dob"
-    t.string "contact_detail"
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "phone"
+    t.string "address"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -154,6 +163,17 @@ ActiveRecord::Schema.define(version: 2019_10_06_144621) do
     t.datetime "updated_at", null: false
     t.bigint "company_id"
     t.index ["company_id"], name: "index_projects_on_company_id"
+  end
+
+  create_table "punches", id: :serial, force: :cascade do |t|
+    t.integer "punchable_id", null: false
+    t.string "punchable_type", limit: 20, null: false
+    t.datetime "starts_at", null: false
+    t.datetime "ends_at", null: false
+    t.datetime "average_time", null: false
+    t.integer "hits", default: 1, null: false
+    t.index ["average_time"], name: "index_punches_on_average_time"
+    t.index ["punchable_type", "punchable_id"], name: "punchable_index"
   end
 
   create_table "users", force: :cascade do |t|
@@ -171,15 +191,16 @@ ActiveRecord::Schema.define(version: 2019_10_06_144621) do
     t.string "username"
     t.string "contact_details"
     t.boolean "active", default: true
-    t.bigint "country_id"
+    t.bigint "city_id"
     t.index ["category_id"], name: "index_users_on_category_id"
-    t.index ["country_id"], name: "index_users_on_country_id"
+    t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "categories", column: "parent_id"
+  add_foreign_key "cities", "countries"
   add_foreign_key "colors_products", "colors"
   add_foreign_key "colors_products", "products"
   add_foreign_key "companies", "users"
@@ -189,5 +210,5 @@ ActiveRecord::Schema.define(version: 2019_10_06_144621) do
   add_foreign_key "profiles", "users"
   add_foreign_key "projects", "companies"
   add_foreign_key "users", "categories"
-  add_foreign_key "users", "countries"
+  add_foreign_key "users", "cities"
 end

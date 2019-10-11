@@ -13,9 +13,9 @@ class Admin::ProjectsController < AdminController
   end
 
   def create
-    # @project = current_user.projects.new(project_params)
+    @project = current_user.projects.new(project_params.merge(company_id: current_user.companies.first.id))
     if @project.save
-      @project.images.attach(params[:project][:images])
+      # @project.images.attach(params[:project][:images])
       flash[:success] = "Project successfully created"
       render 'show'
     else
@@ -44,8 +44,8 @@ class Admin::ProjectsController < AdminController
   end
 
   def delete_image_attachment
-    project = Project.find(params[:project_id])
-    @image = ActiveStorage::Blob.find_signed(params[:id])
+    project = Project.find(params[:id])
+    @image = ActiveStorage::Blob.find_signed(params[:image_id])
     @image.attachments.destroy_all
 
     respond_to do |format|
@@ -59,7 +59,12 @@ class Admin::ProjectsController < AdminController
   private
 
     def load_user_project
-      @project = Project.new
+      if action_name == 'new'
+        @project = Project.new
+      elsif action_name == 'create'
+        @project = Project.new(project_params)
+      end
+      # @project = Project.new
     end
 
     def load_projects

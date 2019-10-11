@@ -26,4 +26,5 @@
 //= require coreui/custom-tooltips.min.js
 //= require coreui/main.js
 //= require coreui/select2.min
+//= require coreui/slimselect.js
 // require_tree .

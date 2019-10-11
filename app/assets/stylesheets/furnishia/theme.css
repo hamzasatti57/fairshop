@@ -3451,7 +3451,7 @@ nav .cart-wrapper.open {
         height: 220px;
     }
     .blog article .image img {
-        display: none;
+        display: block;
     }
     .blog article.article-table:hover .text:before {
         -moz-transform: scale(1.03);
@@ -3938,6 +3938,7 @@ nav .cart-wrapper.open {
     -o-transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+    display: none
 }
 
 .stretcher-wrapper .stretcher {

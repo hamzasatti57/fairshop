@@ -31,4 +31,12 @@ module Admin::ProductsHelper
     product.color.present? ? product.color.id : nil
   end
 
+  def company_options
+    current_user.companies.all.map{|company| [company.title, company.id]}
+    # current_user.Company.all.map{|company| [company.title, company.id]}
+  end
+
+  def selected_company product
+    product.company.present? ? product.company.id : nil
+  end
 end

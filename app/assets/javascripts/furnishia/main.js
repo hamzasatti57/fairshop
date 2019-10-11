@@ -543,6 +543,7 @@
             filters.push(".show-me");
             $checkboxes.filter(':checked').each(function () {
                 filters.push(this.value);
+                console.log($(this).val());
             });
 
             filters = filters.join('');
@@ -558,10 +559,10 @@
         $("#range-price-slider").ionRangeSlider({
             type: "double",
             min: 0,
-            max: 4000,
-            from: 150,
-            to: 3800,
-            prefix: "$",
+            max: 10000000,
+            from: 0,
+            to: 10000000,
+            prefix: "Rs.",
             onChange: function (data) {
 
                 $(".item").each(function () {

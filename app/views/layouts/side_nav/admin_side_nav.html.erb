@@ -121,12 +121,41 @@
             </ul>
           </li>
 
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-cursor"></i> Cities</a>
+            <ul class="nav-dropdown-items">
+              <% if can? :read, User %>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-cursor"></i> Cities List'.html_safe, admin_cities_path,class:"nav-link" %>
+                </li>
+              <% end %>
+              <% if can? :create, User %>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-cursor"></i> Add New City'.html_safe, new_admin_city_path,class:"nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+
         <% end %>
         <% if current_user.is_vendor? %>
           <li class="nav-item nav-dropdown">
             <a class="nav-link " href="<%= admin_profile_path current_user.profile %>">
               <i class="nav-icon icon-cursor"></i> Profile</a>
           </li>
+<!--          <li class="nav-item nav-dropdown">-->
+<!--            <a class="nav-link nav-dropdown-toggle" href="#">-->
+<!--              <i class="nav-icon icon-cursor"></i> Companies</a>-->
+<!--            <ul class="nav-dropdown-items">-->
+<!--              <li class="nav-item">-->
+                <%#= link_to '<i class="nav-icon icon-cursor"></i> Companies List'.html_safe, admin_companies_path,class:"nav-link" %>
+<!--              </li>-->
+<!--              <li class="nav-item">-->
+                <%#= link_to '<i class="nav-icon icon-cursor"></i> Create New Company'.html_safe, new_admin_company_path,class:"nav-link" %>
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </li>-->
           <% if current_user.display_products? %>
             <li class="nav-item nav-dropdown">
               <a class="nav-link nav-dropdown-toggle" href="#">

@@ -52,7 +52,7 @@ class Admin::ProfilesController < AdminController
   end
 
   def profile_params
-    params.required(:profile).permit(:facebook, :instagram,:twitter,:gender,:dob,:contact_detail,:description, :user_id, :image)
+    params.required(:profile).permit(:facebook, :instagram,:twitter,:gender,:dob,:phone, :address,:description, :user_id, :image)
   end
   def get_profile
     @profile = Profile.find(params[:id])

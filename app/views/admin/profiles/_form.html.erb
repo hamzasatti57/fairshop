@@ -1,20 +1,24 @@
 <%= render 'shared/errors', obj: profile %>
 <%= form_for  profile, profile_form_attributes(profile) do |f| %>
-  <div class="form-group">
-    <%= f.label :DateofBirth %>
-    <%= f.date_field :dob, class: "form-control", autocomplete: false, placeholder: "DateofBirth", autofocus: true %> <br/>
-  </div>
-  <div class="form-group">
-    <%= f.label :gender %><br>
-    <%= f.radio_button(:gender, "male") %>
-    <%= label_tag("Male") %>
-    <%= f.radio_button(:gender, "female") %>
-    <%= label_tag("Female") %>
+<!--  <div class="form-group">-->
+    <%#= f.label :DateofBirth %>
+<!--    <%#= f.date_field :dob, class: "form-control", autocomplete: false, placeholder: "DateofBirth", autofocus: true %> <br/>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <%#= f.label :gender %><br>-->
+    <%#= f.radio_button(:gender, "male") %>
+    <%#= label_tag("Male") %>
+    <%#= f.radio_button(:gender, "female") %>
+    <%#= label_tag("Female") %>
 <!--    <%#= f.gender :dob, class: "form-control", autocomplete: false, placeholder: "DateofBirth", autofocus: true %> <br/>-->
+<!--  </div>-->
+  <div class="form-group">
+    <%= f.label :contact %>
+    <%= f.text_field :phone, class: "form-control", autocomplete: false, placeholder: "Contact Number", autofocus: true %> <br/>
   </div>
   <div class="form-group">
-    <%= f.label :contact_detail %>
-    <%= f.text_field :contact_detail, class: "form-control", autocomplete: false, placeholder: "Contact Details", autofocus: true %> <br/>
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control", autocomplete: false, placeholder: "Contact Address", autofocus: true %> <br/>
   </div>
   <div class="form-group">
     <%= f.label :description %>

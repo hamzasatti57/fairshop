@@ -2,6 +2,8 @@ class Admin::UsersController < AdminController
   # before_action :get_user, only: [:show, :edit, :update, :destroy]
   before_action :load_users, only: :index
   load_and_authorize_resource
+
+
   def index
     # @users = User.vendor
     # authorize! :index, @users
@@ -12,7 +14,7 @@ class Admin::UsersController < AdminController
   end
 
   def create
-    # @user = User.new(user_params.merge(role: 1))
+    @user = User.new(user_params.merge(role: 1))
     if @user.save
       flash[:success] = "Vendor was successfully created"
 
@@ -47,7 +49,7 @@ class Admin::UsersController < AdminController
 
     def user_params
       params.required(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation,
-      :username,:contact_details, :category_id, :active, :country_id)
+      :username,:contact_details, :category_id, :active, :city_id)
     end
 
     def get_user

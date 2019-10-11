@@ -71,6 +71,14 @@
                         <i class="icon-lock"></i>
                       </span>
                   </div>
+                  <%= f.select(:city_id, options_for_select(City.all.map{|city| [city.title, city.id]}), { prompt: "Please Select" }, { class: 'form-control' }) %>
+                </div>
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="icon-lock"></i>
+                      </span>
+                  </div>
                   <%= f.select(:category_id, options_for_select(Category.all.map{|category| [category.title, category.id]}), { prompt: "Please Select" }, { class: 'form-control' }) %>
                 </div>
                 <div class="row">

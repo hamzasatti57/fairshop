@@ -20,4 +20,12 @@ module Admin::UsersHelper
     user.category.present? ? user.category.id : nil
   end
 
+  def city_options
+    City.all.map{|city| [city.title, city.id]}
+  end
+
+  def selected_city user
+    user.city.present? ? user.city.id : nil
+  end
+
 end

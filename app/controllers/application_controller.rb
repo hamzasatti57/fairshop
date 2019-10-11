@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     params[:user][:role] = 1 if (controller_name == 'registrations' && action_name == 'create')
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :first_name,:last_name, :username, :contact_details, :category_id, :country_id])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :first_name,:last_name, :username, :contact_details, :category_id, :city_id, :country_id])
   end
 	# before_action :authenticate_user!
   def after_sign_up_path_for(resource)

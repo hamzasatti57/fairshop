@@ -12,7 +12,7 @@ class Admin::BlogsController < AdminController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      @blog.image.attach(params[:image])
+      # @blog.image.attach(params[:image])
       flash[:success] = "Blog Successfully Created"
       redirect_to admin_blogs_path
     else
