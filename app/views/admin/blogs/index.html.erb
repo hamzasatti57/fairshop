@@ -17,6 +17,7 @@
               <td><%= blog.title %></td>
               <td><%= truncate(blog.description, length: 50) %></td>
               <td><%= link_to "Edit",  edit_admin_blog_path(blog), class: "btn btn-xs btn-primary" %></td>
+              <td><%= link_to "Show",  admin_blog_path(blog), class: "btn btn-xs btn-success" %></td>
               <td><%= link_to "Delete", admin_blog_path(blog), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
             </tr>
           <% end %>

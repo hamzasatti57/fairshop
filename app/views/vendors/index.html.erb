@@ -1,5 +1,44 @@
 
+<style>
+  .pagination-wrapper a {
+    border: 0;
+    /* border-radius: 100%; */
+    color: white;
+    background-color: #ffbb00;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+  }
+  .pagination-wrapper a:active ,
+  .pagination-wrapper a:hover {
+    border: 0;
+    /* border-radius: 100%; */
+    color: white;
+    background-color: #000 !important;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+  }
+  .current:hover, .current:active,{
+    border: 0;
+    /* border-radius: 100%; */
+    color: white;
+    background-color: #000 !important;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+  }
+    .current {
+      border: 0;
+      /* border-radius: 100%; */
+      color: white;
+      background-color: #000 !important;
+      margin: 0 3px;
+      display: inline-block;
+      padding: 6px 12px;
+  }
 
+</style>
 
 
 <div class="wrapper">
@@ -923,6 +962,11 @@
 
     </div> <!--/product-->
   </div> <!--popup-main-->
+
+  <!-- === pagination === -->
+  <div class="pagination-wrapper">
+      <%= will_paginate @vendors  %>
+  </div>
 
 
   <!-- ================== Footer  ================== -->

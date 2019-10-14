@@ -1,11 +1,11 @@
 class VendorsController < ApplicationController
   def index
     @category = Category.find(params[:category_id])
-    @vendors = User.vendors.where(category: @category)
+    @vendors = User.vendors.where(category: @category).paginate(page: params[:page], per_page: 2)
   end
 
   def popular_list
-    @popular_vendors = User.most_hit(nil,100)
+    @popular_vendors = User.most_hit(nil,100).paginate(page: params[:page], per_page: 21)
   end
 
   def popular_architect
@@ -13,7 +13,7 @@ class VendorsController < ApplicationController
     if category.nil?
       @popular_architects = nil
     else
-      @popular_architects = User.most_hit(nil ,100).vendor.where(category_id: category.id)
+      @popular_architects = User.most_hit(nil ,100).vendor.where(category_id: category.id).paginate(page: params[:page], per_page: 21)
     end
   end
 
@@ -22,7 +22,7 @@ class VendorsController < ApplicationController
     if category.nil?
       @popular_interior_designers = nil
     else
-      @popular_interior_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
+      @popular_interior_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id).paginate(page: params[:page], per_page: 20)
     end
   end
 end

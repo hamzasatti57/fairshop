@@ -9,9 +9,10 @@
           <tr>
             <th>Title</th>
             <th>Description</th>
-<!--            <th>Size</th>-->
             <th>Price</th>
-<!--            <th>Availibility</th>-->
+            <th>Inventory</th>
+            <th>Visibility</th>
+            <th>Status</th>
           </tr>
           </thead>
           <tbody>
@@ -19,10 +20,12 @@
             <tr>
               <td><%= product.title %></td>
               <td><%= truncate(product.description, length: 50) %></td>
-<!--              <td><%#= product.size %></td>-->
               <td><%= product.price %></td>
-<!--              <td><%#= product.stock ? 'In Stock' : 'Out of Stock'%></td>-->
+              <td><%= product.inventory %></td>
+              <td><%= product.visibility ? 'Yes' : 'No' %></td>
+              <td><%= product.status ? 'Active' : 'Inactive'%></td>
               <td><%= link_to "Edit",  edit_admin_product_path(product), class: "btn btn-xs btn-primary" %></td>
+              <td><%= link_to "Show",  admin_product_path(product), class: "btn btn-xs btn-success" %></td>
               <td><%= link_to "Delete", admin_product_path(product), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
             </tr>
           <% end %>

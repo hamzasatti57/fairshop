@@ -778,32 +778,32 @@
           <div class="row">
 
             <!-- === blog-item === -->
-           <% @blogs.each do |blog| %>
-            <div class="col-sm-6">
-              <article>
-                <%= link_to blog do%>
-                  <div class="image" >
-                    <% if blog.image.attached? %>
-                      <%= image_tag(url_for(blog.image)) %><br>
-                    <% else %>
-                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                    <% end %>
-                  </div>
-                  <div class="entry entry-table">
-                    <div class="date-wrapper">
-                      <div class="date">
-                        <span><%= blog.updated_at.strftime('%b')%></span>
-                        <strong><%= blog.updated_at.strftime('%d')%></strong>
-                        <span><%= blog.updated_at.strftime('%Y')%></span>
+            <% @blogs.each do |blog| %>
+              <div class="col-sm-6">
+                <article>
+                  <%= link_to blog do%>
+                    <div class="image" >
+                      <% if blog.image.attached? %>
+                        <%= image_tag(url_for(blog.image)) %><br>
+                      <% else %>
+                        <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                      <% end %>
+                    </div>
+                    <div class="entry entry-table">
+                      <div class="date-wrapper">
+                        <div class="date">
+                          <span><%= blog.updated_at.strftime('%b')%></span>
+                          <strong><%= blog.updated_at.strftime('%d')%></strong>
+                          <span><%= blog.updated_at.strftime('%Y')%></span>
+                        </div>
+                      </div>
+                      <div class="title">
+                        <h2 class="h5"><%= blog.title %></h2>
                       </div>
                     </div>
-                    <div class="title">
-                      <h2 class="h5"><%= blog.title %></h2>
-                    </div>
-                  </div>
-                <% end %>
-              </article>
-            </div>
+                  <% end %>
+                </article>
+              </div>
             <% end %>
             <!-- === blog-item === -->
 
@@ -813,23 +813,7 @@
           <!-- === pagination === -->
 
           <div class="pagination-wrapper">
-            <ul class="pagination">
-              <li>
-                <a href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
+            <%= will_paginate @blogs %>
           </div> <!--/pagination-->
 
         </div>
@@ -843,97 +827,39 @@
             <!-- === box-search === -->
 
             <div class="box box-search">
-              <input type="text" value="" class="form-control" placeholder="Search the blog" />
-              <button class="btn btn-main btn-sm">Go!</button>
+              <%= form_tag search_blogs_path  do %>
+                <%= text_field_tag :q, nil, class: "form-control", autocomplete: false, placeholder: "Search the blog", autofocus: true %>
+                <%= submit_tag "Search", class: "btn btn-main btn-sm"%>
+              <% end %>
             </div>
 
             <!-- === box-categories === -->
 
-            <div class="box box-categories">
-              <h5 class="title">Blog categories</h5>
-              <ul>
-                <li><a href="#">Interior ideas</a></li>
-                <li class="active"><a href="#">Modern design</a></li>
-                <li><a href="#">Best of 2017</a></li>
-                <li><a href="#">Home styler</a></li>
-                <li><a href="#">Tips for you</a></li>
-              </ul>
-            </div>
+
 
             <!-- === box-posts === -->
 
             <div class="box box-posts">
               <h5 class="title">Popular posts</h5>
               <ul>
-                <li>
-                  <a href="article.html">
-                                            <span class="date">
-                                                <span>Jun</span>
-                                                <span>22</span>
-                                            </span>
-                    <span class="text">The 3 Tricks that Quickly Became Rules</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="article.html">
-                                            <span class="date">
-                                                <span>Jun</span>
-                                                <span>19</span>
-                                            </span>
-                    <span class="text">Decorating When You're Starting Out or Starting Over</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="article.html">
-                                            <span class="date">
-                                                <span>Jun</span>
-                                                <span>18</span>
-                                            </span>
-                    <span class="text">What does your favorite dining chair say about you?</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="article.html">
-                                            <span class="date">
-                                                <span>Jun</span>
-                                                <span>10</span>
-                                            </span>
-                    <span class="text">Creating the Perfect Gallery Wall</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="article.html">
-                                            <span class="date">
-                                                <span>Jun</span>
-                                                <span>31</span>
-                                            </span>
-                    <span class="text">Making the Most Out of Your Kids Old Bedroom</span>
-                  </a>
-                </li>
+                <% @popular_blogs.each do |blog| %>
+                  <li>
+                    <%= link_to blog do%>
+                      <div class="date">
+                        <span><%= blog.updated_at.strftime('%b')%></span>
+                        <strong><%= blog.updated_at.strftime('%d')%></strong>
+                        <span><%= blog.updated_at.strftime('%Y')%></span>
+                      </div>
+                      <span class="text"><%= blog.title %></span>
+                    <% end %>
+                  </li>
+                <% end %>
               </ul>
             </div>
 
-            <!-- === box-tags === -->
 
-            <div class="box box-tags">
-              <h5 class="title">Popular posts</h5>
-              <ul class="clearfix">
-                <li><a href="#">design</a></li>
-                <li><a href="#">furniture</a></li>
-                <li><a href="#">interior</a></li>
-                <li><a href="#">mobile</a></li>
-                <li><a href="#">home</a></li>
-                <li><a href="#">places</a></li>
-                <li><a href="#">dining</a></li>
-                <li><a href="#">black</a></li>
-                <li><a href="#">yellow</a></li>
-                <li><a href="#">mdoern</a></li>
-                <li><a href="#">superior</a></li>
-                <li><a href="#">decor</a></li>
-                <li><a href="#">sofa</a></li>
 
-              </ul>
-            </div>
+
 
           </aside>
         </div>

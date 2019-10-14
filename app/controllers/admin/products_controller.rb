@@ -48,6 +48,7 @@ class Admin::ProductsController < AdminController
   def destroy
     @product.destroy
     flash[:danger] = "Product Successfully Deleted"
+    redirect_to admin_products_path
   end
 
   def delete_image_attachment
