@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @user.punch(request)
-    @projects = @user.projects
+    @projects = @user.projects.paginate(page: params[:page], per_page: 21)
   end
 
   def show

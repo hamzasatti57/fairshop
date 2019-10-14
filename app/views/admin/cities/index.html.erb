@@ -15,6 +15,7 @@
             <tr>
               <td><%= city.title %></td>
               <td><%= link_to "Edit",  edit_admin_city_path(city), class: "btn btn-xs btn-primary" %></td>
+              <td><%= link_to "Show",  admin_city_path(city), class: "btn btn-xs btn-success" %></td>
               <td><%= link_to "Delete", admin_city_path(city), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
             </tr>
           <% end %>

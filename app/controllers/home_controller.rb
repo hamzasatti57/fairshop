@@ -27,12 +27,10 @@ class HomeController < ApplicationController
       format.html {
         @categories = Category.all
         if params[:q].blank? and params[:location].blank?
-          @products = Product.all
+          @products = Product.all.paginate(page: params[:page], per_page: 20)
         else
-          @products = Product.search(params[:q], params[:location])
+          @products = Product.search(params[:q], params[:location]).paginate(page: params[:page], per_page: 20)
         end
-
-
         # @products = User.where(city_id:(params[:city_id])).collect(&:@products).flatten
         @product_categories = ProductCategory.all
         @product_types = ProductType.all

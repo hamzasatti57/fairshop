@@ -725,622 +725,147 @@
   <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
     <header>
       <div class="container">
-        <h1 class="h2 title"><%= @product.title %></h1>
+        <h1 class="h2 title">Blogs</h1>
         <ol class="breadcrumb breadcrumb-inverted">
           <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
-          <li><a href="<%= vendors_path(category_id: @vendor.category_id) %>"><%= @vendor.category.title %> Vendors</a></li>
-          <li><a href="<%= products_path(user_id: @vendor.id)%>">Products</a></li>
-          <li><a class="active">Product overview</a></li>
+          <li><a href="<%= blogs_path %>">All Blogs</a></li>
+          <li><a class="active" >Search Blogs</a></li>
         </ol>
       </div>
     </header>
   </section>
 
-  <!-- ========================  Product ======================== -->
+  <!-- ========================  Blog ======================== -->
 
-  <section class="product">
-    <div class="main">
-      <div class="container">
-        <div class="row product-flex">
+  <section class="blog">
 
-          <!-- product flex is used only for mobile order -->
-          <!-- on mobile 'product-flex-info' goes bellow gallery 'product-flex-gallery' -->
+    <div class="container">
 
-          <div class="col-md-4 col-sm-12 product-flex-info">
-            <div class="clearfix">
-
-              <!-- === product-title === -->
-
-              <h1 class="title" data-title=""><%= @product.title %> <small><%= @product.description %></small></h1>
-
-              <div class="clearfix">
-
-                <!-- === price wrapper === -->
-
-                <div class="price">
-                                        <span class="h3">
-                                            $ <%= @product.price %>
-
-                                        </span>
-                </div>
-                <hr />
-
-                <!-- === info-box === -->
-
-                <div class="info-box">
-                  <span><strong>Maifacturer</strong></span>
-                  <span><%= @vendor.full_name %></span>
-                </div>
-
-
-                <!-- === info-box === -->
-
-                <div class="info-box">
-                  <span><strong>Availability</strong></span>
-                  <% if @product.status == true %>
-                    <span><i class="fa fa-check-square-o"></i> In stock</span>
-                  <% else %>
-                    <span><i class="fa fa-truck"></i> Out of stock</span>
-                  <% end %>
-                </div>
-
-                <hr />
-
-                <!-- === info-box === -->
-
-                <div class="info-box">
-                  <span><strong>Available Colors</strong></span>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-red"></span>
-                    <span class="color-btn color-btn-blue checked"></span>
-                    <span class="color-btn color-btn-green"></span>
-                    <span class="color-btn color-btn-gray"></span>
-                    <span class="color-btn color-btn-biege"></span>
-                  </div>
-                </div>
-
-                <!-- === info-box === -->
-
-                <div class="info-box">
-                  <span><strong>Product size</strong></span>
-                  <div class="product-colors clearfix">
-                    <% unless @product.length.nil? %>
-                      <%= @product.length%>
-                    <% end %>
-                    <% unless @product.width.nil? %>
-                      x <%= @product.width %>
-                    <% end %>
-                    <% unless @product.height.nil? %>
-                      x <%= @product.height %>
-                    <% end %>
-                  </div>
-                </div>
-              </div> <!--/clearfix-->
-            </div> <!--/product-info-wrapper-->
-          </div> <!--/col-md-4-->
-          <!-- === product item gallery === -->
-
-          <div class="col-md-8 col-sm-12 product-flex-gallery">
-
-
-
-
-            <!-- === product gallery === -->
-
-            <div class="owl-product-gallery open-popup-gallery">
-              <% if @product.images.attached? %>
-                <% @product.images.each do |image| %>
-                  <%= image_tag(url_for(image)) %>
-                <% end %>
-              <% else %>
-                <a href="assets/images/product-1.png"><img src="/assets/furnishia/product-1.png" alt="" height="500" /></a>
-              <% end %>
-              </a>
+      <div class="pre-header hidden">
+        <div>
+          <h2 class="h3 title">
+            Category name
+          </h2>
+        </div>
+        <div>
+          <div class="sort-bar pull-right">
+            <div class="sort-results">
+              <!--Items counter-->
+              <span>Showing all <strong>50</strong> of <strong>3,250</strong> items</span>
+              <!--Showing result per page-->
+              <select>
+                <option value="1">10</option>
+                <option value="2">50</option>
+                <option value="3">100</option>
+                <option value="4">All</option>
+              </select>
+              <!--Grid-list view-->
+              <span class="grid-list">
+                                    <a href="blog-grid.html"><i class="fa fa-th-large"></i></a>
+                                    <a href="blog-list.html"><i class="fa fa-align-justify"></i></a>
+                                    <a href="javascript:void(0);" class="toggle-filters-mobile"><i class="fa fa-search"></i></a>
+                                </span>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- === product-info === -->
+      <div class="row">
 
-    <div class="info">
-      <div class="container">
-        <div class="row">
+        <!-- === blog-content === -->
 
-          <!-- === product-designer === -->
+        <div class="col-md-9">
 
-          <div class="col-md-4">
-            <div class="designer">
-              <div class="box">
-                <div class="image">
-                  <% if @vendor.profile.image.attached? %>
-                    <%= image_tag(url_for(@vendor.profile.image)) %>
-                  <% else %>
-                    <img src="/assets/furnishia/user-1.jpg" alt="" height="250" />
-                  <% end %>
-                </div>
-                <div class="name">
-                  <div class="h3 title"><%= @vendor.full_name %><small><%= @vendor.category.title %></small></div>
-                  <hr />
-                  <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= @vendor.email %></a></p>
-                  <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= @vendor.contact_details %></a></p>
-                  <p>
-                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-user"></i></a>
-                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-printer"></i></a>
-                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-layers"></i></a>
-                  </p>
-                </div> <!--/name-->
-              </div> <!--/box-->
-              <div class="btn btn-add">
-                <i class="icon icon-phone-handset"></i>
-              </div>
-            </div> <!--/designer-->
-          </div> <!--/col-md-4-->
-          <!-- === nav-tabs === -->
-
-          <div class="col-md-8">
-            <ul class="nav nav-tabs" role="tablist">
-              <li role="presentation" class="active">
-                <a href="#designer" aria-controls="designer" role="tab" data-toggle="tab">
-                  <i class="icon icon-user"></i>
-                  <span>Collection</span>
-                </a>
-              </li>
-              <li role="presentation">
-                <a href="#design" aria-controls="design" role="tab" data-toggle="tab">
-                  <i class="icon icon-sort-alpha-asc"></i>
-                  <span>Description</span>
-                </a>
-              </li>
-              <li role="presentation">
-                <a href="#rating" aria-controls="rating" role="tab" data-toggle="tab">
-                  <i class="icon icon-thumbs-up"></i>
-                  <span>Rating</span>
-                </a>
-              </li>
-            </ul>
-
-            <!-- === tab-panes === -->
-
-            <div class="tab-content">
-
-              <div role="tabpanel" class="tab-pane active" id="designer">
-                <div class="content">
-
-                  <!-- === designer collection title === -->
-
-                  <h3>Designers collection</h3>
-
-                  <div class="products">
-                    <div class="row">
-
-                      <!-- === product-item === -->
-                      <% @products.each_with_index do |product, index| %>
-                        <% if index == 4 %>
-                          <% break %>
-                        <% end %>
-                        <div class="col-md-6 col-xs-6">
-                          <article>
-                            <div class="figure-grid">
-                              <div class="image">
-                                <% if product.images.attached? %>
-                                  <%= link_to product do%>
-                                    <%= image_tag(url_for(product.images.first)) %>
-                                  <% end %>
-                                <% else %>
-                                  <%= link_to product do%>
-                                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                                  <% end %>
-                                <% end %>
-                              </div>
-                              <div class="text">
-                                <h4 class="title"><%= product.title %></h4>
-                              </div>
-                            </div>
-                          </article>
-                        </div>
-                      <% end %>
-                    </div> <!--/row-->
-                  </div> <!--/products-->
-                </div> <!--/content-->
-              </div> <!--/tab-pane-->
-              <!-- ============ tab #2 ============ -->
-
-              <div role="tabpanel" class="tab-pane" id="design">
-                <div class="content">
-                  <div class="row">
-                    <div class="col-md-8" >
-                      <h3>Description</h3>
-                      <p>
-                          <%= @product.description %>
-                      </p>
-                    </div>
-
-
-                  </div> <!--/row-->
-                </div> <!--/content-->
-              </div> <!--/tab-pane-->
-              <!-- ============ tab #3 ============ -->
-
-              <div role="tabpanel" class="tab-pane" id="rating">
-
-                <!-- ============ ratings ============ -->
-
-                <div class="content">
-                  <h3>Rating</h3>
-
-                  <div class="row">
-
-                    <!-- === comments === -->
-
-                    <div class="col-md-12">
-                      <div class="comments">
-
-                        <!-- === rating === -->
-
-                        <div class="rating clearfix">
-                          <div class="rate-box">
-                            <strong>Quality</strong>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>3</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>5</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <span>0</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>2</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>1</span>
-                            </div>
-                          </div>
-
-                          <!-- rate -->
-                          <div class="rate-box">
-                            <strong>Design</strong>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <span>3</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <span>5</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <span>0</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>2</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>1</span>
-                            </div>
-                          </div>
-
-                          <!-- rate -->
-                          <div class="rate-box">
-                            <strong>General</strong>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>3</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>5</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>0</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>2</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>1</span>
-                            </div>
-                          </div>
-
-                        </div>
-                        <div class="comment-wrapper">
-
-                          <!-- === comment === -->
-
-                          <div class="comment-block">
-                            <div class="comment-user">
-                              <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                              <div>
-                                <h5>
-                                  <span>John Doe</span>
-                                  <span class="pull-right">
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                        </span>
-                                  <small>03.05.2017</small>
-                                </h5>
-                              </div>
-                            </div>
-
-                            <!-- comment description -->
-
-                            <div class="comment-desc">
-                              <p>
-                                In vestibulum tellus ut nunc accumsan eleifend. Donec mattis cursus ligula, id
-                                iaculis dui feugiat nec. Etiam ut ante sed neque lacinia volutpat. Maecenas
-                                ultricies tempus nibh, sit amet facilisis mauris vulputate in. Phasellus
-                                tempor justo et mollis facilisis. Donec placerat at nulla sed suscipit. Praesent
-                                accumsan, sem sit amet euismod ullamcorper, justo sapien cursus nisl, nec
-                                gravida
-                              </p>
-                            </div>
-
-                            <!-- comment reply -->
-
-                            <div class="comment-block">
-                              <div class="comment-user">
-                                <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                                <div>
-                                  <h5>Administrator<small>08.05.2017</small></h5>
-                                </div>
-                              </div>
-                              <div class="comment-desc">
-                                <p>
-                                  Curabitur sit amet elit quis tellus tincidunt efficitur. Cras lobortis id
-                                  elit eu vehicula. Sed porttitor nulla vitae nisl varius luctus. Quisque
-                                  a enim nisl. Maecenas facilisis, felis sed blandit scelerisque, sapien
-                                  nisl egestas diam, nec blandit diam ipsum eget dolor. Maecenas ultricies
-                                  tempus nibh, sit amet facilisis mauris vulputate in.
-                                </p>
-                              </div>
-                            </div>
-                            <!--/reply-->
-                          </div>
-
-                          <!-- === comment === -->
-
-                          <div class="comment-block">
-                            <div class="comment-user">
-                              <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                              <div>
-                                <h5>
-                                  <span>John Doe</span>
-                                  <span class="pull-right">
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                        </span>
-                                  <small>03.05.2017</small>
-                                </h5>
-                              </div>
-                            </div>
-                            <div class="comment-desc">
-                              <p>
-                                Cras lobortis id elit eu vehicula. Sed porttitor nulla vitae nisl varius luctus.
-                                Quisque a enim nisl. Maecenas facilisis, felis sed blandit scelerisque, sapien
-                                nisl egestas diam, nec blandit diam ipsum eget dolor. In vestibulum tellus
-                                ut nunc accumsan eleifend. Donec mattis cursus ligula, id iaculis dui feugiat
-                                nec. Etiam ut ante sed neque lacinia volutpat. Maecenas ultricies tempus
-                                nibh, sit amet facilisis mauris vulputate in. Phasellus tempor justo et mollis
-                                facilisis. Donec placerat at nulla sed suscipit. Praesent accumsan, sem sit
-                                amet euismod ullamcorper, justo sapien cursus nisl, nec gravida
-                              </p>
-                            </div>
-                          </div>
-
-                        </div><!--/comment-wrapper-->
-
-                        <div class="comment-header">
-                          <a href="#" class="btn btn-clean-dark">12 comments</a>
-                        </div> <!--/comment-header-->
-                        <!-- === add comment === -->
-
-                        <div class="comment-add">
-
-                          <div class="comment-reply-message">
-                            <div class="h3 title">Leave a Reply </div>
-                            <p>Your email address will not be published.</p>
-                          </div>
-
-                          <form action="#" method="post">
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="name" value="" placeholder="Your Name" />
-                            </div>
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="name" value="" placeholder="Your Email" />
-                            </div>
-                            <div class="form-group">
-                              <textarea rows="10" class="form-control" placeholder="Your comment"></textarea>
-                            </div>
-                            <div class="clearfix text-center">
-                              <a href="#" class="btn btn-main">Add comment</a>
-                            </div>
-                          </form>
-
-                        </div><!--/comment-add-->
-                      </div> <!--/comments-->
-                    </div>
-
-
-                  </div> <!--/row-->
-                </div> <!--/content-->
-              </div> <!--/tab-pane-->
-            </div> <!--/tab-content-->
-          </div>
-        </div> <!--/row-->
-      </div> <!--/container-->
-    </div> <!--/info-->
-  </section>
-
-  <!-- ========================  Product info popup - quick view ======================== -->
-
-  <div class="popup-main mfp-hide" id="productid1">
-
-    <!-- === product popup === -->
-
-    <div class="product">
-
-      <!-- === popup-title === -->
-
-      <div class="popup-title">
-        <div class="h1 title">Laura <small>product category</small></div>
-      </div>
-
-      <!-- === product gallery === -->
-
-      <div class="owl-product-gallery">
-        <img src="assets/images/product-1.png" alt="" width="640" />
-        <img src="assets/images/product-2.png" alt="" width="640" />
-        <img src="assets/images/product-3.png" alt="" width="640" />
-        <img src="assets/images/product-4.png" alt="" width="640" />
-      </div>
-
-      <!-- === product-popup-info === -->
-
-      <div class="popup-content">
-        <div class="product-info-wrapper">
           <div class="row">
 
-            <!-- === left-column === -->
+            <!-- === blog-item === -->
+            <% @blogs.each do |blog| %>
+              <div class="col-sm-6">
+                <article>
+                  <%= link_to blog do%>
+                    <div class="image" >
+                      <% if blog.image.attached? %>
+                        <%= image_tag(url_for(blog.image)) %><br>
+                      <% else %>
+                        <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                      <% end %>
+                    </div>
+                    <div class="entry entry-table">
+                      <div class="date-wrapper">
+                        <div class="date">
+                          <span><%= blog.updated_at.strftime('%b')%></span>
+                          <strong><%= blog.updated_at.strftime('%d')%></strong>
+                          <span><%= blog.updated_at.strftime('%Y')%></span>
+                        </div>
+                      </div>
+                      <div class="title">
+                        <h2 class="h5"><%= blog.title %></h2>
+                      </div>
+                    </div>
+                  <% end %>
+                </article>
+              </div>
+            <% end %>
+            <!-- === blog-item === -->
 
-            <div class="col-sm-6">
-              <div class="info-box">
-                <strong>Maifacturer</strong>
-                <span>Brand name</span>
-              </div>
-              <div class="info-box">
-                <strong>Materials</strong>
-                <span>Wood, Leather, Acrylic</span>
-              </div>
-              <div class="info-box">
-                <strong>Availability</strong>
-                <span><i class="fa fa-check-square-o"></i> in stock</span>
-              </div>
+
+          </div>
+
+          <!-- === pagination === -->
+
+          <div class="pagination-wrapper">
+            <%= will_paginate @blogs %>
+          </div> <!--/pagination-->
+
+        </div>
+
+        <!-- === blog-menu === -->
+
+        <div class="col-md-3">
+
+          <aside>
+
+            <!-- === box-search === -->
+
+            <div class="box box-search">
+              <%= form_tag blogs_path  do %>
+                <input type="text" value="" class="form-control" placeholder="Search the blog" />
+
+                <%= submit_tag "Search", class: "btn btn-main btn-sm"%>
+              <% end %>
             </div>
 
-            <!-- === right-column === -->
 
-            <div class="col-sm-6">
-              <div class="info-box">
-                <strong>Available Colors</strong>
-                <div class="product-colors clearfix">
-                  <span class="color-btn color-btn-red"></span>
-                  <span class="color-btn color-btn-blue checked"></span>
-                  <span class="color-btn color-btn-green"></span>
-                  <span class="color-btn color-btn-gray"></span>
-                  <span class="color-btn color-btn-biege"></span>
-                </div>
-              </div>
-              <div class="info-box">
-                <strong>Choose size</strong>
-                <div class="product-colors clearfix">
-                  <span class="color-btn color-btn-biege">S</span>
-                  <span class="color-btn color-btn-biege checked">M</span>
-                  <span class="color-btn color-btn-biege">XL</span>
-                  <span class="color-btn color-btn-biege">XXL</span>
-                </div>
-              </div>
+            <!-- === box-posts === -->
+
+            <div class="box box-posts">
+              <h5 class="title">Popular posts</h5>
+              <ul>
+                <% @popular_blogs.each do |blog| %>
+                  <li>
+                    <%= link_to blog do%>
+                      <div class="date">
+                        <span><%= blog.updated_at.strftime('%b')%></span>
+                        <strong><%= blog.updated_at.strftime('%d')%></strong>
+                        <span><%= blog.updated_at.strftime('%Y')%></span>
+                      </div>
+                      <span class="text"><%= blog.title %></span>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
             </div>
 
-          </div><!--/row-->
-        </div> <!--/product-info-wrapper-->
-      </div><!--/popup-content-->
-      <!-- === product-popup-footer === -->
 
-      <div class="popup-table">
-        <div class="popup-cell">
-          <div class="price">
-            <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-          </div>
+          </aside>
         </div>
-        <div class="popup-cell">
-          <div class="popup-buttons">
-            <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-            <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-          </div>
-        </div>
-      </div>
 
-    </div> <!--/product-->
-  </div> <!--popup-main-->
 
+      </div> <!--/row-->
+
+
+    </div><!--/container-->
+  </section>
 
   <!-- ================== Footer  ================== -->
 
@@ -1421,4 +946,4 @@
     </div>
   </footer>
 
-</div>
+</div> <!--/wrapper-->

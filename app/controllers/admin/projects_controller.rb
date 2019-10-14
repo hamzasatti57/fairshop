@@ -29,7 +29,6 @@ class Admin::ProjectsController < AdminController
     if @project.update(project_params)
       flash[:success] = "Project successfully Updated"
       render 'show'
-      # redirect_to admin_users_path
     else
       render 'edit'
     end
@@ -37,10 +36,11 @@ class Admin::ProjectsController < AdminController
   def show
 
   end
-  def destory
+  def destroy
+
     @project.destroy
     flash[:danger] = "Project Deleted"
-    # redirect_to
+    redirect_to admin_projects_path
   end
 
   def delete_image_attachment

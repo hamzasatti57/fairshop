@@ -751,7 +751,7 @@
 
               <!-- === product-title === -->
 
-              <h1 class="title" ><%= @project.title %> <small><%= @project.description %></small></h1>
+              <h1 class="title" ><%= @project.title %> </h1>
 
               <div class="clearfix">
 
@@ -841,18 +841,18 @@
                   <span>Collection</span>
                 </a>
               </li>
-              <!--              <li role="presentation">-->
-              <!--                <a href="#design" aria-controls="design" role="tab" data-toggle="tab">-->
-              <!--                  <i class="icon icon-sort-alpha-asc"></i>-->
-              <!--                  <span>Specification</span>-->
-              <!--                </a>-->
-              <!--              </li>-->
-              <!--              <li role="presentation">-->
-              <!--                <a href="#rating" aria-controls="rating" role="tab" data-toggle="tab">-->
-              <!--                  <i class="icon icon-thumbs-up"></i>-->
-              <!--                  <span>Rating</span>-->
-              <!--                </a>-->
-              <!--              </li>-->
+                            <li role="presentation">
+                              <a href="#design" aria-controls="design" role="tab" data-toggle="tab">
+                                <i class="icon icon-sort-alpha-asc"></i>
+                                <span>Description</span>
+                              </a>
+                            </li>
+                            <li role="presentation">
+                              <a href="#rating" aria-controls="rating" role="tab" data-toggle="tab">
+                                <i class="icon icon-thumbs-up"></i>
+                                <span>Rating</span>
+                              </a>
+                            </li>
             </ul>
 
             <!-- === tab-panes === -->
@@ -870,7 +870,10 @@
                     <div class="row">
 
                       <!-- === product-item === -->
-                      <% @projects.each do |project| %>
+                      <% @projects.each_with_index do |project, index| %>
+                        <% if index == 4 %>
+                          <% break %>
+                        <% end %>
                         <div class="col-md-6 col-xs-6">
                           <article>
                             <div class="figure-grid">
@@ -902,32 +905,13 @@
               <div role="tabpanel" class="tab-pane" id="design">
                 <div class="content">
                   <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                       <h3>Dimensions</h3>
                       <p>
-                        <img class="full-image" src="assets/images/specs.png" alt="Alternate Text" width="350" />
-                      </p>
-                      <hr />
-                      <p>
-                        <img class="full-image" src="assets/images/specs.png" alt="Alternate Text" width="350" />
+                        <%= @project.description %>
                       </p>
                     </div>
-                    <div class="col-md-8">
-                      <h3>Product Specification</h3>
-                      <p>
-                        Sofa Laura is a casual, contemporary collection that your family is sure to love.
-                        The plush pillows and soft sloped arms create the ultimate combination for relaxation and comfort.
-                      </p>
-                      <p>
-                        The collection is tailored with rounded padded arms, box-welted seat cushions, and loose back cushions.
-                        Comfort is provided by high density seat cushions supported with a hardwood frame construction.
-                        This collection is built for comfort and style!
-                      </p>
-                      <p>
-                        Sofa is fun and elegant with beauty and style that will stay cutting-edge trendy through the years.
-                        It is completely padded, including the back and outside arms - combining comfort and value to make rewarding relaxatio.
-                      </p>
-                    </div>
+
 
                   </div> <!--/row-->
                 </div> <!--/content-->

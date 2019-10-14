@@ -18,6 +18,7 @@
               <td><%= project.title %></td>
               <td><%= truncate(project.description, length: 50) %></td>
               <td><%= link_to "Edit",  edit_admin_project_path(project), class: "btn btn-xs btn-primary" %></td>
+              <td><%= link_to "Show",  admin_project_path(project), class: "btn btn-xs btn-success" %></td>
               <td><%= link_to "Delete", admin_project_path(project), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
             </tr>
           <% end %>

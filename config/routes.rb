@@ -20,7 +20,12 @@ Rails.application.routes.draw do
     end
   end
   resources :projects
-  resources :blogs
+  resources :blogs do
+    collection do
+      post :search
+      get :search
+    end
+  end
   resources :home do
     collection do
       post :search
