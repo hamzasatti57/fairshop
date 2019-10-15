@@ -9,15 +9,17 @@
 # Hamza
 
 
-arr = ["Furniture", "Interior Designer", "Architects", "Upholstery & Repair",
-       "Paints", "Tiles", "Sanitary", "Appliances" ]
-for i in arr do
-  Category.create(title: i)
-end
+# arr = ["Furniture", "Interior Designer", "Architects", "Upholstery & Repair",
+#        "Paints", "Tiles", "Sanitary", "Appliances" ]
+# for i in arr do
+#   Category.create(title: i)
+# end
 
-Country.create(title: 'Pakistan')
-User.create(email:'admin@furnishia.com', password: 'admin@123', role: 0, first_name: 'Administrator',
-            last_name: '', username: 'admin', contact_details: 'Admin')
+City.create(title: 'Lahore', country_id: 1)
+
+# Country.create(title: 'Pakistan')
+# User.create(email:'admin@furnishia.com', password: 'admin@123', role: 0, first_name: 'Administrator',
+#             last_name: '', username: 'admin', contact_details: 'Admin')
 #
 
 # @vender = Vender.create(name: 'Tahir',email: 'vender@example.com')

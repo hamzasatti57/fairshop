@@ -9,6 +9,7 @@
           <tr>
             <th>ID</th>
             <th>Category Title</th>
+            <th>Action</th>
           </tr>
           </thead>
           <tbody>
@@ -16,8 +17,11 @@
             <tr>
               <td><%= category.id %></td>
               <td><%= category.title %></td>
-              <td><%= link_to "Edit",  edit_admin_category_path(category), class: "btn btn-xs btn-primary" %></td>
-              <td><%= link_to "Delete", admin_category_path(category), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
+              <td>
+              <%= link_to "Edit",  edit_admin_category_path(category), class: "btn btn-xs btn-primary" %>
+              <%= link_to "Delete", admin_category_path(category), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %>
+              </td>
+              
             </tr>
           <% end %>
           </tbody>

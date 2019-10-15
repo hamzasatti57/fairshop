@@ -27,4 +27,5 @@
 //= require coreui/main.js
 //= require coreui/select2.min
 //= require coreui/slimselect.js
+
 // require_tree .

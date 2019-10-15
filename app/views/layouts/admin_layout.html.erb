@@ -11,8 +11,12 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&amp;subset=latin-ext" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
+
   <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <%# <script src="https://kit.fontawesome.com/a076d05399.js"></script> %>
   <script>
       window.dataLayer = window.dataLayer || [];
 
@@ -34,12 +38,63 @@
 <div class="app-body">
     <%= render template: "layouts/side_nav/admin_side_nav" %>
 
-  <div style="">
+  <div class="main">
     <%= yield %>
   </div>
 
 
 </div>
 <%#= render template: "layouts/footer/footer" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+<script>
+
+$('.center-sliderr').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 3,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3,
+         autoplay: true,
+  autoplaySpeed: 2000,
+   prevArrow: null,
+         nextArrow: null,
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ]
+});
+</script>
+<script>
+// Change active class on product sizes.
+
+var sizes = jQuery(".product--size").find("span");
+sizes.click(function() {
+  sizes.removeClass("active");
+  $(this).addClass("active");
+});
+
+// Change image on thumbnail click.
+var thumbs = $(".icon-images").find("img");
+thumbs.click(function() {
+  var src = $(this).attr("src");
+  var dp = $(".display-img");
+  dp.attr("src", src);
+});
+</script>
 </body>
 </html>

@@ -1,14 +1,18 @@
 <%#= form_for(@user, html: {class: "form-horizontal", role: "form"} ) do |f| %>
 <%= render 'shared/errors', obj: user %>
 <%= form_for  user, user_form_attributes(user) do |f| %>
-  <div class="form-group">
-    <%= f.label :first_name %>
+<div class="row">
+<div class="col-md-6">
+ <%= f.label :first_name %>
     <%= f.text_field :first_name, class: "form-control", autocomplete: false, placeholder: "First Name", autofocus: true %> <br/>
-  </div>
-  <div class="form-group">
+</div>
+<div class="col-md-6">
+
     <%= f.label :last_name %>
     <%= f.text_field :last_name, class: "form-control", autocomplete: false, placeholder: "Last Name" %> <br/>
-  </div>
+</div>
+</div>
+<br>
   <div class="form-group">
     <%= f.label :City %>
     <%= f.select(:city_id, options_for_select(city_options, selected: selected_city(user)), { prompt: "Please Select" }, { class: 'form-control' }) %>

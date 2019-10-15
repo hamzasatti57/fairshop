@@ -36,7 +36,7 @@
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="icon-user"></i>
+                        <i class="icon-envelope-open"></i>
                       </span>
                   </div>
                   <%= f.email_field :email,  class: "form-control", placeholder: "Email", autofocus: true %>
@@ -60,7 +60,8 @@
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="icon-lock"></i>
+                        <i class="icon-phone
+"></i>
                       </span>
                   </div>
                   <%= f.text_field :contact_details,  class: "form-control", placeholder: "Contact Number", autofocus: true %>
@@ -68,7 +69,8 @@
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="icon-lock"></i>
+                        <i class="icon-home
+"></i>
                       </span>
                   </div>
                   <%= f.select(:city_id, options_for_select(City.all.map{|city| [city.title, city.id]}), { prompt: "Please Select" }, { class: 'form-control' }) %>
@@ -76,7 +78,9 @@
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="icon-lock"></i>
+                        <i class="icon-target
+
+"></i>
                       </span>
                   </div>
                   <%= f.select(:category_id, options_for_select(Category.all.map{|category| [category.title, category.id]}), { prompt: "Please Select" }, { class: 'form-control' }) %>

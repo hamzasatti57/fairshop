@@ -21,16 +21,16 @@
           </li>
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Categories</a>
+              <i class="nav-icon  icon-puzzle"></i> Categories</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Categories List'.html_safe, admin_categories_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-puzzle"></i> Categories List'.html_safe, admin_categories_path,class:"nav-link" %>
                 </li>
               <% end %>
               <% if can? :create, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Create New Category'.html_safe, new_admin_category_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-puzzle"></i> Create New Category'.html_safe, new_admin_category_path,class:"nav-link" %>
                 </li>
               <% end %>
             </ul>
@@ -38,16 +38,16 @@
 
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Blogs</a>
+              <i class="nav-icon icon-control-play"></i> Blogs</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Blogs List'.html_safe, admin_blogs_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-control-play"></i> Blogs List'.html_safe, admin_blogs_path,class:"nav-link" %>
                 </li>
               <% end %>
               <% if can? :create, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Create New Blog'.html_safe, new_admin_blog_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-control-play"></i> Create New Blog'.html_safe, new_admin_blog_path,class:"nav-link" %>
                 </li>
               <% end %>
             </ul>
@@ -55,16 +55,16 @@
 
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Advertisements</a>
+              <i class="nav-icon icon-share-alt"></i> Advertisements</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Advertisements List'.html_safe, admin_advertisements_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-share-alt"></i> Advertisements List'.html_safe, admin_advertisements_path,class:"nav-link" %>
                 </li>
               <% end %>
               <% if can? :create, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Create New Advertisement'.html_safe, new_admin_advertisement_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-share-alt"></i> Create New Advertisement'.html_safe, new_admin_advertisement_path,class:"nav-link" %>
                 </li>
               <% end %>
             </ul>
@@ -72,16 +72,16 @@
 
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Colors</a>
+              <i class="nav-icon icon-drop"></i> Colors</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Colors List'.html_safe, admin_colors_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-drop"></i> Colors List'.html_safe, admin_colors_path,class:"nav-link" %>
                 </li>
               <% end %>
               <% if can? :create, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Create New Color'.html_safe, new_admin_color_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-drop"></i> Create New Color'.html_safe, new_admin_color_path,class:"nav-link" %>
                 </li>
               <% end %>
             </ul>
@@ -89,16 +89,16 @@
 
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Product Categories</a>
+              <i class="nav-icon icon-grid"></i> Product Categories</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Product Categories List'.html_safe, admin_product_categories_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-grid"></i> Product Categories List'.html_safe, admin_product_categories_path,class:"nav-link" %>
                 </li>
               <% end %>
               <% if can? :create, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Create New Product Categgory'.html_safe, new_admin_product_category_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-grid"></i> Create New Product Categgory'.html_safe, new_admin_product_category_path,class:"nav-link" %>
                 </li>
               <% end %>
             </ul>
@@ -106,16 +106,16 @@
 
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Product Types</a>
+              <i class="nav-icon icon-equalizer"></i> Product Types</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Product Types List'.html_safe, admin_product_types_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-equalizer"></i> Product Types List'.html_safe, admin_product_types_path,class:"nav-link" %>
                 </li>
               <% end %>
               <% if can? :create, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Create New Product Type'.html_safe, new_admin_product_type_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-equalizer"></i> Create New Product Type'.html_safe, new_admin_product_type_path,class:"nav-link" %>
                 </li>
               <% end %>
             </ul>
@@ -123,16 +123,16 @@
 
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" href="#">
-              <i class="nav-icon icon-cursor"></i> Cities</a>
+              <i class="nav-icon icon-home"></i> Cities</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Cities List'.html_safe, admin_cities_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-home"></i> Cities List'.html_safe, admin_cities_path,class:"nav-link" %>
                 </li>
               <% end %>
               <% if can? :create, User %>
                 <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-cursor"></i> Add New City'.html_safe, new_admin_city_path,class:"nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-home"></i> Add New City'.html_safe, new_admin_city_path,class:"nav-link" %>
                 </li>
               <% end %>
             </ul>

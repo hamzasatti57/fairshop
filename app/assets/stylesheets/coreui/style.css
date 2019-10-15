@@ -1547,10 +1547,17 @@ pre code {
 .table-sm td {
   padding: 0.3rem;
 }
-
+.hero-text h2{
+  font-size: 85px;
+  color: #40424a;
+}
+.body-bgg{
+  background-color: #f2f7f8;
+}
 .table-bordered {
   border: 1px solid #c8ced3;
 }
+
 
 .table-bordered th,
 .table-bordered td {
@@ -1865,19 +1872,16 @@ pre code {
 }
 
 .form-control {
-  display: block;
-  width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #5c6873;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #e4e7ea;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background: #e8ebed;
+    color: #576366;
+    padding: 5px 15px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    width: 100%;
+    /* margin: 0 15px; */
+    height: 45px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -16817,3 +16821,262 @@ body {
 .ss-main .ss-content .ss-list .ss-option .ss-search-highlight{
     background-color:rgba(255,247,0,.38)
 }
+/* custom profile page design start */
+.hero-text p {
+  font-size: 23px;
+    line-height: 1.3;
+    color: #808181;
+    text-align: left;
+}
+.hero-info h2{
+  font-size: 23px;
+    line-height: 1.3;
+    color: #40424a;
+    text-align: left;
+}
+.hero-info ul {
+  list-style: none;
+  padding-left: 3px;
+}
+.hero-info ul li span {
+  color: #40424a;
+  display: inline-block;
+  min-width: 220px;
+}
+.hero-image {
+  padding-top: 30px;
+}
+.social-section .social-link-warp {
+  position: relative;
+}
+.social-section .social-links {
+  display: inline-block;
+  /* background: #f9f9f9; */
+  position: relative;
+  z-index: 5;
+}
+.social-section .social-link-warp h2 {
+  display: inline-block;
+  float: right;
+  font-weight: 400;
+  padding-left: 30px;
+  /* background: #f9f9f9; */
+  position: relative;
+  z-index: 5;
+  margin-top: 11px;
+    margin-bottom: 0px;
+}
+.social-section .social-links a {
+    color: #484848;
+    font-size: 36px;
+    margin-right: 40px;
+}
+figure.hero-image img {
+  width: 100%;
+}
+@media only screen and (max-width: 1366px) and (min-width: 1200px){
+.hero-info ul li span {
+    min-width: 180px;
+}.offset-2 {
+  margin-left: 16.666667%;
+}
+
+}
+@media only screen and (max-width: 992px){
+  .offset-2 {
+    margin-left: 0%;
+    /* margin-right: 3%; */
+  }
+  
+  
+  }
+  .product img {
+    width: 100%;
+    height: auto;
+    max-height: 264px;
+}
+/* product description page start */
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.product img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product--title {
+  color: #008080;
+  font-weight: bold;
+  font-size: 1.5em;
+  font-family: serif;
+  padding: 20px 0;
+  text-align: center;
+}
+.product--title h2 {
+  display: inline-block;
+  border-bottom: 2px dashed;
+}
+
+.product--image, .product--details {
+  float: left;
+  width: 45%;
+  padding-left: 1%;
+}
+
+.product--image {
+  padding-right: 3%;
+}
+.product--image .icon-images img {
+  height: 80px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: 1px solid #e5e5e5;
+}
+
+.product--price .product--price_price {
+  color: rgba(20, 180, 180, 0.9);
+  font-size: 1.2em;
+  padding-right: 10px;
+}
+.product--price .product--price_offer {
+  color: indianred;
+  border: 1px solid #952e2e;
+  border-radius: 5px 5px;
+  padding: 1px 3px;
+  font-size: .7em;
+}
+
+.product--desc {
+  font-family: sans;
+}
+.product--desc p {
+  margin: 20px 0px;
+}
+
+.product--size {
+  margin: 20px 0;
+}
+.product--size span {
+  display: inline-block;
+  width: 35px;
+  border: 1px solid #999;
+  border-radius: 4px 4px;
+  text-align: center;
+  padding: 1px 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.product--size span.active {
+  color: #fff;
+  background: #008080;
+}
+
+.product--quantity input {
+  border: 0;
+  outline: 0;
+  border-left: 1px dotted;
+  border-right: 1px dotted;
+  border-bottom: 1px dashed;
+  padding: 1px 3px;
+  text-align: center;
+}
+.product--quantity input::-webkit-inner-spin-button, .product--quantity input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.add-to-cart {
+  margin: 10px 10px 10px 0;
+}
+
+.btn {
+  background: none;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+}
+.btn.btn--cart {
+  border: 1px solid indianred;
+  border-radius: 4px;
+  padding: 3px 30px 3px 5px;
+  box-shadow: 0px 0px 3px 0px indianred;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  font-size: 1.5em;
+}
+.btn.btn--cart:after {
+  content: "⇨";
+  padding-left: 2px;
+  position: absolute;
+  right: 150%;
+  transition: all .4s;
+  color: #fff;
+}
+.btn.btn--cart:hover, .btn.btn--cart:focus {
+  background: indianred;
+  color: #fff;
+  text-shadow: 2px 2px 3px #666;
+  transition: all .4s;
+}
+.btn.btn--cart:hover:after, .btn.btn--cart:focus:after {
+  right: 2%;
+}
+
+@media screen and (max-width: 500px) {
+  .product--image, .product--details {
+    float: none;
+    width: 100%;
+    padding: 10px 5px;
+    margin: 5px 10px;
+  }
+}
+
+.product-desc p{
+  /* font-size: 23px;
+  line-height: 1.3;
+  color: #808181;
+  text-align: left; */
+
+
+  font-size: 18px;
+    line-height: 1.2;
+    color: #808181;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    /* max-width: 100px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 61px /* fallback */;
+}
+.slick-prev:before, .slick-next:before {
+  font-family: 'slick';
+  font-size: 20px;
+  line-height: 1;
+  opacity: .75;
+  color: #808181 !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.product--image {
+  padding-right: 3% !important;
+  padding-left: 3% !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #1b8eb7;
+  border-color: #1985ac;
+}
+.btn-danger {
+  color: #fff;
+  background-color: #f64846;
+  border-color: #f63c3a;
+}
+/* product description page end */
+/* custom profile page design end */
