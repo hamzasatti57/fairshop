@@ -1,780 +1,49 @@
-<div class="wrapper">
 
-  <!--Use class "navbar-fixed" or "navbar-default" -->
-  <!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
+<!--Use class "navbar-fixed" or "navbar-default" -->
+<!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
 
-  <!-- ======================== Navigation ======================== -->
+<!-- ======================== Navigation ======================== -->
 
-  <nav class="navbar-fixed">
+<!-- ==========  Search wrapper ========== -->
 
-    <div class="container">
+<!-- ========================  Header content ======================== -->
 
-      <!-- ==========  Top navigation ========== -->
+<section class="header-content">
 
-      <div class="navigation navigation-top clearfix">
-        <ul>
-          <!--add active class for current page-->
+  <div class="owl-slider">
 
-          <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-          <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-          <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+    <!-- === slide item === -->
 
-          <!--Currency selector-->
-
-          <li class="nav-settings">
-            <a href="javascript:void(0);" class="nav-settings-value"> USD $</a>
-            <ul class="nav-settings-list">
-              <li>USD $</li>
-              <li>EUR €</li>
-              <li>CHF Fr.</li>
-              <li>GBP £</li>
-            </ul>
-          </li>
-
-          <!--Language selector-->
-
-          <li class="nav-settings">
-            <a href="javascript:void(0);" class="nav-settings-value"> ENG</a>
-            <ul class="nav-settings-list">
-              <li>ENG</li>
-              <li>GER</li>
-              <li>لعربية</li>
-              <li>עִבְרִית</li>
-            </ul>
-          </li>
-          <li><a href="<%= new_user_session_path %>"><i class="icon icon-user"></i></a></li>
-          <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>
-          <li><a href="javascript:void(0);" class="open-cart"><i class="icon icon-cart"></i> <span>3</span></a></li>
-        </ul>
-      </div> <!--/navigation-top-->
-
-      <!-- ==========  Main navigation ========== -->
-
-      <div class="navigation navigation-main">
-
-        <!-- Setup your logo here-->
-
-        <a href="index.html" class="logo">
-
-          <%= image_tag "furnishia/logo.png" %>
-        </a>
-
-        <!-- Mobile toggle menu -->
-
-        <a href="#" class="open-menu"><i class="icon icon-menu"></i></a>
-
-        <!-- Convertible menu (mobile/desktop)-->
-
-        <div class="floating-menu">
-
-          <!-- Mobile toggle menu trigger-->
-
-          <div class="close-menu-wrapper">
-            <span class="close-menu"><i class="icon icon-cross"></i></span>
+    <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-3-temp.jpg') %>')">
+      <div class="box">
+        <div class="container">
+          <h2 class="title animated h1" data-animation="fadeInDown">Modern furniture theme</h2>
+          <div class="animated" data-animation="fadeInUp">
+            Modern & powerfull template. <br /> Clean design & reponsive
+            layout. Google fonts integration
           </div>
-
-          <ul>
-            <li><a href="<%= root_path %>">Home</a></li>
-
-            <!-- Multi-content dropdown -->
-
-            <li>
-              <a href="index.html">Pages <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
-              <div class="navbar-dropdown">
-                <div class="navbar-box">
-
-                  <!-- box-1 (left-side)-->
-
-                  <div class="box-1">
-                    <div class="box">
-                      <div class="h2">Find your inspiration</div>
-                      <div class="clearfix">
-                        <p>Homes that differ in terms of style, concept and architectural solutions have been furnished by Furniture Factory. These spaces tell of an international lifestyle that expresses modernity, research and a creative spirit.</p>
-                        <a class="btn btn-clean btn-big" href="products-grid.html">Shop now</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- box-2 (right-side)-->
-
-                  <div class="box-2">
-                    <div class="box clearfix">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <ul>
-                            <li class="label">Homepage</li>
-                            <li><a href="index.html">Home - Slider</a></li>
-                            <li><a href="index-2.html">Home - Tabsy gallery</a></li>
-                            <li><a href="index-3.html">Home - Slider full screen</a></li>
-                            <li><a href="index-4.html">Home - Info icons</a></li>
-                            <li><a href="index-xmas.html">Home - Xmas</a></li>
-                            <li><a href="index-rtl.html">Home - RTL <span class="label label-warning">New</span></a></li>
-                            <li><a href="index-5.html">Onepage</a></li>
-                            <li><a href="index-6.html">Onepage - Filters <span class="label label-warning">Isotope</span></a></li>
-                          </ul>
-                        </div>
-                        <div class="col-md-4">
-                          <ul>
-                            <li class="label">Blog</li>
-                            <li><a href="blog-grid.html">Blog grid</a></li>
-                            <li><a href="blog-list.html">Blog list</a></li>
-                            <li><a href="blog-grid-fullpage.html">Blog fullpage</a></li>
-                            <li><a href="ideas.html">Blog ideas</a></li>
-                            <li><a href="article.html">Blog article</a></li>
-                          </ul>
-                        </div>
-                        <div class="col-md-4">
-                          <ul>
-                            <li class="label">Pages</li>
-                            <li><a href="about.html">About us</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="login.html">Login & Register <span class="label label-warning">New</span></a></li>
-                          </ul>
-                          <ul>
-                            <li class="label">Extras</li>
-                            <li><a href="shortcodes.html">Shortcodes</a></li>
-                            <li><a href="email-receipt.html">Email template <span class="label label-warning">New</span></a></li>
-                            <li><a href="404.html">Not found 404 <span class="label label-warning">New</span></a></li>
-                          </ul>
-                        </div>
-                      </div> <!--/row-->
-                    </div> <!--/box-->
-                  </div> <!--/box-2-->
-                </div> <!--/navbar-box-->
-              </div> <!--/navbar-dropdown-->
-            </li>
-
-            <!-- Single dropdown-->
-
-            <li>
-              <a href="#">Shop <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
-              <div class="navbar-dropdown navbar-dropdown-single">
-                <div class="navbar-box">
-
-                  <!-- box-2 (without 'box-1', box-2 will be displayed as full width)-->
-
-                  <div class="box-2">
-                    <div class="box clearfix">
-                      <ul>
-                        <li class="label">Shop</li>
-                        <li><a href="products-grid.html">Products grid</a></li>
-                        <li><a href="products-list.html">Products list</a></li>
-                        <li><a href="category.html">Products intro</a></li>
-                        <li><a href="products-topbar.html">Products topbar</a></li>
-                        <li><a href="product.html">Product overview</a></li>
-                      </ul>
-                      <ul>
-                        <li class="label">Shop Isotope</li>
-                        <li><a href="products-grid-isotope.html">Products filters <span class="label label-warning">New</span></a></li>
-                        <li><a href="products-topbar-isotope.html">Products topbar <span class="label label-warning">New</span></a></li>
-                      </ul>
-                      <ul>
-                        <li class="label">Checkout</li>
-                        <li><a href="checkout-1.html">Checkout - Cart items</a></li>
-                        <li><a href="checkout-2.html">Checkout - Delivery</a></li>
-                        <li><a href="checkout-3.html">Checkout - Payment</a></li>
-                        <li><a href="checkout-4.html">Checkout - Receipt</a></li>
-                      </ul>
-                    </div> <!--/box-->
-                  </div> <!--/box-2-->
-                </div> <!--/navbar-box-->
-              </div> <!--/navbar-dropdown-->
-            </li>
-
-            <!-- Furniture icons in dropdown-->
-
-            <li>
-              <a href="category.html">Icons <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
-              <div class="navbar-dropdown">
-                <div class="navbar-box">
-
-                  <!-- box-1 (left-side)-->
-
-                  <div class="box-1">
-                    <div class="image">
-
-                      <%= image_tag "furnishia/blog-2.jpg" %>
-                    </div>
-                    <div class="box">
-                      <div class="h2">Best ideas</div>
-                      <div class="clearfix">
-                        <p>Homes that differ in terms of style, concept and architectural solutions have been furnished by Furniture Factory. These spaces tell of an international lifestyle that expresses modernity, research and a creative spirit.</p>
-                        <a class="btn btn-clean btn-big" href="ideas.html">Explore</a>
-                      </div>
-                    </div>
-                  </div> <!--/box-1-->
-
-                  <!-- box-2 (right-side)-->
-
-                  <div class="box-2">
-                    <div class="clearfix categories">
-                      <div class="row">
-
-                        <!--icon item-->
-
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-sofa"></i>
-                              <figcaption>Sofa</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-armchair"></i>
-                              <figcaption>Armchairs</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-chair"></i>
-                              <figcaption>Chairs</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-dining-table"></i>
-                              <figcaption>Dining tables</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-media-cabinet"></i>
-                              <figcaption>Media storage</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-table"></i>
-                              <figcaption>Tables</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-bookcase"></i>
-                              <figcaption>Bookcase</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-bedroom"></i>
-                              <figcaption>Bedroom</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-nightstand"></i>
-                              <figcaption>Nightstand</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-children-room"></i>
-                              <figcaption>Children room</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-kitchen"></i>
-                              <figcaption>Kitchen</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-bathroom"></i>
-                              <figcaption>Bathroom</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-wardrobe"></i>
-                              <figcaption>Wardrobe</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-shoe-cabinet"></i>
-                              <figcaption>Shoe cabinet</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-office"></i>
-                              <figcaption>Office</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-bar-set"></i>
-                              <figcaption>Bar sets</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-lightning"></i>
-                              <figcaption>Lightning</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-
-                        <!--icon item-->
-
-                        <div class="col-sm-3 col-xs-6">
-                          <a href="javascript:void(0);">
-                            <figure>
-                              <i class="f-icon f-icon-carpet"></i>
-                              <figcaption>Carpet</figcaption>
-                            </figure>
-                          </a>
-                        </div>
-                      </div> <!--/row-->
-                    </div> <!--/categories-->
-                  </div> <!--/box-2-->
-                </div> <!--/navbar-box-->
-              </div> <!--/navbar-dropdown-->
-            </li>
-
-            <!-- Mega menu dropdown -->
-
-            <li>
-              <a href="#">Megamenu <span class="open-dropdown"><i class="fa fa-angle-down"></i></span></a>
-              <div class="navbar-dropdown">
-                <div class="navbar-box">
-                  <div class="box-2">
-                    <div class="box clearfix">
-                      <div class="row">
-                        <div class="clearfix">
-                          <div class="col-md-3">
-                            <ul>
-                              <li class="label">Seating</li>
-                              <li><a href="javascript:void(0);">Benches</a></li>
-                              <li><a href="javascript:void(0);">Submenu <span class="label label-warning">New</span></a></li>
-                              <li><a href="javascript:void(0);">Chaises</a></li>
-                              <li><a href="javascript:void(0);">Recliners</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3">
-                            <ul>
-                              <li class="label">Storage</li>
-                              <li><a href="javascript:void(0);">Bockcases</a></li>
-                              <li><a href="javascript:void(0);">Closets</a></li>
-                              <li><a href="javascript:void(0);">Wardrobes</a></li>
-                              <li><a href="javascript:void(0);">Dressers <span class="label label-success">Trending</span></a></li>
-                              <li><a href="javascript:void(0);">Sideboards </a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3">
-                            <ul>
-                              <li class="label">Tables</li>
-                              <li><a href="javascript:void(0);">Consoles</a></li>
-                              <li><a href="javascript:void(0);">Desks</a></li>
-                              <li><a href="javascript:void(0);">Dining tables</a></li>
-                              <li><a href="javascript:void(0);">Occasional tables</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3">
-                            <ul>
-                              <li class="label">Chairs</li>
-                              <li><a href="javascript:void(0);">Dining Chairs</a></li>
-                              <li><a href="javascript:void(0);">Office Chairs</a></li>
-                              <li><a href="javascript:void(0);">Lounge Chairs <span class="label label-warning">Offer</span></a></li>
-                              <li><a href="javascript:void(0);">Stools</a></li>
-
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="clearfix">
-                          <div class="col-md-3">
-                            <ul>
-                              <li class="label">Kitchen</li>
-                              <li><a href="javascript:void(0);">Kitchen types</a></li>
-                              <li><a href="javascript:void(0);">Kitchen elements <span class="label label-info">50%</span></a></li>
-                              <li><a href="javascript:void(0);">Bars</a></li>
-                              <li><a href="javascript:void(0);">Wall decoration</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3">
-                            <ul>
-                              <li class="label">Accessories</li>
-                              <li><a href="javascript:void(0);">Coat Racks</a></li>
-                              <li><a href="javascript:void(0);">Lazy bags <span class="label label-success">Info</span></a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3">
-                            <ul>
-                              <li class="label">Beds</li>
-                              <li><a href="javascript:void(0);">Beds</a></li>
-                              <li><a href="javascript:void(0);">Sofabeds</a></li>
-                            </ul>
-                          </div>
-                          <div class="col-md-3">
-                            <ul>
-                              <li class="label">Entertainment</li>
-                              <li><a href="javascript:void(0);">Wall units <span class="label label-warning">Popular</span></a></li>
-                              <li><a href="javascript:void(0);">Media sets</a></li>
-                              <li><a href="javascript:void(0);">Decoration</a></li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div> <!--/box-->
-                  </div> <!--/box-2-->
-                </div> <!--/navbar-box-->
-              </div> <!--/navbar-dropdown-->
-            </li>
-
-            <!-- Simple menu link-->
-
-            <li><a href="shortcodes.html">Shortcodes</a></li>
-          </ul>
-        </div> <!--/floating-menu-->
-      </div> <!--/navigation-main-->
-
-      <!-- ==========  Search wrapper ========== -->
-
-      <div class="search-wrapper">
-
-        <!-- Search form -->
-        <input class="form-control" placeholder="Search..." />
-        <button class="btn btn-main btn-search">Go!</button>
-
-        <!-- Search results - live search -->
-        <div class="search-results">
-          <div class="search-result-items">
-            <div class="title h4">Products <a href="#" class="btn btn-clean-dark btn-xs">View all</a></div>
-            <ul>
-              <li><a href="#"><span class="id">42563</span> <span class="name">Green corner</span> <span class="category">Sofa</span></a></li>
-              <li><a href="#"><span class="id">42563</span> <span class="name">Laura</span> <span class="category">Armchairs</span></a></li>
-              <li><a href="#"><span class="id">42563</span> <span class="name">Nude</span> <span class="category">Dining tables</span></a></li>
-              <li><a href="#"><span class="id">42563</span> <span class="name">Aurora</span> <span class="category">Nightstands</span></a></li>
-              <li><a href="#"><span class="id">42563</span> <span class="name">Dining set</span> <span class="category">Kitchen</span></a></li>
-              <li><a href="#"><span class="id">42563</span> <span class="name">Seat chair</span> <span class="category">Bar sets</span></a></li>
-            </ul>
-          </div> <!--/search-result-items-->
-          <div class="search-result-items">
-            <div class="title h4">Blog <a href="#" class="btn btn-clean-dark btn-xs">View all</a></div>
-            <ul>
-              <li><a href="#"><span class="id">01 Jan</span> <span class="name">Creating the Perfect Gallery Wall </span> <span class="category">Interior ideas</span></a></li>
-              <li><a href="#"><span class="id">12 Jan</span> <span class="name">Making the Most Out of Your Kids Old Bedroom</span> <span class="category">Interior ideas</span></a></li>
-              <li><a href="#"><span class="id">28 Dec</span> <span class="name">Have a look at our new projects!</span> <span class="category">Modern design</span></a></li>
-              <li><a href="#"><span class="id">31 Sep</span> <span class="name">Decorating When You're Starting Out or Starting Over</span> <span class="category">Best of 2017</span></a></li>
-              <li><a href="#"><span class="id">22 Sep</span> <span class="name">The 3 Tricks that Quickly Became Rules</span> <span class="category">Tips for you</span></a></li>
-            </ul>
-          </div> <!--/search-result-items-->
-        </div> <!--/search-results-->
-      </div>
-
-      <!-- ==========  Login wrapper ========== -->
-
-      <div class="login-wrapper">
-        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="h4">Sign in</div>
-          <div class="form-group">
-            <%= f.input :email,required: false,autofocus: true,input_html: { autocomplete: "email", placeholder: "Email", class: "form-control" } %>
-          </div>
-          <div class="form-group">
-            <%= f.input :password,
-                        required: false,
-                        input_html: { autocomplete: "current-password", class: "form-control", id:"exampleInputPassword1", placeholder: "Password" }
-            %>
-          </div>
-          <%= f.button :submit, "Log in", class: 'btn btn-block btn-main' %>
-        <% end %>
-        <div class="form-group">
-
-        </div>
-
-
-      </div>
-
-      <!-- ==========  Cart wrapper ========== -->
-
-      <div class="cart-wrapper">
-        <div class="checkout">
-          <div class="clearfix">
-
-            <!--cart item-->
-
-            <div class="row">
-
-              <div class="cart-block cart-block-item clearfix">
-                <div class="image">
-                  <a href="product.html">
-                    <%= image_tag "furnishia/product-1.png" %>
-                  </a>
+          <br>
+          <div class="animated" data-animation="fadeInUp">
+            <div class="col-lg-6">
+              <%= form_tag search_home_index_path  do %>
+                <div class="form-group">
+                  <%= text_field_tag :q, nil, class: "form-control", autocomplete: false, placeholder: "Find Products", autofocus: true %>
+                  <br>
+                  <%= text_field_tag :location, nil, class: "form-control", autocomplete: false, placeholder: "Location", autofocus: true %>
+                  <br>
+                  <%= submit_tag "Search", class: "btn btn-primary btn-lg"%>
                 </div>
-                <div class="title">
-                  <div><a href="product.html">Green corner</a></div>
-                  <small>Green corner</small>
-                </div>
-                <div class="quantity">
-                  <input type="number" value="2" class="form-control form-quantity" />
-                </div>
-                <div class="price">
-                  <span class="final">$ 1.998</span>
-                  <span class="discount">$ 2.666</span>
-                </div>
-                <!--delete-this-item-->
-                <span class="icon icon-cross icon-delete"></span>
-              </div>
-
-              <!--cart item-->
-
-              <div class="cart-block cart-block-item clearfix">
-                <div class="image">
-                  <a href="product.html">
-                    <%= image_tag "furnishia/product-2.png" %>
-                  </a>
-                </div>
-                <div class="title">
-                  <div><a href="product.html">Green corner</a></div>
-                  <small>Green corner</small>
-                </div>
-                <div class="quantity">
-                  <input type="number" value="2" class="form-control form-quantity" />
-                </div>
-                <div class="price">
-                  <span class="final">$ 1.998</span>
-                  <span class="discount">$ 2.666</span>
-                </div>
-                <!--delete-this-item-->
-                <span class="icon icon-cross icon-delete"></span>
-              </div>
-
-              <!--cart item-->
-
-              <div class="cart-block cart-block-item clearfix">
-                <div class="image">
-                  <a href="product.html">
-                    <%= image_tag "furnishia/product-3.png" %></a>
-                </div>
-                <div class="title">
-                  <div><a href="product.html">Green corner</a></div>
-                  <small>Green corner</small>
-                </div>
-                <div class="quantity">
-                  <input type="number" value="2" class="form-control form-quantity" />
-                </div>
-                <div class="price">
-                  <span class="final">$ 1.998</span>
-                  <span class="discount">$ 2.666</span>
-                </div>
-                <!--delete-this-item-->
-                <span class="icon icon-cross icon-delete"></span>
-              </div>
-
-              <!--cart item-->
-
-              <div class="cart-block cart-block-item clearfix">
-                <div class="image">
-                  <a href="product.html">
-                    <%= image_tag "furnishia/product-4.png" %>
-                  </a>
-                </div>
-                <div class="title">
-                  <div><a href="product.html">Green corner</a></div>
-                  <small>Green corner</small>
-                </div>
-                <div class="quantity">
-                  <input type="number" value="2" class="form-control form-quantity" />
-                </div>
-                <div class="price">
-                  <span class="final">$ 1.998</span>
-                  <span class="discount">$ 2.666</span>
-                </div>
-                <!--delete-this-item-->
-                <span class="icon icon-cross icon-delete"></span>
-              </div>
+              <% end %>
             </div>
-
-            <hr />
-
-            <!--cart prices -->
-
-            <div class="clearfix">
-              <div class="cart-block cart-block-footer clearfix">
-                <div>
-                  <strong>Discount 15%</strong>
-                </div>
-                <div>
-                  <span>$ 159,00</span>
-                </div>
-              </div>
-
-              <div class="cart-block cart-block-footer clearfix">
-                <div>
-                  <strong>Shipping</strong>
-                </div>
-                <div>
-                  <span>$ 30,00</span>
-                </div>
-              </div>
-
-              <div class="cart-block cart-block-footer clearfix">
-                <div>
-                  <strong>VAT</strong>
-                </div>
-                <div>
-                  <span>$ 59,00</span>
-                </div>
-              </div>
-            </div>
-
-            <hr />
-
-            <!--cart final price -->
-
-            <div class="clearfix">
-              <div class="cart-block cart-block-footer clearfix">
-                <div>
-                  <strong>Total</strong>
-                </div>
-                <div>
-                  <div class="h4 title">$ 1259,00</div>
-                </div>
-              </div>
-            </div>
-
-
-            <!--cart navigation -->
-
-            <div class="cart-block-buttons clearfix">
-              <div class="row">
-                <div class="col-xs-6">
-                  <a href="products-grid.html" class="btn btn-clean-dark">Continue shopping</a>
-                </div>
-                <div class="col-xs-6 text-right">
-                  <a href="checkout-1.html" class="btn btn-main"><span class="icon icon-cart"></span> Checkout</a>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div> <!--/checkout-->
-      </div> <!--/cart-wrapper-->
-    </div> <!--/container-->
-  </nav>
-
-  <!-- ========================  Header content ======================== -->
-
-  <section class="header-content">
-
-    <div class="owl-slider">
-
-      <!-- === slide item === -->
-
-      <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-3-temp.jpg') %>')">
-        <div class="box">
-          <div class="container">
-            <h2 class="title animated h1" data-animation="fadeInDown">Modern furniture theme</h2>
-            <div class="animated" data-animation="fadeInUp">
-              Modern & powerfull template. <br /> Clean design & reponsive
-              layout. Google fonts integration
-            </div>
-            <br>
-            <div class="animated" data-animation="fadeInUp">
-              <div class="col-lg-6">
-                <%= form_tag search_home_index_path  do %>
-                  <div class="form-group">
-                    <%= text_field_tag :q, nil, class: "form-control", autocomplete: false, placeholder: "Find Products", autofocus: true %>
-                    <br>
-                    <%= text_field_tag :location, nil, class: "form-control", autocomplete: false, placeholder: "Location", autofocus: true %>
-                    <br>
-                    <%= submit_tag "Search", class: "btn btn-primary btn-lg"%>
-                  </div>
-                <% end %>
-              </div>
-              <!--                              <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main" ><i class="icon icon-cart"></i> Buy this template</a>-->
-            </div>
+            <!--                              <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main" ><i class="icon icon-cart"></i> Buy this template</a>-->
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- === slide item === -->
+    <!-- === slide item === -->
 
-      <!-- <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-2-temp.jpg') %>')">
+    <!-- <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-2-temp.jpg') %>')">
                     <div class="box">
                         <div class="container">
                             <h2 class="title animated h1" data-animation="fadeInDown">Mobile ready!</h2>
@@ -787,9 +56,9 @@
                     </div>
                 </div> -->
 
-      <!-- === slide item === -->
+    <!-- === slide item === -->
 
-      <!--    <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-3-temp.jpg') %>')">
+    <!--    <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-3-temp.jpg') %>')">
                     <div class="box">
                         <div class="container">
                             <h2 class="title animated h1" data-animation="fadeInDown">
@@ -808,1134 +77,1136 @@
                     </div>
                 </div> -->
 
-    </div> <!--/owl-slider-->
-  </section>
+  </div> <!--/owl-slider-->
+</section>
 
-  <!-- ========================  Icons slider ======================== -->
+<!-- ========================  Icons slider ======================== -->
 
-  <section class="owl-icons-wrapper owl-icons-frontpage">
+<section class="owl-icons-wrapper owl-icons-frontpage">
 
-    <!-- === header === -->
+  <!-- === header === -->
 
-    <header class="hidden">
-      <h2>Product categories</h2>
-    </header>
+  <header class="hidden">
+    <h2>Product categories</h2>
+  </header>
 
-    <div class="container">
+  <div class="container">
 
-      <div class="owl-icons">
+    <div class="owl-icons">
 
-        <!-- === icon item === -->
-        <% @categories.each do |category| %>
-          <a href="<%= vendors_path(category_id: category.id) %>">
-            <figure>
-              <i class="f-icon f-icon-sofa"></i>
-              <figcaption><%= category.title %></figcaption>
-            </figure>
-          </a>
-        <% end %>
-
-        <!--
-
-                           <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-armchair"></i>-->
-        <!--                            <figcaption>Armchairs</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-chair"></i>-->
-        <!--                            <figcaption>Chairs</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-dining-table"></i>-->
-        <!--                            <figcaption>Dining tables</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-media-cabinet"></i>-->
-        <!--                            <figcaption>Media storage</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-table"></i>-->
-        <!--                            <figcaption>Tables</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-bookcase"></i>-->
-        <!--                            <figcaption>Bookcase</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-bedroom"></i>-->
-        <!--                            <figcaption>Bedroom</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-nightstand"></i>-->
-        <!--                            <figcaption>Nightstand</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-children-room"></i>-->
-        <!--                            <figcaption>Children room</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-kitchen"></i>-->
-        <!--                            <figcaption>Kitchen</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-bathroom"></i>-->
-        <!--                            <figcaption>Bathroom</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-wardrobe"></i>-->
-        <!--                            <figcaption>Wardrobe</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-shoe-cabinet"></i>-->
-        <!--                            <figcaption>Shoe cabinet</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-office"></i>-->
-        <!--                            <figcaption>Office</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-bar-set"></i>-->
-        <!--                            <figcaption>Bar sets</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-lightning"></i>-->
-        <!--                            <figcaption>Lightning</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-carpet"></i>-->
-        <!--                            <figcaption>Varpet</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-        <!--                    <!-- === icon item === -->
-
-        <!--                    <a href="#">-->
-        <!--                        <figure>-->
-        <!--                            <i class="f-icon f-icon-accessories"></i>-->
-        <!--                            <figcaption>Accessories</figcaption>-->
-        <!--                        </figure>-->
-        <!--                    </a>-->
-
-      </div> <!--/owl-icons-->
-    </div> <!--/container-->
-  </section>
-
-  <!-- ========================  Stretcher widget ======================== -->
-  <br>
-  <br>
-  <section class="stretcher-wrapper">
-
-    <!-- === stretcher header === -->
-
-    <header class="hidden">
-      <!--remove class 'hidden'' to show section header -->
-      <div class="container">
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8 text-center">
-            <h1 class="h2 title">Popular categories</h1>
-            <div class="text">
-              <p>
-                Whether you are changing your home, or moving into a new one, you will find a huge selection of quality living room furniture,
-                bedroom furniture, dining room furniture and the best value at Furniture factory
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- === stretcher === -->
-    <header>
-      <div class="row">
-        <div class="col-md-offset-2 col-md-8 text-center">
-          <h2 class="title">Popular Cities</h2>
-          <div class="text">
-            <p>Check out our popular cities</p>
-          </div>
-        </div>
-      </div>
-    </header>
-    <ul class="stretcher">
-
-      <!-- === stretcher item === -->
-      <% @cities.each_with_index do |city,index| %>
-        <% if index == 4 %>
+      <!-- === icon item === -->
+      <% @categories.each_with_index  do |category, index| %>
+        <% if index == 8 %>
           <% break %>
         <% end %>
-        <li class="stretcher-item" style="background-image:url(' <%= (url_for(city.image)) %>')">
-          <!--logo-item-->
-          <div class="stretcher-logo">
-            <div class="text">
-              <span class="text-intro"><%= city.title %></span>
-            </div>
-          </div>
-          <!--main text-->
+        <a href="<%= vendors_path(category_id: category.id) %>">
           <figure>
-            <h4>Vendors</h4>
-            <figcaption></figcaption>
+            <i class="f-icon f-icon-sofa"></i>
+            <figcaption><%= category.title %></figcaption>
           </figure>
-          <!--anchor-->
-          <a href="<%= city_path(city) %>">Anchor link</a>
-        </li>
+        </a>
       <% end %>
-      <!-- === stretcher item more=== -->
 
-      <li class="stretcher-item more">
-        <div class="more-icon">
-          <span data-title-show="Show more" data-title-hide="+"></span>
-        </div>
-        <a href="<%= cities_path %>"></a>
-      </li>
-    </ul>
-  </section>
+      <!--
 
+                         <!-- === icon item === -->
 
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-armchair"></i>-->
+      <!--                            <figcaption>Armchairs</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
 
-  <!-- ========================  Products widget ======================== -->
-  <section class="products">
+      <!--                    <!-- === icon item === -->
 
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-chair"></i>-->
+      <!--                            <figcaption>Chairs</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-dining-table"></i>-->
+      <!--                            <figcaption>Dining tables</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-media-cabinet"></i>-->
+      <!--                            <figcaption>Media storage</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-table"></i>-->
+      <!--                            <figcaption>Tables</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-bookcase"></i>-->
+      <!--                            <figcaption>Bookcase</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-bedroom"></i>-->
+      <!--                            <figcaption>Bedroom</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-nightstand"></i>-->
+      <!--                            <figcaption>Nightstand</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-children-room"></i>-->
+      <!--                            <figcaption>Children room</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-kitchen"></i>-->
+      <!--                            <figcaption>Kitchen</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-bathroom"></i>-->
+      <!--                            <figcaption>Bathroom</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-wardrobe"></i>-->
+      <!--                            <figcaption>Wardrobe</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-shoe-cabinet"></i>-->
+      <!--                            <figcaption>Shoe cabinet</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-office"></i>-->
+      <!--                            <figcaption>Office</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-bar-set"></i>-->
+      <!--                            <figcaption>Bar sets</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-lightning"></i>-->
+      <!--                            <figcaption>Lightning</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-carpet"></i>-->
+      <!--                            <figcaption>Varpet</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+      <!--                    <!-- === icon item === -->
+
+      <!--                    <a href="#">-->
+      <!--                        <figure>-->
+      <!--                            <i class="f-icon f-icon-accessories"></i>-->
+      <!--                            <figcaption>Accessories</figcaption>-->
+      <!--                        </figure>-->
+      <!--                    </a>-->
+
+    </div> <!--/owl-icons-->
+  </div> <!--/container-->
+</section>
+
+<!-- ========================  Stretcher widget ======================== -->
+<br>
+<br>
+<section class="stretcher-wrapper">
+
+  <!-- === stretcher header === -->
+
+  <header class="hidden">
+    <!--remove class 'hidden'' to show section header -->
     <div class="container">
-
-      <!-- === header title === -->
-
-      <header>
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8 text-center">
-            <h2 class="title">Popular products</h2>
-            <div class="text">
-              <p>Check out our latest collections</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
       <div class="row">
-
-        <!-- === product-item === -->
-        <% index = 0 %>
-        <%  @popular_products.each do |product|  %>
-          <% if product.visibility == true %>
-            <div class="col-md-3 col-xs-6">
-              <% index = index + 1 %>
-              <% if index == 6 %>
-                <% break %>
-              <% end %>
-              <article>
-                <div class="info">
-                    <span class="add-favorite">
-                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                    </span>
-                  <span>
-                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                    </span>
-                </div>
-                <div class="btn btn-add">
-                  <i class="icon icon-cart"></i>
-                </div>
-                <div class="figure-grid">
-
-                  <div class="image">
-                    <% if product.images.attached? %>
-                      <%= link_to product do%>
-                        <%= image_tag(url_for(product.images.first)) %><br>
-                      <% end %>
-                    <% else %>
-                      <%= link_to product do%>
-                        <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                      <% end %>
-                    <% end %>
-                  </div>
-
-                  <div class="text">
-                    <%= link_to product do%>
-                      <h2 class="title h4"><%= product.title %></h2>
-                    <% end %>
-                    <sup>$ <%= product.price %></sup>
-                    <span class="description clearfix"><%= product.description %></span>
-                  </div>
-                </div>
-              </article>
-            </div>
-          <% end %>
-        <% end %>
-
-
-      </div> <!--/row-->
-      <!-- === button more === -->
-
-      <div class="wrapper-more">
-        <a href="<%= popular_list_products_path %>" class="btn btn-main">View more products</a>
-      </div>
-
-      <!-- ========================  Product info popup - quick view ======================== -->
-
-      <div class="popup-main mfp-hide" id="productid1">
-
-        <!-- === product popup === -->
-
-        <div class="product">
-
-          <!-- === popup-title === -->
-
-          <div class="popup-title">
-            <div class="h1 title">Laura <small>product category</small></div>
-          </div>
-
-          <!-- === product gallery === -->
-
-          <div class="owl-product-gallery">
-            <%= image_tag "furnishia/product-1.png",size: "640" %>
-            <%= image_tag "furnishia/product-2.png",size: "640" %>
-            <%= image_tag "furnishia/product-3.png",size: "640" %>
-            <%= image_tag "furnishia/product-4.png",size: "640" %>
-          </div>
-
-          <!-- === product-popup-info === -->
-
-          <div class="popup-content">
-            <div class="product-info-wrapper">
-              <div class="row">
-
-                <!-- === left-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Maifacturer</strong>
-                    <span>Brand name</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Materials</strong>
-                    <span>Wood, Leather, Acrylic</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Availability</strong>
-                    <span><i class="fa fa-check-square-o"></i> in stock</span>
-                  </div>
-                </div>
-
-                <!-- === right-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Available Colors</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-red"></span>
-                      <span class="color-btn color-btn-blue checked"></span>
-                      <span class="color-btn color-btn-green"></span>
-                      <span class="color-btn color-btn-gray"></span>
-                      <span class="color-btn color-btn-biege"></span>
-                    </div>
-                  </div>
-                  <div class="info-box">
-                    <strong>Choose size</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-biege">S</span>
-                      <span class="color-btn color-btn-biege checked">M</span>
-                      <span class="color-btn color-btn-biege">XL</span>
-                      <span class="color-btn color-btn-biege">XXL</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div> <!--/row-->
-            </div> <!--/product-info-wrapper-->
-          </div> <!--/popup-content-->
-          <!-- === product-popup-footer === -->
-
-          <div class="popup-table">
-            <div class="popup-cell">
-              <div class="price">
-                <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-              </div>
-            </div>
-            <div class="popup-cell">
-              <div class="popup-buttons">
-                <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-                <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-              </div>
-            </div>
-          </div>
-
-        </div> <!--/product-->
-      </div> <!--popup-main-->
-    </div> <!--/container-->
-  </section>
-
-  <!-- ========================  Popular Vendors ======================== -->
-  <section class="products">
-
-    <div class="container">
-
-      <!-- === header title === -->
-
-      <header>
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8 text-center">
-            <h2 class="title">Popular Vendors</h2>
-            <div class="text">
-              <p>Check out our popular vendors</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div class="row">
-
-        <!-- === product-item === -->
-        <% index = 0 %>
-        <%  @popular_vendors.each do |vendor|  %>
-          <% if vendor.display_products? %>
-            <div class="col-md-3 col-xs-3">
-              <% index = index + 1 %>
-              <% if index == 6 %>
-                <% break %>
-              <% end %>
-              <article>
-                <div class="info">
-                    <span class="add-favorite">
-                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                    </span>
-                  <span>
-                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                    </span>
-                </div>
-                <div class="btn btn-add">
-                  <i class="icon icon-cart"></i>
-                </div>
-                <div class="figure-grid">
-                  <div class="image">
-                    <% if vendor.profile.image.attached? %>
-                      <%= link_to products_path(user_id: vendor.id) do %>
-                        <%= image_tag(url_for(vendor.profile.image)) %>
-                      <% end %>
-                    <% else %>
-                      <%= link_to products_path(user_id: vendor.id) do %>
-                        <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                      <% end %>
-                    <% end %>
-                  </div>
-                  <div class="text">
-                    <div class="name">
-                      <%= link_to products_path(user_id: vendor.id) do %>
-                        <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
-                      <% end %>
-                    </div>
-                  </div>
-              </article>
-            </div>
-          <% end %>
-        <% end %>
-
-
-      </div> <!--/row-->
-      <!-- === button more === -->
-
-      <div class="wrapper-more">
-        <a href="<%= popular_list_vendors_path %>" class="btn btn-main">View more vendors</a>
-      </div>
-
-      <!-- ========================  Product info popup - quick view ======================== -->
-
-      <div class="popup-main mfp-hide" id="productid1">
-
-        <!-- === product popup === -->
-
-        <div class="product">
-
-          <!-- === popup-title === -->
-
-          <div class="popup-title">
-            <div class="h1 title">Laura <small>product category</small></div>
-          </div>
-
-          <!-- === product gallery === -->
-
-          <div class="owl-product-gallery">
-            <%= image_tag "furnishia/product-1.png",size: "640" %>
-            <%= image_tag "furnishia/product-2.png",size: "640" %>
-            <%= image_tag "furnishia/product-3.png",size: "640" %>
-            <%= image_tag "furnishia/product-4.png",size: "640" %>
-          </div>
-
-          <!-- === product-popup-info === -->
-
-          <div class="popup-content">
-            <div class="product-info-wrapper">
-              <div class="row">
-
-                <!-- === left-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Maifacturer</strong>
-                    <span>Brand name</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Materials</strong>
-                    <span>Wood, Leather, Acrylic</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Availability</strong>
-                    <span><i class="fa fa-check-square-o"></i> in stock</span>
-                  </div>
-                </div>
-
-                <!-- === right-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Available Colors</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-red"></span>
-                      <span class="color-btn color-btn-blue checked"></span>
-                      <span class="color-btn color-btn-green"></span>
-                      <span class="color-btn color-btn-gray"></span>
-                      <span class="color-btn color-btn-biege"></span>
-                    </div>
-                  </div>
-                  <div class="info-box">
-                    <strong>Choose size</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-biege">S</span>
-                      <span class="color-btn color-btn-biege checked">M</span>
-                      <span class="color-btn color-btn-biege">XL</span>
-                      <span class="color-btn color-btn-biege">XXL</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div> <!--/row-->
-            </div> <!--/product-info-wrapper-->
-          </div> <!--/popup-content-->
-          <!-- === product-popup-footer === -->
-
-          <div class="popup-table">
-            <div class="popup-cell">
-              <div class="price">
-                <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-              </div>
-            </div>
-            <div class="popup-cell">
-              <div class="popup-buttons">
-                <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-                <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-              </div>
-            </div>
-          </div>
-
-        </div> <!--/product-->
-      </div> <!--popup-main-->
-    </div> <!--/container-->
-  </section>
-
-
-  <!-- ========================  Popular Architects ======================== -->
-  <section class="products">
-
-    <div class="container">
-
-      <!-- === header title === -->
-
-      <header>
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8 text-center">
-            <h2 class="title">Popular Architects</h2>
-            <div class="text">
-              <p>Check out our popular architects</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div class="row">
-
-        <!-- === product-item === -->
-        <% index = 0 %>
-        <%  unless @popular_architects.nil? %>
-          <%  @popular_architects.each do |architect|  %>
-            <div class="col-md-3 col-xs-6">
-              <% index = index + 1 %>
-              <% if index == 6 %>
-                <% break %>
-              <% end %>
-              <article>
-                <div class="info">
-                    <span class="add-favorite">
-                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                    </span>
-                  <span>
-                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                    </span>
-                </div>
-                <div class="btn btn-add">
-                  <i class="icon icon-cart"></i>
-                </div>
-                <div class="figure-grid">
-
-                  <div class="image">
-                    <% if architect.profile.image.attached? %>
-                      <%= link_to projects_path(user_id: architect.id) do %>
-                        <%= image_tag(url_for(architect.profile.image)) %>
-                      <% end %>
-                    <% else %>
-                      <%= link_to projects_path(user_id: architect.id) do %>
-                        <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                      <% end %>
-                    <% end %>
-                  </div>
-                  <div class="text">
-                    <div class="name">
-                      <%= link_to projects_path(user_id: architect.id) do %>
-                        <div class="h3 title"><%= architect.full_name %> <small><%= architect.category_title %></small></div>
-                      <% end %>
-                    </div>
-                  </div>
-              </article>
-            </div>
-          <% end %>
-        <% end %>
-
-
-      </div> <!--/row-->
-      <!-- === button more === -->
-
-      <div class="wrapper-more">
-        <a href="<%=  popular_architect_vendors_path %>" class="btn btn-main">View more architects</a>
-      </div>
-
-      <!-- ========================  Product info popup - quick view ======================== -->
-
-      <div class="popup-main mfp-hide" id="productid1">
-
-        <!-- === product popup === -->
-
-        <div class="product">
-
-          <!-- === popup-title === -->
-
-          <div class="popup-title">
-            <div class="h1 title">Laura <small>product category</small></div>
-          </div>
-
-          <!-- === product gallery === -->
-
-          <div class="owl-product-gallery">
-            <%= image_tag "furnishia/product-1.png",size: "640" %>
-            <%= image_tag "furnishia/product-2.png",size: "640" %>
-            <%= image_tag "furnishia/product-3.png",size: "640" %>
-            <%= image_tag "furnishia/product-4.png",size: "640" %>
-          </div>
-
-          <!-- === product-popup-info === -->
-
-          <div class="popup-content">
-            <div class="product-info-wrapper">
-              <div class="row">
-
-                <!-- === left-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Maifacturer</strong>
-                    <span>Brand name</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Materials</strong>
-                    <span>Wood, Leather, Acrylic</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Availability</strong>
-                    <span><i class="fa fa-check-square-o"></i> in stock</span>
-                  </div>
-                </div>
-
-                <!-- === right-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Available Colors</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-red"></span>
-                      <span class="color-btn color-btn-blue checked"></span>
-                      <span class="color-btn color-btn-green"></span>
-                      <span class="color-btn color-btn-gray"></span>
-                      <span class="color-btn color-btn-biege"></span>
-                    </div>
-                  </div>
-                  <div class="info-box">
-                    <strong>Choose size</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-biege">S</span>
-                      <span class="color-btn color-btn-biege checked">M</span>
-                      <span class="color-btn color-btn-biege">XL</span>
-                      <span class="color-btn color-btn-biege">XXL</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div> <!--/row-->
-            </div> <!--/product-info-wrapper-->
-          </div> <!--/popup-content-->
-          <!-- === product-popup-footer === -->
-
-          <div class="popup-table">
-            <div class="popup-cell">
-              <div class="price">
-                <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-              </div>
-            </div>
-            <div class="popup-cell">
-              <div class="popup-buttons">
-                <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-                <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-              </div>
-            </div>
-          </div>
-
-        </div> <!--/product-->
-      </div> <!--popup-main-->
-    </div> <!--/container-->
-  </section>
-
-  <!-- ========================  Popular Interior ======================== -->
-  <section class="products">
-
-    <div class="container">
-
-      <!-- === header title === -->
-
-      <header>
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8 text-center">
-            <h2 class="title">Popular Interior Designers</h2>
-            <div class="text">
-              <p>Check out our popular interior designers</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div class="row">
-
-        <!-- === product-item === -->
-        <% index = 0 %>
-        <%  unless @popular_interior_designers.nil? %>
-          <%  @popular_interior_designers.each do |interior_designer|  %>
-            <div class="col-md-3 col-xs-6">
-              <% index = index + 1 %>
-              <% if index == 8 %>
-                <% break %>
-              <% end %>
-              <article>
-                <div class="info">
-                    <span class="add-favorite">
-                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                    </span>
-                  <span>
-                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                    </span>
-                </div>
-                <div class="btn btn-add">
-                  <i class="icon icon-cart"></i>
-                </div>
-                <div class="figure-grid">
-
-                  <div class="image">
-                    <% if interior_designer.profile.image.attached? %>
-                      <%= link_to projects_path(user_id: interior_designer.id) do %>
-                        <%= image_tag(url_for(interior_designer.profile.image)) %>
-                      <% end %>
-                    <% else %>
-                      <%= link_to projects_path(user_id: interior_designer.id) do %>
-                        <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                      <% end %>
-                    <% end %>
-                  </div>
-                  <div class="text">
-                    <div class="name">
-                      <%= link_to projects_path(user_id: interior_designer.id) do %>
-                        <div class="h3 title"><%= interior_designer.full_name %> <small><%= architect.category_title %></small></div>
-                      <% end %>
-                    </div>
-                  </div>
-              </article>
-            </div>
-          <% end %>
-        <% end %>
-
-
-      </div> <!--/row-->
-      <!-- === button more === -->
-
-      <div class="wrapper-more">
-        <a href="<%=  popular_interior_designer_vendors_path %>" class="btn btn-main">View more designers</a>
-      </div>
-
-      <!-- ========================  Product info popup - quick view ======================== -->
-
-      <div class="popup-main mfp-hide" id="productid1">
-
-        <!-- === product popup === -->
-
-        <div class="product">
-
-          <!-- === popup-title === -->
-
-          <div class="popup-title">
-            <div class="h1 title">Laura <small>product category</small></div>
-          </div>
-
-          <!-- === product gallery === -->
-
-          <div class="owl-product-gallery">
-            <%= image_tag "furnishia/product-1.png",size: "640" %>
-            <%= image_tag "furnishia/product-2.png",size: "640" %>
-            <%= image_tag "furnishia/product-3.png",size: "640" %>
-            <%= image_tag "furnishia/product-4.png",size: "640" %>
-          </div>
-
-          <!-- === product-popup-info === -->
-
-          <div class="popup-content">
-            <div class="product-info-wrapper">
-              <div class="row">
-
-                <!-- === left-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Maifacturer</strong>
-                    <span>Brand name</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Materials</strong>
-                    <span>Wood, Leather, Acrylic</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Availability</strong>
-                    <span><i class="fa fa-check-square-o"></i> in stock</span>
-                  </div>
-                </div>
-
-                <!-- === right-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Available Colors</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-red"></span>
-                      <span class="color-btn color-btn-blue checked"></span>
-                      <span class="color-btn color-btn-green"></span>
-                      <span class="color-btn color-btn-gray"></span>
-                      <span class="color-btn color-btn-biege"></span>
-                    </div>
-                  </div>
-                  <div class="info-box">
-                    <strong>Choose size</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-biege">S</span>
-                      <span class="color-btn color-btn-biege checked">M</span>
-                      <span class="color-btn color-btn-biege">XL</span>
-                      <span class="color-btn color-btn-biege">XXL</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div> <!--/row-->
-            </div> <!--/product-info-wrapper-->
-          </div> <!--/popup-content-->
-          <!-- === product-popup-footer === -->
-
-          <div class="popup-table">
-            <div class="popup-cell">
-              <div class="price">
-                <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-              </div>
-            </div>
-            <div class="popup-cell">
-              <div class="popup-buttons">
-                <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-                <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-              </div>
-            </div>
-          </div>
-
-        </div> <!--/product-->
-      </div> <!--popup-main-->
-    </div> <!--/container-->
-  </section>
-
-
-  <!-- ========================  Blog Block ======================== -->
-
-
-
-  <!-- ========================  Banner ======================== -->
-
-
-  <!-- ========================  Blog ======================== -->
-
-  <section class="blog">
-
-    <div class="container">
-
-      <!-- === blog header === -->
-
-      <header>
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8 text-center">
-            <h1 class="h2 title">Blog</h1>
-            <div class="text">
-              <p>Latest news from the blog</p>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <div class="row">
-
-        <!-- === blog item === -->
-        <% @blogs.each_with_index do |blog, index| %>
-          <% if index == 4 %>
-            <% break %>
-          <% end %>
-          <div class="col-sm-3">
-            <article>
-              <%= link_to blog do%>
-                <div class="image" >
-                  <% if blog.image.attached? %>
-                    <%= image_tag(url_for(blog.image)) %><br>
-                  <% else %>
-                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                  <% end %>
-                </div>
-                <div class="entry entry-table">
-                  <div class="date-wrapper">
-                    <div class="date">
-                      <span><%= blog.updated_at.strftime('%b')%></span>
-                      <strong><%= blog.updated_at.strftime('%d')%></strong>
-                      <span><%= blog.updated_at.strftime('%Y')%></span>
-                    </div>
-                  </div>
-                  <div class="title">
-                    <h2 class="h5"><%= blog.title %></h2>
-                  </div>
-                </div>
-                <div class="show-more">
-                  <span class="btn btn-main btn-block">Read more</span>
-                </div>
-              <% end %>
-            </article>
-          </div>
-        <% end %>
-        <!-- === blog item === -->
-
-
-      </div> <!--/row-->
-      <!-- === button more === -->
-
-      <div class="wrapper-more">
-        <a href="<%= blogs_path %>" class="btn btn-main">View all posts</a>
-      </div>
-
-    </div> <!--/container-->
-  </section>
-
-  <!-- ========================  Instagram ======================== -->
-
-  <section class="instagram">
-
-    <!-- === instagram header === -->
-
-
-
-    <!-- === instagram gallery === -->
-
-    <div class="gallery clearfix">
-      <a class="item" href="#">
-
-        <%= image_tag "furnishia/square-1.jpg" %>
-      </a>
-      <a class="item" href="#">
-        <%= image_tag "furnishia/square-2.jpg" %>
-      </a>
-      <a class="item" href="#">
-        <%= image_tag "furnishia/square-3.jpg" %>
-      </a>
-      <a class="item" href="#">
-        <%= image_tag "furnishia/square-4.jpg" %>
-      </a>
-      <a class="item" href="#">
-        <%= image_tag "furnishia/square-5.jpg" %>
-      </a>
-      <a class="item" href="#">
-        <%= image_tag "furnishia/square-6.jpg" %>
-      </a>
-
-    </div> <!--/gallery-->
-
-  </section>
-
-  <!-- ================== Footer  ================== -->
-
-  <footer>
-    <div class="container">
-
-      <!--footer showroom-->
-      <div class="footer-showroom">
-        <div class="row">
-          <div class="col-sm-8">
-            <h2>Visit our showroom</h2>
-            <p>200 12th Ave, New York, NY 10001, USA</p>
-            <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
-          </div>
-          <div class="col-sm-4 text-center">
-            <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
-            <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
-          </div>
-        </div>
-      </div>
-
-      <!--footer links-->
-      <div class="footer-links">
-        <div class="row">
-          <div class="col-sm-4 col-md-2">
-            <h5>Browse by</h5>
-            <ul>
-              <li><a href="#">Brand</a></li>
-              <li><a href="#">Product</a></li>
-              <li><a href="#">Category</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-2">
-            <h5>Recources</h5>
-            <ul>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Sales</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-2">
-            <h5>Our company</h5>
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-md-6">
-            <h5>Sign up for our newsletter</h5>
-            <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
-            <div class="form-group form-newsletter">
-              <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
-              <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--footer social-->
-
-      <div class="footer-social">
-        <div class="row">
-          <div class="col-sm-6">
-            <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
-          </div>
-          <div class="col-sm-6 links">
-            <ul>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <h1 class="h2 title">Popular categories</h1>
+          <div class="text">
+            <p>
+              Whether you are changing your home, or moving into a new one, you will find a huge selection of quality living room furniture,
+              bedroom furniture, dining room furniture and the best value at Furniture factory
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </footer>
+  </header>
 
-</div> <!--/wrapper-->
+  <!-- === stretcher === -->
+  <header>
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8 text-center">
+        <h2 class="title">Popular Cities</h2>
+        <div class="text">
+          <p>Check out our popular cities</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <ul class="stretcher">
+
+    <!-- === stretcher item === -->
+    <% @cities.each_with_index do |city,index| %>
+      <% if index == 4 %>
+        <% break %>
+      <% end %>
+      <li class="stretcher-item" style="background-image:url(' <%= (url_for(city.image)) %>')">
+        <!--logo-item-->
+        <div class="stretcher-logo">
+          <div class="text">
+            <span class="text-intro"><%= city.title %></span>
+          </div>
+        </div>
+        <!--main text-->
+        <figure>
+          <h4>Vendors</h4>
+          <figcaption></figcaption>
+        </figure>
+        <!--anchor-->
+        <a href="<%= city_path(city) %>">Anchor link</a>
+      </li>
+    <% end %>
+    <!-- === stretcher item more=== -->
+
+    <li class="stretcher-item more">
+      <div class="more-icon">
+        <span data-title-show="Show more" data-title-hide="+"></span>
+      </div>
+      <a href="<%= cities_path %>"></a>
+    </li>
+  </ul>
+</section>
+
+
+
+<!-- ========================  Products widget ======================== -->
+<section class="products">
+
+  <div class="container">
+
+    <!-- === header title === -->
+
+    <header>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <h2 class="title">Popular products</h2>
+          <div class="text">
+            <p>Check out our latest collections</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="row">
+
+      <!-- === product-item === -->
+      <% index = 0 %>
+      <%  @popular_products.each do |product|  %>
+        <% if product.visibility == true %>
+          <div class="col-md-3 col-xs-6">
+            <% index = index + 1 %>
+            <% if index == 6 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="info">
+                    <span class="add-favorite">
+                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    </span>
+                <span>
+                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                    </span>
+              </div>
+              <div class="btn btn-add">
+                <i class="icon icon-cart"></i>
+              </div>
+              <div class="figure-grid">
+
+                <div class="image">
+                  <% if product.images.attached? %>
+                    <%= link_to product do%>
+                      <%= image_tag(url_for(product.images.first)) %><br>
+                    <% end %>
+                  <% else %>
+                    <%= link_to product do%>
+                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <% end %>
+                  <% end %>
+                </div>
+
+                <div class="text">
+                  <%= link_to product do%>
+                    <h2 class="title h4"><%= product.title %></h2>
+                  <% end %>
+                  <sup>$ <%= product.price %></sup>
+                  <span class="description clearfix"><%= product.description %></span>
+                </div>
+              </div>
+            </article>
+          </div>
+        <% end %>
+      <% end %>
+
+
+    </div> <!--/row-->
+    <!-- === button more === -->
+
+    <div class="wrapper-more">
+      <a href="<%= popular_list_products_path %>" class="btn btn-main">View more products</a>
+    </div>
+
+    <!-- ========================  Product info popup - quick view ======================== -->
+
+    <div class="popup-main mfp-hide" id="productid1">
+
+      <!-- === product popup === -->
+
+      <div class="product">
+
+        <!-- === popup-title === -->
+
+        <div class="popup-title">
+          <div class="h1 title">Laura <small>product category</small></div>
+        </div>
+
+        <!-- === product gallery === -->
+
+        <div class="owl-product-gallery">
+          <%= image_tag "furnishia/product-1.png",size: "640" %>
+          <%= image_tag "furnishia/product-2.png",size: "640" %>
+          <%= image_tag "furnishia/product-3.png",size: "640" %>
+          <%= image_tag "furnishia/product-4.png",size: "640" %>
+        </div>
+
+        <!-- === product-popup-info === -->
+
+        <div class="popup-content">
+          <div class="product-info-wrapper">
+            <div class="row">
+
+              <!-- === left-column === -->
+
+              <div class="col-sm-6">
+                <div class="info-box">
+                  <strong>Maifacturer</strong>
+                  <span>Brand name</span>
+                </div>
+                <div class="info-box">
+                  <strong>Materials</strong>
+                  <span>Wood, Leather, Acrylic</span>
+                </div>
+                <div class="info-box">
+                  <strong>Availability</strong>
+                  <span><i class="fa fa-check-square-o"></i> in stock</span>
+                </div>
+              </div>
+
+              <!-- === right-column === -->
+
+              <div class="col-sm-6">
+                <div class="info-box">
+                  <strong>Available Colors</strong>
+                  <div class="product-colors clearfix">
+                    <span class="color-btn color-btn-red"></span>
+                    <span class="color-btn color-btn-blue checked"></span>
+                    <span class="color-btn color-btn-green"></span>
+                    <span class="color-btn color-btn-gray"></span>
+                    <span class="color-btn color-btn-biege"></span>
+                  </div>
+                </div>
+                <div class="info-box">
+                  <strong>Choose size</strong>
+                  <div class="product-colors clearfix">
+                    <span class="color-btn color-btn-biege">S</span>
+                    <span class="color-btn color-btn-biege checked">M</span>
+                    <span class="color-btn color-btn-biege">XL</span>
+                    <span class="color-btn color-btn-biege">XXL</span>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!--/row-->
+          </div> <!--/product-info-wrapper-->
+        </div> <!--/popup-content-->
+        <!-- === product-popup-footer === -->
+
+        <div class="popup-table">
+          <div class="popup-cell">
+            <div class="price">
+              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
+            </div>
+          </div>
+          <div class="popup-cell">
+            <div class="popup-buttons">
+              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
+              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div> <!--/product-->
+    </div> <!--popup-main-->
+  </div> <!--/container-->
+</section>
+
+<!-- ========================  Popular Vendors ======================== -->
+<section class="products">
+
+  <div class="container">
+
+    <!-- === header title === -->
+
+    <header>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <h2 class="title">Popular Vendors</h2>
+          <div class="text">
+            <p>Check out our popular vendors</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="row">
+
+      <!-- === product-item === -->
+      <% index = 0 %>
+      <%  @popular_vendors.each do |vendor|  %>
+        <% if vendor.display_products? %>
+          <div class="col-md-3 col-xs-3">
+            <% index = index + 1 %>
+            <% if index == 6 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="info">
+                    <span class="add-favorite">
+                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    </span>
+                <span>
+                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                    </span>
+              </div>
+              <div class="btn btn-add">
+                <i class="icon icon-cart"></i>
+              </div>
+              <div class="figure-grid">
+                <div class="image">
+                  <% if vendor.profile.image.attached? %>
+                    <%= link_to products_path(user_id: vendor.id) do %>
+                      <%= image_tag(url_for(vendor.profile.image)) %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to products_path(user_id: vendor.id) do %>
+                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <div class="name">
+                    <%= link_to products_path(user_id: vendor.id) do %>
+                      <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
+                    <% end %>
+                  </div>
+                </div>
+            </article>
+          </div>
+        <% end %>
+      <% end %>
+
+
+    </div> <!--/row-->
+    <!-- === button more === -->
+
+    <div class="wrapper-more">
+      <a href="<%= popular_list_vendors_path %>" class="btn btn-main">View more vendors</a>
+    </div>
+
+    <!-- ========================  Product info popup - quick view ======================== -->
+
+    <div class="popup-main mfp-hide" id="productid1">
+
+      <!-- === product popup === -->
+
+      <div class="product">
+
+        <!-- === popup-title === -->
+
+        <div class="popup-title">
+          <div class="h1 title">Laura <small>product category</small></div>
+        </div>
+
+        <!-- === product gallery === -->
+
+        <div class="owl-product-gallery">
+          <%= image_tag "furnishia/product-1.png",size: "640" %>
+          <%= image_tag "furnishia/product-2.png",size: "640" %>
+          <%= image_tag "furnishia/product-3.png",size: "640" %>
+          <%= image_tag "furnishia/product-4.png",size: "640" %>
+        </div>
+
+        <!-- === product-popup-info === -->
+
+        <div class="popup-content">
+          <div class="product-info-wrapper">
+            <div class="row">
+
+              <!-- === left-column === -->
+
+              <div class="col-sm-6">
+                <div class="info-box">
+                  <strong>Maifacturer</strong>
+                  <span>Brand name</span>
+                </div>
+                <div class="info-box">
+                  <strong>Materials</strong>
+                  <span>Wood, Leather, Acrylic</span>
+                </div>
+                <div class="info-box">
+                  <strong>Availability</strong>
+                  <span><i class="fa fa-check-square-o"></i> in stock</span>
+                </div>
+              </div>
+
+              <!-- === right-column === -->
+
+              <div class="col-sm-6">
+                <div class="info-box">
+                  <strong>Available Colors</strong>
+                  <div class="product-colors clearfix">
+                    <span class="color-btn color-btn-red"></span>
+                    <span class="color-btn color-btn-blue checked"></span>
+                    <span class="color-btn color-btn-green"></span>
+                    <span class="color-btn color-btn-gray"></span>
+                    <span class="color-btn color-btn-biege"></span>
+                  </div>
+                </div>
+                <div class="info-box">
+                  <strong>Choose size</strong>
+                  <div class="product-colors clearfix">
+                    <span class="color-btn color-btn-biege">S</span>
+                    <span class="color-btn color-btn-biege checked">M</span>
+                    <span class="color-btn color-btn-biege">XL</span>
+                    <span class="color-btn color-btn-biege">XXL</span>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!--/row-->
+          </div> <!--/product-info-wrapper-->
+        </div> <!--/popup-content-->
+        <!-- === product-popup-footer === -->
+
+        <div class="popup-table">
+          <div class="popup-cell">
+            <div class="price">
+              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
+            </div>
+          </div>
+          <div class="popup-cell">
+            <div class="popup-buttons">
+              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
+              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div> <!--/product-->
+    </div> <!--popup-main-->
+  </div> <!--/container-->
+</section>
+
+
+<!-- ========================  Popular Architects ======================== -->
+<section class="products">
+
+  <div class="container">
+
+    <!-- === header title === -->
+
+    <header>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <h2 class="title">Popular Architects</h2>
+          <div class="text">
+            <p>Check out our popular architects</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="row">
+
+      <!-- === product-item === -->
+      <% index = 0 %>
+      <%  unless @popular_architects.nil? %>
+        <%  @popular_architects.each do |architect|  %>
+          <div class="col-md-3 col-xs-6">
+            <% index = index + 1 %>
+            <% if index == 6 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="info">
+                    <span class="add-favorite">
+                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    </span>
+                <span>
+                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                    </span>
+              </div>
+              <div class="btn btn-add">
+                <i class="icon icon-cart"></i>
+              </div>
+              <div class="figure-grid">
+
+                <div class="image">
+                  <% if architect.profile.image.attached? %>
+                    <%= link_to projects_path(user_id: architect.id) do %>
+                      <%= image_tag(url_for(architect.profile.image)) %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to projects_path(user_id: architect.id) do %>
+                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <div class="name">
+                    <%= link_to projects_path(user_id: architect.id) do %>
+                      <div class="h3 title"><%= architect.full_name %> <small><%= architect.category_title %></small></div>
+                    <% end %>
+                  </div>
+                </div>
+            </article>
+          </div>
+        <% end %>
+      <% end %>
+
+
+    </div> <!--/row-->
+    <!-- === button more === -->
+
+    <div class="wrapper-more">
+      <a href="<%=  popular_architect_vendors_path %>" class="btn btn-main">View more architects</a>
+    </div>
+
+    <!-- ========================  Product info popup - quick view ======================== -->
+
+    <div class="popup-main mfp-hide" id="productid1">
+
+      <!-- === product popup === -->
+
+      <div class="product">
+
+        <!-- === popup-title === -->
+
+        <div class="popup-title">
+          <div class="h1 title">Laura <small>product category</small></div>
+        </div>
+
+        <!-- === product gallery === -->
+
+        <div class="owl-product-gallery">
+          <%= image_tag "furnishia/product-1.png",size: "640" %>
+          <%= image_tag "furnishia/product-2.png",size: "640" %>
+          <%= image_tag "furnishia/product-3.png",size: "640" %>
+          <%= image_tag "furnishia/product-4.png",size: "640" %>
+        </div>
+
+        <!-- === product-popup-info === -->
+
+        <div class="popup-content">
+          <div class="product-info-wrapper">
+            <div class="row">
+
+              <!-- === left-column === -->
+
+              <div class="col-sm-6">
+                <div class="info-box">
+                  <strong>Maifacturer</strong>
+                  <span>Brand name</span>
+                </div>
+                <div class="info-box">
+                  <strong>Materials</strong>
+                  <span>Wood, Leather, Acrylic</span>
+                </div>
+                <div class="info-box">
+                  <strong>Availability</strong>
+                  <span><i class="fa fa-check-square-o"></i> in stock</span>
+                </div>
+              </div>
+
+              <!-- === right-column === -->
+
+              <div class="col-sm-6">
+                <div class="info-box">
+                  <strong>Available Colors</strong>
+                  <div class="product-colors clearfix">
+                    <span class="color-btn color-btn-red"></span>
+                    <span class="color-btn color-btn-blue checked"></span>
+                    <span class="color-btn color-btn-green"></span>
+                    <span class="color-btn color-btn-gray"></span>
+                    <span class="color-btn color-btn-biege"></span>
+                  </div>
+                </div>
+                <div class="info-box">
+                  <strong>Choose size</strong>
+                  <div class="product-colors clearfix">
+                    <span class="color-btn color-btn-biege">S</span>
+                    <span class="color-btn color-btn-biege checked">M</span>
+                    <span class="color-btn color-btn-biege">XL</span>
+                    <span class="color-btn color-btn-biege">XXL</span>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!--/row-->
+          </div> <!--/product-info-wrapper-->
+        </div> <!--/popup-content-->
+        <!-- === product-popup-footer === -->
+
+        <div class="popup-table">
+          <div class="popup-cell">
+            <div class="price">
+              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
+            </div>
+          </div>
+          <div class="popup-cell">
+            <div class="popup-buttons">
+              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
+              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div> <!--/product-->
+    </div> <!--popup-main-->
+  </div> <!--/container-->
+</section>
+
+<!-- ========================  Popular Interior ======================== -->
+<section class="products">
+
+  <div class="container">
+
+    <!-- === header title === -->
+
+    <header>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <h2 class="title">Popular Interior Designers</h2>
+          <div class="text">
+            <p>Check out our popular interior designers</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="row">
+
+      <!-- === product-item === -->
+      <% index = 0 %>
+      <%  unless @popular_interior_designers.nil? %>
+        <%  @popular_interior_designers.each do |interior_designer|  %>
+          <div class="col-md-3 col-xs-6">
+            <% index = index + 1 %>
+            <% if index == 8 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="info">
+                    <span class="add-favorite">
+                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
+                    </span>
+                <span>
+                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
+                    </span>
+              </div>
+              <div class="btn btn-add">
+                <i class="icon icon-cart"></i>
+              </div>
+              <div class="figure-grid">
+
+                <div class="image">
+                  <% if interior_designer.profile.image.attached? %>
+                    <%= link_to projects_path(user_id: interior_designer.id) do %>
+                      <%= image_tag(url_for(interior_designer.profile.image)) %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to projects_path(user_id: interior_designer.id) do %>
+                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <div class="name">
+                    <%= link_to projects_path(user_id: interior_designer.id) do %>
+                      <div class="h3 title"><%= interior_designer.full_name %> <small><%= architect.category_title %></small></div>
+                    <% end %>
+                  </div>
+                </div>
+            </article>
+          </div>
+        <% end %>
+      <% end %>
+
+
+    </div> <!--/row-->
+    <!-- === button more === -->
+
+    <div class="wrapper-more">
+      <a href="<%=  popular_interior_designer_vendors_path %>" class="btn btn-main">View more designers</a>
+    </div>
+
+    <!-- ========================  Product info popup - quick view ======================== -->
+
+    <div class="popup-main mfp-hide" id="productid1">
+
+      <!-- === product popup === -->
+
+      <div class="product">
+
+        <!-- === popup-title === -->
+
+        <div class="popup-title">
+          <div class="h1 title">Laura <small>product category</small></div>
+        </div>
+
+        <!-- === product gallery === -->
+
+        <div class="owl-product-gallery">
+          <%= image_tag "furnishia/product-1.png",size: "640" %>
+          <%= image_tag "furnishia/product-2.png",size: "640" %>
+          <%= image_tag "furnishia/product-3.png",size: "640" %>
+          <%= image_tag "furnishia/product-4.png",size: "640" %>
+        </div>
+
+        <!-- === product-popup-info === -->
+
+        <div class="popup-content">
+          <div class="product-info-wrapper">
+            <div class="row">
+
+              <!-- === left-column === -->
+
+              <div class="col-sm-6">
+                <div class="info-box">
+                  <strong>Maifacturer</strong>
+                  <span>Brand name</span>
+                </div>
+                <div class="info-box">
+                  <strong>Materials</strong>
+                  <span>Wood, Leather, Acrylic</span>
+                </div>
+                <div class="info-box">
+                  <strong>Availability</strong>
+                  <span><i class="fa fa-check-square-o"></i> in stock</span>
+                </div>
+              </div>
+
+              <!-- === right-column === -->
+
+              <div class="col-sm-6">
+                <div class="info-box">
+                  <strong>Available Colors</strong>
+                  <div class="product-colors clearfix">
+                    <span class="color-btn color-btn-red"></span>
+                    <span class="color-btn color-btn-blue checked"></span>
+                    <span class="color-btn color-btn-green"></span>
+                    <span class="color-btn color-btn-gray"></span>
+                    <span class="color-btn color-btn-biege"></span>
+                  </div>
+                </div>
+                <div class="info-box">
+                  <strong>Choose size</strong>
+                  <div class="product-colors clearfix">
+                    <span class="color-btn color-btn-biege">S</span>
+                    <span class="color-btn color-btn-biege checked">M</span>
+                    <span class="color-btn color-btn-biege">XL</span>
+                    <span class="color-btn color-btn-biege">XXL</span>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!--/row-->
+          </div> <!--/product-info-wrapper-->
+        </div> <!--/popup-content-->
+        <!-- === product-popup-footer === -->
+
+        <div class="popup-table">
+          <div class="popup-cell">
+            <div class="price">
+              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
+            </div>
+          </div>
+          <div class="popup-cell">
+            <div class="popup-buttons">
+              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
+              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div> <!--/product-->
+    </div> <!--popup-main-->
+  </div> <!--/container-->
+</section>
+
+
+<!-- ========================  Blog Block ======================== -->
+
+
+
+<!-- ========================  Banner ======================== -->
+
+
+<!-- ========================  Blog ======================== -->
+
+<section class="blog">
+
+  <div class="container">
+
+    <!-- === blog header === -->
+
+    <header>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <h1 class="h2 title">Blog</h1>
+          <div class="text">
+            <p>Latest news from the blog</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="row">
+
+      <!-- === blog item === -->
+      <% @blogs.each_with_index do |blog, index| %>
+        <% if index == 4 %>
+          <% break %>
+        <% end %>
+        <div class="col-sm-3">
+          <article>
+            <%= link_to blog do%>
+              <div class="image" >
+                <% if blog.image.attached? %>
+                  <%= image_tag(url_for(blog.image)) %><br>
+                <% else %>
+                  <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                <% end %>
+              </div>
+              <div class="entry entry-table">
+                <div class="date-wrapper">
+                  <div class="date">
+                    <span><%= blog.updated_at.strftime('%b')%></span>
+                    <strong><%= blog.updated_at.strftime('%d')%></strong>
+                    <span><%= blog.updated_at.strftime('%Y')%></span>
+                  </div>
+                </div>
+                <div class="title">
+                  <h2 class="h5"><%= blog.title %></h2>
+                </div>
+              </div>
+              <div class="show-more">
+                <span class="btn btn-main btn-block">Read more</span>
+              </div>
+            <% end %>
+          </article>
+        </div>
+      <% end %>
+      <!-- === blog item === -->
+
+
+    </div> <!--/row-->
+    <!-- === button more === -->
+
+    <div class="wrapper-more">
+      <a href="<%= blogs_path %>" class="btn btn-main">View all posts</a>
+    </div>
+
+  </div> <!--/container-->
+</section>
+
+<!-- ========================  Instagram ======================== -->
+
+<section class="instagram">
+
+  <!-- === instagram header === -->
+
+
+
+  <!-- === instagram gallery === -->
+
+  <div class="gallery clearfix">
+    <a class="item" href="#">
+
+      <%= image_tag "furnishia/square-1.jpg" %>
+    </a>
+    <a class="item" href="#">
+      <%= image_tag "furnishia/square-2.jpg" %>
+    </a>
+    <a class="item" href="#">
+      <%= image_tag "furnishia/square-3.jpg" %>
+    </a>
+    <a class="item" href="#">
+      <%= image_tag "furnishia/square-4.jpg" %>
+    </a>
+    <a class="item" href="#">
+      <%= image_tag "furnishia/square-5.jpg" %>
+    </a>
+    <a class="item" href="#">
+      <%= image_tag "furnishia/square-6.jpg" %>
+    </a>
+
+  </div> <!--/gallery-->
+
+</section>
+
+<!-- ================== Footer  ================== -->
+
+<footer>
+  <div class="container">
+
+    <!--footer showroom-->
+    <div class="footer-showroom">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2>Visit our showroom</h2>
+          <p>200 12th Ave, New York, NY 10001, USA</p>
+          <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
+        </div>
+        <div class="col-sm-4 text-center">
+          <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
+          <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
+        </div>
+      </div>
+    </div>
+
+    <!--footer links-->
+    <div class="footer-links">
+      <div class="row">
+        <div class="col-sm-4 col-md-2">
+          <h5>Browse by</h5>
+          <ul>
+            <li><a href="#">Brand</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Category</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-2">
+          <h5>Recources</h5>
+          <ul>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Sales</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-2">
+          <h5>Our company</h5>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <h5>Sign up for our newsletter</h5>
+          <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
+          <div class="form-group form-newsletter">
+            <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
+            <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--footer social-->
+
+    <div class="footer-social">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
+        </div>
+        <div class="col-sm-6 links">
+          <ul>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+

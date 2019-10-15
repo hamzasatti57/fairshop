@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  resources :about
+  resources :what_new
   resources :cities
   resources :products do
     collection do

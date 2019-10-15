@@ -1,7 +1,7 @@
 class VendorsController < ApplicationController
   def index
     @category = Category.find(params[:category_id])
-    @vendors = User.vendors.where(category: @category).paginate(page: params[:page], per_page: 2)
+    @vendors = User.vendors.where(category: @category).paginate(page: params[:page], per_page: 21)
   end
 
   def popular_list
