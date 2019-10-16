@@ -1,25 +1,42 @@
-<div class="row">
-  <div class="col-lg-9 mt-3 offset-2">
-    <div class="card">
-      <div class="card-header">
-        <strong>Project</strong>
-      </div>
-      <div class="card-body">
-        <h2 align="center">Project: <%= @project.title %></h2>
-        <div class="well col-xs-8 col-xs-offset-2">
-          <div class="Center">
-            <% @project.images.each do |image| %>
-              <%= image_tag(url_for(image.variant(resize: '200x200'))) %>
-            <% end %>
-          </div>
-          <br>
-          <h4>Description: </h4><br>
-          <p><%= @project.description%></p>
-          <div class="article-actions">
-            <%= link_to "Edit",  edit_admin_project_path(@project), class: "btn btn-xs btn-primary" %>
+<div class="main">
+  <div class="row">
+    <div class="col-lg-9 mt-3 offset-2">
+      <div class="card">
+        <div class="card-header">
+          <strong>Project</strong>
+        </div>
+        <div class="card-body body-bgg">
+          <div class="product">
+            <div class="product--title">
+              <h2><%= @project.company.title %></h2>
+            </div>
+            <div class="product--body">
+              <div class="product--image">
+                <div class="icon-images">
+                  <div class="center-sliderr">
+                    <% @project.images.each do |image| %>
+                      <img src= "<%= url_for(image)%>"/>
+                    <% end %>
+                  </div>
+                  <%# <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-front.jpg"/>
+      <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-detail.jpg"/>
+      <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-back.jpg"/> %>
+                </div>
+                <img src="<%=url_for(@project.images.first) %>" class="display-img">
+              </div>
+              <div class="product--details">
+                <div class="product-desc"><p><%= @project.description%></p></div>
+                <div class="add-to-cart">
+                  <%= link_to "Edit",  edit_admin_project_path(@project), class: "btn btn-xs btn-primary" %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+

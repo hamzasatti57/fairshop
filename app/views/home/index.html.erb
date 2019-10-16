@@ -372,7 +372,7 @@
         <% if product.visibility == true %>
           <div class="col-md-3 col-xs-6">
             <% index = index + 1 %>
-            <% if index == 6 %>
+            <% if index == 8 %>
               <% break %>
             <% end %>
             <article>
@@ -535,14 +535,13 @@
     </header>
 
     <div class="row">
-
       <!-- === product-item === -->
       <% index = 0 %>
       <%  @popular_vendors.each do |vendor|  %>
         <% if vendor.display_products? %>
-          <div class="col-md-3 col-xs-3">
+          <div class="col-md-3 col-xs-6">
             <% index = index + 1 %>
-            <% if index == 6 %>
+            <% if index == 8 %>
               <% break %>
             <% end %>
             <article>
@@ -580,8 +579,6 @@
           </div>
         <% end %>
       <% end %>
-
-
     </div> <!--/row-->
     <!-- === button more === -->
 
@@ -710,7 +707,7 @@
         <%  @popular_architects.each do |architect|  %>
           <div class="col-md-3 col-xs-6">
             <% index = index + 1 %>
-            <% if index == 6 %>
+            <% if index == 8 %>
               <% break %>
             <% end %>
             <article>

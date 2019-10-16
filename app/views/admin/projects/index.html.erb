@@ -1,15 +1,15 @@
-
 <div class="row">
-  <div class="col-lg-8 offset-2">
+  <div class="col-lg-10 offset-1">
     <div class="card">
       <div class="card-header">
-        <i class="fa fa-align-justify"></i> Listing all Projects</div>
+        <i class="fa fa-align-justify"></i> Listing all Vendors</div>
       <div class="card-body">
         <table class="table table-responsive-sm">
           <thead>
           <tr>
             <th>Title</th>
             <th>Description</th>
+            <th>Actions</th>
           </tr>
           </thead>
           <tbody>
@@ -17,9 +17,9 @@
             <tr>
               <td><%= project.title %></td>
               <td><%= truncate(project.description, length: 50) %></td>
-              <td><%= link_to "Edit",  edit_admin_project_path(project), class: "btn btn-xs btn-primary" %></td>
-              <td><%= link_to "Show",  admin_project_path(project), class: "btn btn-xs btn-success" %></td>
-              <td><%= link_to "Delete", admin_project_path(project), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
+              <td><%= link_to "Edit",  edit_admin_project_path(project), class: "btn btn-xs btn-primary" %>
+              <%= link_to "Show",  admin_project_path(project), class: "btn btn-xs btn-success" %>
+              <%= link_to "Delete", admin_project_path(project), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
             </tr>
           <% end %>
           </tbody>

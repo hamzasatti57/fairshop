@@ -138,7 +138,24 @@
             </ul>
           </li>
 
-        <% end %>
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-home"></i> Jobs</a>
+            <ul class="nav-dropdown-items">
+              <% if can? :read, User %>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-home"></i> Jobs List'.html_safe, admin_jobs_path,class:"nav-link" %>
+                </li>
+              <% end %>
+              <% if can? :create, User %>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-home"></i> Add New Job'.html_safe, new_admin_job_path,class:"nav-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </li>
+
+      <% end %>
         <% if current_user.is_vendor? %>
           <li class="nav-item nav-dropdown">
             <a class="nav-link " href="<%= admin_profile_path current_user.profile %>">

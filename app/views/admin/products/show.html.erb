@@ -1,126 +1,63 @@
-<div class="main">
 <div class="row">
-  <div class="col-lg-9 mt-3 offset-2">
+  <div class="col-lg-10 mt-3 offset-1">
     <div class="card">
       <div class="card-header">
         <strong>Product</strong>
       </div>
       <div class="card-body body-bgg">
-        <h2 align="center"><%= @product.company.title %></h2><br>
-        <h2 align="center">Product: <%= @product.title %></h2>
-        <div class="well col-xs-8 col-xs-offset-2">
-          <div class="Center">
-            <% @product.images.each do |image| %>
-              <%= image_tag(url_for(image.variant(resize: '200x200'))) %>
-            <% end %>
+        <div class="product">
+          <div class="product--title">
+            <h2><%= @product.company.title %></h2>
           </div>
-          <br>
-          <h4>Product Category: </h4><br>
-          <p><%= @product.product_category.title%></p>
-          <br>
-          <h4>Product Type: </h4><br>
-          <p><%= @product.product_type.title%></p>
-          <br>
-          <h4>Description: </h4><br>
-          <p><%= @product.description%></p>
-          <br>
-          <h4>Inventory: </h4><br>
-          <p><%= @product.inventory%></p>
-          <br>
-          <h4>Price: </h4><br>
-          <p><%= @product.price%></p>
-          <br>
-          <h4>Colors: </h4><br>
-          <% @product.colors.each do |color| %>
-            <p><%= color.title %> </p>
-            <% end %>
-          <br>
-          <h4>Dimension: LxWxH </h4><br>
-          <p>
-              <% unless @product.length.nil? %>
-              <%= @product.length%>
-            <% end %>
-            <% unless @product.width.nil? %>
-              x <%= @product.width %>
-            <% end %>
-            <% unless @product.height.nil? %>
-              x <%= @product.height %>
-              <% end %>
-          </p>
-          <br>
-          <h4>Status: </h4><br>
-          <p><%= @product.status%></p>
-          <br>
-          <h4>Visibility: </h4><br>
-          <p><%= @product.visibility%></p>
-          <br>
-          <div class="article-actions">
-            <%= link_to "Edit",  edit_admin_product_path(@product), class: "btn btn-xs btn-primary" %>
-          </div>
-        </div>
-          <div class="product">
-  <div class="product--title">
-    <h2><%= @product.company.title %></h2>
-  </div>
-  <div class="product--body">
-  <div class="product--image">
-    <div class="icon-images">
-    <div class="center-sliderr">
-    <% @product.images.each do |image| %>
-        <img src= "<%= url_for(image)%>"/>
-        <% end %>
-        </div>
-      <%# <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-front.jpg"/>
+          <div class="product--body">
+            <div class="product--image">
+              <div class="icon-images">
+                <div class="center-sliderr">
+                  <% @product.images.each do |image| %>
+                    <img src= "<%= url_for(image)%>"/>
+                  <% end %>
+                </div>
+                <%# <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-front.jpg"/>
       <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-detail.jpg"/>
       <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-back.jpg"/> %>
-    </div>
-    <img src="<%=url_for(@product.images.first) %>" class="display-img">
-  </div> 
-  <div class="product--details">
-  <div class="product--price">
-    <span class="product--price_price">Rs. <%= @product.price%></span>
-    <span class="product--price_offer">new arrivel !</span>
-  </div>
-    <div class="product-desc"><p><%= @product.description%></p></div>
-  
-  <div class="hero-info">
-            <h2>General Info</h2>
-            <ul>
-
-
-
-            <li><span>Product Type</span><%= @product.product_type.title%></li>
-            <li><span>Product Category</span><%= @product.product_type.title%></li>
-
-            <li><span>Inventory</span><%= @product.inventory%></li>
-            <li><span>Colors</span><% @product.colors.each do |color| %>
-            <%= color.title %> 
-            <% end %></li>
-            <li><span>Dimension: LxWxH</span>
-            <% unless @product.length.nil? %>
-              <%= @product.length%>
-            <% end %>
-            <% unless @product.width.nil? %>
-              x <%= @product.width %>
-            <% end %>
-            <% unless @product.height.nil? %>
-              x <%= @product.height %>
-              <% end %></li>
-            <li><span>Status </span><%= @product.status%></li>
-
-            <li><span>Visibility </span><%= @product.visibility%></li>
-            </ul>
+              </div>
+              <img src="<%=url_for(@product.images.first) %>" class="display-img">
             </div>
-    <div class="add-to-cart">
-      <%# <button class="btn btn--cart">Shop it!</button> %>
-
-            <%= link_to "Edit",  edit_admin_product_path(@product), class: "btn btn--cart" %>
-    </div>
-    
-  </div>
-  </div>
-</div>
-</div>
+            <div class="product--details">
+              <div class="product--price">
+                <span class="product--price_price">Rs. <%= @product.price%></span>
+                <span class="product--price_offer">new arrivel !</span>
+              </div>
+              <div class="product-desc"><p><%= @product.description%></p></div>
+              <div class="hero-info">
+                <h2>General Info</h2>
+                <ul>
+                  <li><span>Product Type</span><%= @product.product_type.title%></li>
+                  <li><span>Product Category</span><%= @product.product_type.title%></li>
+                  <li><span>Inventory</span><%= @product.inventory%></li>
+                  <li><span>Colors</span><% @product.colors.each do |color| %>
+                      <%= color.title %>
+                    <% end %></li>
+                  <li><span>Dimension: LxWxH</span>
+                    <% unless @product.length.nil? %>
+                      <%= @product.length%>
+                    <% end %>
+                    <% unless @product.width.nil? %>
+                      x <%= @product.width %>
+                    <% end %>
+                    <% unless @product.height.nil? %>
+                      x <%= @product.height %>
+                    <% end %></li>
+                  <li><span>Status </span><%= @product.status%></li>
+                  <li><span>Visibility </span><%= @product.visibility%></li>
+                </ul>
+              </div>
+              <div class="add-to-cart">
+                <%= link_to "Edit",  edit_admin_product_path(@product), class: "btn btn--cart" %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

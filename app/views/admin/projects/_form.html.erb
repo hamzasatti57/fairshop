@@ -6,7 +6,6 @@
       <%= image_tag(url_for(image.variant(resize: '200x200'))) %>
       <%= link_to 'Remove', delete_image_attachment_admin_project_path(image_id: image.signed_id, id: @project.id),
                   method: :delete,
-                  remote: true,
                   data: { confirm: 'Are you sure?' } %>
     </div>
   <% end %><br>

@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-lg-10 offset-1">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Listing all Jobs</div>
+      <div class="card-body">
+        <table class="table table-responsive-sm">
+          <thead>
+          <tr>
+            <th>Title</th>
+            <th>Descrption</th>
+            <th>Address</th>
+            <th>Salary</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @jobs.each do |job| %>
+            <tr>
+              <td><%= job.title %></td>
+              <td><%= truncate(job.description, length: 50) %></td>
+              <td><%= truncate(job.address, length: 50) %></td>
+              <td><%= job.salary %></td>
+              <td><%= link_to "Edit",  edit_admin_job_path(job), class: "btn btn-xs btn-primary" %>
+              <%= link_to "Show",  admin_job_path(job), class: "btn btn-xs btn-success" %>
+              <%= link_to "Delete", admin_job_path(job), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

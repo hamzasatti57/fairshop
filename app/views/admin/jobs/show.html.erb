@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-9 mt-3 offset-2">
+    <div class="card">
+      <div class="card-header">
+        <strong>Job</strong>
+      </div>
+      <div class="card-body">
+        <h2 align="center">Job: <%= @job.title %></h2>
+        <div class="well col-xs-8 col-xs-offset-2">
+          <h4>Description: </h4><br>
+          <p><%= @job.description%></p>
+          <h4>Address: </h4><br>
+          <p><%= @job.address%></p>
+          <h4>Salary: </h4><br>
+          <p><%= @job.salary%></p>
+          <div class="article-actions">
+            <%= link_to "Edit",  edit_admin_job_path(@job), class: "btn btn-xs btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :about
+  resources :product_category
   resources :what_new
   resources :cities
+  resources :contact_us
   resources :products do
     collection do
       post :popular_list
@@ -53,6 +55,7 @@ Rails.application.routes.draw do
     resources :profiles
     resources :cities
     resources :blogs
+    resources :jobs
     resources :advertisements
     resources :projects do
       member do

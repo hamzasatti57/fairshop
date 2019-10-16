@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿$( document ).on('turbolinks:load', function() {
 
     "use strict";
 
@@ -691,11 +691,15 @@
 
 });
 
-$(window).bind('load', function () {
+// $(window).bind('load', function () {
+//     setTimeout(function () {
+//         $('.page-loader').addClass('loaded');
+//     }, 1000);
+// });
+
+$( window ).on('turbolinks:load', function() {
     setTimeout(function () {
         $('.page-loader').addClass('loaded');
     }, 1000);
-});
-
-
+})
 

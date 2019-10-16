@@ -5,91 +5,52 @@
         <strong>Profile</strong>
       </div>
       <div class="card-body body-bgg">
-        <h2 align="center">Profile: </h2>
-        <div class="well col-xs-8 col-xs-offset-2">
-          <div class="Center">
-            <% if @profile.image.attached? %>
-              <%= image_tag(url_for(@profile.image.variant(resize: '200x200'))) %><br>
-            <% end %>
-          </div>
-          <h4>Name: </h4><br>
-          <p><%= @profile.user_full_name %></p>
-          <h4>Category: </h4><br>
-          <p><%= @profile.user_category_title %></p><br>
-          <h4>Contact: </h4><br>
-          <p><%= @profile.phone%></p><br>
-          <h4>Address: </h4><br>
-          <p><%= @profile.address%></p><br>
-<!--          <h4>Date of Birth: </h4><br>-->
-<!--          <p><%#= date_of_birth @profile %></p><br>-->
-<!--          <h4>Gender: </h4><br>-->
-<!--          <p><%#= @profile.gender %></p><br>-->
-          <h4>Descrption: </h4><br>
-          <p><%= @profile.description %></p><br>
-          <h4>Facebook: </h4><br>
-          <p><%= @profile.facebook %></p><br>
-          <h4>Instagram: </h4><br>
-          <p><%= @profile.instagram %></p><br>
-          <h4>Twitter: </h4><br>
-          <p><%= @profile.twitter %></p><br>
-          <div class="article-actions">
-            <%= link_to "Edit",  edit_admin_profile_path(@profile), class: "btn btn-xs btn-primary" %>
-          </div>
-
-
-          <div class="row">
+        <div class="article-actions">
+          <%= link_to "Edit",  edit_admin_profile_path(@profile), class: "btn btn-xs btn-primary" %>
+        </div>
+        <div class="row">
           <div class="col-lg-6">
             <div class="hero-text">
-            
-            <h2>Maria Williams</h2>
-            <p>I’m a digital designer in love with photography, painting and discovering new worlds and cultures.</p>
+              <h2><%= @profile.user_full_name %></h2>
+              <p><%= @profile.description %></p>
             </div>
             <div class="hero-info">
-            <h2>General Info</h2>
-            <ul>
-            <li><span>Date of Birth</span>Aug 25, 1988</li>
-            <li><span>Address</span>Rosia Road 55, Gibraltar, UK</li>
-            <li><span>E-mail</span>mariawilliams@company.com</li>
-            <li><span>Phone </span>+43 5266 22 345</li>
-            </ul>
-            </div>
-            </div>
-         
-
-         <div class="col-lg-6">
-            <figure class="hero-image">
-                        <% if @profile.image.attached? %>
-              <%= image_tag(url_for(@profile.image)) %><br>
-            <% end %>
-            </figure>
+              <h2>General Info</h2>
+              <ul>
+                <li><span>Address</span><%= @profile.address%></li>
+                <li><span>E-mail</span><%= @profile.user.email %></li>
+                <li><span>Phone </span><%= @profile.phone%></li>
+              </ul>
             </div>
           </div>
-
-
-
+          <div class="col-lg-6">
+            <figure class="hero-image">
+              <% if @profile.image.attached? %>
+                <%= image_tag(url_for(@profile.image)) %><br>
+              <% end %>
+            </figure>
+          </div>
         </div>
-
-        <div class="">
+      </div>
+      <div class="">
         <div class="social-section">
-        <div class="container-fluid">
-        <div class="row">
-        <div class="col-xl-10 offset-xl-1">
-        <div class="social-link-warp">
-        <div class="social-links">
-        <a href=""><i class="fa fa-pinterest"></i></a>
-        <a href=""><i class="fa fa-linkedin"></i></a>
-        <a href=""><i class="fa fa-instagram"></i></a>
-        <a href=""><i class="fa fa-facebook"></i></a>
-        <a href=""><i class="fa fa-twitter"></i></a>
-        </div>
-        <h2 class="hidden-md hidden-sm">Social Profiles</h2>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xl-10 offset-xl-1">
+                <div class="social-link-warp">
+                  <div class="social-links">
+                    <a href="<%= @profile.instagram %>"><i class="fa fa-instagram"></i></a>
+                    <a href="<%= @profile.facebook %>"><i class="fa fa-facebook"></i></a>
+                    <a href="<%= @profile.twitter %>"><i class="fa fa-twitter"></i></a>
+                  </div>
+                  <h2 class="hidden-md hidden-sm">Social Profiles</h2>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>

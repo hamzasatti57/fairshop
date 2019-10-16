@@ -2558,6 +2558,10 @@ nav .cart-wrapper.open {
 
 .products article .figure-grid .text .description {
     display: none;
+
+}
+.figure-grid .image img{
+    min-height: 262px;
 }
 
 .products article .figure-block .text .description {
@@ -6211,6 +6215,12 @@ footer .footer-social li a {
     color: red;
 }
 
+@media (min-width: 1200px)
+{
+    .instagram {
+        padding-top: 0px !important;
+    }
+}
 /* Version 2.2.0. 
  * Theme credit ElaThemes.com */
 

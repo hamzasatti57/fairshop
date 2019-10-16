@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :get_data
 
   def get_data
-    @categories = Category.all
+    @product_categories = ProductCategory.all
   end
   protected
 

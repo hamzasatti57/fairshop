@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :companies, dependent: :destroy
   has_many :projects, through: :companies
   has_many :products, through: :companies
+  has_many :jobs, dependent: :destroy
   validates :username, presence: true,
             uniqueness:{case_sensitive: false},
             length:{minimum: 3, maximum: 25}

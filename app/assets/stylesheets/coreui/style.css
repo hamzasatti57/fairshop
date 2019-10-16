@@ -17078,5 +17078,11 @@ figure.hero-image img {
   background-color: #f64846;
   border-color: #f63c3a;
 }
+.btn-success {
+    color: #fff;
+    background-color: #3ea662;
+    border-color: #3a9d5d;
+}
+.btn
 /* product description page end */
 /* custom profile page design end */
