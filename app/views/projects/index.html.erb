@@ -57,19 +57,7 @@
             <%  @projects.each do |project|  %>
               <div class="col-md-4 col-xs-6">
                 <article>
-                  <div class="info">
-                    <span class="add-favorite">
-                        <a href="javascript:void(0);" data-title="Add to favorites" data-title-added="Added to favorites list"><i class="icon icon-heart"></i></a>
-                    </span>
-                    <span>
-                        <a href="#productid1" class="mfp-open" data-title="Quick wiew"><i class="icon icon-eye"></i></a>
-                    </span>
-                  </div>
-                  <div class="btn btn-add">
-                    <i class="icon icon-cart"></i>
-                  </div>
                   <div class="figure-grid">
-
                     <div class="image">
                       <% if project.images.attached? %>
                         <%= link_to project do%>
