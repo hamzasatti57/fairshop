@@ -7,19 +7,19 @@ class HomeController < ApplicationController
     @advertisements = Advertisement.all
     category = Category.find_by(title: 'Architects')
     if category.nil?
-      @popular_architects = nil
+      @popular_architects = []
     else
       @popular_architects = User.most_hit(nil ,100).vendor.where(category_id: category.id)
     end
     category = Category.find_by(title: 'Interior Designer')
     if category.nil?
-      @popular_interior_designers = nil
+      @popular_interior_designers = []
     else
       @popular_interior_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
     end
     category = Category.find_by(title: 'Product Designer')
     if category.nil?
-      @popular_product_designers = nil
+      @popular_product_designers = []
     else
       @popular_product_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
     end
