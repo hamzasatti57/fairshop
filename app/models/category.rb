@@ -10,6 +10,6 @@ class Category < ApplicationRecord
   end
 
   def self.project_categories
-    ["Interior Designer", "Architects",]
+    ["Interior Designer", "Architects", "Product Designer"]
   end
 end
