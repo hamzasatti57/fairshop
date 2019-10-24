@@ -22,6 +22,7 @@ gem 'activestorage-validator'
 gem 'punching_bag'
 gem 'will_paginate', '~> 3.1.0'
 gem 'toastr-rails'
+gem 'aws-sdk-s3'
 
 
 # Use SCSS for stylesheets
