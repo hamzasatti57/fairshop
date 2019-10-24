@@ -74,14 +74,14 @@
 
           <div class="custom-home-tiles">
             <div class="row">
-            <% @categories.each_with_index  do |category, index| %>
-              <% if index == 9 %>
-                <% break %>
+              <% @categories.each_with_index  do |category, index| %>
+                <% if index == 9 %>
+                  <% break %>
+                <% end %>
+                <div class="col-md-2">
+                  <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
+                </div>
               <% end %>
-              <div class="col-md-2">
-                <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
-              </div>
-            <% end %>
             </div>
           </div>
         </div>
@@ -129,198 +129,7 @@
 
 <!-- ========================  Icons slider ======================== -->
 
-<section class="owl-icons-wrapper owl-icons-frontpage">
 
-  <!-- === header === -->
-
-  <header class="hidden">
-    <h2>Product categories</h2>
-  </header>
-
-  <div class="container">
-
-    <div class="owl-icons">
-
-<!--      <!-- === icon item === -->-->
-      <%# @categories.each_with_index  do |category, index| %>
-        <%# if index == 8 %>
-          <%# break %>
-        <%# end %>
-<!--        <a href="<%#= vendors_path(category_id: category.id) %>">-->
-<!--          <figure>-->
-<!--            <i class="f-icon f-icon-sofa"></i>-->
-<!--            <figcaption><%#= category.title %></figcaption>-->
-<!--          </figure>-->
-<!--        </a>-->
-      <%# end %>
-
-      <!--
-
-                         <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-armchair"></i>-->
-      <!--                            <figcaption>Armchairs</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-chair"></i>-->
-      <!--                            <figcaption>Chairs</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-dining-table"></i>-->
-      <!--                            <figcaption>Dining tables</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-media-cabinet"></i>-->
-      <!--                            <figcaption>Media storage</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-table"></i>-->
-      <!--                            <figcaption>Tables</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-bookcase"></i>-->
-      <!--                            <figcaption>Bookcase</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-bedroom"></i>-->
-      <!--                            <figcaption>Bedroom</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-nightstand"></i>-->
-      <!--                            <figcaption>Nightstand</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-children-room"></i>-->
-      <!--                            <figcaption>Children room</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-kitchen"></i>-->
-      <!--                            <figcaption>Kitchen</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-bathroom"></i>-->
-      <!--                            <figcaption>Bathroom</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-wardrobe"></i>-->
-      <!--                            <figcaption>Wardrobe</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-shoe-cabinet"></i>-->
-      <!--                            <figcaption>Shoe cabinet</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-office"></i>-->
-      <!--                            <figcaption>Office</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-bar-set"></i>-->
-      <!--                            <figcaption>Bar sets</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-lightning"></i>-->
-      <!--                            <figcaption>Lightning</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-carpet"></i>-->
-      <!--                            <figcaption>Varpet</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-      <!--                    <!-- === icon item === -->
-
-      <!--                    <a href="#">-->
-      <!--                        <figure>-->
-      <!--                            <i class="f-icon f-icon-accessories"></i>-->
-      <!--                            <figcaption>Accessories</figcaption>-->
-      <!--                        </figure>-->
-      <!--                    </a>-->
-
-    </div> <!--/owl-icons-->
-  </div> <!--/container-->
-</section>
 
 <!-- ========================  Stretcher widget ======================== -->
 <br>
@@ -427,7 +236,7 @@
                   <% end %>
                 <% else %>
                   <%= link_to product do%>
-                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <img src="/assets/furnishia/no_image_product.jpg" alt="" width="360" />
                   <% end %>
                 <% end %>
               </div>
@@ -577,7 +386,7 @@
                   <% end %>
                 <% else %>
                   <%= link_to products_path(user_id: vendor.id) do %>
-                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <img src="/assets/furnishia/user-1.jpg" alt="" width="360" />
                   <% end %>
                 <% end %>
               </div>
@@ -588,7 +397,7 @@
                   <% end %>
                 </div>
               </div>
-          </article>
+            </div>
           </article>
         <% end %>
       </div>
@@ -727,7 +536,7 @@
                   <% end %>
                 <% else %>
                   <%= link_to projects_path(user_id: architect.id) do %>
-                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <img src="/assets/furnishia/user-1.jpg" alt="" width="360" />
                   <% end %>
                 <% end %>
               </div>
@@ -738,7 +547,7 @@
                   <% end %>
                 </div>
               </div>
-          </article>
+            </div>
           </article>
         <% end %>
       </div>
@@ -877,7 +686,7 @@
                   <% end %>
                 <% else %>
                   <%= link_to projects_path(user_id: interior_designer.id) do %>
-                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <img src="/assets/furnishia/user-1.jpg" alt="" width="360" />
                   <% end %>
                 <% end %>
               </div>
@@ -888,7 +697,7 @@
                   <% end %>
                 </div>
               </div>
-          </article>
+            </div>
           </article>
         <% end %>
       </div>
@@ -1030,7 +839,7 @@
                   <% end %>
                 <% else %>
                   <%= link_to products_path(user_id: designer.id) do %>
-                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <img src="/assets/furnishia/user-1.jpg" alt="" width="360" />
                   <% end %>
                 <% end %>
               </div>
@@ -1041,6 +850,7 @@
                   <% end %>
                 </div>
               </div>
+            </div>
           </article>
         <% end %>
       </div>
@@ -1182,7 +992,7 @@
                 <% if blog.image.attached? %>
                   <%= image_tag(url_for(blog.image)) %><br>
                 <% else %>
-                  <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                  <img src="/assets/furnishia/no_image_product.jpg" alt="" width="360" />
                 <% end %>
               </div>
               <div class="entry entry-table">
@@ -1245,7 +1055,7 @@
                 <% if advertisement.image.attached? %>
                   <%= image_tag(url_for(advertisement.image)) %><br>
                 <% else %>
-                  <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                  <img src="/assets/furnishia/no_image_product.jpg" alt="" width="360" />
                 <% end %>
               </div>
               <div class="entry entry-table">
@@ -1356,6 +1166,3 @@
   </div>
 </footer>
 
-<script>
-
-</script>
