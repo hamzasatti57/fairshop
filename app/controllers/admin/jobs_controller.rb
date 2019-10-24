@@ -33,6 +33,7 @@ class Admin::JobsController < AdminController
   end
 
   def destroy
+    @job = Job.find(params[:id])
     @job.destroy
     flash[:danger] = "Job Successfully Deleted"
     redirect_to admin_jobs_path
@@ -41,7 +42,7 @@ class Admin::JobsController < AdminController
   private
 
   def job_params
-    params.required(:job).permit(:title, :description, :address, :salary, :user_id)
+    params.required(:job).permit(:title, :description, :address, :salary, :user_id, :image)
   end
 
   def get_job

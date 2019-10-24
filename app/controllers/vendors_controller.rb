@@ -25,4 +25,13 @@ class VendorsController < ApplicationController
       @popular_interior_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id).paginate(page: params[:page], per_page: 20)
     end
   end
+
+  def popular_product_designer
+    category = Category.find_by(title: 'Product Designer')
+    if category.nil?
+      @popular_product_designers = nil
+    else
+      @popular_product_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id).paginate(page: params[:page], per_page: 20)
+    end
+  end
 end

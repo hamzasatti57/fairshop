@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+  $('#comments-container').prepend('<%= j render partial: 'comment', locals: { comment: @comment } %>');
+  $('#comments-count').text('<%= @comments_count %> comments');
+  $('#comment_statement').val('');
+<% else %>
+  toastr.error('Sign in to comment')
+<% end %>
+
+

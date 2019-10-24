@@ -41,7 +41,7 @@ class Admin::CommentsController < AdminController
   private
 
   def comment_params
-    params.required(:comment).permit(:title, :description, :image)
+    params.required(:comment).permit(:statement)
   end
 
   def get_comment

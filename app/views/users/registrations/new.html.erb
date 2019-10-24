@@ -9,13 +9,14 @@
                 <h1>Sign Up</h1>
                 <p class="text-muted">Sign up to your account</p>
                 <%= render 'shared/errors', obj: resource %>
+                <%= f.hidden_field :role, value: '1g4A7d2gaa@' %>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="icon-user"></i>
                       </span>
                   </div>
-                  <%= f.text_field :first_name,  class: "form-control", placeholder: "First Name", autofocus: true %>
+                  <%= f.text_field :first_name,  class: "form-control", placeholder: "First Name", autofocus: true,  :required => true %>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -23,7 +24,7 @@
                         <i class="icon-user"></i>
                       </span>
                   </div>
-                  <%= f.text_field :last_name,  class: "form-control", placeholder: "Last Name", autofocus: true %>
+                  <%= f.text_field :last_name,  class: "form-control", placeholder: "Last Name", autofocus: true,  :required => true %>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -31,7 +32,7 @@
                         <i class="icon-user"></i>
                       </span>
                   </div>
-                  <%= f.text_field :username,  class: "form-control", placeholder: "Username", autofocus: true %>
+                  <%= f.text_field :username,  class: "form-control", placeholder: "Username", autofocus: true,  :required => true %>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -39,7 +40,7 @@
                         <i class="icon-envelope-open"></i>
                       </span>
                   </div>
-                  <%= f.email_field :email,  class: "form-control", placeholder: "Email", autofocus: true %>
+                  <%= f.email_field :email,  class: "form-control", placeholder: "Email", autofocus: true, :required => true %>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
@@ -47,7 +48,7 @@
                         <i class="icon-lock"></i>
                       </span>
                   </div>
-                  <%= f.password_field :password,  class: "form-control", placeholder: "Password", autofocus: true %>
+                  <%= f.password_field :password,  class: "form-control", placeholder: "Password", autofocus: true,  :required => true %>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
@@ -55,7 +56,7 @@
                         <i class="icon-lock"></i>
                       </span>
                   </div>
-                  <%= f.password_field :password_confirmation,  class: "form-control", placeholder: "Confirm Password", autofocus: true %>
+                  <%= f.password_field :password_confirmation,  class: "form-control", placeholder: "Confirm Password", autofocus: true, :required => true %>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
@@ -64,7 +65,7 @@
 "></i>
                       </span>
                   </div>
-                  <%= f.text_field :contact_details,  class: "form-control", placeholder: "Contact Number", autofocus: true %>
+                  <%= f.text_field :contact_details,  class: "form-control", placeholder: "Contact Number", autofocus: true,  :required => true %>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
@@ -73,7 +74,7 @@
 "></i>
                       </span>
                   </div>
-                  <%= f.select(:city_id, options_for_select(City.all.map{|city| [city.title, city.id]}), { prompt: "Please Select" }, { class: 'form-control' }) %>
+                  <%= f.select(:city_id, options_for_select(City.all.map{|city| [city.title, city.id]}), { prompt: "Please Select" }, {  :required => true, class: 'form-control' }) %>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
@@ -83,7 +84,7 @@
 "></i>
                       </span>
                   </div>
-                  <%= f.select(:category_id, options_for_select(Category.all.map{|category| [category.title, category.id]}), { prompt: "Please Select" }, { class: 'form-control' }) %>
+                  <%= f.select(:category_id, options_for_select(Category.all.map{|category| [category.title, category.id]}),  { prompt: "Please Select" }, { :required => true, class: 'form-control' }) %>
                 </div>
                 <div class="row">
                   <div class="col-6">

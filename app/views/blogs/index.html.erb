@@ -57,51 +57,15 @@
       <div class="row">
 
         <!-- === blog-content === -->
-
-        <div class="col-md-9">
-
-          <div class="row">
-
-            <!-- === blog-item === -->
-            <% @blogs.each do |blog| %>
-              <div class="col-sm-6">
-                <article>
-                  <%= link_to blog do%>
-                    <div class="image" >
-                      <% if blog.image.attached? %>
-                        <%= image_tag(url_for(blog.image)) %><br>
-                      <% else %>
-                        <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                      <% end %>
-                    </div>
-                    <div class="entry entry-table">
-                      <div class="date-wrapper">
-                        <div class="date">
-                          <span><%= blog.updated_at.strftime('%b')%></span>
-                          <strong><%= blog.updated_at.strftime('%d')%></strong>
-                          <span><%= blog.updated_at.strftime('%Y')%></span>
-                        </div>
-                      </div>
-                      <div class="title">
-                        <h2 class="h5"><%= blog.title %></h2>
-                      </div>
-                    </div>
-                  <% end %>
-                </article>
-              </div>
-            <% end %>
-            <!-- === blog-item === -->
+<div id="blogs-div">
+  <% if !@blogs.nil? %>
+    <%= render partial: 'blogs_items', locals: { blogs: @blogs } %>
+  <% end %>
+</div>
 
 
-          </div>
 
-          <!-- === pagination === -->
 
-          <div class="pagination-wrapper">
-            <%= will_paginate @blogs %>
-          </div> <!--/pagination-->
-
-        </div>
 
         <!-- === blog-menu === -->
 
@@ -112,9 +76,9 @@
             <!-- === box-search === -->
 
             <div class="box box-search">
-              <%= form_tag search_blogs_path  do %>
-                <%= text_field_tag :q, nil, class: "form-control", autocomplete: false, placeholder: "Search the blog", autofocus: true %>
-                <%= submit_tag "Search", class: "btn btn-main btn-sm"%>
+              <%= form_tag blogs_path, method: :get, remote: true do %>
+                <%= text_field_tag :q, nil, class: "form-control search-value", autocomplete: false, placeholder: "Search the blog", autofocus: true %>
+                <%= submit_tag "Search", class: "btn btn-main btn-sm search-submit"%>
               <% end %>
             </div>
 
@@ -235,3 +199,8 @@
     </div>
   </footer>
 
+  <script>
+      $(function(){
+
+      })
+  </script>

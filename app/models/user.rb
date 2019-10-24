@@ -4,15 +4,19 @@ class User < ApplicationRecord
   has_many :projects, through: :companies
   has_many :products, through: :companies
   has_many :jobs, dependent: :destroy
-  validates :username, presence: true,
-            uniqueness:{case_sensitive: false},
-            length:{minimum: 3, maximum: 25}
+  has_many :advertisements, dependent: :destroy
+  has_many :comments, class_name: "Comment", foreign_key: "parent_id"
+  has_many :ratings, class_name: "Rating", foreign_key: "parent_id"
+  has_many :customer_comments, class_name: "Comment", foreign_key: "user_id"
+  has_many :customer_ratings, class_name: "Rating", foreign_key: "user_id"
+  validates :username,
+            uniqueness:{allow_nil: true, case_sensitive: false}
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   validates :email, presence: true,
             uniqueness: {case_sensitive: false},
             length: {maximum: 105},
             format: {with: VALID_EMAIL_REGEX}
-  enum role: {admin: 0, vendor: 1, buyer: 2}
+  enum role: {admin: 0, vendor: 1, customer: 2}
   acts_as_punchable
 
   # Include default devise modules. Others available are:
@@ -20,8 +24,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :category
-  belongs_to :city
+  belongs_to :category, optional: true
+  belongs_to :city, optional: true
 
 
 
@@ -38,7 +42,9 @@ class User < ApplicationRecord
   def is_vendor?
     self.role == 'vendor'
   end
-
+  def is_customer?
+    self.role == 'customer'
+  end
   def full_name
     [first_name, last_name].join(" ")
   end

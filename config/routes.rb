@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :product_category
   resources :what_new
   resources :cities
+  resources :advertisements
+  resources :jobs
+  resources :comments
+  resources :ratings
   resources :contact_us
   resources :products do
     collection do
@@ -43,6 +47,9 @@ Rails.application.routes.draw do
   }
 
   root 'home#index'
+  devise_scope :user do
+    get "admin" => "users/sessions#new"
+  end
   namespace :admin do
     get 'admin_task/home'
     resources :users

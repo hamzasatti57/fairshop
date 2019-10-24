@@ -3,88 +3,72 @@
 
 
 
-  <!--Use class "navbar-fixed" or "navbar-default" -->
-  <!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
+<!--Use class "navbar-fixed" or "navbar-default" -->
+<!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
 
-  <!-- ======================== Navigation ======================== -->
+<!-- ======================== Navigation ======================== -->
 
 
-  <!-- ========================  Main header ======================== -->
+<!-- ========================  Main header ======================== -->
 
-  <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
-    <header>
-      <div class="container">
-        <h1 class="h2 title"><%= @city.title %> Vendors</h1>
-        <ol class="breadcrumb breadcrumb-inverted">
-          <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
-          <li><a class="active" ><%= @city.title %> Vendors</a></li>
-        </ol>
-      </div>
-    </header>
-  </section>
-
-  <!-- ========================  Product ======================== -->
-
-  <section class="product">
-    <div class="main">
-      <div class="container">
-
-      </div>
+<section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
+  <header>
+    <div class="container">
+      <h1 class="h2 title"><%= @city.title %> Vendors</h1>
+      <ol class="breadcrumb breadcrumb-inverted">
+        <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
+        <li><a class="active" ><%= @city.title %> Vendors</a></li>
+      </ol>
     </div>
+  </header>
+</section>
 
-    <!-- === product-info === -->
+<!-- ========================  Product ======================== -->
 
-    <div class="">
-      <div class="container">
+<section class="product">
+  <div class="main">
+    <div class="container">
 
-        <% @vendors.each_with_index do |vendor, index| %>
-          <% if index % 3 == 0 %>
-            <% if index != 0 %>
-              </div>
-            <% end %>
-            <div class="row">
-              <div class="col-md-4 col-sm-4">
-                <div class="designer" style="margin-top: 0">
-                  <div class="box">
-                    <div class="image">
-                      <% if vendor.profile.image.attached? %>
-                        <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
-                      <%else %>
-                        <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
-                      <% end %>
-                    </div>
-                    <div class="name">
-                      <% if vendor.display_products? %>
-                        <%= link_to products_path(user_id: vendor.id) do %>
-                          <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
-                        <% end %>
-                      <% end %>
-                      <% if vendor.display_projects? %>
-                        <%= link_to projects_path(user_id: vendor.id) do %>
-                          <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
-                        <% end %>
-                      <% end %>
-                      <hr/>
-                      <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= vendor.email %></a></p>
-                      <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></a></p>
-                      <p>
-                        <a href="#" class="btn btn-main btn-xs"><i class="icon icon-user"></i></a>
-                        <a href="#" class="btn btn-main btn-xs"><i class="icon icon-printer"></i></a>
-                        <a href="#" class="btn btn-main btn-xs"><i class="icon icon-layers"></i></a>
-                      </p>
-                    </div> <!--/name-->
-                  </div> <!--/box-->
-                </div> <!--/designer-->
-              </div>
-          <% else %>
+    </div>
+  </div>
+
+  <!-- === product-info === -->
+
+  <div class="">
+    <div class="container">
+
+      <% @vendors.each_with_index do |vendor, index| %>
+        <% if index % 3 == 0 %>
+          <% if index != 0 %>
+            </div>
+          <% end %>
+          <div class="row">
             <div class="col-md-4 col-sm-4">
               <div class="designer" style="margin-top: 0">
                 <div class="box">
                   <div class="image">
                     <% if vendor.profile.image.attached? %>
-                      <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
+                      <% if vendor.display_products? %>
+                        <%= link_to products_path(user_id: vendor.id) do %>
+                          <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
+                        <% end %>
+                      <% end %>
+                      <% if vendor.display_projects? %>
+                        <%= link_to projects_path(user_id: vendor.id) do %>
+                          <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
+                        <% end %>
+                      <% end %>
                     <%else %>
-                      <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
+                      <% if vendor.display_products? %>
+                        <%= link_to products_path(user_id: vendor.id) do %>
+                          <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
+                        <% end %>
+                      <% end %>
+                      <% if vendor.display_projects? %>
+                        <%= link_to projects_path(user_id: vendor.id) do %>
+                          <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
+                        <% end %>
+                      <% end %>
                     <% end %>
                   </div>
                   <div class="name">
@@ -110,182 +94,234 @@
                 </div> <!--/box-->
               </div> <!--/designer-->
             </div>
-          <% end %>
+        <% else %>
+          <div class="col-md-4 col-sm-4">
+            <div class="designer" style="margin-top: 0">
+              <div class="box">
+                <div class="image">
+                  <% if vendor.profile.image.attached? %>
+                    <% if vendor.display_products? %>
+                      <%= link_to products_path(user_id: vendor.id) do %>
+                        <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
+                      <% end %>
+                    <% end %>
+                    <% if vendor.display_projects? %>
+                      <%= link_to projects_path(user_id: vendor.id) do %>
+                        <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
+                      <% end %>
+                    <% end %>
+                  <%else %>
+                    <% if vendor.display_products? %>
+                      <%= link_to products_path(user_id: vendor.id) do %>
+                        <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
+                      <% end %>
+                    <% end %>
+                    <% if vendor.display_projects? %>
+                      <%= link_to projects_path(user_id: vendor.id) do %>
+                        <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="name">
+                  <% if vendor.display_products? %>
+                    <%= link_to products_path(user_id: vendor.id) do %>
+                      <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
+                    <% end %>
+                  <% end %>
+                  <% if vendor.display_projects? %>
+                    <%= link_to projects_path(user_id: vendor.id) do %>
+                      <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
+                    <% end %>
+                  <% end %>
+                  <hr/>
+                  <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= vendor.email %></a></p>
+                  <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></a></p>
+                  <p>
+                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-user"></i></a>
+                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-printer"></i></a>
+                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-layers"></i></a>
+                  </p>
+                </div> <!--/name-->
+              </div> <!--/box-->
+            </div> <!--/designer-->
+          </div>
         <% end %>
-        </div>
-        </div><!--/container-->
-    <!--/info-->
-  </section>
-
-  <!-- ========================  Product info popup - quick view ======================== -->
-
-  <div class="popup-main mfp-hide" id="productid1">
-
-    <!-- === product popup === -->
-
-    <div class="product">
-
-      <!-- === popup-title === -->
-
-      <div class="popup-title">
-        <div class="h1 title">Laura <small>product category</small></div>
+      <% end %>
       </div>
+      </div><!--/container-->
+  <!--/info-->
+</section>
 
-      <!-- === product gallery === -->
+<!-- ========================  Product info popup - quick view ======================== -->
 
-      <div class="owl-product-gallery">
-        <img src="assets/images/product-1.png" alt="" width="640" />
-        <img src="assets/images/product-2.png" alt="" width="640" />
-        <img src="assets/images/product-3.png" alt="" width="640" />
-        <img src="assets/images/product-4.png" alt="" width="640" />
-      </div>
+<div class="popup-main mfp-hide" id="productid1">
 
-      <!-- === product-popup-info === -->
+  <!-- === product popup === -->
 
-      <div class="popup-content">
-        <div class="product-info-wrapper">
-          <div class="row">
+  <div class="product">
 
-            <!-- === left-column === -->
+    <!-- === popup-title === -->
 
-            <div class="col-sm-6">
-              <div class="info-box">
-                <strong>Maifacturer</strong>
-                <span>Brand name</span>
-              </div>
-              <div class="info-box">
-                <strong>Materials</strong>
-                <span>Wood, Leather, Acrylic</span>
-              </div>
-              <div class="info-box">
-                <strong>Availability</strong>
-                <span><i class="fa fa-check-square-o"></i> in stock</span>
-              </div>
-            </div>
+    <div class="popup-title">
+      <div class="h1 title">Laura <small>product category</small></div>
+    </div>
 
-            <!-- === right-column === -->
+    <!-- === product gallery === -->
 
-            <div class="col-sm-6">
-              <div class="info-box">
-                <strong>Available Colors</strong>
-                <div class="product-colors clearfix">
-                  <span class="color-btn color-btn-red"></span>
-                  <span class="color-btn color-btn-blue checked"></span>
-                  <span class="color-btn color-btn-green"></span>
-                  <span class="color-btn color-btn-gray"></span>
-                  <span class="color-btn color-btn-biege"></span>
-                </div>
-              </div>
-              <div class="info-box">
-                <strong>Choose size</strong>
-                <div class="product-colors clearfix">
-                  <span class="color-btn color-btn-biege">S</span>
-                  <span class="color-btn color-btn-biege checked">M</span>
-                  <span class="color-btn color-btn-biege">XL</span>
-                  <span class="color-btn color-btn-biege">XXL</span>
-                </div>
-              </div>
-            </div>
+    <div class="owl-product-gallery">
+      <img src="assets/images/product-1.png" alt="" width="640" />
+      <img src="assets/images/product-2.png" alt="" width="640" />
+      <img src="assets/images/product-3.png" alt="" width="640" />
+      <img src="assets/images/product-4.png" alt="" width="640" />
+    </div>
 
-          </div><!--/row-->
-        </div> <!--/product-info-wrapper-->
-      </div><!--/popup-content-->
-      <!-- === product-popup-footer === -->
+    <!-- === product-popup-info === -->
 
-      <div class="popup-table">
-        <div class="popup-cell">
-          <div class="price">
-            <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-          </div>
-        </div>
-        <div class="popup-cell">
-          <div class="popup-buttons">
-            <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-            <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-          </div>
-        </div>
-      </div>
-
-    </div> <!--/product-->
-  </div> <!--popup-main-->
-
-
-  <!-- ================== Footer  ================== -->
-
-  <footer>
-    <div class="container">
-
-      <!--footer showroom-->
-      <div class="footer-showroom">
+    <div class="popup-content">
+      <div class="product-info-wrapper">
         <div class="row">
-          <div class="col-sm-8">
-            <h2>Visit our showroom</h2>
-            <p>200 12th Ave, New York, NY 10001, USA</p>
-            <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
-          </div>
-          <div class="col-sm-4 text-center">
-            <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
-            <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
-          </div>
-        </div>
-      </div>
 
-      <!--footer links-->
-      <div class="footer-links">
-        <div class="row">
-          <div class="col-sm-4 col-md-2">
-            <h5>Browse by</h5>
-            <ul>
-              <li><a href="#">Brand</a></li>
-              <li><a href="#">Product</a></li>
-              <li><a href="#">Category</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-2">
-            <h5>Recources</h5>
-            <ul>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Projects</a></li>
-              <li><a href="#">Sales</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-4 col-md-2">
-            <h5>Our company</h5>
-            <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Contact</a></li>
-            </ul>
-          </div>
-          <div class="col-sm-12 col-md-6">
-            <h5>Sign up for our newsletter</h5>
-            <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
-            <div class="form-group form-newsletter">
-              <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
-              <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
-            </div>
-          </div>
-        </div>
-      </div>
+          <!-- === left-column === -->
 
-      <!--footer social-->
-
-      <div class="footer-social">
-        <div class="row">
           <div class="col-sm-6">
-            <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
+            <div class="info-box">
+              <strong>Maifacturer</strong>
+              <span>Brand name</span>
+            </div>
+            <div class="info-box">
+              <strong>Materials</strong>
+              <span>Wood, Leather, Acrylic</span>
+            </div>
+            <div class="info-box">
+              <strong>Availability</strong>
+              <span><i class="fa fa-check-square-o"></i> in stock</span>
+            </div>
           </div>
-          <div class="col-sm-6 links">
-            <ul>
-              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-              <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-            </ul>
+
+          <!-- === right-column === -->
+
+          <div class="col-sm-6">
+            <div class="info-box">
+              <strong>Available Colors</strong>
+              <div class="product-colors clearfix">
+                <span class="color-btn color-btn-red"></span>
+                <span class="color-btn color-btn-blue checked"></span>
+                <span class="color-btn color-btn-green"></span>
+                <span class="color-btn color-btn-gray"></span>
+                <span class="color-btn color-btn-biege"></span>
+              </div>
+            </div>
+            <div class="info-box">
+              <strong>Choose size</strong>
+              <div class="product-colors clearfix">
+                <span class="color-btn color-btn-biege">S</span>
+                <span class="color-btn color-btn-biege checked">M</span>
+                <span class="color-btn color-btn-biege">XL</span>
+                <span class="color-btn color-btn-biege">XXL</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!--/row-->
+      </div> <!--/product-info-wrapper-->
+    </div><!--/popup-content-->
+    <!-- === product-popup-footer === -->
+
+    <div class="popup-table">
+      <div class="popup-cell">
+        <div class="price">
+          <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
+        </div>
+      </div>
+      <div class="popup-cell">
+        <div class="popup-buttons">
+          <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
+          <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
+        </div>
+      </div>
+    </div>
+
+  </div> <!--/product-->
+</div> <!--popup-main-->
+
+
+<!-- ================== Footer  ================== -->
+
+<footer>
+  <div class="container">
+
+    <!--footer showroom-->
+    <div class="footer-showroom">
+      <div class="row">
+        <div class="col-sm-8">
+          <h2>Visit our showroom</h2>
+          <p>200 12th Ave, New York, NY 10001, USA</p>
+          <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
+        </div>
+        <div class="col-sm-4 text-center">
+          <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
+          <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
+        </div>
+      </div>
+    </div>
+
+    <!--footer links-->
+    <div class="footer-links">
+      <div class="row">
+        <div class="col-sm-4 col-md-2">
+          <h5>Browse by</h5>
+          <ul>
+            <li><a href="#">Brand</a></li>
+            <li><a href="#">Product</a></li>
+            <li><a href="#">Category</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-2">
+          <h5>Recources</h5>
+          <ul>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Sales</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-2">
+          <h5>Our company</h5>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <h5>Sign up for our newsletter</h5>
+          <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
+          <div class="form-group form-newsletter">
+            <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
+            <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
           </div>
         </div>
       </div>
     </div>
-  </footer>
+
+    <!--footer social-->
+
+    <div class="footer-social">
+      <div class="row">
+        <div class="col-sm-6">
+          <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
+        </div>
+        <div class="col-sm-6 links">
+          <ul>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
 

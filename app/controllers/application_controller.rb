@@ -8,15 +8,17 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    params[:user][:role] = 1 if (controller_name == 'registrations' && action_name == 'create')
+    params[:user][:role] = params[:user][:role].to_i if params[:user].present?
     devise_parameter_sanitizer.permit(:sign_up, keys: [:role, :first_name,:last_name, :username, :contact_details, :category_id, :city_id, :country_id])
   end
-	# before_action :authenticate_user!
+  # before_action :authenticate_user!
   def after_sign_up_path_for(resource)
     if resource.is_admin?
       admin_users_path
     elsif resource.is_vendor?
       admin_profile_path resource.profile
+    elsif resource.is_customer?
+      root_path
     end
   end
 
@@ -25,14 +27,12 @@ class ApplicationController < ActionController::Base
       admin_users_path
     elsif resource.is_vendor?
       admin_profile_path resource.profile
+    elsif resource.is_customer?
+      root_path
     end
   end
 
   def after_sign_out_path_for(resource)
-
     root_path
-
   end
-
-
 end

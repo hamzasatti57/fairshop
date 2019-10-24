@@ -21,7 +21,7 @@ gem 'mini_magick', '~>4.9'
 gem 'activestorage-validator'
 gem 'punching_bag'
 gem 'will_paginate', '~> 3.1.0'
-
+gem 'toastr-rails'
 
 
 # Use SCSS for stylesheets

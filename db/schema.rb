@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_11_092326) do
+ActiveRecord::Schema.define(version: 2019_10_24_095750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2019_10_11_092326) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_advertisements_on_user_id"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -87,9 +89,13 @@ ActiveRecord::Schema.define(version: 2019_10_11_092326) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_type"
+    t.string "statement"
+    t.integer "parent_id"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -107,6 +113,17 @@ ActiveRecord::Schema.define(version: 2019_10_11_092326) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "address"
+    t.string "salary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "product_categories", force: :cascade do |t|
@@ -176,6 +193,16 @@ ActiveRecord::Schema.define(version: 2019_10_11_092326) do
     t.index ["punchable_type", "punchable_id"], name: "punchable_index"
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.decimal "value"
+    t.integer "parent_id"
+    t.integer "parent_type"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -199,16 +226,20 @@ ActiveRecord::Schema.define(version: 2019_10_11_092326) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "advertisements", "users"
   add_foreign_key "categories", "categories", column: "parent_id"
   add_foreign_key "cities", "countries"
   add_foreign_key "colors_products", "colors"
   add_foreign_key "colors_products", "products"
+  add_foreign_key "comments", "users"
   add_foreign_key "companies", "users"
+  add_foreign_key "jobs", "users"
   add_foreign_key "products", "companies"
   add_foreign_key "products", "product_categories"
   add_foreign_key "products", "product_types"
   add_foreign_key "profiles", "users"
   add_foreign_key "projects", "companies"
+  add_foreign_key "ratings", "users"
   add_foreign_key "users", "categories"
   add_foreign_key "users", "cities"
 end

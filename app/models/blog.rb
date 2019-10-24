@@ -8,4 +8,11 @@ class Blog < ApplicationRecord
       []
     end
   }
+  def next
+    Blog.where("id > ?", id).first
+  end
+
+  def prev
+    Blog.where("id < ?", id).last
+  end
 end

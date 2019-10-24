@@ -4,6 +4,7 @@ class HomeController < ApplicationController
     @blogs = Blog.all
     @popular_products = Product.most_hit(nil, 100)
     @popular_vendors = User.most_hit(nil,100)
+    @advertisements = Advertisement.all
     category = Category.find_by(title: 'Architects')
     if category.nil?
       @popular_architects = nil
@@ -15,6 +16,12 @@ class HomeController < ApplicationController
       @popular_interior_designers = nil
     else
       @popular_interior_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
+    end
+    category = Category.find_by(title: 'Product Designer')
+    if category.nil?
+      @popular_product_designers = nil
+    else
+      @popular_product_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
     end
     @cities = City.all
   end

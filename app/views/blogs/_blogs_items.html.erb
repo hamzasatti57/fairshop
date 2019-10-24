@@ -1,0 +1,35 @@
+<div class="col-md-9">
+    <div class="row">
+        <% blogs.each do |blog| %>
+        <div class="col-sm-6">
+            <article>
+                <%= link_to blog do%>
+                <div class="image" >
+                    <% if blog.image.attached? %>
+                    <%= image_tag(url_for(blog.image)) %><br>
+                    <% else %>
+                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <% end %>
+                </div>
+                <div class="entry entry-table">
+                    <div class="date-wrapper">
+                        <div class="date">
+                            <span><%= blog.updated_at.strftime('%b')%></span>
+                            <strong><%= blog.updated_at.strftime('%d')%></strong>
+                            <span><%= blog.updated_at.strftime('%Y')%></span>
+                        </div>
+                    </div>
+                    <div class="title">
+                        <h2 class="h5"><%= blog.title %></h2>
+                    </div>
+                </div>
+                <% end %>
+            </article>
+        </div>
+        <% end %>
+    </div>
+    <!-- === pagination === -->
+    <div class="pagination-wrapper">
+        <%= will_paginate @blogs %>
+    </div> <!--/pagination-->
+</div>

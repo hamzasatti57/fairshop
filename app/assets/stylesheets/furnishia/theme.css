@@ -734,7 +734,8 @@ nav.navbar-default {
 }
 
 nav.navbar-sticked {
-    background-color: #232529;
+    background-color: #1f2732;
+    opacity: 0.8;
 }
 
 nav.navbar-sticked .navigation-top > ul {
@@ -832,12 +833,12 @@ nav .navigation-top > ul {
 }
 
 nav .navigation-top > ul > li > a {
-    color: #ffbb00;
+    color: #FFFFFF;
     padding: 5px 13px;
 }
 
 nav .navigation-top > ul > li > a:hover {
-    color: #ffc933;
+    color: #b41135;
 }
 
 @media (min-width: 991px) {
@@ -906,10 +907,10 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li.label {
 }
 
 nav .navigation-main .navbar-dropdown .navbar-box ul > li > a {
-    color: white;
+    color: #FFFFFF;
     display: block;
     padding-bottom: 5px;
-    border-bottom: 1px solid #ffc933;
+    border-bottom: 1px solid #FFFFFF;
 }
 
 nav .navigation-main .navbar-dropdown .navbar-box ul > li > a span.label {
@@ -921,7 +922,7 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li > a span.label {
 
 @media (min-width: 992px) {
     nav .navigation-main .navbar-dropdown .navbar-box ul > li > a:hover {
-        color: black;
+        color: #b41135;
     }
 }
 
@@ -954,7 +955,7 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
     }
     nav .navigation-main .floating-menu > ul > li > a.current:after, nav .navigation-main .floating-menu > ul > li > a:after {
         position: absolute;
-        background-color: #ffbb00;
+        background-color: #b41135;
         content: "";
         left: 0;
         right: 0;
@@ -1011,7 +1012,7 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
     }
     nav .navigation-main .floating-menu > ul > li .navbar-dropdown .navbar-box .box-2 {
         width: 60%;
-        background-color: #ffbb00;
+        background-color: #1f2732;
     }
     nav .navigation-main .floating-menu > ul > li .navbar-dropdown .navbar-box .box {
         padding: 40px 50px;
@@ -1802,6 +1803,7 @@ nav .cart-wrapper.open {
 
 .header-content .item .btn {
     margin-top: 40px;
+    box-shadow: 0px 0px 10px 5px #00000024;
 }
 
 @media (min-width: 768px) {
@@ -2328,8 +2330,9 @@ nav .cart-wrapper.open {
 }
 
 .products article {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    /*box-shadow: 0 1px 2px rgba(rgba0, 0, 0, 0.1);*/
+    /*background-color: white;*/
+    padding: 10px;
     position: relative;
     transition: all 0.5s;
     margin-bottom: 1px;
@@ -2859,7 +2862,7 @@ nav .cart-wrapper.open {
     position: relative;
     width: 25px;
     height: 25px;
-    background-color: #f8f8f8;
+    background-color: #b41135;
     border: 2px solid transparent;
     margin-right: 10px;
     text-align: center;
@@ -3347,7 +3350,7 @@ nav .cart-wrapper.open {
 }
 
 .blog article.article-table > a .image img {
-    display: none;
+    display: block;
 }
 
 .blog article.article-table > a .text {
@@ -3782,7 +3785,6 @@ nav .cart-wrapper.open {
 
 @media (min-width: 992px) {
     .comments .rate-box {
-        width: 33.333333333%;
         float: left;
     }
 }
@@ -6223,4 +6225,47 @@ footer .footer-social li a {
 }
 /* Version 2.2.0. 
  * Theme credit ElaThemes.com */
+
+#comments-container{
+height: 400px;
+overflow-y: scroll;
+}
+
+
+/***********************/
+/***********************/
+/***** Custom CSS ******/
+/***********************/
+/***********************/
+.custom-home-tiles .btn-outlined {
+    border-radius: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.custom-home-tiles .btn-outlined.btn-default {
+    background: none;
+    width: 100%;
+    font-size: 16px;
+    border: 3px solid #ffffff;
+    color: #ffffff;
+}
+.custom-home-tiles .btn-outlined.btn-default:hover,
+.custom-home-tiles .btn-outlined.btn-default:active {
+    color: #ffffff;
+    background:rgba(255, 255, 255, 0.26);
+    border-color:rgba(255, 255, 255, 0.26);
+}
+
+.btn-primary{
+    border:2px solid #b41135;
+    background-color:#b41135;
+}
+
+.btn-primary:hover{
+    border:2px solid #b41135;
+    background-color: transparent;
+}
+
+
 

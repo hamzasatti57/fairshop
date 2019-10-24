@@ -2,7 +2,7 @@ class Admin::AdvertisementsController < AdminController
   before_action :get_advertisement, only: [:show, :edit, :update, :destroy]
 
   def index
-    @advertisements = Advertisement.all
+    @advertisements = current_user.advertisements
   end
 
   def new
@@ -10,7 +10,7 @@ class Admin::AdvertisementsController < AdminController
   end
 
   def create
-    @advertisement = Advertisement.new(advertisement_params)
+    @advertisement = Advertisement.new(advertisement_params.merge(user_id: current_user.id))
     if @advertisement.save
       flash[:success] = "Advertisement Successfully Created"
       redirect_to admin_advertisements_path
@@ -33,6 +33,7 @@ class Admin::AdvertisementsController < AdminController
   end
 
   def destroy
+    @advertisment = Advertisement.find(params[:id])
     @advertisment.destroy
     flash[:danger] = "Advertisment Successfully Deleted"
     redirect_to admin_advertisements_path
@@ -41,7 +42,7 @@ class Admin::AdvertisementsController < AdminController
   private
 
   def advertisement_params
-    params.required(:advertisement).permit(:title, :description, :image)
+    params.required(:advertisement).permit(:title, :description, :image, :user_id)
   end
 
   def get_advertisement

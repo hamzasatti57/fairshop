@@ -51,6 +51,9 @@
                   <span><strong>Maifacturer</strong></span>
                   <span><%= @vendor.full_name %></span>
                 </div>
+                <div id="avg_rate">
+
+                </div>
                 <hr />
 
 
@@ -223,234 +226,23 @@
 
                         <div class="rating clearfix">
                           <div class="rate-box">
-                            <strong>Quality</strong>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>3</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>5</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <span>0</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>2</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>1</span>
-                            </div>
-                          </div>
+                            <strong>Rate this Product</strong>
+                            <div id="rateYo"></div>
 
-                          <!-- rate -->
-                          <div class="rate-box">
-                            <strong>Design</strong>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <span>3</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <span>5</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <span>0</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>2</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star active"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>1</span>
-                            </div>
-                          </div>
-
-                          <!-- rate -->
-                          <div class="rate-box">
-                            <strong>General</strong>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>3</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>5</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>0</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>2</span>
-                            </div>
-                            <div class="rating">
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <i class="fa fa-star"></i>
-                              <span>1</span>
-                            </div>
                           </div>
 
                         </div>
-                        <div class="comment-wrapper">
+                        <div class="comment-wrapper" id="comments-container">
 
                           <!-- === comment === -->
-
-                          <div class="comment-block">
-                            <div class="comment-user">
-                              <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                              <div>
-                                <h5>
-                                  <span>John Doe</span>
-                                  <span class="pull-right">
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                        </span>
-                                  <small>03.05.2017</small>
-                                </h5>
-                              </div>
-                            </div>
-
-                            <!-- comment description -->
-
-                            <div class="comment-desc">
-                              <p>
-                                In vestibulum tellus ut nunc accumsan eleifend. Donec mattis cursus ligula, id
-                                iaculis dui feugiat nec. Etiam ut ante sed neque lacinia volutpat. Maecenas
-                                ultricies tempus nibh, sit amet facilisis mauris vulputate in. Phasellus
-                                tempor justo et mollis facilisis. Donec placerat at nulla sed suscipit. Praesent
-                                accumsan, sem sit amet euismod ullamcorper, justo sapien cursus nisl, nec
-                                gravida
-                              </p>
-                            </div>
-
-                            <!-- comment reply -->
-
-                            <div class="comment-block">
-                              <div class="comment-user">
-                                <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                                <div>
-                                  <h5>Administrator<small>08.05.2017</small></h5>
-                                </div>
-                              </div>
-                              <div class="comment-desc">
-                                <p>
-                                  Curabitur sit amet elit quis tellus tincidunt efficitur. Cras lobortis id
-                                  elit eu vehicula. Sed porttitor nulla vitae nisl varius luctus. Quisque
-                                  a enim nisl. Maecenas facilisis, felis sed blandit scelerisque, sapien
-                                  nisl egestas diam, nec blandit diam ipsum eget dolor. Maecenas ultricies
-                                  tempus nibh, sit amet facilisis mauris vulputate in.
-                                </p>
-                              </div>
-                            </div>
-                            <!--/reply-->
-                          </div>
-
-                          <!-- === comment === -->
-
-                          <div class="comment-block">
-                            <div class="comment-user">
-                              <div><img src="assets/images/user-2.jpg" alt="Alternate Text" width="70" /></div>
-                              <div>
-                                <h5>
-                                  <span>John Doe</span>
-                                  <span class="pull-right">
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star active"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                            <i class="fa fa-star"></i>
-                                                                        </span>
-                                  <small>03.05.2017</small>
-                                </h5>
-                              </div>
-                            </div>
-                            <div class="comment-desc">
-                              <p>
-                                Cras lobortis id elit eu vehicula. Sed porttitor nulla vitae nisl varius luctus.
-                                Quisque a enim nisl. Maecenas facilisis, felis sed blandit scelerisque, sapien
-                                nisl egestas diam, nec blandit diam ipsum eget dolor. In vestibulum tellus
-                                ut nunc accumsan eleifend. Donec mattis cursus ligula, id iaculis dui feugiat
-                                nec. Etiam ut ante sed neque lacinia volutpat. Maecenas ultricies tempus
-                                nibh, sit amet facilisis mauris vulputate in. Phasellus tempor justo et mollis
-                                facilisis. Donec placerat at nulla sed suscipit. Praesent accumsan, sem sit
-                                amet euismod ullamcorper, justo sapien cursus nisl, nec gravida
-                              </p>
-                            </div>
-                          </div>
+                          <% @comments.each do |comment| %>
+                            <%= render partial: 'comment', locals: { comment: comment } %>
+                          <% end %>
 
                         </div><!--/comment-wrapper-->
 
                         <div class="comment-header">
-                          <a href="#" class="btn btn-clean-dark">12 comments</a>
+                          <a href="#" id='comments-count' class="btn btn-clean-dark"><%= @comments.count %> comments</a>
                         </div> <!--/comment-header-->
                         <!-- === add comment === -->
 
@@ -460,24 +252,19 @@
                             <div class="h3 title">Leave a Reply </div>
                             <p>Your email address will not be published.</p>
                           </div>
+                          <%= form_for Comment.new, remote: true do |f| %>
 
-                          <form action="#" method="post">
                             <div class="form-group">
-                              <input type="text" class="form-control" name="name" value="" placeholder="Your Name" />
+                              <%= f.text_area(:statement, size: '50x10', :class => 'form-control') %>
                             </div>
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="name" value="" placeholder="Your Email" />
-                            </div>
-                            <div class="form-group">
-                              <textarea rows="10" class="form-control" placeholder="Your comment"></textarea>
-                            </div>
+                            <%= f.hidden_field(:parent_id, value: @project.id , :id => "comment_area") %>
+                            <%= f.hidden_field(:parent_type, value: Comment.parent_type_project ) %>
                             <div class="clearfix text-center">
-                              <a href="#" class="btn btn-main">Add comment</a>
+                              <%= f.submit 'Add comment', :class => 'btn btn-main' %>
                             </div>
-                          </form>
-
+                          <% end %>
                         </div><!--/comment-add-->
-                      </div> <!--/comments-->
+                      </div>
                     </div>
 
 
@@ -663,3 +450,25 @@
     </div>
   </footer>
 
+  <script>
+      $(function () {
+
+          $("#rateYo").rateYo({
+              rating: <%= @rating.present? ? @rating.value : 0.0 %>,
+              onSet: function (rating, rateYoInstance) {
+                  $.ajax({
+                      url: '/ratings',
+                      method: 'post',
+                      contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                      data: jQuery.param({ rating: {value:rating ,parent_id:<%=@project.id%>, parent_type:'<%=Rating.parent_type_project%>'} })
+                  });
+              },
+          });
+          $("#avg_rate").rateYo({
+              rating: <%= @avg_rating.present? ? @avg_rating : 0.0 %>,
+              readOnly: true
+          });
+
+      });
+
+  </script>

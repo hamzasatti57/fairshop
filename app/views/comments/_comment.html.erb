@@ -1,0 +1,16 @@
+<div class="comment-block">
+  <div class="comment-user">
+    <div>
+      <h5>
+        <span><%= comment.commenter.full_name %></span>
+        <small><%= comment.updated_at.strftime('%d %b %y')%></small>
+      </h5>
+    </div>
+  </div>
+  <!-- comment description -->
+  <div class="comment-desc">
+    <p>
+      <%= comment.statement %>
+    </p>
+  </div>
+</div>
