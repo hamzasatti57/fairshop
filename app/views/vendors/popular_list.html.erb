@@ -61,7 +61,7 @@
                           <% end %>
                         <% end %>
                         <% if vendor.display_projects? %>
-                          <%= link_to projects_path(user_id: vendor.id) do %>
+                          <%= link_to profiles_path(user_id: vendor.id) do %>
                             <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
                           <% end %>
                         <% end %>
@@ -95,7 +95,7 @@
                         <% end %>
                       <% end %>
                       <% if vendor.display_projects? %>
-                        <%= link_to projects_path(user_id: vendor.id) do %>
+                        <%= link_to profiles_path(user_id: vendor.id) do %>
                           <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
                         <% end %>
                       <% end %>

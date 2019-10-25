@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @categories = Category.all
     @blogs = Blog.all
     @popular_products = Product.most_hit(nil, 100)
-    @popular_vendors = User.most_hit(nil,100)
+    @popular_vendors = User.product_vendors.most_hit(nil,100)
     @advertisements = Advertisement.all
     category = Category.find_by(title: 'Architects')
     if category.nil?

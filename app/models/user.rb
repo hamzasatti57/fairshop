@@ -35,7 +35,10 @@ class User < ApplicationRecord
   scope :vendors, -> { where(role: 1) }
   delegate :title, to: :category, prefix: :category, allow_nil: true
   delegate :title, to: :city, prefix: :city, allow_nil: true
-
+  scope :product_vendors, -> {
+    category_ids = Category.where(title: Category.product_categories).pluck(:id)
+    where(category_id: category_ids)
+  }
   def is_admin?
     self.role == 'admin'
   end

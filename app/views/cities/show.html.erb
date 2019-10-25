@@ -54,7 +54,7 @@
                         <% end %>
                       <% end %>
                       <% if vendor.display_projects? %>
-                        <%= link_to projects_path(user_id: vendor.id) do %>
+                        <%= link_to profiles_path(user_id: vendor.id) do %>
                           <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
                         <% end %>
                       <% end %>
@@ -65,7 +65,7 @@
                         <% end %>
                       <% end %>
                       <% if vendor.display_projects? %>
-                        <%= link_to projects_path(user_id: vendor.id) do %>
+                        <%= link_to profiles_path(user_id: vendor.id) do %>
                           <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
                         <% end %>
                       <% end %>
@@ -78,17 +78,17 @@
                       <% end %>
                     <% end %>
                     <% if vendor.display_projects? %>
-                      <%= link_to projects_path(user_id: vendor.id) do %>
+                      <%= link_to profiles_path(user_id: vendor.id) do %>
                         <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
                       <% end %>
                     <% end %>
                     <hr/>
-                    <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= vendor.email %></a></p>
-                    <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></a></p>
+                    <p><i class="icon icon-envelope"></i> <%= vendor.email %></p>
+                    <p><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></p>
                     <p>
-                      <a href="#" class="btn btn-main btn-xs"><i class="icon icon-user"></i></a>
-                      <a href="#" class="btn btn-main btn-xs"><i class="icon icon-printer"></i></a>
-                      <a href="#" class="btn btn-main btn-xs"><i class="icon icon-layers"></i></a>
+                      <a href="<%= vendor.profile.facebook %>" class="btn btn-main btn-xs"><i class="fa fa-facebook"></i></a>
+                      <a href="<%= vendor.profile.instagram %>" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
+                      <a href="<%= vendor.profile.twitter %>" class="btn btn-main btn-xs"><i class="fa fa-twitter"></i></a>
                     </p>
                   </div> <!--/name-->
                 </div> <!--/box-->
@@ -106,7 +106,7 @@
                       <% end %>
                     <% end %>
                     <% if vendor.display_projects? %>
-                      <%= link_to projects_path(user_id: vendor.id) do %>
+                      <%= link_to profiles_path(user_id: vendor.id) do %>
                         <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
                       <% end %>
                     <% end %>
@@ -117,7 +117,7 @@
                       <% end %>
                     <% end %>
                     <% if vendor.display_projects? %>
-                      <%= link_to projects_path(user_id: vendor.id) do %>
+                      <%= link_to profiles_path(user_id: vendor.id) do %>
                         <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
                       <% end %>
                     <% end %>
@@ -130,17 +130,17 @@
                     <% end %>
                   <% end %>
                   <% if vendor.display_projects? %>
-                    <%= link_to projects_path(user_id: vendor.id) do %>
+                    <%= link_to profiles_path(user_id: vendor.id) do %>
                       <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
                     <% end %>
                   <% end %>
                   <hr/>
-                  <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= vendor.email %></a></p>
-                  <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></a></p>
+                  <p><i class="icon icon-envelope"></i> <%= vendor.email %></p>
+                  <p><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></p>
                   <p>
-                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-user"></i></a>
-                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-printer"></i></a>
-                    <a href="#" class="btn btn-main btn-xs"><i class="icon icon-layers"></i></a>
+                    <a href="<%= vendor.profile.facebook %>" class="btn btn-main btn-xs"><i class="fa fa-facebook"></i></a>
+                    <a href="<%= vendor.profile.instagram %>" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
+                    <a href="<%= vendor.profile.twitter %>" class="btn btn-main btn-xs"><i class="fa fa-twitter"></i></a>
                   </p>
                 </div> <!--/name-->
               </div> <!--/box-->

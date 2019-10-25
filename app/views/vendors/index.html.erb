@@ -93,7 +93,7 @@
                         <% end %>
                       <% end %>
                       <% if vendor.display_projects? %>
-                        <%= link_to projects_path(user_id: vendor.id) do %>
+                        <%= link_to profiles_path(user_id: vendor.id) do %>
                           <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
                         <% end %>
                       <% end %>
@@ -104,7 +104,7 @@
                         <% end %>
                       <% end %>
                       <% if vendor.display_projects? %>
-                        <%= link_to projects_path(user_id: vendor.id) do %>
+                        <%= link_to profiles_path(user_id: vendor.id) do %>
                           <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
                         <% end %>
                       <% end %>
@@ -117,13 +117,13 @@
                       <% end %>
                     <% end %>
                     <% if vendor.display_projects? %>
-                      <%= link_to projects_path(user_id: vendor.id) do %>
+                      <%= link_to profiles_path(user_id: vendor.id) do %>
                         <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
                       <% end %>
                     <% end %>
                     <hr/>
-                    <p><i class="icon icon-envelope"></i> <%= vendor.email %></a></p>
-                    <p><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></a></p>
+                    <p><i class="icon icon-envelope"></i> <%= vendor.email %></p>
+                    <p><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></p>
                     <p>
                       <a href="<%= vendor.profile.facebook %>" class="btn btn-main btn-xs"><i class="fa fa-facebook"></i></a>
                       <a href="<%= vendor.profile.instagram %>" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
@@ -145,7 +145,7 @@
                       <% end %>
                     <% end %>
                     <% if vendor.display_projects? %>
-                      <%= link_to projects_path(user_id: vendor.id) do %>
+                      <%= link_to profiles_path(user_id: vendor.id) do %>
                         <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
                       <% end %>
                     <% end %>
@@ -156,7 +156,7 @@
                       <% end %>
                     <% end %>
                     <% if vendor.display_projects? %>
-                      <%= link_to projects_path(user_id: vendor.id) do %>
+                      <%= link_to profiles_path(user_id: vendor.id) do %>
                         <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
                       <% end %>
                     <% end %>
@@ -169,7 +169,7 @@
                     <% end %>
                   <% end %>
                   <% if vendor.display_projects? %>
-                    <%= link_to projects_path(user_id: vendor.id) do %>
+                    <%= link_to profiles_path(user_id: vendor.id) do %>
                       <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
                     <% end %>
                   <% end %>

@@ -536,18 +536,18 @@
             <div class="figure-grid">
               <div class="image">
                 <% if architect.profile.image.attached? %>
-                  <%= link_to projects_path(user_id: architect.id) do %>
+                  <%= link_to profiles_path(user_id: architect.id) do %>
                     <%= image_tag(url_for(architect.profile.image)) %>
                   <% end %>
                 <% else %>
-                  <%= link_to projects_path(user_id: architect.id) do %>
+                  <%= link_to profiles_path(user_id: architect.id) do %>
                     <img src="/assets/furnishia/user-1.jpg" alt="" width="360" />
                   <% end %>
                 <% end %>
               </div>
               <div class="text">
                 <div class="name">
-                  <%= link_to projects_path(user_id: architect.id) do %>
+                  <%= link_to profiles_path(user_id: architect.id) do %>
                     <div class="h3 title"><%= architect.full_name %> <small><%= architect.category_title %></small></div>
                   <% end %>
                 </div>
@@ -685,18 +685,18 @@
             <div class="figure-grid">
               <div class="image">
                 <% if interior_designer.profile.image.attached? %>
-                  <%= link_to projects_path(user_id: interior_designer.id) do %>
+                  <%= link_to profiles_path(user_id: interior_designer.id) do %>
                     <%= image_tag(url_for(interior_designer.profile.image)) %>
                   <% end %>
                 <% else %>
-                  <%= link_to projects_path(user_id: interior_designer.id) do %>
+                  <%= link_to profiles_path(user_id: interior_designer.id) do %>
                     <img src="/assets/furnishia/user-1.jpg" alt="" width="360" />
                   <% end %>
                 <% end %>
               </div>
               <div class="text">
                 <div class="name">
-                  <%= link_to projects_path(user_id: interior_designer.id) do %>
+                  <%= link_to profiles_path(user_id: interior_designer.id) do %>
                     <div class="h3 title"><%= interior_designer.full_name %> <small><%= interior_designer.category_title %></small></div>
                   <% end %>
                 </div>
@@ -838,18 +838,18 @@
             <div class="figure-grid">
               <div class="image">
                 <% if designer.profile.image.attached? %>
-                  <%= link_to products_path(user_id: designer.id) do %>
+                  <%= link_to profiles_path(user_id: designer.id) do %>
                     <%= image_tag(url_for(designer.profile.image)) %>
                   <% end %>
                 <% else %>
-                  <%= link_to products_path(user_id: designer.id) do %>
+                  <%= link_to profiles_path(user_id: designer.id) do %>
                     <img src="/assets/furnishia/user-1.jpg" alt="" width="360" />
                   <% end %>
                 <% end %>
               </div>
               <div class="text">
                 <div class="name">
-                  <%= link_to products_path(user_id: designer.id) do %>
+                  <%= link_to profiles_path(user_id: designer.id) do %>
                     <div class="h3 title"><%= designer.full_name %> <small><%= designer.category_title %></small></div>
                   <% end %>
                 </div>

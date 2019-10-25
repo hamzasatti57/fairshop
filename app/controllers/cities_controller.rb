@@ -5,6 +5,6 @@ class CitiesController < ApplicationController
 
   def show
     @city = City.find(params[:id])
-    @vendors = User.vendors.where(city: @city)
+    @vendors = User.product_vendors.where(city: @city)
   end
 end

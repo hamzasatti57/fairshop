@@ -54,7 +54,7 @@
                       <% end %>
                     </div>
                     <div class="name">
-                      <%= link_to projects_path(user_id: interior_designer.id) do %>
+                      <%= link_to profiles_path(user_id: interior_designer.id) do %>
                         <div class="h3 title"><%= interior_designer.full_name %> <small><%= interior_designer.category_title %></small></div>
                       <% end %>
                       <hr/>
@@ -81,7 +81,7 @@
                     <% end %>
                   </div>
                   <div class="name">
-                    <%= link_to projects_path(user_id: interior_designer.id) do %>
+                    <%= link_to profiles_path(user_id: interior_designer.id) do %>
                       <div class="h3 title"><%= interior_designer.full_name %> <small><%= interior_designer.category_title %></small></div>
                     <% end %>
                     <hr/>

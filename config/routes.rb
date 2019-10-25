@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :jobs
   resources :comments
   resources :ratings
+  resources :profiles
   resources :contact_us
   resources :products do
     collection do
