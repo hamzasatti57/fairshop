@@ -46,43 +46,49 @@
     <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-3-temp.jpg') %>')">
       <div class="box">
         <div class="container">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <h2 class="title animated h1" data-animation="fadeInDown">The Furnishing Bazaar</h2>
             <div class="animated" data-animation="fadeInUp">
               Find trusted locals, now.
             </div>
-
             <br>
+
+        </div>
+
+          <div class="col-md-5">
             <div class="animated" data-animation="fadeInUp">
 
               <%= form_tag search_home_index_path  do %>
 
                 <div class="form-group">
-                  <%= text_field_tag :q, nil, class: "form-control", autocomplete: false, placeholder: "Find Products", autofocus: true %>
-                  <br>
-                  <%= text_field_tag :location, nil, class: "form-control", autocomplete: false, placeholder: "Location", autofocus: true %>
+                  <%= text_field_tag :q, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Find Products", autofocus: true %>
 
-                  <%= submit_tag "Search", class: "btn btn-primary btn-md"%>
+                  <%= text_field_tag :location, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Location", autofocus: true %>
+
+                  <%= submit_tag "Search", class: "btn btn-primary btn-md custom-slider-btn"%>
                 </div>
               <% end %>
             </div>
             <!--                              <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main" ><i class="icon icon-cart"></i> Buy this template</a>-->
           </div>
 
+      <div class="col-md-1">
 
+      </div>
 
-
+          <div class="col-md-6">
           <div class="custom-home-tiles">
             <div class="row">
               <% @categories.each_with_index  do |category, index| %>
                 <% if index == 9 %>
                   <% break %>
                 <% end %>
-                <div class="col-md-2">
+                <div class="col-md-4">
                   <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
                 </div>
               <% end %>
             </div>
+          </div>
           </div>
         </div>
       </div>

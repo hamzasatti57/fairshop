@@ -6249,7 +6249,19 @@ overflow-y: scroll;
     font-size: 16px;
     border: 3px solid #ffffff;
     color: #ffffff;
+    padding: 10px 5px;
+    margin: 5px 10px;
 }
+
+.custom-slider-btn{
+    padding: 10px 80px;
+    margin: 10px 0px !important;
+}
+
+.custom-slider-input{
+    margin: 10px 0px;
+}
+
 .custom-home-tiles .btn-outlined.btn-default:hover,
 .custom-home-tiles .btn-outlined.btn-default:active {
     color: #ffffff;
