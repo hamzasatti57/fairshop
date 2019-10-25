@@ -37,7 +37,7 @@ class User < ApplicationRecord
   delegate :title, to: :city, prefix: :city, allow_nil: true
   scope :product_vendors, -> {
     category_ids = Category.where(title: Category.product_categories).pluck(:id)
-    where(category_id: category_ids)
+    vendors.where(category_id: category_ids)
   }
   def is_admin?
     self.role == 'admin'
