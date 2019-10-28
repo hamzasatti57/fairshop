@@ -49,6 +49,15 @@
               <div class="info-box">
                 <span><strong>Manufacturer</strong></span>
                 <span><%= @user.full_name %></span>
+
+              </div>
+              <div class="info-box">
+                <span><strong>Catelog</strong></span>
+                <span>
+                <% if @user.profile.pdf.attached? %>
+                  <%= link_to @user.profile.pdf.filename, rails_blob_path(@user.profile.pdf, disposition: 'attachment') %>
+                <% end %>
+                  </span>
               </div>
               <div id="avg_rate">
 

@@ -19,11 +19,15 @@
           <%=image_tag("coreui/6.jpg", size: "30x30", class: "img-avatar")%>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
+          <%= link_to root_path, class: "dropdown-item" do %>
+            <i class="fa fa-lock"></i> Furnishia
+          <% end %>
           <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
             <i class="fa fa-lock"></i> Logout
           <% end %>
         </div>
       </li>
+
     </ul>
     <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
       <!-- <span class="navbar-toggler-icon"></span> -->
