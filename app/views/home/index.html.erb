@@ -1,33 +1,4 @@
-<style>
-  .owl-carousel .nav-btn{
-    height: 47px;
-    position: absolute;
-    width: 26px;
-    cursor: pointer;
-    top: 100px !important;
-  }
 
-  .owl-carousel .owl-prev.disabled,
-  .owl-carousel .owl-next.disabled{
-    pointer-events: none;
-    opacity: 0.2;
-  }
-
-  .owl-carousel .prev-slide{
-    background: url(nav-icon.png) no-repeat scroll 0 0;
-    left: -33px;
-  }
-  .owl-carousel .next-slide{
-    background: url(nav-icon.png) no-repeat scroll -24px 0px;
-    right: -33px;
-  }
-  .owl-carousel .prev-slide:hover{
-    background-position: 0px -53px;
-  }
-  .owl-carousel .next-slide:hover{
-    background-position: -24px -53px;
-  }
-</style>
 <!--Use class "navbar-fixed" or "navbar-default" -->
 <!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
 
@@ -52,7 +23,6 @@
               Find trusted locals, now.
             </div>
             <br>
-
         </div>
 
           <div class="col-md-5">
@@ -150,7 +120,7 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
           <h1 class="h2 title">Popular categories</h1>
-          <div class="text">
+          <div class="text ">
             <p>
               Whether you are changing your home, or moving into a new one, you will find a huge selection of quality living room furniture,
               bedroom furniture, dining room furniture and the best value at Furniture factory
@@ -166,8 +136,9 @@
     <div class="row">
       <div class="col-md-offset-2 col-md-8 text-center">
         <h2 class="title">Popular Cities</h2>
-        <div class="text">
+        <div class="text custom-divider">
           <p>Check out our popular cities</p>
+          <hr>
         </div>
       </div>
     </div>
@@ -183,9 +154,11 @@
         <!--logo-item-->
         <div class="stretcher-logo">
           <div class="text">
+            <div class="custom-heading">
             <span class="text-intro"><%= city.title %></span>
           </div>
         </div>
+      </div>
         <!--main text-->
         <figure>
           <h4><%= city.title %></h4>
@@ -206,7 +179,7 @@
   </ul>
 </section>
 
-
+<hr>
 
 <!-- ========================  Products widget ======================== -->
 <section class="products">
@@ -219,10 +192,12 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
           <h2 class="title">Popular products</h2>
-          <div class="text">
+          <div class="text custom-divider">
             <p>Check out our latest collections</p>
+            <hr>
           </div>
         </div>
+
       </div>
     </header>
 
@@ -233,7 +208,7 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid">
+            <div class="figure-grid custom-figure-grid">
 
               <div class="image">
                 <% if product.images.attached? %>
@@ -359,6 +334,8 @@
   </div> <!--/container-->
 </section>
 
+<hr>
+
 <!-- ========================  Popular Vendors ======================== -->
 <section class="products">
 
@@ -370,8 +347,9 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
           <h2 class="title">Popular Vendors</h2>
-          <div class="text">
+          <div class="text custom-divider">
             <p>Check out our popular vendors</p>
+            <hr>
           </div>
         </div>
       </div>
@@ -399,7 +377,7 @@
               <div class="text">
                 <div class="name">
                   <%= link_to products_path(user_id: vendor.id) do %>
-                    <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
+                    <div class="title"><%= vendor.full_name %> <br><small><%= vendor.category_title %></small></div>
                   <% end %>
                 </div>
               </div>
@@ -507,6 +485,7 @@
   </div> <!--/container-->
 </section>
 
+<hr>
 
 <!-- ========================  Popular Architects ======================== -->
 <section class="products">
@@ -519,8 +498,9 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
           <h2 class="title">Popular Architects</h2>
-          <div class="text">
+          <div class="text custom-divider">
             <p>Check out our popular architects</p>
+            <hr>
           </div>
         </div>
       </div>
@@ -657,6 +637,8 @@
   </div> <!--/container-->
 </section>
 
+<hr>
+
 <!-- ========================  Popular Interior ======================== -->
 <section class="products">
 
@@ -668,8 +650,9 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
           <h2 class="title">Popular Interior Designers</h2>
-          <div class="text">
+          <div class="text custom-divider">
             <p>Check out our popular interior designers</p>
+            <hr>
           </div>
         </div>
       </div>
@@ -808,6 +791,7 @@
   </div> <!--/container-->
 </section>
 
+<hr>
 
 <!-- ========================  Product Designer ======================== -->
 
@@ -821,8 +805,9 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
           <h2 class="title">Popular Product Designers</h2>
-          <div class="text">
+          <div class="text custom-divider">
             <p>Check out our popular product designers</p>
+            <hr>
           </div>
         </div>
       </div>
@@ -961,6 +946,7 @@
   </div> <!--/container-->
 </section>
 
+<hr>
 
 <!-- ========================  Banner ======================== -->
 
@@ -977,8 +963,9 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
           <h1 class="h2 title">Blog</h1>
-          <div class="text">
+          <div class="text custom-divider">
             <p>Latest news from the blog</p>
+            <hr>
           </div>
         </div>
       </div>
@@ -1027,7 +1014,7 @@
 
   </div> <!--/container-->
 </section>
-
+<hr>
 <!-- ========================  Instagram ======================== -->
 
 <section class="blog">
@@ -1040,8 +1027,9 @@
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
           <h1 class="h2 title">Advertisement</h1>
-          <div class="text">
+          <div class="text custom-divider">
             <p>Latest advertisemetns</p>
+            <hr>
           </div>
         </div>
       </div>
