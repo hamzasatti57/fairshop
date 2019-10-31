@@ -309,7 +309,7 @@ input, textarea, select {
 .btn.btn-main {
     border: 2px solid #b41135;
     background-color: #b41135;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    /*text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);*/
 }
 
 .btn.btn-main:hover {
@@ -616,7 +616,7 @@ section {
 
 @media (min-width: 1200px) {
     section {
-        padding-top: 10px;
+        padding-top: 50px;
         padding-bottom: 50px;
     }
 }
@@ -2370,7 +2370,7 @@ nav .cart-wrapper.open {
     font-size: 20px;
     text-overflow: ellipsis;
     overflow: hidden;
-    padding: 10px;
+    padding:10px 0px;
 }
 
 .products article .text .title small {
@@ -2392,7 +2392,7 @@ nav .cart-wrapper.open {
 
 .products article .image {
     overflow: hidden;
-    height: auto;
+    height: 205px;
 }
 
 .products article .image a {
@@ -2815,7 +2815,7 @@ nav .cart-wrapper.open {
 }
 
 .product .info .content h3:after {
-    background: #fbb700;
+    background: #b41135;
     content: "";
     width: 50px;
     height: 1px;
@@ -3095,7 +3095,7 @@ nav .cart-wrapper.open {
 }
 
 .blog aside .box.box-tags ul li a:hover {
-    background-color: #cc9600;
+    background-color: #b41135;
 }
 
 @media (min-width: 768px) {
@@ -3463,7 +3463,7 @@ nav .cart-wrapper.open {
         opacity: 1;
     }
     .blog article .image {
-        height: 220px;
+        height: 205px;
     }
     .blog article .image img {
         display: block;
@@ -3603,7 +3603,7 @@ nav .cart-wrapper.open {
 
 @media (min-width: 992px) {
     .blog .blog-post .blog-image-main {
-        margin-top: -130px;
+        /*margin-top: -130px;*/
     }
     .blog .blog-post .blog-image-main img {
         box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
@@ -3612,7 +3612,7 @@ nav .cart-wrapper.open {
 
 @media (min-width: 1200px) {
     .blog .blog-post .blog-image-main {
-        margin-top: -160px;
+        /*margin-top: -160px;*/
     }
 }
 
@@ -3737,13 +3737,13 @@ nav .cart-wrapper.open {
 .nav-tabs > li.active > a {
     background: #e2e2e2;
     color: #000;
-    box-shadow: 0 -5px 0px #fbb700;
+    box-shadow: 0 -5px 0px #b41135;
 }
 
 .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
     background: #e2e2e2;
     color: #000;
-    box-shadow: 0 -5px 0px #fbb700;
+    box-shadow: 0 -5px 0px #b41135;
 }
 
 @media (min-width: 992px) {
@@ -5884,14 +5884,14 @@ footer {
 
 footer h1, footer h2, footer h3, footer h4, footer h5, footer h6,
 footer .h1, footer .h2, footer .h3, footer .h4, footer .h5, footer .h6 {
-    color: #cc9600;
+    color: #b41135;
 }
 
 footer .form-control {
     background-color: transparent;
     border: 0;
     padding: 0;
-    border-bottom: 1px solid #ffbb00;
+    border-bottom: 1px solid #b41135;
 }
 
 footer ul {
@@ -6398,3 +6398,34 @@ section.custom-product-homepage{
 .custom-filters{
     padding-top: 10px;
 }
+
+.custom-card-card .slick-slide{
+    padding: 10px;
+}
+
+.custom-blog-btn{
+    text-shadow: unset !important;
+}
+
+.custom-blog-btn:hover{
+    color:#dc234c !important;
+    border: 2px solid #dc234c !important;
+    background-color: #fbfbfb !important;
+}
+
+.custom-adv-btn{
+    text-shadow: unset !important;
+}
+
+.custom-adv-btn:hover{
+    color:#dc234c !important;
+    border: 2px solid #dc234c !important;
+    background-color: #fbfbfb !important;
+}
+
+.custom-product-details-page article{
+    padding: 0px !important;
+} 
+
+
+
