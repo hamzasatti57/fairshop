@@ -20,42 +20,6 @@
     </header>
   </section>
 
-  <!-- ========================  Icons slider ======================== -->
-
-  <section class="owl-icons-wrapper">
-
-    <!-- === header === -->
-
-    <header class="hidden">
-      <h2>Product categories</h2>
-    </header>
-
-    <div class="container">
-
-      <div class="owl-icons">
-
-        <!-- === icon item === -->
-        <% @categories.each do |category| %>
-          <a href="<%= vendors_path(category_id: category.id) %>">
-            <figure>
-              <i class="f-icon f-icon-sofa"></i>
-              <figcaption><%= category.title %></figcaption>
-            </figure>
-          </a>
-        <% end %>
-
-        <!--        <a href="#">-->
-        <!--          <figure>-->
-        <!--            <i class="f-icon f-icon-sofa"></i>-->
-        <!--            <figcaption>Sofa</figcaption>-->
-        <!--          </figure>-->
-        <!--        </a>-->
-
-
-      </div> <!--/owl-icons-->
-    </div> <!--/container-->
-  </section>
-
   <!-- ======================== Products ======================== -->
 
   <section class="products">
@@ -66,12 +30,9 @@
       </header>
 
       <div class="row">
-
         <!-- === product-filters === -->
-
         <div class="col-md-3 col-xs-12">
-
-          <div id="filters" class="filters">
+          <div id="filters" class="filters custom-filters">
             <!--Price-->
             <div class="filter-box active">
               <div class="title">Price</div>
@@ -117,115 +78,15 @@
                 <% end %>
               </div>
             </div> <!--/filter-box-->
-            <!--Material-->
-            <!--close filters on mobile / update filters-->
-            <div class="toggle-filters-close btn btn-main visible-xs visible-sm">
-              Close window
-            </div>
-
           </div> <!--/filters-->
         </div>
-
         <!--product items-->
-
         <div class="col-md-9 col-xs-12" id="product-items">
           <% if !@products.nil? %>
           <%= render partial: 'product_items', locals: { products: @products } %>
           <% end %>
         </div> <!--/product items-->
-
       </div><!--/row-->
-      <!-- ========================  Product info popup - quick view ======================== -->
-
-      <div class="popup-main mfp-hide" id="productid1">
-
-        <!-- === product popup === -->
-
-        <div class="product">
-
-          <!-- === popup-title === -->
-
-          <div class="popup-title">
-            <div class="h1 title">Laura <small>product category</small></div>
-          </div>
-
-          <!-- === product gallery === -->
-
-          <div class="owl-product-gallery">
-            <img src="assets/images/product-1.png" alt="" width="640" />
-            <img src="assets/images/product-2.png" alt="" width="640" />
-            <img src="assets/images/product-3.png" alt="" width="640" />
-            <img src="assets/images/product-4.png" alt="" width="640" />
-          </div>
-
-          <!-- === product-popup-info === -->
-
-          <div class="popup-content">
-            <div class="product-info-wrapper">
-              <div class="row">
-
-                <!-- === left-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Maifacturer</strong>
-                    <span>Brand name</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Materials</strong>
-                    <span>Wood, Leather, Acrylic</span>
-                  </div>
-                  <div class="info-box">
-                    <strong>Availability</strong>
-                    <span><i class="fa fa-check-square-o"></i> in stock</span>
-                  </div>
-                </div>
-
-                <!-- === right-column === -->
-
-                <div class="col-sm-6">
-                  <div class="info-box">
-                    <strong>Available Colors</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-red"></span>
-                      <span class="color-btn color-btn-blue checked"></span>
-                      <span class="color-btn color-btn-green"></span>
-                      <span class="color-btn color-btn-gray"></span>
-                      <span class="color-btn color-btn-biege"></span>
-                    </div>
-                  </div>
-                  <div class="info-box">
-                    <strong>Choose size</strong>
-                    <div class="product-colors clearfix">
-                      <span class="color-btn color-btn-biege">S</span>
-                      <span class="color-btn color-btn-biege checked">M</span>
-                      <span class="color-btn color-btn-biege">XL</span>
-                      <span class="color-btn color-btn-biege">XXL</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div><!--/row-->
-            </div> <!--/product-info-wrapper-->
-          </div><!--/popup-content-->
-          <!-- === product-popup-footer === -->
-
-          <div class="popup-table">
-            <div class="popup-cell">
-              <div class="price">
-                <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-              </div>
-            </div>
-            <div class="popup-cell">
-              <div class="popup-buttons">
-                <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-                <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-              </div>
-            </div>
-          </div>
-
-        </div> <!--/product-->
-      </div> <!--popup-main-->
     </div><!--/container-->
   </section>
 <div class="pagination-wrapper">

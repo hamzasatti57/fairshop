@@ -20,6 +20,7 @@
 //= require furnishia/jquery.ion.rangeSlider.js
 //= require furnishia/jquery.isotope.pkgd.js
 //= require furnishia/main.js
+//= require furnishia/datatables.min.js
 //= require toastr
 // require admin/categories
 // require_tree .

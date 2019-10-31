@@ -496,11 +496,11 @@ input, textarea, select {
 
 .breadcrumb > li.active,
 .breadcrumb > li.active a {
-    color: #ffbb00;
+    color: #b41135;
 }
 
 .breadcrumb > li a.active {
-    color: #ffbb00;
+    color: #b41135;
 }
 
 @media (max-width: 767px) {
@@ -566,9 +566,9 @@ input, textarea, select {
 
 .checkbox input[type="checkbox"]:checked + label:before,
 .checkbox input[type="radio"]:checked + label:before {
-    background: #ffbb00;
+    background: #b41135;
     color: white;
-    border-color: #ffbb00;
+    border-color: #b41135;
     text-align: center;
     -moz-transform: scale(0.8);
     -ms-transform: scale(0.8);
@@ -616,7 +616,7 @@ section {
 
 @media (min-width: 1200px) {
     section {
-        padding-top: 50px;
+        padding-top: 10px;
         padding-bottom: 50px;
     }
 }
@@ -692,7 +692,7 @@ header .text p:last-child {
 
 @media (min-width: 992px) {
     .main-header {
-        padding-top: 200px;
+        padding-top: 135px;
     }
     .main-header.main-header-blog {
         padding-bottom: 100px;
@@ -2111,7 +2111,7 @@ nav .cart-wrapper.open {
 
 .filters .filter-box .title span {
     font-size: 70%;
-    color: #ffbb00;
+    color: #b41135;
 }
 
 .filters .filter-box .title:after {
@@ -6259,17 +6259,23 @@ overflow-y: scroll;
     border: 3px solid #ffffff;
     color: #ffffff;
     padding: 10px 5px;
-    margin: 5px 10px;
+    margin: 1px 0px;
 }
 
 .custom-slider-btn{
     padding: 10px 80px;
     margin: 10px 0px !important;
+    background-color: #b41135;
 }
 
 .custom-slider-btn:focus{
     background-color: #b41135;
 }
+
+.custom-slider-btn:active{
+    background-color: #b41135;
+}
+
 
 .custom-slider-input{
     margin: 10px 0px;
@@ -6293,13 +6299,24 @@ overflow-y: scroll;
     background-color: transparent;
 }
 
+.btn-primary:active{
+    border:2px solid #b41135;
+    background-color:#b41135 !important ;
+}
+
+.btn-primary:active:focus{
+    border:2px solid #b41135;
+    background-color:#b41135;
+}
+
+
 .form-control:focus{
     border-color: #b53035;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgb(181, 48, 53);
 }
 
-hr{
-    margin:0px;
+hr.home-page{
+    margin: 50px 0px 0px;
     border-top: 1px solid #d8d8d8;
 }
 
@@ -6370,3 +6387,14 @@ hr{
     height: 224px;
 }
 
+section.custom-product-homepage{
+    padding-top:50px;
+}
+
+.custom-padding-homepage{
+    padding: 4px;
+}
+
+.custom-filters{
+    padding-top: 10px;
+}

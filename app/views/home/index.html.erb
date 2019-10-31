@@ -5,8 +5,7 @@
 <!-- ======================== Navigation ======================== -->
 
 <!-- ==========  Search wrapper ========== -->
-
-<!-- ========================  Header content ======================== -->
+<!-- ==================  Header content ======================== -->
 
 <section class="header-content">
 
@@ -18,12 +17,15 @@
       <div class="box">
         <div class="container">
           <div class="col-md-12">
-            <h2 class="title animated h1" data-animation="fadeInDown">The Furnishing Bazaar</h2>
+
+            <h2 class="title">
+              The Furnishing Bazaar
+            </h2>
             <div class="animated" data-animation="fadeInUp">
               Find trusted locals, now.
             </div>
             <br>
-        </div>
+          </div>
 
           <div class="col-md-5">
             <div class="animated" data-animation="fadeInUp">
@@ -42,96 +44,34 @@
             <!--                              <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main" ><i class="icon icon-cart"></i> Buy this template</a>-->
           </div>
 
-      <div class="col-md-1">
+          <div class="col-md-1">
 
-      </div>
+          </div>
 
           <div class="col-md-6">
-          <div class="custom-home-tiles">
-            <div class="row">
-              <% @categories.each_with_index  do |category, index| %>
-                <% if index == 9 %>
-                  <% break %>
+            <div class="custom-home-tiles">
+              <div class="row">
+                <% @categories.each_with_index  do |category, index| %>
+                  <% if index == 9 %>
+                    <% break %>
+                  <% end %>
+                  <div class="col-md-4 custom-padding-homepage">
+                    <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
+                  </div>
                 <% end %>
-                <div class="col-md-4">
-                  <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
-                </div>
-              <% end %>
+              </div>
             </div>
-          </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- === slide item === -->
-
-    <!-- <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-2-temp.jpg') %>')">
-                    <div class="box">
-                        <div class="container">
-                            <h2 class="title animated h1" data-animation="fadeInDown">Mobile ready!</h2>
-                            <div class="animated" data-animation="fadeInUp">Unlimited Choices. Unbeatable Prices. Free Shipping.</div>
-                            <div class="animated" data-animation="fadeInUp">Furniture category icon fonts!</div>
-                            <div class="animated" data-animation="fadeInUp">
-                                <a href="category.html" class="btn btn-clean">Get insipred</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-    <!-- === slide item === -->
-
-    <!--    <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-3-temp.jpg') %>')">
-                    <div class="box">
-                        <div class="container">
-                            <h2 class="title animated h1" data-animation="fadeInDown">
-                                Very Animate.css Friend.
-                            </h2>
-                            <div class="desc animated" data-animation="fadeInUp">
-                                Combine with animate.css. Or just use your own!.
-                            </div>
-                            <div class="desc animated" data-animation="fadeInUp">
-                                Bunch of typography effects.
-                            </div>
-                            <div class="animated" data-animation="fadeInUp">
-                                <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-clean">Buy this template</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
   </div> <!--/owl-slider-->
 </section>
 
-<!-- ========================  Icons slider ======================== -->
-
-
-
 <!-- ========================  Stretcher widget ======================== -->
 <br>
-<br>
 <section class="stretcher-wrapper">
-
   <!-- === stretcher header === -->
-
-  <header class="hidden">
-    <!--remove class 'hidden'' to show section header -->
-    <div class="container">
-      <div class="row">
-        <div class="col-md-offset-2 col-md-8 text-center">
-          <h1 class="h2 title">Popular categories</h1>
-          <div class="text ">
-            <p>
-              Whether you are changing your home, or moving into a new one, you will find a huge selection of quality living room furniture,
-              bedroom furniture, dining room furniture and the best value at Furniture factory
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- === stretcher === -->
   <header>
     <div class="row">
       <div class="col-md-offset-2 col-md-8 text-center">
@@ -144,7 +84,6 @@
     </div>
   </header>
   <ul class="stretcher">
-
     <!-- === stretcher item === -->
     <% @cities.each_with_index do |city,index| %>
       <% if index == 4 %>
@@ -155,10 +94,10 @@
         <div class="stretcher-logo">
           <div class="text">
             <div class="custom-heading">
-            <span class="text-intro"><%= city.title %></span>
+              <span class="text-intro"><%= city.title %></span>
+            </div>
           </div>
         </div>
-      </div>
         <!--main text-->
         <figure>
           <h4><%= city.title %></h4>
@@ -169,7 +108,6 @@
       </li>
     <% end %>
     <!-- === stretcher item more=== -->
-
     <li class="stretcher-item more">
       <div class="more-icon">
         <span data-title-show="Show more" data-title-hide="+"></span>
@@ -179,15 +117,11 @@
   </ul>
 </section>
 
-<hr>
 
 <!-- ========================  Products widget ======================== -->
-<section class="products">
-
+<section class="products custom-product-homepage">
   <div class="container">
-
     <!-- === header title === -->
-
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
@@ -197,7 +131,6 @@
             <hr>
           </div>
         </div>
-
       </div>
     </header>
 
@@ -209,7 +142,6 @@
           <% end %>
           <article>
             <div class="figure-grid custom-figure-grid">
-
               <div class="image">
                 <% if product.images.attached? %>
                   <%= link_to product do%>
@@ -221,13 +153,11 @@
                   <% end %>
                 <% end %>
               </div>
-
               <div class="text">
                 <%= link_to product do%>
-                  <h2 class="title h4"><%= product.title %></h2>
+                  <h2 class="title h4"><%=product.title %></h2>
+                  <span>$ <%= product.price %></span>
                 <% end %>
-                <sup>$ <%= product.price %></sup>
-                <span class="description clearfix"><%= product.description %></span>
               </div>
             </div>
           </article>
@@ -235,114 +165,19 @@
       </div>
     </div>
     <!-- === button more === -->
-
     <div class="wrapper-more">
       <a href="<%= popular_list_products_path %>" class="btn btn-main">View more products</a>
+      <hr class="home-page">
     </div>
-
-    <!-- ========================  Product info popup - quick view ======================== -->
-
-    <div class="popup-main mfp-hide" id="productid1">
-
-      <!-- === product popup === -->
-
-      <div class="product">
-
-        <!-- === popup-title === -->
-
-        <div class="popup-title">
-          <div class="h1 title">Laura <small>product category</small></div>
-        </div>
-
-        <!-- === product gallery === -->
-
-        <div class="owl-product-gallery">
-          <%= image_tag "furnishia/product-1.png",size: "640" %>
-          <%= image_tag "furnishia/product-2.png",size: "640" %>
-          <%= image_tag "furnishia/product-3.png",size: "640" %>
-          <%= image_tag "furnishia/product-4.png",size: "640" %>
-        </div>
-
-        <!-- === product-popup-info === -->
-
-        <div class="popup-content">
-          <div class="product-info-wrapper">
-            <div class="row">
-
-              <!-- === left-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Maifacturer</strong>
-                  <span>Brand name</span>
-                </div>
-                <div class="info-box">
-                  <strong>Materials</strong>
-                  <span>Wood, Leather, Acrylic</span>
-                </div>
-                <div class="info-box">
-                  <strong>Availability</strong>
-                  <span><i class="fa fa-check-square-o"></i> in stock</span>
-                </div>
-              </div>
-
-              <!-- === right-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Available Colors</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-red"></span>
-                    <span class="color-btn color-btn-blue checked"></span>
-                    <span class="color-btn color-btn-green"></span>
-                    <span class="color-btn color-btn-gray"></span>
-                    <span class="color-btn color-btn-biege"></span>
-                  </div>
-                </div>
-                <div class="info-box">
-                  <strong>Choose size</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-biege">S</span>
-                    <span class="color-btn color-btn-biege checked">M</span>
-                    <span class="color-btn color-btn-biege">XL</span>
-                    <span class="color-btn color-btn-biege">XXL</span>
-                  </div>
-                </div>
-              </div>
-
-            </div> <!--/row-->
-          </div> <!--/product-info-wrapper-->
-        </div> <!--/popup-content-->
-        <!-- === product-popup-footer === -->
-
-        <div class="popup-table">
-          <div class="popup-cell">
-            <div class="price">
-              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-            </div>
-          </div>
-          <div class="popup-cell">
-            <div class="popup-buttons">
-              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-            </div>
-          </div>
-        </div>
-
-      </div> <!--/product-->
-    </div> <!--popup-main-->
   </div> <!--/container-->
+
 </section>
 
-<hr>
 
 <!-- ========================  Popular Vendors ======================== -->
 <section class="products">
-
   <div class="container">
-
     <!-- === header title === -->
-
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
@@ -354,7 +189,6 @@
         </div>
       </div>
     </header>
-
     <div class="row">
       <div class="responsivee">
         <% @popular_vendors.each_with_index do |vendor, index| %>
@@ -375,11 +209,10 @@
                 <% end %>
               </div>
               <div class="text">
-                <div class="name">
-                  <%= link_to products_path(user_id: vendor.id) do %>
-                    <div class="title"><%= vendor.full_name %> <br><small><%= vendor.category_title %></small></div>
-                  <% end %>
-                </div>
+                <%= link_to products_path(user_id: vendor.id) do %>
+                  <h2 class="title h4"><%= vendor.full_name %></h2>
+                  <span><%= vendor.category_title %></span>
+                <% end %>
               </div>
             </div>
           </article>
@@ -389,111 +222,17 @@
     <!-- === button more === -->
     <div class="wrapper-more">
       <a href="<%= popular_list_vendors_path %>" class="btn btn-main">View more vendors</a>
+      <hr class="home-page">
     </div>
-
-    <!-- ========================  Product info popup - quick view ======================== -->
-
-    <div class="popup-main mfp-hide" id="productid1">
-
-      <!-- === product popup === -->
-
-      <div class="product">
-
-        <!-- === popup-title === -->
-
-        <div class="popup-title">
-          <div class="h1 title">Laura <small>product category</small></div>
-        </div>
-
-        <!-- === product gallery === -->
-
-        <div class="owl-product-gallery">
-          <%= image_tag "furnishia/product-1.png",size: "640" %>
-          <%= image_tag "furnishia/product-2.png",size: "640" %>
-          <%= image_tag "furnishia/product-3.png",size: "640" %>
-          <%= image_tag "furnishia/product-4.png",size: "640" %>
-        </div>
-
-        <!-- === product-popup-info === -->
-
-        <div class="popup-content">
-          <div class="product-info-wrapper">
-            <div class="row">
-
-              <!-- === left-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Maifacturer</strong>
-                  <span>Brand name</span>
-                </div>
-                <div class="info-box">
-                  <strong>Materials</strong>
-                  <span>Wood, Leather, Acrylic</span>
-                </div>
-                <div class="info-box">
-                  <strong>Availability</strong>
-                  <span><i class="fa fa-check-square-o"></i> in stock</span>
-                </div>
-              </div>
-
-              <!-- === right-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Available Colors</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-red"></span>
-                    <span class="color-btn color-btn-blue checked"></span>
-                    <span class="color-btn color-btn-green"></span>
-                    <span class="color-btn color-btn-gray"></span>
-                    <span class="color-btn color-btn-biege"></span>
-                  </div>
-                </div>
-                <div class="info-box">
-                  <strong>Choose size</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-biege">S</span>
-                    <span class="color-btn color-btn-biege checked">M</span>
-                    <span class="color-btn color-btn-biege">XL</span>
-                    <span class="color-btn color-btn-biege">XXL</span>
-                  </div>
-                </div>
-              </div>
-
-            </div> <!--/row-->
-          </div> <!--/product-info-wrapper-->
-        </div> <!--/popup-content-->
-        <!-- === product-popup-footer === -->
-
-        <div class="popup-table">
-          <div class="popup-cell">
-            <div class="price">
-              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-            </div>
-          </div>
-          <div class="popup-cell">
-            <div class="popup-buttons">
-              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-            </div>
-          </div>
-        </div>
-
-      </div> <!--/product-->
-    </div> <!--popup-main-->
   </div> <!--/container-->
 </section>
 
-<hr>
+
 
 <!-- ========================  Popular Architects ======================== -->
 <section class="products">
-
   <div class="container">
-
     <!-- === header title === -->
-
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
@@ -505,7 +244,6 @@
         </div>
       </div>
     </header>
-
     <div class="row">
       <div class="responsivee">
         <% @popular_architects.each_with_index do |architect, index| %>
@@ -526,11 +264,10 @@
                 <% end %>
               </div>
               <div class="text">
-                <div class="name">
-                  <%= link_to profiles_path(user_id: architect.id) do %>
-                    <div class="h3 title"><%= architect.full_name %> <small><%= architect.category_title %></small></div>
-                  <% end %>
-                </div>
+                <%= link_to profiles_path(user_id: architect.id) do %>
+                  <h2 class="title h4"><%= architect.full_name %></h2>
+                  <span><%= architect.category_title %></span>
+                <% end %>
               </div>
             </div>
           </article>
@@ -538,114 +275,19 @@
       </div>
     </div>
     <!-- === button more === -->
-
     <div class="wrapper-more">
       <a href="<%=  popular_architect_vendors_path %>" class="btn btn-main">View more architects</a>
+      <hr class="home-page">
     </div>
-
-    <!-- ========================  Product info popup - quick view ======================== -->
-
-    <div class="popup-main mfp-hide" id="productid1">
-
-      <!-- === product popup === -->
-
-      <div class="product">
-
-        <!-- === popup-title === -->
-
-        <div class="popup-title">
-          <div class="h1 title">Laura <small>product category</small></div>
-        </div>
-
-        <!-- === product gallery === -->
-
-        <div class="owl-product-gallery">
-          <%= image_tag "furnishia/product-1.png",size: "640" %>
-          <%= image_tag "furnishia/product-2.png",size: "640" %>
-          <%= image_tag "furnishia/product-3.png",size: "640" %>
-          <%= image_tag "furnishia/product-4.png",size: "640" %>
-        </div>
-
-        <!-- === product-popup-info === -->
-
-        <div class="popup-content">
-          <div class="product-info-wrapper">
-            <div class="row">
-
-              <!-- === left-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Maifacturer</strong>
-                  <span>Brand name</span>
-                </div>
-                <div class="info-box">
-                  <strong>Materials</strong>
-                  <span>Wood, Leather, Acrylic</span>
-                </div>
-                <div class="info-box">
-                  <strong>Availability</strong>
-                  <span><i class="fa fa-check-square-o"></i> in stock</span>
-                </div>
-              </div>
-
-              <!-- === right-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Available Colors</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-red"></span>
-                    <span class="color-btn color-btn-blue checked"></span>
-                    <span class="color-btn color-btn-green"></span>
-                    <span class="color-btn color-btn-gray"></span>
-                    <span class="color-btn color-btn-biege"></span>
-                  </div>
-                </div>
-                <div class="info-box">
-                  <strong>Choose size</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-biege">S</span>
-                    <span class="color-btn color-btn-biege checked">M</span>
-                    <span class="color-btn color-btn-biege">XL</span>
-                    <span class="color-btn color-btn-biege">XXL</span>
-                  </div>
-                </div>
-              </div>
-
-            </div> <!--/row-->
-          </div> <!--/product-info-wrapper-->
-        </div> <!--/popup-content-->
-        <!-- === product-popup-footer === -->
-
-        <div class="popup-table">
-          <div class="popup-cell">
-            <div class="price">
-              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-            </div>
-          </div>
-          <div class="popup-cell">
-            <div class="popup-buttons">
-              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-            </div>
-          </div>
-        </div>
-
-      </div> <!--/product-->
-    </div> <!--popup-main-->
   </div> <!--/container-->
 </section>
 
-<hr>
+
 
 <!-- ========================  Popular Interior ======================== -->
 <section class="products">
-
   <div class="container">
-
     <!-- === header title === -->
-
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
@@ -657,7 +299,6 @@
         </div>
       </div>
     </header>
-
     <div class="row">
       <div class="responsivee">
         <% @popular_interior_designers.each_with_index do |interior_designer, index| %>
@@ -678,11 +319,10 @@
                 <% end %>
               </div>
               <div class="text">
-                <div class="name">
-                  <%= link_to profiles_path(user_id: interior_designer.id) do %>
-                    <div class="h3 title"><%= interior_designer.full_name %> <small><%= interior_designer.category_title %></small></div>
-                  <% end %>
-                </div>
+                <%= link_to profiles_path(user_id: interior_designer.id) do %>
+                  <h2 class="title h4"><%= interior_designer.full_name %></h2>
+                  <span><%= interior_designer.category_title %></span>
+                <% end %>
               </div>
             </div>
           </article>
@@ -690,117 +330,18 @@
       </div>
     </div> <!--/row-->
     <!-- === button more === -->
-
     <div class="wrapper-more">
       <a href="<%=  popular_interior_designer_vendors_path %>" class="btn btn-main">View more designers</a>
+      <hr class="home-page">
     </div>
-
-
-
-    <!-- ========================  Product info popup - quick view ======================== -->
-
-    <div class="popup-main mfp-hide" id="productid1">
-
-      <!-- === product popup === -->
-
-      <div class="product">
-
-        <!-- === popup-title === -->
-
-        <div class="popup-title">
-          <div class="h1 title">Laura <small>product category</small></div>
-        </div>
-
-        <!-- === product gallery === -->
-
-        <div class="owl-product-gallery">
-          <%= image_tag "furnishia/product-1.png",size: "640" %>
-          <%= image_tag "furnishia/product-2.png",size: "640" %>
-          <%= image_tag "furnishia/product-3.png",size: "640" %>
-          <%= image_tag "furnishia/product-4.png",size: "640" %>
-        </div>
-
-        <!-- === product-popup-info === -->
-
-        <div class="popup-content">
-          <div class="product-info-wrapper">
-            <div class="row">
-
-              <!-- === left-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Maifacturer</strong>
-                  <span>Brand name</span>
-                </div>
-                <div class="info-box">
-                  <strong>Materials</strong>
-                  <span>Wood, Leather, Acrylic</span>
-                </div>
-                <div class="info-box">
-                  <strong>Availability</strong>
-                  <span><i class="fa fa-check-square-o"></i> in stock</span>
-                </div>
-              </div>
-
-              <!-- === right-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Available Colors</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-red"></span>
-                    <span class="color-btn color-btn-blue checked"></span>
-                    <span class="color-btn color-btn-green"></span>
-                    <span class="color-btn color-btn-gray"></span>
-                    <span class="color-btn color-btn-biege"></span>
-                  </div>
-                </div>
-                <div class="info-box">
-                  <strong>Choose size</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-biege">S</span>
-                    <span class="color-btn color-btn-biege checked">M</span>
-                    <span class="color-btn color-btn-biege">XL</span>
-                    <span class="color-btn color-btn-biege">XXL</span>
-                  </div>
-                </div>
-              </div>
-
-            </div> <!--/row-->
-          </div> <!--/product-info-wrapper-->
-        </div> <!--/popup-content-->
-        <!-- === product-popup-footer === -->
-
-        <div class="popup-table">
-          <div class="popup-cell">
-            <div class="price">
-              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-            </div>
-          </div>
-          <div class="popup-cell">
-            <div class="popup-buttons">
-              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-            </div>
-          </div>
-        </div>
-
-      </div> <!--/product-->
-    </div> <!--popup-main-->
   </div> <!--/container-->
 </section>
 
-<hr>
 
 <!-- ========================  Product Designer ======================== -->
-
 <section class="products">
-
   <div class="container">
-
     <!-- === header title === -->
-
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
@@ -812,7 +353,6 @@
         </div>
       </div>
     </header>
-
     <div class="row">
       <div class="responsivee">
         <% @popular_product_designers.each_with_index do |designer, index| %>
@@ -833,11 +373,10 @@
                 <% end %>
               </div>
               <div class="text">
-                <div class="name">
-                  <%= link_to profiles_path(user_id: designer.id) do %>
-                    <div class="h3 title"><%= designer.full_name %> <small><%= designer.category_title %></small></div>
-                  <% end %>
-                </div>
+                <%= link_to profiles_path(user_id: designer.id) do %>
+                  <h2 class="title h4"><%= designer.full_name %></h2>
+                  <span><%= designer.category_title %></span>
+                <% end %>
               </div>
             </div>
           </article>
@@ -845,120 +384,19 @@
       </div>
     </div> <!--/row-->
     <!-- === button more === -->
-
     <div class="wrapper-more">
       <a href="<%=  popular_interior_designer_vendors_path %>" class="btn btn-main">View more designers</a>
+      <hr class="home-page">
     </div>
-
-
-
-    <!-- ========================  Product info popup - quick view ======================== -->
-
-    <div class="popup-main mfp-hide" id="productid1">
-
-      <!-- === product popup === -->
-
-      <div class="product">
-
-        <!-- === popup-title === -->
-
-        <div class="popup-title">
-          <div class="h1 title">Laura <small>product category</small></div>
-        </div>
-
-        <!-- === product gallery === -->
-
-        <div class="owl-product-gallery">
-          <%= image_tag "furnishia/product-1.png",size: "640" %>
-          <%= image_tag "furnishia/product-2.png",size: "640" %>
-          <%= image_tag "furnishia/product-3.png",size: "640" %>
-          <%= image_tag "furnishia/product-4.png",size: "640" %>
-        </div>
-
-        <!-- === product-popup-info === -->
-
-        <div class="popup-content">
-          <div class="product-info-wrapper">
-            <div class="row">
-
-              <!-- === left-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Maifacturer</strong>
-                  <span>Brand name</span>
-                </div>
-                <div class="info-box">
-                  <strong>Materials</strong>
-                  <span>Wood, Leather, Acrylic</span>
-                </div>
-                <div class="info-box">
-                  <strong>Availability</strong>
-                  <span><i class="fa fa-check-square-o"></i> in stock</span>
-                </div>
-              </div>
-
-              <!-- === right-column === -->
-
-              <div class="col-sm-6">
-                <div class="info-box">
-                  <strong>Available Colors</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-red"></span>
-                    <span class="color-btn color-btn-blue checked"></span>
-                    <span class="color-btn color-btn-green"></span>
-                    <span class="color-btn color-btn-gray"></span>
-                    <span class="color-btn color-btn-biege"></span>
-                  </div>
-                </div>
-                <div class="info-box">
-                  <strong>Choose size</strong>
-                  <div class="product-colors clearfix">
-                    <span class="color-btn color-btn-biege">S</span>
-                    <span class="color-btn color-btn-biege checked">M</span>
-                    <span class="color-btn color-btn-biege">XL</span>
-                    <span class="color-btn color-btn-biege">XXL</span>
-                  </div>
-                </div>
-              </div>
-
-            </div> <!--/row-->
-          </div> <!--/product-info-wrapper-->
-        </div> <!--/popup-content-->
-        <!-- === product-popup-footer === -->
-
-        <div class="popup-table">
-          <div class="popup-cell">
-            <div class="price">
-              <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-            </div>
-          </div>
-          <div class="popup-cell">
-            <div class="popup-buttons">
-              <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-              <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-            </div>
-          </div>
-        </div>
-
-      </div> <!--/product-->
-    </div> <!--popup-main-->
   </div> <!--/container-->
 </section>
 
-<hr>
-
-<!-- ========================  Banner ======================== -->
 
 
 <!-- ========================  Blog ======================== -->
-
 <section class="blog">
-
   <div class="container">
-
     <!-- === blog header === -->
-
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
@@ -970,7 +408,6 @@
         </div>
       </div>
     </header>
-
     <div class="row">
       <div class="responsivee">
         <% @blogs.each_with_index do |blog, index| %>
@@ -1006,23 +443,18 @@
         <% end %>
       </div>
     </div>
-
-
     <div class="wrapper-more">
       <a href="<%= blogs_path %>" class="btn btn-main">View all posts</a>
+      <hr class="home-page">
     </div>
-
   </div> <!--/container-->
 </section>
-<hr>
+
 <!-- ========================  Instagram ======================== -->
 
 <section class="blog">
-
   <div class="container">
-
     <!-- === blog header === -->
-
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
@@ -1070,12 +502,9 @@
         <% end %>
       </div>
     </div>
-
-
     <div class="wrapper-more">
       <a href="<%= advertisements_path %>" class="btn btn-main">View all advertisements</a>
     </div>
-
   </div> <!--/container-->
 </section>
 

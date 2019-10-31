@@ -1,6 +1,10 @@
 <%= render 'shared/errors', obj: job %>
 <%= form_for  job, job_form_attributes(job) do |f| %>
   <div class="form-group">
+    <%= f.label :company %>
+    <%= f.text_field :company, class: "form-control", autocomplete: false, placeholder: "Company", autofocus: true %> <br/>
+  </div>
+  <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Job Title", autofocus: true %> <br/>
   </div>
@@ -9,8 +13,16 @@
     <%= f.text_area :description, class: "form-control", autocomplete: false, placeholder: "Job Description", autofocus: true %> <br/>
   </div>
   <div class="form-group">
+    <%= f.label :Position %>
+    <%= f.text_field :position, class: "form-control", autocomplete: false, placeholder: "Job Position", autofocus: true %> <br/>
+  </div>
+  <div class="form-group">
     <%= f.label :address %>
     <%= f.text_field :address, class: "form-control", autocomplete: false, placeholder: "Job Address", autofocus: true %> <br/>
+  </div>
+  <div class="form-group">
+    <%= f.label :country %>
+    <%= f.text_field :country, class: "form-control", autocomplete: false, placeholder: "Job Country", autofocus: true %> <br/>
   </div>
   <div class="form-group">
     <%= f.label :salary %>

@@ -7,9 +7,11 @@
         <table class="table table-responsive-sm">
           <thead>
           <tr>
-            <th>Title</th>
-            <th>Descrption</th>
-            <th>Address</th>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Country</th>
             <th>Salary</th>
             <th>Actions</th>
           </tr>
@@ -17,9 +19,11 @@
           <tbody>
           <% @jobs.each do |job| %>
             <tr>
+              <td><%= job.company %></td>
               <td><%= job.title %></td>
               <td><%= truncate(job.description, length: 50) %></td>
               <td><%= truncate(job.address, length: 50) %></td>
+              <td><%= truncate(job.country, length: 50) %></td>
               <td><%= job.salary %></td>
               <td><%= link_to "Edit",  edit_admin_job_path(job), class: "btn btn-xs btn-primary" %>
               <%= link_to "Show",  admin_job_path(job), class: "btn btn-xs btn-success" %>

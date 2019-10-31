@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :resume
   has_one :profile, dependent: :destroy
   has_many :companies, dependent: :destroy
   has_many :projects, through: :companies

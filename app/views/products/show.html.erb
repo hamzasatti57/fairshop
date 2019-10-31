@@ -109,6 +109,13 @@
                 <div class="product-colors clearfix">
                   <%= @product.id %>
                 </div>
+                <br>
+                <% if @vendor.profile.pdf.attached? %>
+                  <span><strong>Catelog</strong></span>
+                  <div class="product-colors clearfix">
+                    <%= link_to @vendor.profile.pdf.filename, rails_blob_path(@vendor.profile.pdf, disposition: 'attachment') %>
+                  </div>
+                <% end %>
               </div>
             </div> <!--/clearfix-->
           </div> <!--/product-info-wrapper-->

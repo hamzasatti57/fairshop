@@ -8,6 +8,12 @@ Rails.application.routes.draw do
   resources :comments
   resources :ratings
   resources :profiles
+  resources :job_mails do
+    collection do
+      post :job_email_send
+      get :job_email_send
+    end
+  end
   resources :contact_us
   resources :products do
     collection do

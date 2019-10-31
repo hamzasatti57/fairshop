@@ -1,3 +1,23 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+
+<script>
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
+
+
+<style>
+  .flex-l{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+  }
+</style>
+
+
 <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
   <header>
     <div class="container">
@@ -12,38 +32,12 @@
 
 <!-- ========================  Blog ======================== -->
 
+
+
 <section class="blog">
 
   <div class="container">
 
-    <div class="pre-header hidden">
-      <div>
-        <h2 class="h3 title">
-          Category name
-        </h2>
-      </div>
-      <div>
-        <div class="sort-bar pull-right">
-          <div class="sort-results">
-            <!--Items counter-->
-            <span>Showing all <strong>50</strong> of <strong>3,250</strong> items</span>
-            <!--Showing result per page-->
-            <select>
-              <option value="1">10</option>
-              <option value="2">50</option>
-              <option value="3">100</option>
-              <option value="4">All</option>
-            </select>
-            <!--Grid-list view-->
-            <span class="grid-list">
-                                    <a href="blog-grid.html"><i class="fa fa-th-large"></i></a>
-                                    <a href="blog-list.html"><i class="fa fa-align-justify"></i></a>
-                                    <a href="javascript:void(0);" class="toggle-filters-mobile"><i class="fa fa-search"></i></a>
-                                </span>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="row">
 
@@ -52,35 +46,98 @@
       <div class="col-md-12">
 
         <div class="row">
-          <% @jobs.each do |job| %>
-            <!-- === blog-item === -->
-            <div class="col-lg-12">
-              <article class="article-table">
-                <%= link_to job  do%>
 
-                  <div class="image" style="background-image:url(assets/images/blog-1.jpg)">
-                    <% if job.image.attached? %>
-                      <%= image_tag(url_for(job.image)) %>
-                    <% else %>
-                      <img src="assets/images/blog-1.jpg" alt="" />
-                    <%end %>
-                  </div>
-                  <div class="text">
-                    <div class="title">
-                      <h2 class="h5"><%= job.title %></h2>
-                    </div>
-                    <div class="text-intro">
-                      <p><%= truncate(job.description, length: 50)  %></p>
-                      <p><%= truncate(job.address, length: 50)  %></p>
-                      <p><%= job.updated_at.strftime('%d %b %y')%></p>
-
-                    </div>
-                  </div>
-                <% end %>
-              </article>
-            </div>
-          <% end %>
+          <table id="table_id" class="display nowrap dataTable dtr-inline collapsed">
+            <thead>
+            <tr>
+              <th>Sr#</th>
+              <th>Company</th>
+              <th>Position</th>
+              <th>Description</th>
+              <th>Location</th>
+              <th>Country</th>
+              <th>Salary</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @jobs.each_with_index  do |job, index| %>
+              <tr>
+                <td><%= index  + 1%></td>
+                <td><%= job.company %></td>
+                <td><%= job.title %></td>
+                <td><%= truncate(job.description, length: 15) %></td>
+                <td><%= truncate(job.address, length: 15) %></td>
+                <td><%= truncate(job.country, length: 15) %></td>
+                <td><%= job.salary %></td>
+                <td><button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#<%= job.id %>">Apply</button></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
         </div>
+
+
+        <% @jobs.each_with_index  do |job, index| %>
+          <div class="modal fade" id="<%= job.id %>" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Apply for job</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="">
+                    <div class="row">
+                      <div class="flex-l">
+                        <div class="">
+                          <% if job.image.attached? %>
+                            <%= image_tag(url_for(job.image)) %>
+                          <% end %>
+
+                        </div>
+                        <div class="">
+                          <h4> <%= job.company %></h4>
+                          <p><%= job.user.profile.address %></p>
+                          <p><%= job.user.profile.phone %></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <h5>Position: </h5>
+                        <p><%= job.position %></p>
+                        <h5>Description:</h5>
+                        <p><%= job.description %></p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <%= form_tag  job_email_send_job_mails_path, method: :post, multipart: true  do %>
+                        <div class="form-group">
+                          <%= hidden_field_tag :to_email, job.user.email  %>
+                          <%= text_field_tag :name, nil, class: "form-control ", autocomplete: false, placeholder: "Full Name", autofocus: true %>
+                          <%= text_field_tag :from_email, nil, class: "form-control", autocomplete: false, placeholder: "Email", autofocus: true %>
+                          <%= file_field_tag :attachment %>
+                          <%= submit_tag "Email", class: "btn btn-primary btn-md custom-slider-btn"%>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+
+
+
+
+
 
         <!-- === pagination === -->
 

@@ -1,45 +1,15 @@
-<div class="sort-bar clearfix">
-  <div class="sort-results pull-left">
-    <!--Showing result per page-->
-    <select>
-      <option value="1">10</option>
-      <option value="2">50</option>
-      <option value="3">100</option>
-      <option value="4">All</option>
-    </select>
-    <!--Items counter-->
-    <span>Showing all <strong>50</strong> of <strong>3,250</strong> items</span>
-  </div>
-  <!--Sort options-->
-  <div class="sort-options pull-right">
-    <span class="hidden-xs">Sort by</span>
-    <select id="sort-price">
-      <option data-option-value="asc">Price: lowest</option>
-      <option data-option-value="desc">Price: highest</option>
-    </select>
-    <!--Grid-list view-->
-    <span class="grid-list">
-                                    <a href="products-grid.html"><i class="fa fa-th-large"></i></a>
-                                    <a href="products-list.html"><i class="fa fa-align-justify"></i></a>
-                                    <a href="javascript:void(0);" class="toggle-filters-mobile"><i class="fa fa-search"></i></a>
-                                </span>
-  </div>
-</div>
+
 
 <% products.each_with_index do |product, index| %>
-  <% if index % 2 == 0 %>
+  <% if index % 3 == 0 %>
     <% if index != 0 %>
       </div>
     <% end %>
     <div class="row">
       <!-- === product-item === -->
-      <div class="col-md-6 col-xs-6 item price-discount category-sofa material-leather">
+      <div class="col-md-4 col-xs-4 item price-discount category-sofa material-leather">
         <article>
-          <div class="btn btn-add">
-            <i class="icon icon-cart"></i>
-          </div>
           <div class="figure-grid">
-            <span class="label">-50%</span>
             <div class="image">
               <% if product.images.attached? %>
                 <%= link_to product do%>
@@ -55,8 +25,7 @@
               <%= link_to product do%>
                 <h2 class="title h4"><%= product.title %></h2>
               <% end %>
-              <sub>$ 1499,-</sub>
-              <sup>$ <span class="price">product.price</span>,-</sup>
+              $ <span class="price"><%= product.price %></span>
               <span class="description clearfix">product.description</span>
             </div>
           </div>
@@ -64,13 +33,10 @@
       </div>
   <% else %>
     <!-- === product-item === -->
-    <div class="col-md-6 col-xs-6 item price-discount category-sofa material-leather">
+    <div class="col-md-4 col-xs-4 item price-discount category-sofa material-leather">
       <article>
-        <div class="btn btn-add">
-          <i class="icon icon-cart"></i>
-        </div>
-        <div class="figure-grid">
-          <span class="label">-50%</span>
+          <div class="figure-grid">
+
           <div class="image">
             <% if product.images.attached? %>
               <%= link_to product do%>
@@ -86,8 +52,8 @@
             <%= link_to product do%>
               <h2 class="title h4"><%= product.title %></h2>
             <% end %>
-            <sub>$ 1499,-</sub>
-            <sup>$ <span class="price">product.price</span>,-</sup>
+
+           $ <span class="price"><%= product.price %></span>
             <span class="description clearfix">product.description</span>
           </div>
         </div>
