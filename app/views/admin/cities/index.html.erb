@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-8 offset-2">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header custom-card-header">
         <i class="fa fa-align-justify"></i> Listing all Cities</div>
       <div class="card-body">
         <table class="table table-responsive-sm">
@@ -15,9 +15,9 @@
           <% @cities.each do |city| %>
             <tr>
               <td><%= city.title %></td>
-              <td><%= link_to "Edit",  edit_admin_city_path(city), class: "btn btn-xs btn-primary" %>
-              <%= link_to "Show",  admin_city_path(city), class: "btn btn-xs btn-success" %>
-              <%= link_to "Delete", admin_city_path(city), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
+              <td><%= link_to "Edit",  edit_admin_city_path(city), class: "btn btn-xs custom-table-edit-btn btn-primary" %>
+              <%= link_to "Show",  admin_city_path(city), class: "btn btn-xs custom-table-show-btn btn-success" %>
+              <%= link_to "Delete", admin_city_path(city), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn" %></td>
             </tr>
           <% end %>
           </tbody>

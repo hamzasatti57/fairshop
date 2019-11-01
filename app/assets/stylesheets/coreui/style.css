@@ -12825,7 +12825,7 @@ canvas {
   width: 1.09375rem;
   margin: 0 0.5rem 0 0;
   font-size: 0.875rem;
-  color: #73818f;
+  color: #fff;
   text-align: center;
 }
 
@@ -12840,12 +12840,12 @@ canvas {
 }
 
 .sidebar .nav-link.active .nav-icon {
-  color: #20a8d8;
+  color: #fff;
 }
 
 .sidebar .nav-link:hover {
   color: #fff;
-  background: #20a8d8;
+  background: #b41135;
 }
 
 .sidebar .nav-link:hover .nav-icon {
@@ -17096,4 +17096,178 @@ input, button, select, optgroup, textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+}
+
+/***************************/
+/********* Login **********/
+/***************************/
+/***************************/
+
+.custom-login-page .card-group{
+  box-shadow: 0px 0px 20px 10px #cacaca;
+}
+
+.custom-login-page .card-group .card-body input{
+  margin-top: 0px;
+}
+ 
+.custom-login-page .card-group .card-body input:focus{
+  border-color: #b53035;
+  box-shadow: 0px 0px 4px 2px #cacaca;
+}
+
+.custom-login-page .card-group .card-body li{
+  list-style: none;
+  padding: 10px 0px;
+  text-align: center;
+}
+
+.custom-login-page .card-group .card{
+  border:1px solid #b53035;
+}
+
+
+.custom-login-page .card-group{
+  border:unset;
+}
+
+.custom-login-page .card-group .card-body input.custom-login-btn{
+  background-color: #b41135;
+  border:2px solid #b41135;
+}
+
+.custom-login-page .card-group .card-body input.custom-login-btn:focus{
+  box-shadow: unset;
+}
+
+.custom-login-page .card-group .card-body input.custom-login-btn:hover{
+ box-shadow:0px 0px 5px 3px #0000003b;
+}
+
+.custom-login-page .card-group .card-body .custom-forgot-text{
+  color:#b41135;
+}
+
+.custom-login-page .custom-register-card{
+  background-color: #b41135 !important;
+  border-color: #b41135;
+}
+
+.custom-login-page .custom-register-card a.custom-register-btn{
+  color: #b41135 !important;
+  background-color: #fff !important;
+  border-color: #fff !important;
+}
+
+.custom-login-page .custom-register-card a.custom-register-btn:hover{
+  box-shadow:0px 0px 5px 3px #0000003b;
+}
+
+
+/**************************/
+/******** Register *********/
+/**************************/
+/**************************/
+
+.custom-register-page .card-group .card-body input{
+  margin-top: 0px;
+}
+
+.custom-register-page .card-group .card-body input:focus{
+  box-shadow: 0px 0px 4px 2px #cacaca;
+}
+
+.custom-register-page .card-group .card-body select{
+  margin-top: 0px;
+}
+
+.custom-register-page .card-group .card{
+  border:unset;
+}
+
+.custom-register-page .card-group input.custom-register-page-signup-btn{
+  color: #fff !important;
+  background-color: #b41135 !important;
+  border-color: #b41135 !important;
+}
+
+.custom-register-page .card-group input.custom-register-page-signup-btn:hover{
+  box-shadow: 0px 0px 4px 2px #cacaca;
+}
+
+.custom-register-page .card-group a.custom-register-page-login-btn{
+  color: #fff !important;
+  background-color: #1f2732 !important;
+  border-color: #1f2732 !important;
+}
+
+.custom-register-page .card-group a.custom-register-page-login-btn:hover{
+  box-shadow: 0px 0px 4px 2px #cacaca;
+}
+
+.custom-register-page-card{
+  margin-left: 150px;
+}
+
+/**************************/
+/******** Dashboard *******/
+/**************************/
+/**************************/
+
+
+.custom-card-header{
+  background-color: #b41135 !important;
+}
+
+.custom-table-edit-btn{
+  background-color: #b53035;
+  border-color: #b53035;
+}
+
+.custom-table-edit-btn:hover,
+.custom-table-edit-btn:focus,
+.custom-table-edit-btn:active{
+ box-shadow:1px 2px 3px 1px #cacaca !important;
+ background-color: #b53035 !important;
+ border-color: #b53035 !important;
+}
+
+
+.custom-table-delt-btn{
+  background-color: #1f2732;
+  border-color: #1f2732;
+}
+
+.custom-table-delt-btn:hover,
+.custom-table-delt-btn:focus,
+.custom-table-delt-btn:active{
+  box-shadow:1px 2px 3px 1px #cacaca !important;
+  background-color: #1f2732 !important;
+  border-color: #1f2732 !important;
+}
+
+
+
+.custom-table-show-btn{
+  background-color: #4F9A9D;
+  border-color: #4F9A9D;
+}
+
+.custom-table-show-btn:hover,
+.custom-table-show-btn:focus,
+.custom-table-show-btn:active{
+  box-shadow:1px 2px 3px 1px #cacaca !important;
+  background-color: #4F9A9D !important;
+  border-color: #4F9A9D !important;
+}
+
+.custom-create-blog-btn{
+  background-color: #b53035;
+  border-color: #b53035;
+}
+
+.custom-create-blog-btn:hover{
+  background-color: #b53035;
+  border-color: #b53035;
+  box-shadow:1px 2px 3px 1px #cacaca !important;
 }

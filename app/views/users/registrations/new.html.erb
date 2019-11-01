@@ -1,8 +1,8 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <div class="app login-page flex-row align-items-center">
+  <div class="app login-page custom-register-page flex-row align-items-center">
     <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
+      <div class="row custom-register-page-card">
+        <div class="col-md-8">
           <div class="card-group">
             <div class="card p-4">
               <div class="card-body">
@@ -88,8 +88,8 @@
                 </div>
                 <div class="row">
                   <div class="col-6">
-                    <%= f.submit "Sign Up", class: "btn btn-primary px-4" %>
-                    <%= link_to "Login", new_user_session_path, class: "btn btn-primary px-4"%>
+                    <%= f.submit "Sign Up", class: "btn btn-primary custom-register-page-signup-btn px-4" %>
+                    <%= link_to "Login", new_user_session_path, class: "btn btn-primary custom-register-page-login-btn px-4"%>
                   </div>
                 </div>
               </div>

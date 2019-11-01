@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-8 offset-2">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header custom-card-header">
         <i class="fa fa-align-justify"></i> Listing all Product Categories</div>
       <div class="card-body">
         <table class="table table-responsive-sm">
@@ -15,8 +15,8 @@
           <% @product_categories.each do |product_category| %>
             <tr>
               <td><%= product_category.title %></td>
-              <td><%= link_to "Edit",  edit_admin_product_category_path(product_category), class: "btn btn-xs btn-primary" %>
-              <%= link_to "Delete", admin_product_category_path(product_category), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %>
+              <td><%= link_to "Edit",  edit_admin_product_category_path(product_category), class: "btn btn-xs custom-table-edit-btn btn-primary" %>
+              <%= link_to "Delete", admin_product_category_path(product_category), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs custom-table-delt-btn btn-danger" %>
               </td>
             </tr>
           <% end %>

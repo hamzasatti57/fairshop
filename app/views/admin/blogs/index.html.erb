@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-12">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header custom-card-header">
         <i class="fa fa-align-justify"></i> Listing all Blogs</div>
       <div class="card-body">
         <table class="table table-responsive-sm">
@@ -17,9 +17,9 @@
             <tr>
               <td><%= blog.title %></td>
               <td><%= truncate(blog.description, length: 50) %></td>
-              <td><%= link_to "Edit",  edit_admin_blog_path(blog), class: "btn btn-xs btn-primary" %>
-              <%= link_to "Show",  admin_blog_path(blog), class: "btn btn-xs btn-success" %>
-              <%= link_to "Delete", admin_blog_path(blog), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
+              <td><%= link_to "Edit",  edit_admin_blog_path(blog), class: "btn btn-xs custom-table-edit-btn btn-primary" %>
+              <%= link_to "Show",  admin_blog_path(blog), class: "btn btn-xs btn-success custom-table-show-btn" %>
+              <%= link_to "Delete", admin_blog_path(blog), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn" %></td>
             </tr>
           <% end %>
           </tbody>
