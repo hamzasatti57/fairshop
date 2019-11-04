@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   has_and_belongs_to_many :colors
   has_many :comments, class_name: "Comment", foreign_key: "parent_id"
   has_many :ratings, class_name: "Rating", foreign_key: "parent_id"
+  has_many :likes, class_name: "Like", foreign_key: "parent_id"
   acts_as_punchable
   scope :search_filter, -> (product_category_id, product_type_id, price_range) {
     filters = {}

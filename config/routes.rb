@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :jobs
   resources :comments
   resources :ratings
+  resources :likes
   resources :profiles
   resources :job_mails do
     collection do
@@ -70,6 +71,15 @@ Rails.application.routes.draw do
     resources :cities
     resources :blogs
     resources :jobs
+    resources :reports do
+      collection do
+        post :user_reporting
+        get :user_reporting
+        post :detail_product_project_hits
+        get :detail_product_project_hits
+
+      end
+    end
     resources :advertisements
     resources :projects do
       member do

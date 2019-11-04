@@ -4,7 +4,7 @@
       <ul class="nav">
         <% if can? :manage, User %>
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-cursor"></i> Vendors</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -20,7 +20,7 @@
             </ul>
           </li>
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon  icon-puzzle"></i> Categories</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -37,7 +37,7 @@
           </li>
 
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-control-play"></i> Blogs</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -54,7 +54,7 @@
           </li>
 
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-share-alt"></i> Advertisements</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -71,7 +71,7 @@
           </li>
 
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-drop"></i> Colors</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -105,7 +105,7 @@
           </li>
 
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-equalizer"></i> Product Types</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -122,7 +122,7 @@
           </li>
 
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-home"></i> Cities</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -139,7 +139,7 @@
           </li>
 
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-home"></i> Jobs</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -155,27 +155,27 @@
             </ul>
           </li>
 
-      <% end %>
+        <% end %>
         <% if current_user.is_vendor? %>
           <li class="nav-item nav-dropdown">
             <a class="nav-link " href="<%= admin_profile_path current_user.profile %>">
               <i class="nav-icon icon-cursor"></i> Profile</a>
           </li>
-<!--          <li class="nav-item nav-dropdown">-->
-<!--            <a class="nav-link nav-dropdown-toggle" href="#">-->
-<!--              <i class="nav-icon icon-cursor"></i> Companies</a>-->
-<!--            <ul class="nav-dropdown-items">-->
-<!--              <li class="nav-item">-->
-                <%#= link_to '<i class="nav-icon icon-cursor"></i> Companies List'.html_safe, admin_companies_path,class:"nav-link" %>
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-                <%#= link_to '<i class="nav-icon icon-cursor"></i> Create New Company'.html_safe, new_admin_company_path,class:"nav-link" %>
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </li>-->
+          <!--          <li class="nav-item nav-dropdown">-->
+          <!--            <a class="nav-link nav-dropdown-toggle" href="#">-->
+          <!--              <i class="nav-icon icon-cursor"></i> Companies</a>-->
+          <!--            <ul class="nav-dropdown-items">-->
+          <!--              <li class="nav-item">-->
+          <%#= link_to '<i class="nav-icon icon-cursor"></i> Companies List'.html_safe, admin_companies_path,class:"nav-link" %>
+          <!--              </li>-->
+          <!--              <li class="nav-item">-->
+          <%#= link_to '<i class="nav-icon icon-cursor"></i> Create New Company'.html_safe, new_admin_company_path,class:"nav-link" %>
+          <!--              </li>-->
+          <!--            </ul>-->
+          <!--          </li>-->
           <% if current_user.display_products? %>
             <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="#">
+              <a class="nav-link nav-dropdown-toggle" >
                 <i class="nav-icon icon-cursor"></i> Products</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
@@ -188,7 +188,7 @@
             </li>
           <%elsif current_user.display_projects? %>
             <li class="nav-item nav-dropdown">
-              <a class="nav-link nav-dropdown-toggle" href="#">
+              <a class="nav-link nav-dropdown-toggle" >
                 <i class="nav-icon icon-cursor"></i> Projects</a>
               <ul class="nav-dropdown-items">
                 <li class="nav-item">
@@ -201,40 +201,47 @@
             </li>
           <% end %>
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-home"></i> Jobs</a>
             <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-home"></i> Jobs List'.html_safe, admin_jobs_path,class:"nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-home"></i> Add New Job'.html_safe, new_admin_job_path,class:"nav-link" %>
-                </li>
+              <li class="nav-item">
+                <%= link_to '<i class="nav-icon icon-home"></i> Jobs List'.html_safe, admin_jobs_path,class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '<i class="nav-icon icon-home"></i> Add New Job'.html_safe, new_admin_job_path,class:"nav-link" %>
+              </li>
             </ul>
           </li>
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-home"></i> Advertiesments</a>
             <ul class="nav-dropdown-items">
-                <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-home"></i> Advertisements List'.html_safe, admin_advertisements_path,class:"nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-home"></i> Add New Advertisment'.html_safe, new_admin_advertisement_path,class:"nav-link" %>
-                </li>
+              <li class="nav-item">
+                <%= link_to '<i class="nav-icon icon-home"></i> Advertisements List'.html_safe, admin_advertisements_path,class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '<i class="nav-icon icon-home"></i> Add New Advertisment'.html_safe, new_admin_advertisement_path,class:"nav-link" %>
+              </li>
             </ul>
           </li>
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-home"></i> Reports</a>
-<!--            <ul class="nav-dropdown-items">-->
-<!--              <li class="nav-item">-->
-                <%#= link_to '<i class="nav-icon icon-home"></i> Advertisements List'.html_safe, admin_advertisements_path,class:"nav-link" %>
-<!--              </li>-->
-<!--              <li class="nav-item">-->
-                <%#= link_to '<i class="nav-icon icon-home"></i> Add New Advertisment'.html_safe, new_admin_advertisement_path,class:"nav-link" %>
-<!--              </li>-->
-<!--            </ul>-->
+            <ul class="nav-dropdown-items">
+              <li class="nav-item">
+                <%= link_to '<i class="nav-icon icon-home"></i> General Reporting List'.html_safe, admin_reports_path, class: "nav-link" %>
+              </li>
+              <% if current_user.display_products? %>
+              <li class="nav-item">
+                <%= link_to '<i class="nav-icon icon-home"></i> Products Views Report'.html_safe,  detail_product_project_hits_admin_reports_path, class: "nav-link" %>
+              </li>
+              <%elsif current_user.display_projects? %>
+                <%= link_to '<i class="nav-icon icon-home"></i> Projects Views Report'.html_safe,  detail_product_project_hits_admin_reports_path, class: "nav-link" %>
+                <% end %>
+              <li class="nav-item">
+                <%= link_to '<i class="nav-icon icon-home"></i> Profile Report'.html_safe,  user_reporting_admin_reports_path, class: "nav-link" %>
+              </li>
+            </ul>
           </li>
         <% end %>
 

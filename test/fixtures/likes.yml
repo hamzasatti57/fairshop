@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: false
+  parent_id: 1
+  parent_type: 1
+  user: one
+
+two:
+  value: false
+  parent_id: 1
+  parent_type: 1
+  user: two

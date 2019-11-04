@@ -12,6 +12,8 @@
  *
 
  * require_tree .
+
+
  *= require_self
  *= require furnishia/bootstrap.css
  *= require furnishia/animate.css
@@ -22,8 +24,7 @@
  *= require furnishia/owl.carousel.css
  *= require furnishia/ion-range-slider.css
  *= require furnishia/theme.css
- *= require furnishia/datatables.min.css
  *= require toastr
-
+ *= require datatables
  */
 

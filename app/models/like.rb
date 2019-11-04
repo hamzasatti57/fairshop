@@ -1,10 +1,9 @@
-class Rating < ApplicationRecord
+class Like < ApplicationRecord
   belongs_to :product, optional: true,    class_name: "Product", foreign_key: "parent_id"
   belongs_to :project, optional: true, class_name: "Project", foreign_key: "parent_id"
   belongs_to :user, optional: true,    class_name: "User", foreign_key: "parent_id"
-  belongs_to :rater, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :liker, class_name: 'User', foreign_key: 'user_id'
   belongs_to :user
-
   enum parent_type: {
       product: 0,
       project: 1,

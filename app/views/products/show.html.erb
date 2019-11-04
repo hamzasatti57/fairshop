@@ -282,140 +282,59 @@
                         <div class="rate-box">
                           <strong>Rate this Product</strong>
                           <div id="rateYo"></div>
-                        </div>
-                      </div>
-
-                      <div class="comment-wrapper" id="comments-container">
-                        <!-- === comment === -->
-                        <% @comments.each do |comment| %>
-                          <%= render partial: 'comment', locals: { comment: comment } %>
-                        <% end %>
-                      </div><!--/comment-wrapper-->
-                      <div class="comment-header">
-                        <a href="#" id='comments-count' class="btn btn-clean-dark"><%= @comments.count %> comments</a>
-                      </div> <!--/comment-header-->
-                      <!-- === add comment === -->
-
-                      <div class="comment-add">
-                        <div class="comment-reply-message">
-                          <div class="h3 title">Leave a Reply </div>
-                          <p>Your email address will not be published.</p>
-                        </div>
-                        <%= form_for Comment.new, remote: true do |f| %>
-
-                          <div class="form-group">
-                            <%= f.text_area(:statement, size: '50x10', :class => 'form-control') %>
+                          <%= form_for Like.new, remote: true do |f| %>
+                            <div class="form-group">
+                              <%= f.hidden_field(:parent_id, value: @product.id ) %>
+                              <%= f.hidden_field(:parent_type, value: Like.parent_type_product ) %>
+                              <%= f.hidden_field(:value, value: true ) %>
+                              <%= f.submit 'Like Product', :class => 'btn btn-main', :id => 'like-button' %>
+                          <% end %>
+                          <a  id='likes-count' class="btn btn-clean-dark"><%= @likes.count %> likes</a>
                           </div>
-                          <%= f.hidden_field(:parent_id, value: @product.id , :id => "comment_area") %>
-                          <%= f.hidden_field(:parent_type, value: Comment.parent_type_product ) %>
-                          <div class="clearfix text-center">
-                            <%= f.submit 'Add comment', :class => 'btn btn-main' %>
+                        </div>
+                        <div class="comment-wrapper" id="comments-container">
+                          <!-- === comment === -->
+                          <% @comments.each do |comment| %>
+                            <%= render partial: 'comment', locals: { comment: comment } %>
+                          <% end %>
+                        </div><!--/comment-wrapper-->
+                        <div class="comment-header">
+                          <a href="#" id='comments-count' class="btn btn-clean-dark"><%= @comments.count %> comments</a>
+                        </div> <!--/comment-header-->
+                        <!-- === add comment === -->
+
+                        <div class="comment-add">
+                          <div class="comment-reply-message">
+                            <div class="h3 title">Leave a Reply </div>
+                            <p>Your email address will not be published.</p>
                           </div>
-                        <% end %>
-                      </div><!--/comment-add-->
-                    </div> <!--/comments-->
-                  </div>
-                </div> <!--/row-->
-              </div> <!--/content-->
-            </div> <!--/tab-pane-->
-          </div> <!--/tab-content-->
-        </div>
-      </div> <!--/row-->
-    </div> <!--/container-->
-  </div> <!--/info-->
+                          <%= form_for Comment.new, remote: true do |f| %>
+
+                            <div class="form-group">
+                              <%= f.text_area(:statement, size: '50x10', :class => 'form-control') %>
+                            </div>
+                            <%= f.hidden_field(:parent_id, value: @product.id , :id => "comment_area") %>
+                            <%= f.hidden_field(:parent_type, value: Comment.parent_type_product ) %>
+                            <div class="clearfix text-center">
+                              <%= f.submit 'Add comment', :class => 'btn btn-main' %>
+                            </div>
+                          <% end %>
+                        </div><!--/comment-add-->
+                      </div> <!--/comments-->
+                    </div>
+                  </div> <!--/row-->
+                </div> <!--/content-->
+              </div> <!--/tab-pane-->
+            </div> <!--/tab-content-->
+          </div>
+        </div> <!--/row-->
+      </div> <!--/container-->
+    </div> <!--/info-->
 </section>
 
 <!-- ========================  Product info popup - quick view ======================== -->
 
-<div class="popup-main mfp-hide" id="productid1">
 
-  <!-- === product popup === -->
-
-  <div class="product">
-
-    <!-- === popup-title === -->
-
-    <div class="popup-title">
-      <div class="h1 title">Laura <small>product category</small></div>
-    </div>
-
-    <!-- === product gallery === -->
-
-    <div class="owl-product-gallery">
-      <img src="assets/images/product-1.png" alt="" width="640" />
-      <img src="assets/images/product-2.png" alt="" width="640" />
-      <img src="assets/images/product-3.png" alt="" width="640" />
-      <img src="assets/images/product-4.png" alt="" width="640" />
-    </div>
-
-    <!-- === product-popup-info === -->
-
-    <div class="popup-content">
-      <div class="product-info-wrapper">
-        <div class="row">
-
-          <!-- === left-column === -->
-
-          <div class="col-sm-6">
-            <div class="info-box">
-              <strong>Maifacturer</strong>
-              <span>Brand name</span>
-            </div>
-            <div class="info-box">
-              <strong>Materials</strong>
-              <span>Wood, Leather, Acrylic</span>
-            </div>
-            <div class="info-box">
-              <strong>Availability</strong>
-              <span><i class="fa fa-check-square-o"></i> in stock</span>
-            </div>
-          </div>
-
-          <!-- === right-column === -->
-
-          <div class="col-sm-6">
-            <div class="info-box">
-              <strong>Available Colors</strong>
-              <div class="product-colors clearfix">
-                <span class="color-btn color-btn-red"></span>
-                <span class="color-btn color-btn-blue checked"></span>
-                <span class="color-btn color-btn-green"></span>
-                <span class="color-btn color-btn-gray"></span>
-                <span class="color-btn color-btn-biege"></span>
-              </div>
-            </div>
-            <div class="info-box">
-              <strong>Choose size</strong>
-              <div class="product-colors clearfix">
-                <span class="color-btn color-btn-biege">S</span>
-                <span class="color-btn color-btn-biege checked">M</span>
-                <span class="color-btn color-btn-biege">XL</span>
-                <span class="color-btn color-btn-biege">XXL</span>
-              </div>
-            </div>
-          </div>
-
-        </div><!--/row-->
-      </div> <!--/product-info-wrapper-->
-    </div><!--/popup-content-->
-    <!-- === product-popup-footer === -->
-
-    <div class="popup-table">
-      <div class="popup-cell">
-        <div class="price">
-          <span class="h3">$ 1999,00 <small>$ 2999,00</small></span>
-        </div>
-      </div>
-      <div class="popup-cell">
-        <div class="popup-buttons">
-          <a href="product.html"><span class="icon icon-eye"></span> <span class="hidden-xs">View more</span></a>
-          <a href="javascript:void(0);"><span class="icon icon-cart"></span> <span class="hidden-xs">Buy</span></a>
-        </div>
-      </div>
-    </div>
-
-  </div> <!--/product-->
-</div> <!--popup-main-->
 
 
 <!-- ================== Footer  ================== -->
@@ -499,7 +418,6 @@
 
 <script>
     $(function () {
-
         $("#rateYo").rateYo({
             rating: <%= @rating.present? ? @rating.value : 0.0 %>,
             onSet: function (rating, rateYoInstance) {
@@ -511,12 +429,9 @@
                 });
             },
         });
-
         $("#avg_rate").rateYo({
             rating: <%= @avg_rating.present? ? @avg_rating : 0.0 %>,
             readOnly: true
         });
-
     });
-
 </script>

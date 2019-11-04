@@ -10,7 +10,6 @@ gem 'rails', '~> 5.2.3'
 gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
-
 gem 'jquery-rails'
 gem 'cancancan', '~> 1.10'
 gem 'devise'
@@ -23,7 +22,7 @@ gem 'punching_bag'
 gem 'will_paginate', '~> 3.1.0'
 gem 'toastr-rails'
 gem 'aws-sdk-s3'
-
+gem 'jquery-datatables'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

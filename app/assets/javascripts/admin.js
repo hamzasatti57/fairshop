@@ -10,14 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-
-//= require jquery
 //= require rails-ujs
+//= require jquery
+//= require coreui/bootstrap.min.js
 //= require activestorage
 //= require turbolinks
-// require coreui/jquery.min.js
 //= require coreui/popper.min.js
-//= require coreui/bootstrap.min.js
 //= require coreui/pace.min.js
 //= require coreui/perfect-scrollbar.min.js
 //= require coreui/coreui.min.js
@@ -26,5 +24,5 @@
 //= require coreui/main.js
 //= require coreui/select2.min
 //= require coreui/slimselect.js
-
+//= require datatables
 // require_tree .

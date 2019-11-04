@@ -52,10 +52,10 @@
 
               </div>
               <div class="info-box">
-                <span><strong>Catelog</strong></span>
+                <span><strong>Catalogue</strong></span>
                 <span>
                 <% if @user.profile.pdf.attached? %>
-                  <%= link_to @user.profile.pdf.filename, rails_blob_path(@user.profile.pdf, disposition: 'attachment') %>
+                  <%= link_to "Download", rails_blob_path(@user.profile.pdf, disposition: 'attachment') %>
                 <% end %>
                   </span>
               </div>
@@ -68,8 +68,6 @@
           </div> <!--/product-info-wrapper-->
         </div> <!--/col-md-4-->
         <!-- === product item gallery === -->
-
-
       </div>
     </div>
   </div>

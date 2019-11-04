@@ -7,9 +7,11 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @project.punch(request)
     @vendor = @project.user
     @vendor.punch(request)
     @projects = @vendor.projects
+    @likes = @project.likes
     @comments = @project.comments.order("created_at DESC")
     @avg_rating = @project.ratings.average(:value)
     if user_signed_in?

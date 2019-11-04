@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
     @vendor = @product.user
     @vendor.punch(request)
     @products = @vendor.products
+    @likes = @product.likes
     @comments = @product.comments.order("created_at DESC")
     @avg_rating = @product.ratings.average(:value)
     if user_signed_in?
