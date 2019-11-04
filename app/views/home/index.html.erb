@@ -166,7 +166,7 @@
     </div>
     <!-- === button more === -->
     <div class="wrapper-more">
-      <a href="<%= popular_list_products_path %>" class="btn btn-main">View more products</a>
+      <a href="<%= popular_list_products_path %>" class="btn btn-main">View More Products</a>
       <hr class="home-page">
     </div>
   </div> <!--/container-->
@@ -196,7 +196,7 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid">
+            <div class="figure-grid custom-figure-grid">
               <div class="image">
                 <% if vendor.profile.image.attached? %>
                   <%= link_to products_path(user_id: vendor.id) do %>
@@ -221,7 +221,7 @@
     </div>
     <!-- === button more === -->
     <div class="wrapper-more">
-      <a href="<%= popular_list_vendors_path %>" class="btn btn-main">View more vendors</a>
+      <a href="<%= popular_list_vendors_path %>" class="btn btn-main">View More Vendors</a>
       <hr class="home-page">
     </div>
   </div> <!--/container-->
@@ -251,7 +251,7 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid">
+            <div class="figure-grid custom-figure-grid">
               <div class="image">
                 <% if architect.profile.image.attached? %>
                   <%= link_to profiles_path(user_id: architect.id) do %>
@@ -276,7 +276,7 @@
     </div>
     <!-- === button more === -->
     <div class="wrapper-more">
-      <a href="<%=  popular_architect_vendors_path %>" class="btn btn-main">View more architects</a>
+      <a href="<%=  popular_architect_vendors_path %>" class="btn btn-main">View More Architects</a>
       <hr class="home-page">
     </div>
   </div> <!--/container-->
@@ -306,7 +306,7 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid">
+            <div class="figure-grid custom-figure-grid">
               <div class="image">
                 <% if interior_designer.profile.image.attached? %>
                   <%= link_to profiles_path(user_id: interior_designer.id) do %>
@@ -331,7 +331,7 @@
     </div> <!--/row-->
     <!-- === button more === -->
     <div class="wrapper-more">
-      <a href="<%=  popular_interior_designer_vendors_path %>" class="btn btn-main">View more designers</a>
+      <a href="<%=  popular_interior_designer_vendors_path %>" class="btn btn-main">View More Designers</a>
       <hr class="home-page">
     </div>
   </div> <!--/container-->
@@ -385,7 +385,7 @@
     </div> <!--/row-->
     <!-- === button more === -->
     <div class="wrapper-more">
-      <a href="<%=  popular_interior_designer_vendors_path %>" class="btn btn-main">View more designers</a>
+      <a href="<%=  popular_interior_designer_vendors_path %>" class="btn btn-main">View More Designers</a>
       <hr class="home-page">
     </div>
   </div> <!--/container-->
@@ -409,7 +409,7 @@
       </div>
     </header>
     <div class="row">
-      <div class="responsivee">
+      <div class="responsivee custom-card-card">
         <% @blogs.each_with_index do |blog, index| %>
           <% if index == 8 %>
             <% break %>
@@ -436,7 +436,7 @@
                 </div>
               </div>
               <div class="show-more">
-                <span class="btn btn-main btn-block">Read more</span>
+                <span class="btn btn-main btn-block custom-blog-btn">Read More</span>
               </div>
             <% end %>
           </article>
@@ -444,7 +444,7 @@
       </div>
     </div>
     <div class="wrapper-more">
-      <a href="<%= blogs_path %>" class="btn btn-main">View all posts</a>
+      <a href="<%= blogs_path %>" class="btn btn-main">View All Posts</a>
       <hr class="home-page">
     </div>
   </div> <!--/container-->
@@ -468,7 +468,7 @@
     </header>
 
     <div class="row">
-      <div class="responsivee">
+      <div class="responsivee custom-card-card">
         <% @advertisements.each_with_index do |advertisement, index| %>
           <% if index == 8 %>
             <% break %>
@@ -479,7 +479,7 @@
                 <% if advertisement.image.attached? %>
                   <%= image_tag(url_for(advertisement.image)) %><br>
                 <% else %>
-                  <img src="/assets/furnishia/no_image_product.jpg" alt="" width="360" />
+                    <img src="/assets/furnishia/no_image_product.jpg" alt="" width="360" />
                 <% end %>
               </div>
               <div class="entry entry-table">
@@ -495,7 +495,7 @@
                 </div>
               </div>
               <div class="show-more">
-                <span class="btn btn-main btn-block">Read more</span>
+                <span class="btn btn-main btn-block custom-adv-btn">Read More</span>
               </div>
             <% end %>
           </article>
@@ -503,7 +503,7 @@
       </div>
     </div>
     <div class="wrapper-more">
-      <a href="<%= advertisements_path %>" class="btn btn-main">View all advertisements</a>
+      <a href="<%= advertisements_path %>" class="btn btn-main">View All Advertisements</a>
     </div>
   </div> <!--/container-->
 </section>

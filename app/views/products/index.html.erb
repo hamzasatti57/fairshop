@@ -23,7 +23,7 @@
 
   <!-- ======================== Products ======================== -->
 
-  <section class="products">
+  <section class="products custom-product-details-page">
 
     <div class="container">
 
@@ -42,10 +42,9 @@
             <%  @products.each  do |product|  %>
 
               <% if product.visibility == true %>
-                <div class="col-md-4 col-xs-6">
+                <div class="col-md-3 col-xs-6">
                   <article>
-                    <div class="figure-grid">
-
+                    <div class="figure-grid custom-figure-grid">
                       <div class="image">
                         <% if product.images.attached? %>
                           <%= link_to product do%>
