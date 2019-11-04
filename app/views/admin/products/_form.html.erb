@@ -48,21 +48,18 @@
 
   <div class="form-group">
     <%= f.label :Colors %>
-
     <select name="product[color_ids][]"  id="demo" multiple>
-      <option value="">Select Colors:</option>
-      <% Color.all.each do |color| %>
-        <option data-code="<%= color.code %>" value="<%= color.id %>"><%= color.title%></option>
+      <% Color.all.each_with_index  do |color,index| %>
+        <option data-code="<%= color.code %>" value="<%= color.id %>" <%= selected_color(@product, color)  %>><%= color.title%></option>
       <% end %>
     </select>
-
     <%#= f.select(:color_id, options_for_select(color_options), { prompt: "Please Select" }, { class: 'form-control multiple-select', multiple: true }) %>
   </div>
 
   <div class="form-group">
     <%= f.label :length %> x
     <%= f.label :width %> x
-    <%= f.label :height %> x
+    <%= f.label :height %>
     <br>
     <%= f.text_field :length, class: "", autocomplete: false, placeholder: "Length", autofocus: true %> X
     <%= f.text_field :width, class: "", autocomplete: false, placeholder: "Width", autofocus: true %> X
@@ -93,6 +90,3 @@
         });
     });
 </script>
-<style>
-
-</style>

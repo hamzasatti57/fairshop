@@ -37,7 +37,7 @@ class Admin::ProductsController < AdminController
 
   def update
     if @product.update(product_params)
-      # @product.update_colors params[:product][:color_ids]
+      @product.update_colors params[:product][:color_ids]
       flash[:success] = "Product Updated Succesfully"
       render 'show'
     else

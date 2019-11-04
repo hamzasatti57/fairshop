@@ -3,7 +3,6 @@ class UserMailer < ApplicationMailer
   def job_email(params)
 
     attachments[params[:attachment].original_filename] = params[:attachment].read()
-    # attachments[]
     mail({
              from: params[:to_email],
              to: params[:from_email],

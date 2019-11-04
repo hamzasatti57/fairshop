@@ -39,7 +39,7 @@
                     <%= f.submit "Log in", class: "btn btn-primary custom-login-btn px-4" %>
                   </div>
                   <div class="col-6 text-right">
-                    <button class="btn btn-link px-0 custom-forgot-text" type="button">Forgot password?</button>
+                    <%= link_to "Forgot your password?", new_user_password_path(resource), :class => "btn btn-link px-0 custom-forgot-text"%>
                   </div>
                 </div>
               </div>

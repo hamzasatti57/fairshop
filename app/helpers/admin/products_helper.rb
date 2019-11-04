@@ -27,8 +27,9 @@ module Admin::ProductsHelper
     Color.all.map{|color| [color.title, color.id]}
   end
 
-  def selected_color product
-    product.color.present? ? product.color.id : nil
+  def selected_color product, color
+    # product.colors.present? ? product.color.id : nil
+    "selected" if product.colors.include?(color)
   end
 
   def company_options

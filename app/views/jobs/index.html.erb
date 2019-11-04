@@ -7,13 +7,8 @@
 
 
 <style>
-  .flex-l{
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
-  }
-</style>
 
+</style>
 
 <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
   <header>
@@ -27,23 +22,11 @@
   </header>
 </section>
 
-<!-- ========================  Blog ======================== -->
-
-
-
 <section class="blog">
-
   <div class="container">
-
-
     <div class="row">
-
-      <!-- === blog-content === -->
-
       <div class="col-md-12">
-
         <div class="row">
-
           <table id="table_id" class="table table-bordered table-striped display nowrap dataTable dtr-inline collapsed">
             <thead>
             <tr>
@@ -73,10 +56,8 @@
             </tbody>
           </table>
         </div>
-
-
         <% @jobs.each  do |job| %>
-          <div class="modal fade" id="<%= job.id %>" role="dialog">
+          <div class="modal fade custom-job-modal" id="<%= job.id %>" role="dialog">
             <div class="modal-dialog">
               <!-- Modal content-->
               <div class="modal-content">
@@ -87,15 +68,15 @@
                 <div class="modal-body">
                   <div class="">
                     <div class="row">
-                      <div class="flex-l">
-                        <div class="">
+                      <div class="flex-l custom-company-detail-modal">
+                        <div class="custom-company-logo">
                           <% if job.image.attached? %>
                             <%= image_tag(url_for(job.image)) %>
                           <% end %>
-
                         </div>
-                        <div class="">
+                        <div class="custom-company-info">
                           <h4> <%= job.company %></h4>
+                          <hr class="custom-divider">
                           <p><%= job.user.profile.address %></p>
                           <p><%= job.user.profile.phone %></p>
                         </div>
@@ -103,20 +84,25 @@
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <h5>Position: </h5>
-                        <p><%= job.position %></p>
-                        <h5>Description:</h5>
-                        <p><%= job.description %></p>
+                        <div class="custom-company-details">
+                          <hr>
+                          <h5>Position:<span><%= job.position %></span> </h5>
+                          <hr>
+                          <h5>Salary:<span><%= job.salary %></span> </h5>
+                          <hr>
+                          <h5>Description:</h5>
+                          <p><%= job.description %></p>
+                        </div>
                       </div>
                     </div>
                     <div class="row">
                       <%= form_tag  job_email_send_job_mails_path, method: :post, multipart: true  do %>
                         <div class="form-group">
                           <%= hidden_field_tag :to_email, job.user.email  %>
-                          <%= text_field_tag :name, nil, class: "form-control ", autocomplete: false, placeholder: "Full Name", autofocus: true %>
-                          <%= text_field_tag :from_email, nil, class: "form-control", autocomplete: false, placeholder: "Email", autofocus: true %>
-                          <%= file_field_tag :attachment %>
-                          <%= submit_tag "Email", class: "btn btn-primary btn-md custom-slider-btn"%>
+                          <%= text_field_tag :name, nil, class: "form-control ", autocomplete: false, placeholder: "Full Name", autofocus: true, :required => true %>
+                          <%= text_field_tag :from_email, nil, class: "form-control", autocomplete: false, placeholder: "Email", autofocus: true, :required => true %>
+                          <%= file_field_tag :attachment , :required => true%>
+                          <%= submit_tag "Apply", class: "custom-modal-email-btn btn btn-primary btn-md custom-slider-btn"%>
                         </div>
                       <% end %>
                     </div>
@@ -129,32 +115,10 @@
             </div>
           </div>
         <% end %>
-
-
-
-
-
-
-
-        <!-- === pagination === -->
-
-        <div class="pagination-wrapper">
-          <%= will_paginate @jobs %>
-        </div> <!--/pagination-->
-
       </div>
-
-      <!-- === blog-menu === -->
-
-
-
-
     </div> <!--/row-->
-
-
   </div><!--/container-->
 </section>
-
 <!-- ================== Footer  ================== -->
 
 <footer>
@@ -174,7 +138,6 @@
         </div>
       </div>
     </div>
-
     <!--footer links-->
     <div class="footer-links">
       <div class="row">
@@ -212,9 +175,7 @@
         </div>
       </div>
     </div>
-
     <!--footer social-->
-
     <div class="footer-social">
       <div class="row">
         <div class="col-sm-6">

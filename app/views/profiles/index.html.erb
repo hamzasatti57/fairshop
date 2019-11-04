@@ -26,60 +26,32 @@
 
 <section class="product">
   <div class="main">
-    <div class="container">
-      <div class="row product-flex">
-
-        <!-- product flex is used only for mobile order -->
-        <!-- on mobile 'product-flex-info' goes bellow gallery 'product-flex-gallery' -->
-
-        <div class="col-md-4 col-sm-12 product-flex-info">
-          <div class="clearfix">
-
-            <!-- === product-title === -->
-
-            <h1 class="title" ><%= @user.full_name %> </h1>
-
-            <div class="clearfix">
-
-
-              <hr />
-
-              <!-- === info-box === -->
-
-              <div class="info-box">
-                <span><strong>Manufacturer</strong></span>
-                <span><%= @user.full_name %></span>
-
-              </div>
-              <div class="info-box">
-                <span><strong>Catalogue</strong></span>
-                <span>
-                <% if @user.profile.pdf.attached? %>
-                  <%= link_to "Download", rails_blob_path(@user.profile.pdf, disposition: 'attachment') %>
-                <% end %>
-                  </span>
-              </div>
-              <div id="avg_rate">
-
-              </div>
-              <hr />
-              <!-- === info-box === -->
-            </div> <!--/clearfix-->
-          </div> <!--/product-info-wrapper-->
-        </div> <!--/col-md-4-->
-        <!-- === product item gallery === -->
-      </div>
-    </div>
+<!--    <div class="container">-->
+<!--      <div class="row product-flex">-->
+<!--        <div class="col-md-4 col-sm-12 product-flex-info">-->
+<!--          <div class="clearfix">-->
+<!--            <h1 class="title" ><%#= @user.full_name %> </h1>-->
+<!--            <div class="clearfix">-->
+<!--              <hr />-->
+<!--              <div class="info-box">-->
+<!--                <span><strong>Manufacturer</strong></span>-->
+<!--                <span><%#= @user.full_name %></span>-->
+<!--              </div>-->
+<!--              <div class="info-box">-->
+<!--              </div>-->
+<!--              <div id="avg_rate">-->
+<!--              </div>-->
+<!--              <hr />-->
+<!--            </div> -->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
-
-  <!-- === product-info === -->
 
   <div class="info">
     <div class="container">
       <div class="row">
-
-        <!-- === product-designer === -->
-
         <div class="col-md-4">
           <div class="designer">
             <div class="box">
@@ -92,7 +64,14 @@
               </div>
               <div class="name">
                 <div class="h3 title"><%= @user.full_name %><small><%= @user.category.title %></small></div>
-                <hr />
+
+                <% if @user.profile.pdf.attached? %>
+                  <hr/>
+                  <span>
+                  <%= link_to "Download Catalogue", rails_blob_path(@user.profile.pdf, disposition: 'attachment') %>
+                  </span>
+                <% end %>
+                <hr/>
                 <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= @user.email %></a></p>
                 <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= @user.contact_details %></a></p>
                 <p>

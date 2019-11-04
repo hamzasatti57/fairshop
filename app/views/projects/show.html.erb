@@ -106,7 +106,13 @@
               </div>
               <div class="name">
                 <div class="h3 title"><%= @vendor.full_name %><small><%= @vendor.category.title %></small></div>
-                <hr />
+                <% if @vendor.profile.pdf.attached? %>
+                  <hr/>
+                  <span>
+                  <%= link_to "Download Catalogue", rails_blob_path(@vendor.profile.pdf, disposition: 'attachment') %>
+                  </span>
+                <% end %>
+                <hr/>
                 <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= @vendor.email %></a></p>
                 <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= @vendor.contact_details %></a></p>
                 <p>
@@ -236,53 +242,54 @@
                               <%= f.submit 'Like Product', :class => 'btn btn-main', :id => 'like-button' %>
                           <% end %>
                           <a  id='likes-count' class="btn btn-clean-dark"><%= @likes.count %> likes</a>
-                        </div>
+                          </div>
 
+                        </div>
+                        <div class="comment-wrapper" id="comments-container">
+
+                          <!-- === comment === -->
+                          <% @comments.each do |comment| %>
+                            <%= render partial: 'comment', locals: { comment: comment } %>
+                          <% end %>
+
+                        </div><!--/comment-wrapper-->
+
+                        <div class="comment-header">
+                          <a href="#" id='comments-count' class="btn btn-clean-dark"><%= @comments.count %> comments</a>
+                        </div> <!--/comment-header-->
+                        <!-- === add comment === -->
+
+                        <div class="comment-add">
+
+                          <div class="comment-reply-message">
+                            <div class="h3 title">Leave a Reply </div>
+                            <p>Your email address will not be published.</p>
+                          </div>
+                          <%= form_for Comment.new, remote: true do |f| %>
+
+                            <div class="form-group">
+                              <%= f.text_area(:statement, size: '50x10', :class => 'form-control') %>
+                            </div>
+                            <%= f.hidden_field(:parent_id, value: @project.id , :id => "comment_area") %>
+                            <%= f.hidden_field(:parent_type, value: Comment.parent_type_project ) %>
+                            <div class="clearfix text-center">
+                              <%= f.submit 'Add comment', :class => 'btn btn-main' %>
+                            </div>
+                          <% end %>
+                        </div><!--/comment-add-->
                       </div>
-                      <div class="comment-wrapper" id="comments-container">
-
-                        <!-- === comment === -->
-                        <% @comments.each do |comment| %>
-                          <%= render partial: 'comment', locals: { comment: comment } %>
-                        <% end %>
-
-                      </div><!--/comment-wrapper-->
-
-                      <div class="comment-header">
-                        <a href="#" id='comments-count' class="btn btn-clean-dark"><%= @comments.count %> comments</a>
-                      </div> <!--/comment-header-->
-                      <!-- === add comment === -->
-
-                      <div class="comment-add">
-
-                        <div class="comment-reply-message">
-                          <div class="h3 title">Leave a Reply </div>
-                          <p>Your email address will not be published.</p>
-                        </div>
-                        <%= form_for Comment.new, remote: true do |f| %>
-
-                          <div class="form-group">
-                            <%= f.text_area(:statement, size: '50x10', :class => 'form-control') %>
-                          </div>
-                          <%= f.hidden_field(:parent_id, value: @project.id , :id => "comment_area") %>
-                          <%= f.hidden_field(:parent_type, value: Comment.parent_type_project ) %>
-                          <div class="clearfix text-center">
-                            <%= f.submit 'Add comment', :class => 'btn btn-main' %>
-                          </div>
-                        <% end %>
-                      </div><!--/comment-add-->
                     </div>
-                  </div>
 
 
-                </div> <!--/row-->
-              </div> <!--/content-->
-            </div> <!--/tab-pane-->
-          </div> <!--/tab-content-->
-        </div>
-      </div> <!--/row-->
-    </div> <!--/container-->
-  </div> <!--/info-->
+                  </div> <!--/row-->
+                </div> <!--/content-->
+              </div> <!--/tab-pane-->
+            </div> <!--/tab-content-->
+          </div>
+        </div> <!--/row-->
+      </div> <!--/container-->
+    </div> <!--/info-->
+  </div>
 </section>
 
 <!-- ========================  Product info popup - quick view ======================== -->

@@ -232,12 +232,26 @@
                 <%= link_to '<i class="nav-icon icon-home"></i> General Reporting List'.html_safe, admin_reports_path, class: "nav-link" %>
               </li>
               <% if current_user.display_products? %>
-              <li class="nav-item">
-                <%= link_to '<i class="nav-icon icon-home"></i> Products Views Report'.html_safe,  detail_product_project_hits_admin_reports_path, class: "nav-link" %>
-              </li>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-home"></i> Products Views Report'.html_safe,  detail_product_project_hits_admin_reports_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-home"></i> Products Likes Report'.html_safe,  detail_product_project_likes_admin_reports_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-home"></i> Products Comments Report'.html_safe,  detail_product_project_comments_admin_reports_path, class: "nav-link" %>
+                </li>
               <%elsif current_user.display_projects? %>
+                <li class="nav-item">
                 <%= link_to '<i class="nav-icon icon-home"></i> Projects Views Report'.html_safe,  detail_product_project_hits_admin_reports_path, class: "nav-link" %>
-                <% end %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-home"></i> Projects Likes Report'.html_safe,  detail_product_project_likes_admin_reports_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-home"></i> Projects Comments Report'.html_safe,  detail_product_project_comments_admin_reports_path, class: "nav-link" %>
+                </li>
+              <% end %>
               <li class="nav-item">
                 <%= link_to '<i class="nav-icon icon-home"></i> Profile Report'.html_safe,  user_reporting_admin_reports_path, class: "nav-link" %>
               </li>

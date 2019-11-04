@@ -80,12 +80,11 @@
               <div class="info-box">
                 <span><strong>Available Colors</strong></span>
                 <div class="product-colors clearfix">
-                  <span class="color-btn color-btn-red"></span>
-                  <span class="color-btn color-btn-blue checked"></span>
-                  <span class="color-btn color-btn-green"></span>
-                  <span class="color-btn color-btn-gray"></span>
-                  <span class="color-btn color-btn-biege"></span>
+                  <%  @product.colors.each  do |color|  %>
+                    <span class="custom-color-btn" style="background-color:<%= color.code %>;"></span>
+                  <% end %>
                 </div>
+
               </div>
 
               <!-- === info-box === -->
@@ -109,13 +108,6 @@
                 <div class="product-colors clearfix">
                   <%= @product.id %>
                 </div>
-                <br>
-                <% if @vendor.profile.pdf.attached? %>
-                  <span><strong>Catelog</strong></span>
-                  <div class="product-colors clearfix">
-                    <%= link_to @vendor.profile.pdf.filename, rails_blob_path(@vendor.profile.pdf, disposition: 'attachment') %>
-                  </div>
-                <% end %>
               </div>
             </div> <!--/clearfix-->
           </div> <!--/product-info-wrapper-->
@@ -164,9 +156,15 @@
               </div>
               <div class="name">
                 <div class="h3 title"><%= @vendor.full_name %><small><%= @vendor.category.title %></small></div>
-                <hr />
+                <% if @vendor.profile.pdf.attached? %>
+                  <hr />
+                  <span>
+                  <%= link_to "Download Catalogue", rails_blob_path(@vendor.profile.pdf, disposition: 'attachment') %>
+                  </span>
+                <% end %>
+                <hr/>
                 <p><i class="icon icon-envelope"></i> <%= @vendor.email %></p>
-                <p><i class="icon icon-phone-handset"></i> <%= @vendor.contact_details %></p>
+                <p><i class="icon icon-phone-handset"></i> <%= @vendor.profile.phone %></p>
                 <p>
                   <a href="<%= @vendor.profile.facebook %>" class="btn btn-main btn-xs"><i class="fa fa-facebook"></i></a>
                   <a href="<%= @vendor.profile.instagram %>" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
@@ -330,6 +328,7 @@
         </div> <!--/row-->
       </div> <!--/container-->
     </div> <!--/info-->
+  </div>
 </section>
 
 <!-- ========================  Product info popup - quick view ======================== -->

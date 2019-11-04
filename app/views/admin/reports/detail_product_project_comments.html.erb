@@ -2,9 +2,9 @@
   <div class="card-header">
     <i class="fa fa-align-justify"></i>
     <% if current_user.display_products? %>
-      Product View Reports
+      Product Comment Reports
     <%elsif current_user.display_projects? %>
-      Project View Reports
+      Project Comment Reports
     <% end %>
   </div>
   <div class="card-body">
@@ -16,7 +16,7 @@
             <tr>
               <th>Sr#</th>
               <th>Title</th>
-              <th>Total View</th>
+              <th>Total Comment</th>
               <th>1 day</th>
               <th>1 week</th>
               <th>1 month</th>
@@ -29,12 +29,12 @@
               <tr>
                 <td><%= index + 1 %></td>
                 <td><%= product.title %></td>
-                <td><%= product.hits %></td>
-                <td><%= product.hits(1.day.ago) %></td>
-                <td><%= product.hits(1.week.ago)%></td>
-                <td><%= product.hits(1.month.ago) %></td>
-                <td><%= product.hits(6.month.ago) %></td>
-                <td><%= product.hits(12.month.ago) %></td>
+                <td><%= product.comments.count %></td>
+                <td><%= comment_count(product, product.created_at, product.created_at + 1.day) %></td>
+                <td><%= comment_count(product, product.created_at, product.created_at + 7.day)%></td>
+                <td><%= comment_count(product, product.created_at, product.created_at + 1.month)%></td>
+                <td><%= comment_count(product, product.created_at, product.created_at + 6.months)%></td>
+                <td><%= comment_count(product, product.created_at, product.created_at + 12.months)%></td>
               </tr>
             <% end %>
             </tbody>
@@ -45,7 +45,7 @@
             <tr>
               <th>Sr#</th>
               <th>Title</th>
-              <th>Total View</th>
+              <th>Total Comment</th>
               <th>1 day</th>
               <th>1 week</th>
               <th>1 month</th>
@@ -58,12 +58,12 @@
               <tr>
                 <td><%= index + 1 %></td>
                 <td><%= project.title %></td>
-                <td><%= project.hits %></td>
-                <td><%= project.hits(1.day.ago) %></td>
-                <td><%= project.hits(1.week.ago)%></td>
-                <td><%= project.hits(1.month.ago) %></td>
-                <td><%= project.hits(6.month.ago) %></td>
-                <td><%= project.hits(12.month.ago) %></td>
+                <td><%= project.comments.count %></td>
+                <td><%= comment_count(project, project.created_at, project.created_at + 1.day) %></td>
+                <td><%= comment_count(project, project.created_at, project.created_at + 7.day)%></td>
+                <td><%= comment_count(project, project.created_at, project.created_at + 1.month)%></td>
+                <td><%= comment_count(project, project.created_at, project.created_at + 6.months)%></td>
+                <td><%= comment_count(project, project.created_at, project.created_at + 12.months)%></td>
               </tr>
             <% end %>
             </tbody>

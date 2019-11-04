@@ -77,6 +77,10 @@ Rails.application.routes.draw do
         get :user_reporting
         post :detail_product_project_hits
         get :detail_product_project_hits
+        post :detail_product_project_likes
+        get :detail_product_project_likes
+        post :detail_product_project_comments
+        get :detail_product_project_comments
 
       end
     end
