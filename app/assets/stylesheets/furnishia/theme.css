@@ -1824,7 +1824,7 @@ nav .cart-wrapper.open {
         height: 700px;
     }
     .header-content .item .title {
-        font-size: 300%;
+        font-size: 42px;
     }
 }
 
@@ -6258,8 +6258,8 @@ overflow-y: scroll;
     font-size: 16px;
     border: 3px solid #ffffff;
     color: #ffffff;
-    padding: 10px 5px;
-    margin: 1px 0px;
+    padding: 26px 0px;
+    margin: 0px 0px;
 }
 
 .custom-slider-btn{

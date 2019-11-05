@@ -16,24 +16,18 @@
     <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-3-temp.jpg') %>')">
       <div class="box">
         <div class="container">
-          <div class="col-md-12">
-
-            <h2 class="title">
-              The Furnishing Bazaar
-            </h2>
+          <div class="col-md-5">
+            <h4 class="title">Your Creative World</h4>
             <div class="animated" data-animation="fadeInUp">
-              Find trusted locals, now.
+              <p> Find trusted locals, now.</p>
             </div>
             <br>
-          </div>
-
-          <div class="col-md-5">
             <div class="animated" data-animation="fadeInUp">
 
               <%= form_tag search_home_index_path  do %>
 
                 <div class="form-group">
-                  <%= text_field_tag :q, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Find Products", autofocus: true %>
+                  <%= text_field_tag :q, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Find:   Products, Bath and Sanitary , Furniture, Kitchen, Tiles, Interior design", autofocus: true %>
 
                   <%= text_field_tag :location, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Location", autofocus: true %>
 
@@ -41,14 +35,15 @@
                 </div>
               <% end %>
             </div>
-            <!--                              <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main" ><i class="icon icon-cart"></i> Buy this template</a>-->
           </div>
-
           <div class="col-md-1">
 
           </div>
-
           <div class="col-md-6">
+            <div class="animated" data-animation="fadeInUp">
+              The most popular categories picked by customers around the world:
+            </div>
+            <br>
             <div class="custom-home-tiles">
               <div class="row">
                 <% @categories.each_with_index  do |category, index| %>
@@ -75,7 +70,7 @@
   <header>
     <div class="row">
       <div class="col-md-offset-2 col-md-8 text-center">
-        <h2 class="title">Popular Cities</h2>
+        <h2 class="title">Most Searched Cities</h2>
         <div class="text custom-divider">
           <p>Check out our popular cities</p>
           <hr>
@@ -125,7 +120,7 @@
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
-          <h2 class="title">Popular products</h2>
+          <h2 class="title">Most Viewed products</h2>
           <div class="text custom-divider">
             <p>Check out our latest collections</p>
             <hr>
@@ -156,7 +151,7 @@
               <div class="text">
                 <%= link_to product do%>
                   <h2 class="title h4"><%=product.title %></h2>
-                  <span>$ <%= product.price %></span>
+                  <span> <%= product.user.category.title %></span>
                 <% end %>
               </div>
             </div>
@@ -181,7 +176,7 @@
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
-          <h2 class="title">Popular Vendors</h2>
+          <h2 class="title">Most Viewed Companies</h2>
           <div class="text custom-divider">
             <p>Check out our popular vendors</p>
             <hr>
@@ -236,7 +231,7 @@
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
-          <h2 class="title">Popular Architects</h2>
+          <h2 class="title">Top Architects</h2>
           <div class="text custom-divider">
             <p>Check out our popular architects</p>
             <hr>
@@ -291,7 +286,7 @@
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
-          <h2 class="title">Popular Interior Designers</h2>
+          <h2 class="title">Top Interior Designers</h2>
           <div class="text custom-divider">
             <p>Check out our popular interior designers</p>
             <hr>
@@ -345,7 +340,7 @@
     <header>
       <div class="row">
         <div class="col-md-offset-2 col-md-8 text-center">
-          <h2 class="title">Popular Product Designers</h2>
+          <h2 class="title">Top Product Designers</h2>
           <div class="text custom-divider">
             <p>Check out our popular product designers</p>
             <hr>

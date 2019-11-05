@@ -26,27 +26,27 @@
 
 <section class="product">
   <div class="main">
-<!--    <div class="container">-->
-<!--      <div class="row product-flex">-->
-<!--        <div class="col-md-4 col-sm-12 product-flex-info">-->
-<!--          <div class="clearfix">-->
-<!--            <h1 class="title" ><%#= @user.full_name %> </h1>-->
-<!--            <div class="clearfix">-->
-<!--              <hr />-->
-<!--              <div class="info-box">-->
-<!--                <span><strong>Manufacturer</strong></span>-->
-<!--                <span><%#= @user.full_name %></span>-->
-<!--              </div>-->
-<!--              <div class="info-box">-->
-<!--              </div>-->
-<!--              <div id="avg_rate">-->
-<!--              </div>-->
-<!--              <hr />-->
-<!--            </div> -->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <!--    <div class="container">-->
+    <!--      <div class="row product-flex">-->
+    <!--        <div class="col-md-4 col-sm-12 product-flex-info">-->
+    <!--          <div class="clearfix">-->
+    <!--            <h1 class="title" ><%#= @user.full_name %> </h1>-->
+    <!--            <div class="clearfix">-->
+    <!--              <hr />-->
+    <!--              <div class="info-box">-->
+    <!--                <span><strong>Manufacturer</strong></span>-->
+    <!--                <span><%#= @user.full_name %></span>-->
+    <!--              </div>-->
+    <!--              <div class="info-box">-->
+    <!--              </div>-->
+    <!--              <div id="avg_rate">-->
+    <!--              </div>-->
+    <!--              <hr />-->
+    <!--            </div> -->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </div>-->
   </div>
 
   <div class="info">
@@ -64,11 +64,20 @@
               </div>
               <div class="name">
                 <div class="h3 title"><%= @user.full_name %><small><%= @user.category.title %></small></div>
-
+                <script>
+                    $(document).ready(function() {
+                        $("#download-btn").click(function() {
+                            $.ajax({
+                                url: '/profiles/update_download_catalog_count.js?user_id=<%= @user.id %>',
+                                method: 'get',
+                            });
+                        });
+                    });
+                </script>
                 <% if @user.profile.pdf.attached? %>
                   <hr/>
                   <span>
-                  <%= link_to "Download Catalogue", rails_blob_path(@user.profile.pdf, disposition: 'attachment') %>
+                    <%= link_to "Download Catalogue", rails_blob_path(@user.profile.pdf, disposition: 'attachment'), :id=> 'download-btn' %>
                   </span>
                 <% end %>
                 <hr/>

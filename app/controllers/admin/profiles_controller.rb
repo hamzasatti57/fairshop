@@ -38,6 +38,9 @@ class Admin::ProfilesController < AdminController
     flash[:success] = "Profile Deleted"
     render 'show'
   end
+
+
+
   private
   def load_user_profile
     if action_name == 'new'
@@ -52,7 +55,7 @@ class Admin::ProfilesController < AdminController
   end
 
   def profile_params
-    params.required(:profile).permit(:facebook, :instagram,:twitter,:gender,:dob,:phone, :address,:description, :user_id, :image, :pdf)
+    params.required(:profile).permit(:facebook, :instagram,:twitter,:gender,:dob,:phone, :address,:description, :user_id, :image, :pdf, :catalog_download_count)
   end
   def get_profile
     @profile = Profile.find(params[:id])

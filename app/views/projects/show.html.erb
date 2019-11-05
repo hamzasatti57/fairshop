@@ -106,10 +106,20 @@
               </div>
               <div class="name">
                 <div class="h3 title"><%= @vendor.full_name %><small><%= @vendor.category.title %></small></div>
+                <script>
+                    $(document).ready(function() {
+                        $("#download-btn").click(function() {
+                            $.ajax({
+                                url: '/profiles/update_download_catalog_count.js?user_id=<%= @vendor.id %>',
+                                method: 'get',
+                            });
+                        });
+                    });
+                </script>
                 <% if @vendor.profile.pdf.attached? %>
                   <hr/>
                   <span>
-                  <%= link_to "Download Catalogue", rails_blob_path(@vendor.profile.pdf, disposition: 'attachment') %>
+                    <%= link_to "Download Catalogue", rails_blob_path(@vendor.profile.pdf, disposition: 'attachment'), :id=> 'download-btn' %>
                   </span>
                 <% end %>
                 <hr/>
