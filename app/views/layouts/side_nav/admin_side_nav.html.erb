@@ -88,7 +88,7 @@
           </li>
 
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#">
+            <a class="nav-link nav-dropdown-toggle">
               <i class="nav-icon icon-grid"></i> Product Categories</a>
             <ul class="nav-dropdown-items">
               <% if can? :read, User %>
@@ -104,22 +104,22 @@
             </ul>
           </li>
 
-          <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" >
-              <i class="nav-icon icon-equalizer"></i> Product Types</a>
-            <ul class="nav-dropdown-items">
-              <% if can? :read, User %>
-                <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-equalizer"></i> Product Types List'.html_safe, admin_product_types_path,class:"nav-link" %>
-                </li>
-              <% end %>
-              <% if can? :create, User %>
-                <li class="nav-item">
-                  <%= link_to '<i class="nav-icon icon-equalizer"></i> Create New Product Type'.html_safe, new_admin_product_type_path,class:"nav-link" %>
-                </li>
-              <% end %>
-            </ul>
-          </li>
+<!--          <li class="nav-item nav-dropdown">-->
+<!--            <a class="nav-link nav-dropdown-toggle" >-->
+<!--              <i class="nav-icon icon-equalizer"></i> Product Types</a>-->
+<!--            <ul class="nav-dropdown-items">-->
+              <%# if can? :read, User %>
+<!--                <li class="nav-item">-->
+                  <%#= link_to '<i class="nav-icon icon-equalizer"></i> Product Types List'.html_safe, admin_product_types_path,class:"nav-link" %>
+<!--                </li>-->
+              <%# end %>
+              <%# if can? :create, User %>
+<!--                <li class="nav-item">-->
+                  <%#= link_to '<i class="nav-icon icon-equalizer"></i> Create New Product Type'.html_safe, new_admin_product_type_path,class:"nav-link" %>
+<!--                </li>-->
+              <%# end %>
+<!--            </ul>-->
+<!--          </li>-->
 
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" >
@@ -137,7 +137,6 @@
               <% end %>
             </ul>
           </li>
-
           <li class="nav-item nav-dropdown">
             <a class="nav-link nav-dropdown-toggle" >
               <i class="nav-icon icon-home"></i> Jobs</a>
@@ -154,7 +153,6 @@
               <% end %>
             </ul>
           </li>
-
         <% end %>
         <% if current_user.is_vendor? %>
           <li class="nav-item nav-dropdown">
@@ -184,6 +182,31 @@
                 <li class="nav-item">
                   <%= link_to '<i class="nav-icon icon-cursor"></i> Create New Product'.html_safe, new_admin_product_path,class:"nav-link" %>
                 </li>
+              </ul>
+            </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" >
+                <i class="nav-icon icon-drop"></i> Colors</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-drop"></i> Colors List'.html_safe, admin_colors_path,class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-drop"></i> Create New Color'.html_safe, new_admin_color_path,class:"nav-link" %>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle">
+                <i class="nav-icon icon-grid"></i> Product Categories</a>
+              <ul class="nav-dropdown-items">
+                  <li class="nav-item">
+                    <%= link_to '<i class="nav-icon icon-grid"></i> Product Categories List'.html_safe, admin_product_categories_path,class:"nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to '<i class="nav-icon icon-grid"></i> Create New Product Categgory'.html_safe, new_admin_product_category_path,class:"nav-link" %>
+                  </li>
               </ul>
             </li>
           <%elsif current_user.display_projects? %>
@@ -243,7 +266,7 @@
                 </li>
               <%elsif current_user.display_projects? %>
                 <li class="nav-item">
-                <%= link_to '<i class="nav-icon icon-home"></i> Projects Views Report'.html_safe,  detail_product_project_hits_admin_reports_path, class: "nav-link" %>
+                  <%= link_to '<i class="nav-icon icon-home"></i> Projects Views Report'.html_safe,  detail_product_project_hits_admin_reports_path, class: "nav-link" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to '<i class="nav-icon icon-home"></i> Projects Likes Report'.html_safe,  detail_product_project_likes_admin_reports_path, class: "nav-link" %>
@@ -258,20 +281,6 @@
             </ul>
           </li>
         <% end %>
-
-        <!--      <li class="nav-item nav-dropdown">-->
-        <!--        <a class="nav-link nav-dropdown-toggle" href="#">-->
-        <!--          <i class="nav-icon icon-cursor"></i> Categories</a>-->
-        <!--        <ul class="nav-dropdown-items">-->
-        <!--          <li class="nav-item">-->
-        <%#= link_to '<i class="nav-icon icon-cursor"></i> Categories List'.html_safe, admin_categories_path,class:"nav-link" %>
-        <!--          </li>-->
-        <!--          <li class="nav-item">-->
-        <%#= link_to '<i class="nav-icon icon-cursor"></i> Create New Category'.html_safe, new_admin_category_path,class:"nav-link" %>
-        <!--          </li>-->
-        <!--        </ul>-->
-        <!--      </li>-->
-
       </ul>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button"></button>
