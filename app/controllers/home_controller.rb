@@ -1,10 +1,11 @@
 class HomeController < ApplicationController
   def index
     @categories = Category.all
-    @blogs = Blog.all
+    @blogs = Blog.all.order("created_at DESC")
     @popular_products = Product.most_hit(nil, 100)
     @popular_vendors = User.product_vendors.most_hit(nil,100)
-    @advertisements = Advertisement.all
+    @advertisements = Advertisement.all.order("created_at DESC")
+
     category = Category.find_by(title: 'Architects')
     if category.nil?
       @popular_architects = []

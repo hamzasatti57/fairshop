@@ -76,6 +76,7 @@ Rails.application.routes.draw do
     resources :cities
     resources :blogs
     resources :jobs
+    resources :dashboards
     resources :reports do
       collection do
         post :user_reporting

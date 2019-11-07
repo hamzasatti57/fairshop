@@ -56,8 +56,9 @@
                     <div class="text">
                       <%= link_to product do%>
                         <h2 class="title h4"><%= product.title %></h2>
-                        <span>$ <%= product.price %></span>
-                      <% end %>
+                        <span> <%= product.product_category.title %></span>
+                        <span> <%= product.user.category.title %></span>
+                    <% end %>
                     </div>
                   </div>
                 </article>

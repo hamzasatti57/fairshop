@@ -15,6 +15,13 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css"/>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.css"/>
 
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css"/>
+  <script>
+      src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"
+      src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+  </script>
+
+
   <%# <script src="https://kit.fontawesome.com/a076d05399.js"></script> %>
   <script>
       window.dataLayer = window.dataLayer || [];
@@ -35,7 +42,7 @@
 <!-- <div class="page-loader"></div> -->
 <%= render template: "layouts/header/admin_header" %>
 <div class="app-body">
-    <%= render template: "layouts/side_nav/admin_side_nav" %>
+  <%= render template: "layouts/side_nav/admin_side_nav" %>
 
   <div class="main">
     <%= yield %>
@@ -48,54 +55,54 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
 <script>
 
-$('.center-sliderr').slick({
-  centerMode: true,
-  centerPadding: '60px',
-  slidesToShow: 3,
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        arrows: false,
+    $('.center-sliderr').slick({
         centerMode: true,
-        centerPadding: '40px',
+        centerPadding: '60px',
         slidesToShow: 3,
-         autoplay: true,
-  autoplaySpeed: 2000,
-   prevArrow: null,
-         nextArrow: null,
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 1
-      }
-    }
-  ]
-});
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 3,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    prevArrow: null,
+                    nextArrow: null,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    arrows: false,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1
+                }
+            }
+        ]
+    });
 </script>
 <script>
-// Change active class on product sizes.
+    // Change active class on product sizes.
 
-var sizes = jQuery(".product--size").find("span");
-sizes.click(function() {
-  sizes.removeClass("active");
-  $(this).addClass("active");
-});
+    var sizes = jQuery(".product--size").find("span");
+    sizes.click(function() {
+        sizes.removeClass("active");
+        $(this).addClass("active");
+    });
 
-// Change image on thumbnail click.
-var thumbs = $(".icon-images").find("img");
-thumbs.click(function() {
-  var src = $(this).attr("src");
-  var dp = $(".display-img");
-  dp.attr("src", src);
-});
+    // Change image on thumbnail click.
+    var thumbs = $(".icon-images").find("img");
+    thumbs.click(function() {
+        var src = $(this).attr("src");
+        var dp = $(".display-img");
+        dp.attr("src", src);
+    });
 
-// navbar scrol
+    // navbar scrol
 </script>
 </body>
 </html>

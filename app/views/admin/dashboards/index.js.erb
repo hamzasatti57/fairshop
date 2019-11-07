@@ -1,0 +1,74 @@
+$type = $('#type').val();
+$selected_product_project = $('#product_project').val();
+if ($selected_product_project || $type != null) {
+    var data = [];
+    data.push(0);
+    <% if current_user.display_products? %>
+    if ($type == '0')
+    {
+
+        data.push(<%= like_count(@product, @product.created_at, @product.created_at + 1.day)%>);
+        data.push(<%= like_count(@product, @product.created_at, @product.created_at + 7.day)%>);
+        data.push(<%= like_count(@product, @product.created_at, @product.created_at + 1.month)%>);
+        data.push(<%= like_count(@product, @product.created_at, @product.created_at + 6.months)%>);
+        data.push(<%= like_count(@product, @product.created_at, @product.created_at + 12.months)%>);
+    }
+    else if ($type == '1'){
+
+        data.push(<%= @product.hits(1.day.ago) %>);
+        data.push(<%= @product.hits(1.week.ago)%>);
+        data.push(<%= @product.hits(1.month.ago) %>);
+        data.push(<%= @product.hits(6.month.ago) %>);
+        data.push(<%= @product.hits(12.month.ago) %>);
+    }
+    else{
+
+        data.push(<%= comment_count(@product, @product.created_at, @product.created_at + 1.day)%>);
+        data.push(<%= comment_count(@product, @product.created_at, @product.created_at + 7.day)%>);
+        data.push(<%= comment_count(@product, @product.created_at, @product.created_at + 1.month)%>);
+        data.push(<%= comment_count(@product, @product.created_at, @product.created_at + 6.months)%>);
+        data.push(<%= comment_count(@product, @product.created_at, @product.created_at + 12.months)%>);
+    }
+    <% elsif current_user.display_projects? %>
+
+    if ($type == '0')
+    {
+
+    }
+    else if ($type == '1'){
+
+    }
+    else{
+
+    }
+    <% end %>
+
+    removeData(myChart);
+   addData(myChart, $type, data );
+}
+function addData(chart,label, data) {
+
+//    chart.data.labels.push(label);
+    debugger;
+    $.each(chart.data.datasets, function(index, dataset){
+        for(var i = 0; i< data.length; i++)
+        {
+            dataset.data.push(data[i]);
+        }
+
+    });
+    debugger;
+    chart.update();
+}
+
+function removeData(chart) {
+    $.each(chart.data.datasets, function(index, dataset){
+        count = dataset.data.length;
+        for(var i = 0; i< count; i++)
+        {
+            dataset.data.pop(); // remove first data point
+        }
+    });
+    chart.update();
+
+}

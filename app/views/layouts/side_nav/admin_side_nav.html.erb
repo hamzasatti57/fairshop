@@ -156,6 +156,10 @@
         <% end %>
         <% if current_user.is_vendor? %>
           <li class="nav-item nav-dropdown">
+            <a class="nav-link " href="<%= admin_dashboards_path %>">
+              <i class="nav-icon icon-cursor"></i> Dashboard</a>
+          </li>
+          <li class="nav-item nav-dropdown">
             <a class="nav-link " href="<%= admin_profile_path current_user.profile %>">
               <i class="nav-icon icon-cursor"></i> Profile</a>
           </li>

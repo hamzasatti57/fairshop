@@ -224,7 +224,7 @@ h4, .h4 {
     h4, .h4 {
         font-size: 22px;
         margin-top: 26.66667px;
-        margin-bottom: 26.66667px;
+        margin-bottom: 5px;
     }
 }
 
@@ -931,7 +931,7 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li > a span.label {
 }
 
 nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
-    border-bottom: 0;
+    border-bottom: 1px solid #FFFFFF;
 }
 
 @media (min-width: 992px) {
@@ -1031,7 +1031,7 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
         width: auto;
         right: auto;
         left: auto;
-        max-width: 250px;
+        max-width: 500px;
     }
     nav .navigation-main .floating-menu > ul > li .navbar-dropdown.navbar-dropdown-single .navbar-box {
         min-height: inherit;
@@ -6508,3 +6508,12 @@ section.custom-product-homepage{
     color: black;
 }
 
+.custom-tiles-heading{
+    margin-left: -10px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+}
+
+.custom-product-category-list{
+    columns: 2;
+}

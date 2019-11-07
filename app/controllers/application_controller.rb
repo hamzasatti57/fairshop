@@ -26,7 +26,8 @@ class ApplicationController < ActionController::Base
     if resource.is_admin?
       admin_users_path
     elsif resource.is_vendor?
-      admin_profile_path resource.profile
+      # admin_profile_path resource.profile
+      admin_dashboards_path
     elsif resource.is_customer?
       root_path
     end
