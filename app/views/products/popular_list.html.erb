@@ -16,33 +16,56 @@
 
 <!-- ======================== Products ======================== -->
 
-<section class="products">
+<section class="products custom-product-details-page custom-city-show">
   <div class="container">
     <div class="row">
       <%  @popular_products.each do |product|  %>
         <% if product.visibility == true %>
-          <div class="col-md-3 col-xs-6">
-            <article>
-              <div class="figure-grid">
-                <div class="image">
+          <div class="col-md-3">
+            <article class="custom-product-article">
+              <div class="figure-grid custom-product-card-img custom-card-container text-center">
+                <div class="image custom-product-card custom-figure-grid">
                   <% if product.images.attached? %>
                     <%= link_to product do%>
                       <%= image_tag(url_for(product.images.first)) %><br>
                     <% end %>
                   <% else %>
                     <%= link_to product do%>
-                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                      <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
                     <% end %>
                   <% end %>
                 </div>
                 <div class="text">
                   <%= link_to product do%>
-                    <h2 class="title h4"><%= product.title %></h2>
+                    <h2 class="title h4"><%=product.title %></h2>
+                    <hr class="card-text-divider">
+                    <span> <%= product.user.category.title %></span>
                   <% end %>
-                  <sup> <%= product.user.category.title %></sup>
                 </div>
+                <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
               </div>
             </article>
+            <!--            <article>-->
+            <!--              <div class="figure-grid">-->
+            <!--                <div class="image">-->
+            <%# if product.images.attached? %>
+            <%#= link_to product do%>
+            <!--                      <%#= image_tag(url_for(product.images.first)) %><br>-->
+            <%# end %>
+            <%# else %>
+            <%#= link_to product do%>
+            <!--                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />-->
+            <%# end %>
+            <%# end %>
+            <!--                </div>-->
+            <!--                <div class="text">-->
+            <%#= link_to product do%>
+            <!--                    <h2 class="title h4"><%#= product.title %></h2>-->
+            <%# end %>
+            <!--                  <sup> <%#= product.user.category.title %></sup>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </article>-->
           </div>
         <% end %>
       <% end %>
@@ -53,83 +76,4 @@
     </div>
   </div> <!--/product items-->
 </section>
-
-<!-- ================== Footer  ================== -->
-
-<footer>
-  <div class="container">
-
-    <!--footer showroom-->
-    <div class="footer-showroom">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2>Visit our showroom</h2>
-          <p>200 12th Ave, New York, NY 10001, USA</p>
-          <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
-        </div>
-        <div class="col-sm-4 text-center">
-          <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
-          <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
-        </div>
-      </div>
-    </div>
-
-    <!--footer links-->
-    <div class="footer-links">
-      <div class="row">
-        <div class="col-sm-4 col-md-2">
-          <h5>Browse by</h5>
-          <ul>
-            <li><a href="#">Brand</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Category</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-4 col-md-2">
-          <h5>Recources</h5>
-          <ul>
-            <li><a href="#">Design</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Sales</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-4 col-md-2">
-          <h5>Our company</h5>
-          <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <h5>Sign up for our newsletter</h5>
-          <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
-          <div class="form-group form-newsletter">
-            <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
-            <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--footer social-->
-
-    <div class="footer-social">
-      <div class="row">
-        <div class="col-sm-6">
-          <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
-        </div>
-        <div class="col-sm-6 links">
-          <ul>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 

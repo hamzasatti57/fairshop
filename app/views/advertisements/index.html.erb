@@ -1,10 +1,3 @@
-
-<!--Use class "navbar-fixed" or "navbar-default" -->
-<!--If you use "navbar-fixed" it will be sticky menu on scroll (only for large screens)-->
-
-<!-- ======================== Navigation ======================== -->
-
-
 <!-- ========================  Main header ======================== -->
 
 <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
@@ -22,40 +15,8 @@
 <!-- ========================  Blog ======================== -->
 
 <section class="blog">
-
   <div class="container">
-
-    <div class="pre-header hidden">
-      <div>
-        <h2 class="h3 title">
-          Category name
-        </h2>
-      </div>
-      <div>
-        <div class="sort-bar pull-right">
-          <div class="sort-results">
-            <!--Items counter-->
-            <span>Showing all <strong>50</strong> of <strong>3,250</strong> items</span>
-            <!--Showing result per page-->
-            <select>
-              <option value="1">10</option>
-              <option value="2">50</option>
-              <option value="3">100</option>
-              <option value="4">All</option>
-            </select>
-            <!--Grid-list view-->
-            <span class="grid-list">
-                                    <a href="blog-grid.html"><i class="fa fa-th-large"></i></a>
-                                    <a href="blog-list.html"><i class="fa fa-align-justify"></i></a>
-                                    <a href="javascript:void(0);" class="toggle-filters-mobile"><i class="fa fa-search"></i></a>
-                                </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="row">
-
       <div class="col-md-9">
         <div class="row">
           <% @advertisements.each do |advertisement| %>
@@ -91,27 +52,9 @@
           <%= will_paginate @advertisements %>
         </div> <!--/pagination-->
       </div>
-
-
-
-
-
       <!-- === blog-menu === -->
-
       <div class="col-md-3">
-
         <aside>
-
-          <!-- === box-search === -->
-
-
-
-          <!-- === box-categories === -->
-
-
-
-          <!-- === box-posts === -->
-
           <div class="box box-posts">
             <h5 class="title">Popular advertisements</h5>
             <ul>
@@ -131,90 +74,7 @@
           </div>
         </aside>
       </div>
-
-
     </div> <!--/row-->
-
-
   </div><!--/container-->
 </section>
-
-<!-- ================== Footer  ================== -->
-
-<footer>
-  <div class="container">
-
-    <!--footer showroom-->
-    <div class="footer-showroom">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2>Visit our showroom</h2>
-          <p>200 12th Ave, New York, NY 10001, USA</p>
-          <p>Mon - Sat: 10 am - 6 pm &nbsp; &nbsp; | &nbsp; &nbsp; Sun: 12pm - 2 pm</p>
-        </div>
-        <div class="col-sm-4 text-center">
-          <a href="#" class="btn btn-clean"><span class="icon icon-map-marker"></span> Get directions</a>
-          <div class="call-us h4"><span class="icon icon-phone-handset"></span> 333.278.06622</div>
-        </div>
-      </div>
-    </div>
-
-    <!--footer links-->
-    <div class="footer-links">
-      <div class="row">
-        <div class="col-sm-4 col-md-2">
-          <h5>Browse by</h5>
-          <ul>
-            <li><a href="#">Brand</a></li>
-            <li><a href="#">Product</a></li>
-            <li><a href="#">Category</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-4 col-md-2">
-          <h5>Recources</h5>
-          <ul>
-            <li><a href="#">Design</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Sales</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-4 col-md-2">
-          <h5>Our company</h5>
-          <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <h5>Sign up for our newsletter</h5>
-          <p><i>Add your email address to sign up for our monthly emails and to receive promotional offers.</i></p>
-          <div class="form-group form-newsletter">
-            <input class="form-control" type="text" name="email" value="" placeholder="Email address" />
-            <input type="submit" class="btn btn-clean btn-sm" value="Subscribe" />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!--footer social-->
-
-    <div class="footer-social">
-      <div class="row">
-        <div class="col-sm-6">
-          <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank"><i class="fa fa-download"></i> Download Mobel</a> &nbsp; | <a href="#">Sitemap</a> &nbsp; | &nbsp; <a href="#">Privacy policy</a>
-        </div>
-        <div class="col-sm-6 links">
-          <ul>
-            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-            <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
 

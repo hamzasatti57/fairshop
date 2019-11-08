@@ -5881,6 +5881,8 @@ nav .cart-wrapper.open {
     ----------------------------------
 */
 footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
     background-position: center top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -5921,7 +5923,7 @@ footer a {
 }
 
 footer a:hover {
-    color: #ffbb00;
+    color: #b41135;
 }
 
 footer .footer-showroom {
@@ -6531,6 +6533,46 @@ section.custom-product-homepage{
 .custom-product-category-list{
     columns: 2;
 }
+.pagination-wrapper a {
+    border: 0;
+    /* border-radius: 100%; */
+    color: white;
+    background-color: #ffbb00;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+}
+.pagination-wrapper a:active ,
+.pagination-wrapper a:hover {
+    border: 0;
+    /* border-radius: 100%; */
+    color: white;
+    background-color: #000 !important;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+}
+.current:hover, .current:active,{
+    border: 0;
+    /* border-radius: 100%; */
+    color: white;
+    background-color: #000 !important;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+}
+.current {
+    border: 0;
+    /* border-radius: 100%; */
+    color: white;
+    background-color: #000 !important;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+}
+section.custom-city-show{
+    padding-top: 15px;
+}
 
 .card-btn{
 padding: 2px 20px;
@@ -6545,4 +6587,17 @@ hr.card-text-divider{
 
 .custom-card-container span{
     font-size: 14px;
+}
+
+.custom-product-card{
+    margin: 0 auto;
+}
+
+article.custom-product-article{
+    width: 224px;
+    height: 331px;
+}
+
+.custom-product-card-img{
+    padding-top: 10px;
 }
