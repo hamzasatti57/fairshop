@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   def get_data
     @product_categories = ProductCategory.all
+    @categories = Category.all
   end
   protected
 
