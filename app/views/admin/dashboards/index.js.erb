@@ -49,7 +49,6 @@ if ($selected_product_project || $type != null) {
 function addData(chart,label, data) {
 
 //    chart.data.labels.push(label);
-    debugger;
     $.each(chart.data.datasets, function(index, dataset){
         for(var i = 0; i< data.length; i++)
         {
@@ -57,7 +56,6 @@ function addData(chart,label, data) {
         }
 
     });
-    debugger;
     chart.update();
 }
 

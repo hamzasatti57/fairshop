@@ -1898,9 +1898,11 @@ pre code {
 .form-control:focus {
   color: #5c6873;
   background-color: #fff;
-  border-color: #8ad4ee;
+  /*border-color: #8ad4ee;*/
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25);
+  border-color: #b530355e;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(181, 48, 53, 0.18);
+  /*box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25);*/
 }
 
 .form-control::-webkit-input-placeholder {
@@ -13043,6 +13045,7 @@ canvas {
 .sidebar .nav-dropdown.open .nav-link {
   color: #fff;
   border-left: 0;
+  display:flex;
 }
 
 .sidebar .nav-dropdown.open .nav-link.disabled {
@@ -17271,3 +17274,73 @@ input, button, select, optgroup, textarea {
   border-color: #b53035;
   box-shadow:1px 2px 3px 1px #cacaca !important;
 }
+
+.custom-dashboard{
+  margin: 40px 0px;
+}
+
+.custom-dashboard-chart{
+  padding: 50px;
+  background-color: #fff;
+  margin-bottom: 30px;
+}
+
+.custom-dashboard-chart .custom-dashboard-chart-option{
+  margin:0px 0px 20px;
+  text-align: center;
+}
+
+.custom-dashboard .card{
+  text-align: center;
+}
+
+.custom-dashboard .card-body h2{
+  font-size: 22px;
+}
+
+.custom-dashboard .card-body span{
+  font-size: 28px;
+} 
+
+.custom-dashboard .custom-dashboard-counter-card{
+  height: 150px;
+}
+
+.custom-dashboard-table #product-table_length{
+  float: left;
+}
+
+.custom-profile-text h2{
+  font-size:26px;
+}
+
+.custom-profile-img{
+  padding: 0px;
+}
+
+.custom-profile-info h2{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.custom-profile-info ul li{
+  border-bottom: 1px solid #eaeaea;
+  margin: 5px 0px;
+  padding: 5px 5px;
+}
+
+.custom-profile-social .social-link-warp .social-links{
+  margin: 5px;
+}
+
+.custom-profile-social .social-link-warp .social-links a{
+  margin: 10px;
+  font-size: 24px;
+}
+
+.custom-profile-social .social-link-warp .social-links a:hover{
+  color:#b41135 !important;
+}
+
+
+

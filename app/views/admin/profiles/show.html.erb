@@ -1,20 +1,32 @@
 <div class="row">
   <div class="col-lg-10 mt-3 offset-1">
-    <div class="card">
-      <div class="card-header">
+    <div class="card custom-profile-style">
+      <div class="card-header custom-card-header">
         <strong>Profile</strong>
       </div>
       <div class="card-body body-bgg">
-        <div class="article-actions">
-          <%= link_to "Edit",  edit_admin_profile_path(@profile), class: "btn btn-xs btn-primary" %>
+        <div class="article-actions pull-right">
+          <%= link_to "Edit",  edit_admin_profile_path(@profile), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
         </div>
         <div class="row">
-          <div class="col-lg-6">
-            <div class="hero-text">
+           <div class="col-lg-3">
+            <figure class="hero-image custom-profile-img">
+              <% if @profile.image.attached? %>
+                <%= image_tag(url_for(@profile.image)) %><br>
+              <% end %>
+            </figure>
+          </div>
+          <div class="col-lg-8">
+            <div class="hero-text custom-profile-text">
               <h2><%= @profile.user_full_name %></h2>
               <p><%= @profile.description %></p>
             </div>
-            <div class="hero-info">
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-lg-12">
+             <div class="hero-info custom-profile-info">
               <h2>General Info</h2>
               <ul>
                 <li><span>Address</span><%= @profile.address%></li>
@@ -22,28 +34,21 @@
                 <li><span>Phone </span><%= @profile.phone%></li>
               </ul>
             </div>
-          </div>
-          <div class="col-lg-6">
-            <figure class="hero-image">
-              <% if @profile.image.attached? %>
-                <%= image_tag(url_for(@profile.image)) %><br>
-              <% end %>
-            </figure>
-          </div>
+            </div>
         </div>
       </div>
       <div class="">
-        <div class="social-section">
+        <div class="social-section custom-profile-social">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-xl-10 offset-xl-1">
+              <div class="col-lg-12">
                 <div class="social-link-warp">
                   <div class="social-links">
                     <a href="<%= @profile.instagram %>"><i class="fa fa-instagram"></i></a>
                     <a href="<%= @profile.facebook %>"><i class="fa fa-facebook"></i></a>
                     <a href="<%= @profile.twitter %>"><i class="fa fa-twitter"></i></a>
                   </div>
-                  <h2 class="hidden-md hidden-sm">Social Profiles</h2>
+                  <!-- <h2 class="hidden-md hidden-sm">Social Profiles</h2> -->
                 </div>
               </div>
             </div>
