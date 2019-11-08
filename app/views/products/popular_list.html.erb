@@ -16,33 +16,56 @@
 
 <!-- ======================== Products ======================== -->
 
-<section class="products">
+<section class="products custom-product-details-page custom-city-show">
   <div class="container">
     <div class="row">
       <%  @popular_products.each do |product|  %>
         <% if product.visibility == true %>
-          <div class="col-md-3 col-xs-6">
-            <article>
-              <div class="figure-grid">
-                <div class="image">
+          <div class="col-md-3">
+            <article class="custom-product-article">
+              <div class="figure-grid custom-product-card-img custom-card-container text-center">
+                <div class="image custom-product-card custom-figure-grid">
                   <% if product.images.attached? %>
                     <%= link_to product do%>
                       <%= image_tag(url_for(product.images.first)) %><br>
                     <% end %>
                   <% else %>
                     <%= link_to product do%>
-                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                      <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
                     <% end %>
                   <% end %>
                 </div>
                 <div class="text">
                   <%= link_to product do%>
-                    <h2 class="title h4"><%= product.title %></h2>
+                    <h2 class="title h4"><%=product.title %></h2>
+                    <hr class="card-text-divider">
+                    <span> <%= product.user.category.title %></span>
                   <% end %>
-                  <sup> <%= product.user.category.title %></sup>
                 </div>
+                <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
               </div>
             </article>
+            <!--            <article>-->
+            <!--              <div class="figure-grid">-->
+            <!--                <div class="image">-->
+            <%# if product.images.attached? %>
+            <%#= link_to product do%>
+            <!--                      <%#= image_tag(url_for(product.images.first)) %><br>-->
+            <%# end %>
+            <%# else %>
+            <%#= link_to product do%>
+            <!--                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />-->
+            <%# end %>
+            <%# end %>
+            <!--                </div>-->
+            <!--                <div class="text">-->
+            <%#= link_to product do%>
+            <!--                    <h2 class="title h4"><%#= product.title %></h2>-->
+            <%# end %>
+            <!--                  <sup> <%#= product.user.category.title %></sup>-->
+            <!--                </div>-->
+            <!--              </div>-->
+            <!--            </article>-->
           </div>
         <% end %>
       <% end %>

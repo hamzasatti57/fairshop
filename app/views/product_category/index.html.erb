@@ -16,7 +16,7 @@
 
 <!-- ======================== Products ======================== -->
 
-<section class="products">
+<section class="products custom-product-details-page custom-city-show">
   <div class="container">
     <div class="row">
       <div class="col-md-12 col-xs-12">
@@ -25,26 +25,27 @@
           <%  @products.each  do |product|  %>
             <% if product.visibility == true %>
               <div class="col-md-3 col-xs-3">
-                <article>
-                  <div class="figure-grid custom-figure-grid">
-                    <div class="image">
+                <article class="custom-product-article">
+                  <div class="figure-grid custom-product-card-img custom-card-container text-center">
+                    <div class="image custom-product-card custom-figure-grid">
                       <% if product.images.attached? %>
                         <%= link_to product do%>
                           <%= image_tag(url_for(product.images.first)) %><br>
                         <% end %>
                       <% else %>
                         <%= link_to product do%>
-                          <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                          <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
                         <% end %>
                       <% end %>
                     </div>
                     <div class="text">
                       <%= link_to product do%>
-                        <h2 class="title h4"><%= product.title %></h2>
-                        <span> <%= product.product_category.title %></span>
+                        <h2 class="title h4"><%=product.title %></h2>
+                        <hr class="card-text-divider">
                         <span> <%= product.user.category.title %></span>
-                    <% end %>
+                      <% end %>
                     </div>
+                    <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
                   </div>
                 </article>
                 <br>

@@ -8,7 +8,6 @@
 <!-- ==================  Header content ======================== -->
 
 <section class="header-content">
-
   <div class="owl-slider">
 
     <!-- === slide item === -->
@@ -40,7 +39,7 @@
 
           </div>
           <div class="col-md-6">
-             <p class="custom-tiles-heading">The most popular categories picked by customers around the world:</p>
+            <p class="custom-tiles-heading">The most popular categories picked by customers around the world:</p>
 
             <div class="custom-home-tiles">
               <div class="row">
@@ -134,24 +133,26 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid custom-figure-grid">
-              <div class="image">
+            <div class="figure-grid custom-card-container text-center">
+              <div class="image custom-figure-grid">
                 <% if product.images.attached? %>
                   <%= link_to product do%>
                     <%= image_tag(url_for(product.images.first)) %><br>
                   <% end %>
                 <% else %>
                   <%= link_to product do%>
-                    <img src="/assets/furnishia/no_image_product.jpg" alt="" width="360" />
+                    <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
                   <% end %>
                 <% end %>
               </div>
               <div class="text">
                 <%= link_to product do%>
                   <h2 class="title h4"><%=product.title %></h2>
+                  <hr class="card-text-divider">
                   <span> <%= product.user.category.title %></span>
                 <% end %>
               </div>
+              <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
             </div>
           </article>
         <% end %>
@@ -188,8 +189,8 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid custom-figure-grid">
-              <div class="image">
+            <div class="figure-grid custom-card-container text-center">
+              <div class="image custom-figure-grid">
                 <% if vendor.profile.image.attached? %>
                   <%= link_to products_path(user_id: vendor.id) do %>
                     <%= image_tag(url_for(vendor.profile.image)) %>
@@ -203,9 +204,11 @@
               <div class="text">
                 <%= link_to products_path(user_id: vendor.id) do %>
                   <h2 class="title h4"><%= vendor.full_name %></h2>
+                  <hr class="card-text-divider">
                   <span><%= vendor.category_title %></span>
                 <% end %>
               </div>
+              <a href="<%= products_path(user_id: vendor.id) %>" class="btn card-btn btn-main">View</a>
             </div>
           </article>
         <% end %>
@@ -218,7 +221,6 @@
     </div>
   </div> <!--/container-->
 </section>
-
 
 
 <!-- ========================  Popular Architects ======================== -->
@@ -243,8 +245,8 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid custom-figure-grid">
-              <div class="image">
+            <div class="figure-grid custom-card-container text-center">
+              <div class="image custom-figure-grid">
                 <% if architect.profile.image.attached? %>
                   <%= link_to profiles_path(user_id: architect.id) do %>
                     <%= image_tag(url_for(architect.profile.image)) %>
@@ -258,9 +260,11 @@
               <div class="text">
                 <%= link_to profiles_path(user_id: architect.id) do %>
                   <h2 class="title h4"><%= architect.full_name %></h2>
+                  <hr class="card-text-divider">
                   <span><%= architect.category_title %></span>
                 <% end %>
               </div>
+              <a href="<%= profiles_path(user_id: architect.id) %>" class="btn card-btn btn-main">View</a>
             </div>
           </article>
         <% end %>
@@ -298,8 +302,8 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid custom-figure-grid">
-              <div class="image">
+            <div class="figure-grid custom-card-container text-center">
+              <div class="image custom-figure-grid">
                 <% if interior_designer.profile.image.attached? %>
                   <%= link_to profiles_path(user_id: interior_designer.id) do %>
                     <%= image_tag(url_for(interior_designer.profile.image)) %>
@@ -313,9 +317,11 @@
               <div class="text">
                 <%= link_to profiles_path(user_id: interior_designer.id) do %>
                   <h2 class="title h4"><%= interior_designer.full_name %></h2>
+                  <hr class="card-text-divider">
                   <span><%= interior_designer.category_title %></span>
                 <% end %>
               </div>
+              <a href="<%= profiles_path(user_id: interior_designer.id) %>" class="btn card-btn btn-main">View</a>
             </div>
           </article>
         <% end %>
@@ -352,8 +358,8 @@
             <% break %>
           <% end %>
           <article>
-            <div class="figure-grid">
-              <div class="image">
+            <div class="figure-grid custom-card-container text-center">
+              <div class="image custom-figure-grid">
                 <% if designer.profile.image.attached? %>
                   <%= link_to profiles_path(user_id: designer.id) do %>
                     <%= image_tag(url_for(designer.profile.image)) %>
@@ -367,9 +373,11 @@
               <div class="text">
                 <%= link_to profiles_path(user_id: designer.id) do %>
                   <h2 class="title h4"><%= designer.full_name %></h2>
+                  <hr class="card-text-divider">
                   <span><%= designer.category_title %></span>
                 <% end %>
               </div>
+              <a href="<%= profiles_path(user_id: designer.id) %>" class="btn card-btn btn-main">View</a>
             </div>
           </article>
         <% end %>
@@ -471,7 +479,7 @@
                 <% if advertisement.image.attached? %>
                   <%= image_tag(url_for(advertisement.image)) %><br>
                 <% else %>
-                    <img src="/assets/furnishia/no_image_product.jpg" alt="" width="360" />
+                  <img src="/assets/furnishia/no_image_product.jpg" alt="" width="360" />
                 <% end %>
               </div>
               <div class="entry entry-table">

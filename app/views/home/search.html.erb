@@ -1,81 +1,81 @@
-  <!-- ======================== Main header ======================== -->
+<!-- ======================== Main header ======================== -->
 
-  <section class="main-header" style="background-image:url(assets/images/gallery-3.jpg)">
-    <header>
-      <div class="container">
-        <h1 class="h2 title">Search</h1>
-        <ol class="breadcrumb breadcrumb-inverted">
-          <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
-          <li><a class="active">Search Results</a></li>
-        </ol>
-      </div>
-    </header>
-  </section>
-
-  <!-- ======================== Products ======================== -->
-
-  <section class="products">
+<section class="main-header" style="background-image:url(assets/images/gallery-3.jpg)">
+  <header>
     <div class="container">
-      <div class="row">
-        <!-- === product-filters === -->
-        <div class="col-md-3 col-xs-12">
-          <div id="filters" class="filters custom-filters">
-            <!--Price-->
-            <div class="filter-box active">
-              <div class="title">Price</div>
-              <div class="filter-content">
-                <div class="price-filter">
-                  <input type="text" id="range-price-slider" value="" name="range" />
-                </div>
+      <h1 class="h2 title">Search</h1>
+      <ol class="breadcrumb breadcrumb-inverted">
+        <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
+        <li><a class="active">Search Results</a></li>
+      </ol>
+    </div>
+  </header>
+</section>
+
+<!-- ======================== Products ======================== -->
+
+<section class="products custom-product-details-page custom-city-show">
+  <div class="container">
+    <div class="row">
+      <!-- === product-filters === -->
+      <div class="col-md-3 col-xs-12">
+        <div id="filters" class="filters custom-filters">
+          <!--Price-->
+          <div class="filter-box active">
+            <div class="title">Price</div>
+            <div class="filter-content">
+              <div class="price-filter">
+                <input type="text" id="range-price-slider" value="" name="range" />
               </div>
             </div>
-            <!--Discount-->
-            <div class="filter-box active">
-              <div class="title">
-                Product Categories
-              </div>
-              <div class="filter-content">
+          </div>
+          <!--Discount-->
+          <div class="filter-box active">
+            <div class="title">
+              Product Categories
+            </div>
+            <div class="filter-content">
                <span class="checkbox">
                 <input type="radio" class="category-radio" id="all-categories" name="product-category" value="" checked="checked">
                 <label for="all-categories">All <i><%= Product.count %></i></label>
                 </span>
-                <% @product_categories.each_with_index do |product_category, index| %>
+              <% @product_categories.each_with_index do |product_category, index| %>
                   <span class="checkbox">
                     <input type="radio" class="category-radio" id="product-category-<%= product_category.id %>" name="product-category" value="<%= product_category.id %>">
                     <label for="product-category-<%= product_category.id %>"><%= product_category.title %> <i><%= product_category.products.count %></i></label>
                   </span>
-                <% end %>
-              </div>
-            </div> <!--/filter-box-->
-            <!--Type-->
-<!--            <div class="filter-box active">-->
-<!--              <div class="title">-->
-<!--                Product Types-->
-<!--              </div>-->
-<!--              <div class="filter-content">-->
-<!--                 <span class="checkbox">-->
-<!--                  <input type="radio" class="type-radio" name="product_type" id="all-types" value="" checked="checked">-->
-<!--                  <label for="all-types">All <i><%#= Product.count %></i></label>-->
-<!--                 </span>-->
-                <%# @product_types.each do |product_type| %>
-<!--                  <span class="checkbox">-->
-<!--                    <input type="radio" class="type-radio" name="product_type" id="product-type-<%#= product_type.id %>" value="<%#= product_type.id %>">-->
-<!--                    <label for="product-type-<%#= product_type.id %>"><%#= product_type.title %> <i><%#= product_type.products.count %></i></label>-->
-<!--                  </span>-->
-                <%# end %>
-<!--              </div>-->
-<!--            </div> -->
-          </div> <!--/filters-->
-        </div>
-        <!--product items-->
-        <div class="col-md-9 col-xs-12" id="product-items">
-          <% if !@products.nil? %>
+              <% end %>
+            </div>
+          </div> <!--/filter-box-->
+          <!--Type-->
+          <!--            <div class="filter-box active">-->
+          <!--              <div class="title">-->
+          <!--                Product Types-->
+          <!--              </div>-->
+          <!--              <div class="filter-content">-->
+          <!--                 <span class="checkbox">-->
+          <!--                  <input type="radio" class="type-radio" name="product_type" id="all-types" value="" checked="checked">-->
+          <!--                  <label for="all-types">All <i><%#= Product.count %></i></label>-->
+          <!--                 </span>-->
+          <%# @product_types.each do |product_type| %>
+          <!--                  <span class="checkbox">-->
+          <!--                    <input type="radio" class="type-radio" name="product_type" id="product-type-<%#= product_type.id %>" value="<%#= product_type.id %>">-->
+          <!--                    <label for="product-type-<%#= product_type.id %>"><%#= product_type.title %> <i><%#= product_type.products.count %></i></label>-->
+          <!--                  </span>-->
+          <%# end %>
+          <!--              </div>-->
+          <!--            </div> -->
+        </div> <!--/filters-->
+      </div>
+      <!--product items-->
+      <div class="col-md-9 col-xs-12" id="product-items">
+        <% if !@products.nil? %>
           <%= render partial: 'product_items', locals: { products: @products } %>
-          <% end %>
-        </div> <!--/product items-->
-      </div><!--/row-->
-    </div><!--/container-->
-  </section>
+        <% end %>
+      </div> <!--/product items-->
+    </div><!--/row-->
+  </div><!--/container-->
+</section>
 <div class="pagination-wrapper">
   <%= will_paginate @products %>
 </div>
