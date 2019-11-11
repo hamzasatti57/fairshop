@@ -33,13 +33,26 @@ if ($selected_product_project || $type != null) {
 
     if ($type == '0')
     {
-
+        data.push(<%= like_count(@project, @project.created_at, @project.created_at + 1.day)%>);
+        data.push(<%= like_count(@project, @project.created_at, @project.created_at + 7.day)%>);
+        data.push(<%= like_count(@project, @project.created_at, @project.created_at + 1.month)%>);
+        data.push(<%= like_count(@project, @project.created_at, @project.created_at + 6.months)%>);
+        data.push(<%= like_count(@project, @project.created_at, @project.created_at + 12.months)%>);
     }
     else if ($type == '1'){
-
+        data.push(<%= @project.hits(1.day.ago) %>);
+        data.push(<%= @project.hits(1.week.ago)%>);
+        data.push(<%= @project.hits(1.month.ago) %>);
+        data.push(<%= @project.hits(6.month.ago) %>);
+        data.push(<%= @project.hits(12.month.ago) %>);
     }
     else{
 
+        data.push(<%= comment_count(@project, @project.created_at, @project.created_at + 1.day)%>);
+        data.push(<%= comment_count(@project, @project.created_at, @project.created_at + 7.day)%>);
+        data.push(<%= comment_count(@project, @project.created_at, @project.created_at + 1.month)%>);
+        data.push(<%= comment_count(@project, @project.created_at, @project.created_at + 6.months)%>);
+        data.push(<%= comment_count(@project, @project.created_at, @project.created_at + 12.months)%>);
     }
     <% end %>
 

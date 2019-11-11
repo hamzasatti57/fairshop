@@ -9,53 +9,53 @@
 
 <section class="header-content">
   <div class="owl-slider">
-
     <!-- === slide item === -->
+    <div class="item" style="background-image:url('<%= asset_path('furnishia/0.jpeg') %>');">
+      <div id="color-overlay"></div>
+        <div class="box">
+          <div class="container">
+            <div class="col-md-5">
+              <h4 class="title">Your Creative World</h4>
+              <div class="animated" data-animation="fadeInUp">
+                <p> Find trusted locals, now.</p>
+              </div>
+              <br>
+              <div class="animated" data-animation="fadeInUp">
 
-    <div class="item" style="background-image:url('<%= asset_path('furnishia/gallery-3-temp.jpg') %>')">
-      <div class="box">
-        <div class="container">
-          <div class="col-md-5">
-            <h4 class="title">Your Creative World</h4>
-            <div class="animated" data-animation="fadeInUp">
-              <p> Find trusted locals, now.</p>
-            </div>
-            <br>
-            <div class="animated" data-animation="fadeInUp">
+                <%= form_tag search_home_index_path  do %>
 
-              <%= form_tag search_home_index_path  do %>
+                  <div class="form-group">
+                    <%= text_field_tag :q, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Find:   Products, Bath and Sanitary , Furniture, Kitchen, Tiles, Interior design", autofocus: true %>
 
-                <div class="form-group">
-                  <%= text_field_tag :q, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Find:   Products, Bath and Sanitary , Furniture, Kitchen, Tiles, Interior design", autofocus: true %>
+                    <%= text_field_tag :location, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Location", autofocus: true %>
 
-                  <%= text_field_tag :location, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Location", autofocus: true %>
-
-                  <%= submit_tag "Search", class: "btn btn-primary btn-md custom-slider-btn"%>
-                </div>
-              <% end %>
-            </div>
-          </div>
-          <div class="col-md-1">
-
-          </div>
-          <div class="col-md-6">
-            <p class="custom-tiles-heading">The most popular categories picked by customers around the world:</p>
-
-            <div class="custom-home-tiles">
-              <div class="row">
-                <% @categories.each_with_index  do |category, index| %>
-                  <% if index == 9 %>
-                    <% break %>
-                  <% end %>
-                  <div class="col-md-4 custom-padding-homepage">
-                    <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
+                    <%= submit_tag "Search", class: "btn btn-primary btn-md custom-slider-btn"%>
                   </div>
                 <% end %>
               </div>
             </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-6">
+              <p class="custom-tiles-heading">The most popular categories picked by customers around the world:</p>
+
+              <div class="custom-home-tiles">
+                <div class="row">
+                  <% @categories.each_with_index  do |category, index| %>
+                    <% if index == 9 %>
+                      <% break %>
+                    <% end %>
+                    <div class="col-md-4 custom-padding-homepage">
+                      <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+
     </div>
   </div> <!--/owl-slider-->
 </section>

@@ -1,7 +1,7 @@
 class Admin::CategoriesController < AdminController
   before_action :get_category, only: [:show, :edit, :update, :destroy]
   def index
-    @categories = Category.all
+    @categories = Category.all.order( 'id ASC' )
   end
   def new
     @category = Category.new

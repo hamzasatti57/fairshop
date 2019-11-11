@@ -2,7 +2,7 @@ class Admin::BlogsController < AdminController
   before_action :get_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.all.order( 'id ASC' )
   end
 
   def new

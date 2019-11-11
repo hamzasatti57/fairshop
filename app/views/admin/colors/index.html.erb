@@ -2,28 +2,33 @@
   <div class="card-header custom-card-header">
     <i class="fa fa-align-justify"></i> Listing all Colors</div>
   <div class="card-body">
-    <table id="color-table" class="table table-striped table-bordered display">
-      <thead>
-      <tr>
-        <th>Title</th>
-        <th>Code</th>
-        <th>Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @colors.each do |color| %>
-        <tr>
-          <td><%= color.title %></td>
-          <td><%= truncate(color.code, length: 50) %></td>
-          <td><%= link_to "Edit",  edit_admin_color_path(color), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
-            <%= link_to "Delete", admin_color_path(color), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn" %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col-lg-12">
+        <table id="color-table" class="table table-striped table-bordered display">
+          <thead>
+          <tr>
+            <th>Sr#</th>
+            <th>Title</th>
+            <th>Code</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <% @colors.each_with_index do |color, index| %>
+            <tr>
+              <td><%= index+1 %></td>
+              <td><%= color.title %></td>
+              <td><%= truncate(color.code, length: 50) %></td>
+              <td><%= link_to "Edit",  edit_admin_color_path(color), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
+                <%= link_to "Delete", admin_color_path(color), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn" %></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
-
 <script>
     $(document).ready( function () {
         $('#color-table').dataTable();

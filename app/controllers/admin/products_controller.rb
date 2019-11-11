@@ -80,7 +80,7 @@ class Admin::ProductsController < AdminController
 
   def product_params
     params.required(:product).permit(:user_id , :title, :description, :inventory, :price, :length,
-                                     :width, :height, :status, :visibility, :product_category_id, :product_type_id, :color_id, images: [])
+                                     :width, :height, :status, :visibility, :product_category_id, :color_id, images: [])
 
   end
 
