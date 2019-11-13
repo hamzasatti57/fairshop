@@ -106,31 +106,33 @@
               <div class="content">
                 <!-- === designer collection title === -->
                 <h3>Designers collection</h3>
-                <div class="products">
+                <div class="products custom-product-details-page custom-city-show">
                   <div class="row">
                     <!-- === product-item === -->
                     <% @projects.each_with_index do |project, index| %>
-                      <% if index == 4 %>
+                      <% if index == 6 %>
                         <% break %>
                       <% end %>
-                      <div class="col-md-6 col-xs-6">
-                        <article>
-                          <div class="figure-grid">
-                            <div class="image">
+                      <div class="col-md-4">
+                        <article class="custom-product-article">
+                          <div class="figure-grid custom-product-card-img custom-card-container text-center">
+                            <div class="image custom-product-card custom-figure-grid">
                               <% if project.images.attached? %>
                                 <%= link_to project do%>
                                   <%= image_tag(url_for(project.images.first)) %><br>
                                 <% end %>
                               <% else %>
                                 <%= link_to project do%>
-                                  <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                                  <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
                                 <% end %>
                               <% end %>
                             </div>
                             <div class="text">
                               <h4 class="title"><%= project.title %></h4>
-                              <span class="description clearfix"><%= project.description %></span>
+                              <hr class="card-text-divider">
+                              <span> <%= project.user.category.title %></span>
                             </div>
+                            <a href="<%= project_path(project) %>" class="btn card-btn btn-main">View</a>
                           </div>
                         </article>
                       </div>

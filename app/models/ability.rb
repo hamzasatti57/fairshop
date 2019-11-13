@@ -9,6 +9,10 @@ class Ability
         u.is_vendor?
       end
     elsif user.vendor?
+      can :create, User
+      can :manage, User, ["role = ?", 1] do |u|
+        u.is_vendor?
+      end
       can :create, Project
       can :manage, Project, ["company_id IN (?)", user.companies.pluck(:id)] do |project|
         user.companies.pluck(:id).include? project.company_id

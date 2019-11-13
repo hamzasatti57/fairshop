@@ -3,7 +3,7 @@ class Product < ApplicationRecord
   # has_many :punches, as: :punchable, dependent: :destroy
   has_many_attached :images
   belongs_to :product_category
-  belongs_to :product_type
+  # belongs_to :product_type
   belongs_to :company
   # belongs_to :user, through: :company
   # has_many :user, through: :company

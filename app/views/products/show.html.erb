@@ -40,15 +40,15 @@
             <h1 class="title" data-title=""><%= @product.title %></h1>
 
             <div class="clearfix">
-
               <!-- === price wrapper === -->
-
-              <div class="price">
+              <% if !@product.price.nil? %>
+                <div class="price">
                                         <span class="h3">
                                             $ <%= @product.price %>
 
                                         </span>
-              </div>
+                </div>
+              <% end %>
               <div id="avg_rate">
 
               </div>
@@ -115,19 +115,14 @@
         <!-- === product item gallery === -->
 
         <div class="col-md-8 col-sm-12 product-flex-gallery">
-
-
-
-
           <!-- === product gallery === -->
-
           <div class="owl-product-gallery open-popup-gallery">
             <% if @product.images.attached? %>
               <% @product.images.each do |image| %>
                 <%= image_tag(url_for(image)) %>
               <% end %>
             <% else %>
-              <a href="assets/images/product-1.png"><img src="/assets/furnishia/product-1.png" alt="" height="500" /></a>
+              <img src="/assets/furnishia/product-1.png" alt="" height="500" />
             <% end %>
             </a>
           </div>
@@ -141,9 +136,7 @@
   <div class="info">
     <div class="container">
       <div class="row">
-
         <!-- === product-designer === -->
-
         <div class="col-md-4">
           <div class="designer">
             <div class="box">
@@ -221,31 +214,36 @@
 
                 <h3>Designers collection</h3>
 
-                <div class="products">
+                <div class="products custom-product-details-page custom-city-show">
                   <div class="row">
 
                     <!-- === product-item === -->
                     <% @products.each_with_index do |product, index| %>
-                      <% if index == 4 %>
+                      <% if index == 6 %>
                         <% break %>
                       <% end %>
-                      <div class="col-md-6 col-xs-6">
-                        <article>
-                          <div class="figure-grid">
-                            <div class="image">
+                      <div class="col-md-4 ">
+                        <article class="custom-product-article">
+                          <div class="figure-grid custom-product-card-img custom-card-container text-center">
+                            <div class="image custom-product-card custom-figure-grid">
                               <% if product.images.attached? %>
                                 <%= link_to product do%>
-                                  <%= image_tag(url_for(product.images.first)) %>
+                                  <%= image_tag(url_for(product.images.first)) %><br>
                                 <% end %>
                               <% else %>
                                 <%= link_to product do%>
-                                  <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                                  <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
                                 <% end %>
                               <% end %>
                             </div>
                             <div class="text">
-                              <h4 class="title"><%= product.title %></h4>
+                              <%= link_to product do%>
+                                <h2 class="title h4"><%=product.title %></h2>
+                                <hr class="card-text-divider">
+                                <span> <%= product.user.category.title %></span>
+                              <% end %>
                             </div>
+                            <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
                           </div>
                         </article>
                       </div>
@@ -313,8 +311,7 @@
 
                         <div class="comment-add">
                           <div class="comment-reply-message">
-                            <div class="h3 title">Leave a Reply </div>
-                            <p>Your email address will not be published.</p>
+                            <div class="h3 title">Leave a Comment </div>
                           </div>
                           <%= form_for Comment.new, remote: true do |f| %>
 

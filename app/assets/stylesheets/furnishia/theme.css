@@ -2401,8 +2401,12 @@ nav .cart-wrapper.open {
 }
 
 .products article .image img {
-    width: 200px;
+    /*width: 200px;*/
     height: 200px;
+    margin: 0 auto;
+    object-fit: contain;
+    border:4px #4e4e4e;
+    border-style:double;
 }
 
 .products article .btn-add {
@@ -3307,6 +3311,7 @@ nav .cart-wrapper.open {
 .blog article .entry .title > * {
     margin: 0;
     text-transform: none;
+    font-size: 14px;
 }
 
 .blog article .description {
@@ -3476,10 +3481,14 @@ nav .cart-wrapper.open {
         opacity: 1;
     }
     .blog article .image {
-        height: 205px;
+        /*height: 205px;*/
     }
     .blog article .image img {
         display: block;
+    }
+    .custom-blog-card article .image img {
+    height: 150px;
+    object-fit: contain;
     }
     .blog article.article-table:hover .text:before {
         -moz-transform: scale(1.03);
@@ -4975,7 +4984,7 @@ nav .cart-wrapper.open {
     font-size: 50px;
     color: #ffbb00;
 }
-
+Dimensions
 .contact .contact-block .contact-form {
     display: none;
     margin-top: 50px;
@@ -6365,12 +6374,6 @@ hr.home-page{
     background-position: -24px -53px;
   }
 
-
-.custom-figure-grid{
-    border:4px #4e4e4e;
-    border-style:double;
-}
-
 .slick-next:before, .slick-prev:before{
     font-size: 34px !important;
     color:#b41135 !important;
@@ -6537,7 +6540,7 @@ section.custom-product-homepage{
     border: 0;
     /* border-radius: 100%; */
     color: white;
-    background-color: #ffbb00;
+    background-color: #b53035;
     margin: 0 3px;
     display: inline-block;
     padding: 6px 12px;
@@ -6611,3 +6614,20 @@ article.custom-product-article{
     background-color: black;
     opacity: 0.7;
 }
+
+section.custom-section-job{
+    padding-top: 30px;
+}
+.custom-job-apply-btn{
+    background-color: #b53035;
+    border-color: #b53035;
+}
+.custom-job-apply-btn:hover{
+    box-shadow: 1px 2px 3px 1px #cacaca !important;
+    background-color: #b53035 !important;
+    border-color: #b53035 !important;}
+
+.custom-job-apply-btn:focus{
+    box-shadow: 1px 2px 3px 1px #cacaca !important;
+    background-color: #b53035 !important;
+    border-color: #b53035 !important;}

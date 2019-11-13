@@ -17,8 +17,11 @@ class Admin::UsersController < AdminController
     @user = User.new(user_params.merge(role: 1))
     if @user.save
       flash[:success] = "Vendor was successfully created"
-
-      redirect_to admin_users_path
+      if current_user.role.is_admin?
+        redirect_to admin_users_path
+      elsif current_user.role.is_vendor?
+        redirect_to admin_dashboards_path
+      end
     else
       render 'new'
     end
@@ -30,7 +33,11 @@ class Admin::UsersController < AdminController
   def update
     if @user.update(user_params)
       flash[:success] = "Vendor successfully Updated"
-      redirect_to admin_users_path
+      if current_user.is_admin?
+        redirect_to admin_users_path
+      elsif current_user.is_vendor?
+        redirect_to admin_dashboards_path
+      end
     else
       render 'edit'
     end

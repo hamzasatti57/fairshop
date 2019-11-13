@@ -13,7 +13,9 @@
         <!--        <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>-->
         <li><a href="<%= new_user_session_path %>"><i class="icon icon-user"></i></a></li>
 
-        <li><a href="javascript:void(0);" class="open-login">Login</a></li>
+        <li><a href="javascript:void(0);" onclick="signin_signup_function()" id="1" class="open-login">Login</a></li>
+        <li><a href="javascript:void(0);" onclick="signin_signup_function()" id="2" class="open-login">Register</a></li>
+
       </ul>
     </div> <!--/navigation-top-->
 
@@ -53,9 +55,7 @@
                   <div class="box clearfix">
                     <ul class="custom-product-category-list">
                       <% @product_categories.each do |category| %>
-                        <% if category.products.any? %>
-                          <li><a href="<%= product_category_index_path(product_category_id: category.id) %>"><%= category.title %></a></li>
-                        <% end %>
+                        <li><a href="<%= product_category_index_path(product_category_id: category.id) %>"><%= category.title %></a></li>
                       <% end %>
                     </ul>
                   </div> <!--/box-->
@@ -64,13 +64,6 @@
             </div> <!--/navbar-dropdown-->
           </li>
           <!--          <li><a href="<%#= what_new_index_path %>">What's New</a></li>-->
-          <!-- Furniture icons in dropdown-->
-
-
-
-          <!-- Mega menu dropdown -->
-
-
           <!-- Simple menu link-->
           <li><a href="<%= about_index_path %>">About</a></li>
           <li><a href="<%= contact_us_path %>">Contact Us</a></li>
@@ -78,38 +71,6 @@
         </ul>
       </div> <!--/floating-menu-->
     </div> <!--/navigation-main-->
-
-    <div class="search-wrapper">
-
-      <!-- Search form -->
-      <input class="form-control" placeholder="Search..." />
-      <button class="btn btn-main btn-search">Go!</button>
-
-      <!-- Search results - live search -->
-      <div class="search-results">
-        <div class="search-result-items">
-          <div class="title h4">Products <a href="#" class="btn btn-clean-dark btn-xs">View all</a></div>
-          <ul>
-            <li><a href="#"><span class="id">42563</span> <span class="name">Green corner</span> <span class="category">Sofa</span></a></li>
-            <li><a href="#"><span class="id">42563</span> <span class="name">Laura</span> <span class="category">Armchairs</span></a></li>
-            <li><a href="#"><span class="id">42563</span> <span class="name">Nude</span> <span class="category">Dining tables</span></a></li>
-            <li><a href="#"><span class="id">42563</span> <span class="name">Aurora</span> <span class="category">Nightstands</span></a></li>
-            <li><a href="#"><span class="id">42563</span> <span class="name">Dining set</span> <span class="category">Kitchen</span></a></li>
-            <li><a href="#"><span class="id">42563</span> <span class="name">Seat chair</span> <span class="category">Bar sets</span></a></li>
-          </ul>
-        </div> <!--/search-result-items-->
-        <div class="search-result-items">
-          <div class="title h4">Blog <a href="#" class="btn btn-clean-dark btn-xs">View all</a></div>
-          <ul>
-            <li><a href="#"><span class="id">01 Jan</span> <span class="name">Creating the Perfect Gallery Wall </span> <span class="category">Interior ideas</span></a></li>
-            <li><a href="#"><span class="id">12 Jan</span> <span class="name">Making the Most Out of Your Kids Old Bedroom</span> <span class="category">Interior ideas</span></a></li>
-            <li><a href="#"><span class="id">28 Dec</span> <span class="name">Have a look at our new projects!</span> <span class="category">Modern design</span></a></li>
-            <li><a href="#"><span class="id">31 Sep</span> <span class="name">Decorating When You're Starting Out or Starting Over</span> <span class="category">Best of 2017</span></a></li>
-            <li><a href="#"><span class="id">22 Sep</span> <span class="name">The 3 Tricks that Quickly Became Rules</span> <span class="category">Tips for you</span></a></li>
-          </ul>
-        </div> <!--/search-result-items-->
-      </div> <!--/search-results-->
-    </div>
 
     <!-- ==========  Login wrapper ========== -->
 
@@ -120,7 +81,7 @@
         <% end %>
 
       <% else %>
-        <div id="signIn">
+        <div id="signIn" style="display: none">
           <div class="h4">Sign in</div>
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="form-group">
@@ -131,7 +92,6 @@
             </div>
             <div class="form-group">
               <a href="#forgotpassword" class="open-popup">Forgot password?</a>
-              <a onclick="signin_signup_function()" class="open-popup">Don't have an account?</a>
             </div>
             <%= f.button :submit, "Log in", class: 'btn btn-block btn-main' %>
           <% end %>
@@ -155,9 +115,6 @@
             <div class="form-group">
               <%= f.password_field :password_confirmation,  class: "form-control", placeholder: "Confirm Password", autofocus: true, :required => true %>
             </div>
-            <div class="form-group">
-              <a onclick="signin_signup_function()" class="open-popup">Already have an account?</a>
-            </div>
             <%= f.submit "Sign Up", class: "btn btn-block btn-main" %>
             <!--          <button type="submit" class="btn btn-block btn-main">Sign Up</button>-->
           <% end %>
@@ -168,13 +125,26 @@
         function signin_signup_function() {
             var x = document.getElementById("signIn");
             var y = document.getElementById("signUp");
-            if (x.style.display === "none" ) {
-                y.style.display = "none"
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-                y.style.display = "block";
-            }
+            $(".open-login").click(function() {
+                if(this.id == "1"){
+                    y.style.display = "none";
+                    if(x.style.display === "none"){
+                        x.style.display = "block";
+                    }
+                    else{
+                        x.style.display = "none";
+                    }
+                }
+                else{
+                    x.style.display = "none";
+                    if(y.style.display === "none"){
+                        y.style.display = "block";
+                    }
+                    else{
+                        y.style.display = "none";
+                    }
+                }
+            });
         }
     </script>
 
