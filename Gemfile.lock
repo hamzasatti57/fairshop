@@ -273,7 +273,7 @@ PLATFORMS
 DEPENDENCIES
   activestorage-validator
   aws-sdk-s3
-  bootsnap (>= 1.1.0)
+  bootsnap
   byebug
   cancancan (~> 1.10)
   capybara (>= 2.15)
