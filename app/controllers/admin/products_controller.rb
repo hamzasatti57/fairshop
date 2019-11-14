@@ -24,6 +24,7 @@ class Admin::ProductsController < AdminController
       #   @product.images.attach(params[:product][:images])
       # end
       flash[:success] = "Product successfully created"
+      @product.punch(request)
       render 'show'
     else
       render 'new'

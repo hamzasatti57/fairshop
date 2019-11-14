@@ -11,7 +11,6 @@
         <!--Language selector-->
 
         <!--        <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>-->
-        <li><a href="<%= new_user_session_path %>"><i class="icon icon-user"></i></a></li>
 
         <li><a href="javascript:void(0);" onclick="signin_signup_function()" id="1" class="open-login">Login</a></li>
         <li><a href="javascript:void(0);" onclick="signin_signup_function()" id="2" class="open-login">Register</a></li>
@@ -91,7 +90,7 @@
               <%= f.input :password, required: false, input_html: { autocomplete: "current-password", class: "form-control", id:"exampleInputPassword1", placeholder: "Password" } %>
             </div>
             <div class="form-group">
-              <a href="#forgotpassword" class="open-popup">Forgot password?</a>
+              <%= link_to "Forgot your password?", new_user_password_path(resource), :class => "btn btn-link px-0 custom-forgot-text"%>
             </div>
             <%= f.button :submit, "Log in", class: 'btn btn-block btn-main' %>
           <% end %>

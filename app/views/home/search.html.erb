@@ -21,14 +21,14 @@
       <div class="col-md-3 col-xs-12">
         <div id="filters" class="filters custom-filters">
           <!--Price-->
-          <div class="filter-box active">
-            <div class="title">Price</div>
-            <div class="filter-content">
-              <div class="price-filter">
-                <input type="text" id="range-price-slider" value="" name="range" />
-              </div>
-            </div>
-          </div>
+<!--          <div class="filter-box active">-->
+<!--            <div class="title">Price</div>-->
+<!--            <div class="filter-content">-->
+<!--              <div class="price-filter">-->
+<!--                <input type="text" id="range-price-slider" value="" name="range" />-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
           <!--Discount-->
           <div class="filter-box active">
             <div class="title">
@@ -81,12 +81,12 @@
 </div>
 <script>
     $(function(){
-        $('.type-radio, .category-radio, #range-price-slider').change(function(){
+        $('.category-radio').change(function(){
             product_category_id = $('.category-radio:checked').val();
-            product_type_id = $('.type-radio:checked').val();
-            price = $('#range-price-slider').val().split(';').join(',');
+            // product_type_id = $('.type-radio:checked').val();
+            // price = $('#range-price-slider').val().split(';').join(',');
             $.ajax({
-                url: `<%= search_home_index_path(format: :js) %>?product_category_id=${product_category_id}&product_type_id=${product_type_id}&price_range=${price}`
+                url: `<%= search_home_index_path(format: :js) %>?product_category_id=${product_category_id}`
             });
         })
     })

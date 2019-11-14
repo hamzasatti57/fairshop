@@ -24,13 +24,13 @@ class HomeController < ApplicationController
     else
       @popular_product_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
     end
-    @cities = City.all
+    @cities = City.all.order("created_at DESC")
   end
 
   def search
     respond_to do |format|
       format.js {
-        @products = Product.search_filter(params[:product_category_id], params[:product_type_id], params[:price_range])
+        @products = Product.search_filter(params[:product_category_id])
       }
       format.html {
         @categories = Category.all
@@ -41,7 +41,7 @@ class HomeController < ApplicationController
         end
         # @products = User.where(city_id:(params[:city_id])).collect(&:@products).flatten
         @product_categories = ProductCategory.all
-        @product_types = ProductType.all
+        # @product_types = ProductType.all
       }
     end
   end

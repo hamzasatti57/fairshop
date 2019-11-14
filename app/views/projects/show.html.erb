@@ -33,6 +33,15 @@
               <div id="avg_rate">
               </div>
               <hr />
+              <%= form_for Like.new, remote: true do |f| %>
+                <div class="form-group">
+                  <%= f.hidden_field(:parent_id, value: @project.id ) %>
+                  <%= f.hidden_field(:parent_type, value: Like.parent_type_project ) %>
+                  <%= f.hidden_field(:value, value: true ) %>
+                  <%= f.submit 'Like Project', :class => 'btn btn-main', :id => 'like-button' %>
+              <% end %>
+              <a  id='likes-count' class="btn btn-clean-dark"><%= @likes.count %> likes</a>
+              </div>
             </div> <!--/clearfix-->
           </div> <!--/product-info-wrapper-->
         </div> <!--/col-md-4-->
@@ -195,15 +204,7 @@
                         <div class="rate-box">
                           <strong>Rate this Product</strong>
                           <div id="rateYo"></div>
-                          <%= form_for Like.new, remote: true do |f| %>
-                            <div class="form-group">
-                              <%= f.hidden_field(:parent_id, value: @project.id ) %>
-                              <%= f.hidden_field(:parent_type, value: Like.parent_type_project ) %>
-                              <%= f.hidden_field(:value, value: true ) %>
-                              <%= f.submit 'Like Product', :class => 'btn btn-main', :id => 'like-button' %>
-                          <% end %>
-                          <a  id='likes-count' class="btn btn-clean-dark"><%= @likes.count %> likes</a>
-                          </div>
+
                         </div>
                         <div class="comment-wrapper" id="comments-container">
                           <!-- === comment === -->

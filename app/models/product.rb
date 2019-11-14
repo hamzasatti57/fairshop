@@ -12,12 +12,12 @@ class Product < ApplicationRecord
   has_many :ratings, class_name: "Rating", foreign_key: "parent_id"
   has_many :likes, class_name: "Like", foreign_key: "parent_id"
   acts_as_punchable
-  scope :search_filter, -> (product_category_id, product_type_id, price_range) {
+  scope :search_filter, -> (product_category_id) {
     filters = {}
-    price_range = price_range.split(',').map{ |s| s.to_f }
+    # price_range = price_range.split(',').map{ |s| s.to_f }
     filters[:product_category_id] = product_category_id if product_category_id != ""
-    filters[:product_type_id] = product_type_id if product_type_id != ""
-    filters[:price] = price_range.first..price_range.last
+    # filters[:product_type_id] = product_type_id if product_type_id != ""
+    # filters[:price] = price_range.first..price_range.last
     where(filters)
   }
 

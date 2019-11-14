@@ -1031,7 +1031,7 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
         width: auto;
         right: auto;
         left: auto;
-        max-width: 500px;
+        max-width: 650px;
     }
     nav .navigation-main .floating-menu > ul > li .navbar-dropdown.navbar-dropdown-single .navbar-box {
         min-height: inherit;
@@ -1571,6 +1571,7 @@ nav .login-wrapper {
 
 nav .login-wrapper .btn {
     margin-top: 20px;
+    color: #fff;
 }
 
 nav .login-wrapper a {
@@ -2401,7 +2402,7 @@ nav .cart-wrapper.open {
 }
 
 .products article .image img {
-    /*width: 200px;*/
+    max-width: 200px;
     height: 200px;
     margin: 0 auto;
     object-fit: contain;
@@ -6279,7 +6280,7 @@ overflow-y: scroll;
 .custom-home-tiles .btn-outlined.btn-default {
     background: none;
     width: 100%;
-    font-size: 16px;
+    font-size: 14px;
     border: 3px solid #ffffff;
     color: #ffffff;
     padding: 26px 0px;
@@ -6314,23 +6315,23 @@ overflow-y: scroll;
 }
 
 .btn-primary{
-    border:2px solid #b41135;
-    background-color:#b41135;
+    border:2px solid #b41135 !important;
+    background-color:#b41135 !important;
 }
 
 .btn-primary:hover{
-    border:2px solid #b41135;
+    border:2px solid #b41135 !important;
     background-color: transparent;
 }
 
 .btn-primary:active{
-    border:2px solid #b41135;
+    border:2px solid #b41135 !important;
     background-color:#b41135 !important ;
 }
 
 .btn-primary:active:focus{
-    border:2px solid #b41135;
-    background-color:#b41135;
+    border:2px solid #b41135 !important;
+    background-color:#b41135 !important;
 }
 
 
@@ -6528,7 +6529,7 @@ section.custom-product-homepage{
 }
 
 .custom-tiles-heading{
-    margin-left: -10px;
+    margin-left: 50px;
     margin-top: 3px;
     margin-bottom: 15px;
 }
@@ -6631,3 +6632,31 @@ section.custom-section-job{
     box-shadow: 1px 2px 3px 1px #cacaca !important;
     background-color: #b53035 !important;
     border-color: #b53035 !important;}
+
+
+footer .custom-footer-social-links{
+    padding-top: 0px;
+}
+
+footer .custom-footer-social-links li a{
+    font-size: 22px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+footer .custom-footer-social-links ul li{
+    height: 45px;
+    width: 45px;
+    margin: 0px 5px;
+    border: 2px solid #666666;
+    border-radius: 100px;}
+
+
+.navbar-dropdown.navbar-dropdown-single{
+    margin-left: -20%;
+}
+
+.login-wrapper form .form-group a.custom-forgot-text{
+    color:#b53436;
+}

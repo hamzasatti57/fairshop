@@ -15,6 +15,8 @@ class Admin::ProjectsController < AdminController
   def create
     @project = current_user.projects.new(project_params.merge(company_id: current_user.companies.first.id))
     if @project.save
+      @project.punch(request)
+
       # @project.images.attach(params[:project][:images])
       flash[:success] = "Project successfully created"
       render 'show'

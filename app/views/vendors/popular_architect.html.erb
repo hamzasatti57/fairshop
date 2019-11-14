@@ -18,40 +18,9 @@
 <section class="product custom-city-show">
   <!-- === product-info === -->
   <div class="container">
-    <% @popular_architects.each_with_index do |architect, index| %>
-      <% if index % 3 == 0 %>
-        <% if index != 0 %>
-          </div>
-        <% end %>
-        <div class="row">
-          <div class="col-md-4 col-sm-4">
-            <div class="designer" style="margin-top: 0">
-              <div class="box">
-                <div class="image">
-                  <% if architect.profile.image.attached? %>
-                    <%= image_tag(url_for(architect.profile.image.variant(resize: '200x200'))) %>
-                  <%else %>
-                    <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
-                  <% end %>
-                </div>
-                <div class="name">
-                  <%= link_to profiles_path(user_id: architect.id) do %>
-                    <div class="h3 title"><%= architect.full_name %> <small><%= architect.category_title %></small></div>
-                  <% end %>
-                  <hr/>
-                  <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= architect.email %></a></p>
-                  <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= architect.profile.phone %></a></p>
-                  <p>
-                    <a href="<%= architect.profile.facebook %>" class="btn btn-main btn-xs"><i class="fa fa-facebook"></i></a>
-                    <a href="<%= architect.profile.instagram %>" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
-                    <a href="<%= architect.profile.twitter %>" class="btn btn-main btn-xs"><i class="fa fa-twitter"></i></a>
-                  </p>
-                </div> <!--/name-->
-              </div> <!--/box-->
-            </div> <!--/designer-->
-          </div>
-      <% else %>
-        <div class="col-md-4 col-sm-4">
+    <div class="row">
+      <% @popular_architects.each_with_index do |architect, index| %>
+        <div class="col-md-4">
           <div class="designer" style="margin-top: 0">
             <div class="box">
               <div class="image">
@@ -78,10 +47,9 @@
           </div> <!--/designer-->
         </div>
       <% end %>
-    <% end %>
     </div><!--/container-->
-    <!--/info-->
-    </section>
+  </div>
+</section>
 
 <div class="pagination-wrapper">
   <%= will_paginate @popular_architects %>

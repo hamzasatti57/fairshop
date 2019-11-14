@@ -1,9 +1,7 @@
-<% products.each_with_index do |product, index| %>
-  <% if index % 3 == 0 %>
-    <% if index != 0 %>
-      </div>
-    <% end %>
-    <div class="row">
+
+<div class="row">
+  <% products.each_with_index do |product, index| %>
+    <% if product.visibility == true && product.user.active == true %>
       <div class="col-md-4 col-xs-4 item price-discount category-sofa material-leather">
         <article class="custom-product-article">
           <div class="figure-grid custom-product-card-img custom-card-container text-center">
@@ -29,33 +27,6 @@
           </div>
         </article>
       </div>
-  <% else %>
-    <!-- === product-item === -->
-    <div class="col-md-4 col-xs-4 item price-discount category-sofa material-leather">
-      <article class="custom-product-article">
-        <div class="figure-grid custom-product-card-img custom-card-container text-center">
-          <div class="image custom-product-card custom-figure-grid">
-            <% if product.images.attached? %>
-              <%= link_to product do%>
-                <%= image_tag(url_for(product.images.first)) %><br>
-              <% end %>
-            <% else %>
-              <%= link_to product do%>
-                <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
-              <% end %>
-            <% end %>
-          </div>
-          <div class="text">
-            <%= link_to product do%>
-              <h2 class="title h4"><%=product.title %></h2>
-              <hr class="card-text-divider">
-              <span> <%= product.user.category.title %></span>
-            <% end %>
-          </div>
-          <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
-        </div>
-      </article>
-    </div>
-
+    <% end %>
   <% end %>
-<% end %>
+</div>

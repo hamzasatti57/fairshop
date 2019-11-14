@@ -23,7 +23,7 @@
         <div class="row">
           <!-- === product-item === -->
           <%  @products.each  do |product|  %>
-            <% if product.visibility == true %>
+            <% if product.visibility == true && product.user.active == true %>
               <div class="col-md-3 col-xs-3">
                 <article class="custom-product-article">
                   <div class="figure-grid custom-product-card-img custom-card-container text-center">

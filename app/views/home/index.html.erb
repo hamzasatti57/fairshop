@@ -9,7 +9,7 @@
 
 <section class="header-content">
   <div class="owl-slider">
-    <!-- === slide item === -->
+
     <div class="item" style="background-image:url('<%= asset_path('furnishia/0.jpeg') %>');">
       <div id="color-overlay"></div>
       <div class="box">
@@ -39,14 +39,17 @@
           </div>
           <div class="col-md-6">
             <p class="custom-tiles-heading">The most popular categories picked by customers around the world:</p>
-
             <div class="custom-home-tiles">
               <div class="row">
                 <% @categories.each_with_index  do |category, index| %>
                   <% if index == 9 %>
                     <% break %>
                   <% end %>
-                  <div class="col-md-4 custom-padding-homepage">
+                  <% if index % 3 == 0 %>
+                    <div class="col-md-2">
+                    </div>
+                  <% end %>
+                  <div class="col-md-3 custom-padding-homepage">
                     <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
                   </div>
                 <% end %>
@@ -55,10 +58,71 @@
           </div>
         </div>
       </div>
-
     </div>
-  </div> <!--/owl-slider-->
+  </div>
 </section>
+
+
+<!-- ========================  Header content ======================== -->
+
+<!--<section class="header-content">-->
+
+<!--  <div class="owl-slider">-->
+
+
+<!--    <div class="item" style="background-image:url('<%#= asset_path('furnishia/Room 1.jpeg') %>')">-->
+<!--      <div class="box">-->
+<!--        <div class="container">-->
+<!--          <h2 class="title animated h1" data-animation="fadeInDown">Modern furniture theme</h2>-->
+<!--          <div class="animated" data-animation="fadeInUp">-->
+<!--            Modern & powerfull template. <br /> Clean design & reponsive-->
+<!--            layout. Google fonts integration-->
+<!--          </div>-->
+<!--          <div class="animated" data-animation="fadeInUp">-->
+<!--            <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-main" ><i class="icon icon-cart"></i> Buy this template</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--    <div class="item" style="background-image:url('<%#= asset_path('furnishia/Room 2.jpeg') %>')">-->
+<!--      <div class="box">-->
+<!--        <div class="container">-->
+<!--          <h2 class="title animated h1" data-animation="fadeInDown">Mobile ready!</h2>-->
+<!--          <div class="animated" data-animation="fadeInUp">Unlimited Choices. Unbeatable Prices. Free Shipping.</div>-->
+<!--          <div class="animated" data-animation="fadeInUp">Furniture category icon fonts!</div>-->
+<!--          <div class="animated" data-animation="fadeInUp">-->
+<!--            <a href="category.html" class="btn btn-clean">Get insipred</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+
+<!--    <div class="item" style="background-image:url('<%#= asset_path('furnishia/Room 4.jpeg') %>')">-->
+<!--      <div class="box">-->
+<!--        <div class="container">-->
+<!--          <h2 class="title animated h1" data-animation="fadeInDown">-->
+<!--            Very Animate.css Friend.-->
+<!--          </h2>-->
+<!--          <div class="desc animated" data-animation="fadeInUp">-->
+<!--            Combine with animate.css. Or just use your own!.-->
+<!--          </div>-->
+<!--          <div class="desc animated" data-animation="fadeInUp">-->
+<!--            Bunch of typography effects.-->
+<!--          </div>-->
+<!--          <div class="animated" data-animation="fadeInUp">-->
+<!--            <a href="https://themeforest.net/item/mobel-furniture-website-template/20382155" target="_blank" class="btn btn-clean">Buy this template</a>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--</section>-->
+
+
+
 
 <!-- ========================  Stretcher widget ======================== -->
 <br>
@@ -129,32 +193,34 @@
     <div class="row">
       <div class="responsivee">
         <% @popular_products.each_with_index do |product, index| %>
-          <% if index == 8 %>
-            <% break %>
+          <% if product.visibility == true && product.user.active == true %>
+            <% if index == 8 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="figure-grid custom-card-container text-center">
+                <div class="image custom-figure-grid">
+                  <% if product.images.attached? %>
+                    <%= link_to product do%>
+                      <%= image_tag(url_for(product.images.first)) %><br>
+                    <% end %>
+                  <% else %>
+                    <%= link_to product do%>
+                      <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <%= link_to product do%>
+                    <h2 class="title h4"><%=product.title %></h2>
+                    <hr class="card-text-divider">
+                    <span> <%= product.user.category.title %></span>
+                  <% end %>
+                </div>
+                <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
+              </div>
+            </article>
           <% end %>
-          <article>
-            <div class="figure-grid custom-card-container text-center">
-              <div class="image custom-figure-grid">
-                <% if product.images.attached? %>
-                  <%= link_to product do%>
-                    <%= image_tag(url_for(product.images.first)) %><br>
-                  <% end %>
-                <% else %>
-                  <%= link_to product do%>
-                    <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="text">
-                <%= link_to product do%>
-                  <h2 class="title h4"><%=product.title %></h2>
-                  <hr class="card-text-divider">
-                  <span> <%= product.user.category.title %></span>
-                <% end %>
-              </div>
-              <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
-            </div>
-          </article>
         <% end %>
       </div>
     </div>
@@ -185,32 +251,34 @@
     <div class="row">
       <div class="responsivee">
         <% @popular_vendors.each_with_index do |vendor, index| %>
-          <% if index == 8 %>
-            <% break %>
+          <% if vendor.active == true %>
+            <% if index == 8 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="figure-grid custom-card-container text-center">
+                <div class="image custom-figure-grid">
+                  <% if vendor.profile.image.attached? %>
+                    <%= link_to products_path(user_id: vendor.id) do %>
+                      <%= image_tag(url_for(vendor.profile.image)) %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to products_path(user_id: vendor.id) do %>
+                      <img src="/assets/furnishia/user-1.jpg" />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <%= link_to products_path(user_id: vendor.id) do %>
+                    <h2 class="title h4"><%= vendor.full_name %></h2>
+                    <hr class="card-text-divider">
+                    <span><%= vendor.category_title %></span>
+                  <% end %>
+                </div>
+                <a href="<%= products_path(user_id: vendor.id) %>" class="btn card-btn btn-main">View</a>
+              </div>
+            </article>
           <% end %>
-          <article>
-            <div class="figure-grid custom-card-container text-center">
-              <div class="image custom-figure-grid">
-                <% if vendor.profile.image.attached? %>
-                  <%= link_to products_path(user_id: vendor.id) do %>
-                    <%= image_tag(url_for(vendor.profile.image)) %>
-                  <% end %>
-                <% else %>
-                  <%= link_to products_path(user_id: vendor.id) do %>
-                    <img src="/assets/furnishia/user-1.jpg" />
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="text">
-                <%= link_to products_path(user_id: vendor.id) do %>
-                  <h2 class="title h4"><%= vendor.full_name %></h2>
-                  <hr class="card-text-divider">
-                  <span><%= vendor.category_title %></span>
-                <% end %>
-              </div>
-              <a href="<%= products_path(user_id: vendor.id) %>" class="btn card-btn btn-main">View</a>
-            </div>
-          </article>
         <% end %>
       </div>
     </div>
@@ -241,32 +309,34 @@
     <div class="row">
       <div class="responsivee">
         <% @popular_architects.each_with_index do |architect, index| %>
-          <% if index == 8 %>
-            <% break %>
+          <% if architect.active == true %>
+            <% if index == 8 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="figure-grid custom-card-container text-center">
+                <div class="image custom-figure-grid">
+                  <% if architect.profile.image.attached? %>
+                    <%= link_to profiles_path(user_id: architect.id) do %>
+                      <%= image_tag(url_for(architect.profile.image)) %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to profiles_path(user_id: architect.id) do %>
+                      <img src="/assets/furnishia/user-1.jpg" alt="" />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <%= link_to profiles_path(user_id: architect.id) do %>
+                    <h2 class="title h4"><%= architect.full_name %></h2>
+                    <hr class="card-text-divider">
+                    <span><%= architect.category_title %></span>
+                  <% end %>
+                </div>
+                <a href="<%= profiles_path(user_id: architect.id) %>" class="btn card-btn btn-main">View</a>
+              </div>
+            </article>
           <% end %>
-          <article>
-            <div class="figure-grid custom-card-container text-center">
-              <div class="image custom-figure-grid">
-                <% if architect.profile.image.attached? %>
-                  <%= link_to profiles_path(user_id: architect.id) do %>
-                    <%= image_tag(url_for(architect.profile.image)) %>
-                  <% end %>
-                <% else %>
-                  <%= link_to profiles_path(user_id: architect.id) do %>
-                    <img src="/assets/furnishia/user-1.jpg" alt="" />
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="text">
-                <%= link_to profiles_path(user_id: architect.id) do %>
-                  <h2 class="title h4"><%= architect.full_name %></h2>
-                  <hr class="card-text-divider">
-                  <span><%= architect.category_title %></span>
-                <% end %>
-              </div>
-              <a href="<%= profiles_path(user_id: architect.id) %>" class="btn card-btn btn-main">View</a>
-            </div>
-          </article>
         <% end %>
       </div>
     </div>
@@ -298,32 +368,34 @@
     <div class="row">
       <div class="responsivee">
         <% @popular_interior_designers.each_with_index do |interior_designer, index| %>
-          <% if index == 8 %>
-            <% break %>
+          <% if interior_designer.active == true %>
+            <% if index == 8 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="figure-grid custom-card-container text-center">
+                <div class="image custom-figure-grid">
+                  <% if interior_designer.profile.image.attached? %>
+                    <%= link_to profiles_path(user_id: interior_designer.id) do %>
+                      <%= image_tag(url_for(interior_designer.profile.image)) %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to profiles_path(user_id: interior_designer.id) do %>
+                      <img src="/assets/furnishia/user-1.jpg" alt=""  />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <%= link_to profiles_path(user_id: interior_designer.id) do %>
+                    <h2 class="title h4"><%= interior_designer.full_name %></h2>
+                    <hr class="card-text-divider">
+                    <span><%= interior_designer.category_title %></span>
+                  <% end %>
+                </div>
+                <a href="<%= profiles_path(user_id: interior_designer.id) %>" class="btn card-btn btn-main">View</a>
+              </div>
+            </article>
           <% end %>
-          <article>
-            <div class="figure-grid custom-card-container text-center">
-              <div class="image custom-figure-grid">
-                <% if interior_designer.profile.image.attached? %>
-                  <%= link_to profiles_path(user_id: interior_designer.id) do %>
-                    <%= image_tag(url_for(interior_designer.profile.image)) %>
-                  <% end %>
-                <% else %>
-                  <%= link_to profiles_path(user_id: interior_designer.id) do %>
-                    <img src="/assets/furnishia/user-1.jpg" alt=""  />
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="text">
-                <%= link_to profiles_path(user_id: interior_designer.id) do %>
-                  <h2 class="title h4"><%= interior_designer.full_name %></h2>
-                  <hr class="card-text-divider">
-                  <span><%= interior_designer.category_title %></span>
-                <% end %>
-              </div>
-              <a href="<%= profiles_path(user_id: interior_designer.id) %>" class="btn card-btn btn-main">View</a>
-            </div>
-          </article>
         <% end %>
       </div>
     </div> <!--/row-->
@@ -354,6 +426,7 @@
     <div class="row">
       <div class="responsivee">
         <% @popular_product_designers.each_with_index do |designer, index| %>
+          <% if designer.active == true %>
           <% if index == 8 %>
             <% break %>
           <% end %>
@@ -380,6 +453,7 @@
               <a href="<%= profiles_path(user_id: designer.id) %>" class="btn card-btn btn-main">View</a>
             </div>
           </article>
+            <% end %>
         <% end %>
       </div>
     </div> <!--/row-->

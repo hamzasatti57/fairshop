@@ -27,15 +27,23 @@
             <li><a href="<%= contact_us_path %>">Contact Us</a></li>
           </ul>
         </div>
-        <div class="col-sm-12 col-md-6 links">
-          <div class="footer-social">
+        <div class="col-sm-6 col-md-6 links">
+          <div class="pull-right">
+          <h5>Share</h5>
+          <div class="footer-social custom-footer-social-links">
             <ul>
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+<!--              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>-->
               <li><a href="#"><i class="fa fa-youtube"></i></a></li>
               <li><a href="#"><i class="fa fa-instagram"></i></a></li>
             </ul>
+          </div>
+            <span>
+              <h5>For Company Account</h5>
+              <a href="<%= new_user_session_path %>">Login &nbsp; &nbsp;</a>
+              <a href="<%= new_user_registration_path %>">Registration</a>
+            </span>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
+  layout "admin_layout"
   # GET /resource/password/new
   # def new
   #   super
@@ -28,7 +29,13 @@ class Users::PasswordsController < Devise::PasswordsController
   # end
 
   # The path used after sending reset password instructions
-  # def after_sending_reset_password_instructions_path_for(resource_name)
-  #   super(resource_name)
-  # end
+  def after_sending_reset_password_instructions_path_for(resource_name)
+
+
+    if resource.is_customer?
+      root_path
+    else
+      super(resource_name)
+    end
+  end
 end

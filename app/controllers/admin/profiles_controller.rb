@@ -15,6 +15,7 @@ class Admin::ProfilesController < AdminController
     if @profile.save
       # @profile.image.attach(params[:image])
       flash[:success] = "Profile successfully added"
+      @profile.punch(request)
       # redirect_to
     else
       render 'new'
