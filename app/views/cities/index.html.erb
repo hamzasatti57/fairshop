@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col-md-12">
         <%  @cities.each do |city|  %>
-          <div class="col-md-3">
+          <div class="col-md-3 col-sm-6 col-xs-6">
             <article>
               <div class="figure-grid custom-card-container text-center">
                 <div class="image custom-figure-grid custom-city-image-grid">
@@ -34,9 +34,9 @@
                     <% end %>
                   <% end %>
                 </div>
-                <div class="text">
+                <div class="text custom-btn-city">
                   <%= link_to city do%>
-                    <h2 class="title h4"><%= city.title %></h2>
+                    <h2 class="title h4 custom-btn-cityy"><%= city.title %></h2>
                   <% end %>
                 </div>
               </div>
@@ -66,8 +66,9 @@
       </div><!--/row-->
     </div> <!--/product items-->
   </div><!--/container-->
+  <div class="pagination-wrapper">
+    <%= will_paginate @cities %>
+  </div>
 </section>
-<div class="pagination-wrapper">
-  <%= will_paginate @cities %>
-</div>
+
 

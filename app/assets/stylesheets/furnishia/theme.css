@@ -738,8 +738,8 @@ nav.navbar-default {
 }
 
 nav.navbar-sticked {
-    background-color: #1f2732;
-    opacity: 0.8;
+    background-color: #1f2732 !important;
+    opacity: 1 !important;
 }
 
 nav.navbar-sticked .navigation-top > ul {
@@ -6679,4 +6679,28 @@ footer .custom-footer-social-links ul li{
 
 .login-wrapper form .form-group a.custom-forgot-text{
     color:#b53436;
+}
+.mt-30{
+ margin-top: 30px;
+}
+h2.title.h4.custom-btn-cityy{
+    background-color: #b41135;
+    color: white;
+    width: 200px;
+    /* position: relative; */
+    /* left: 9px; */
+}
+.custom-btn-city {
+    display: flex;
+    justify-content: center;
+}
+.footer-copyrightss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.875rem 0;
+    background-color: #000000;
+    color: #fff;
+    border-top: solid 1px #666;
+
 }

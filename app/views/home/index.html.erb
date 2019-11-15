@@ -12,7 +12,7 @@
 
     <div class="item" style="background-image:url('<%= asset_path('furnishia/0.jpeg') %>');">
       <div id="color-overlay"></div>
-      <div class="box">
+      <div class="box mt-30">
         <div class="container">
           <div class="col-md-5">
             <h4 class="title">Your Creative World</h4>
@@ -21,9 +21,7 @@
             </div>
             <br>
             <div class="animated" data-animation="fadeInUp">
-
               <%= form_tag search_home_index_path  do %>
-
                 <div class="form-group">
                   <%= text_field_tag :q, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Find:   Products, Bath and Sanitary , Furniture, Kitchen, Tiles, Interior design", autofocus: true %>
 
@@ -35,7 +33,6 @@
             </div>
           </div>
           <div class="col-md-1">
-
           </div>
           <div class="col-md-6">
             <p class="custom-tiles-heading">The most popular categories picked by customers around the world:</p>
@@ -56,6 +53,7 @@
               </div>
             </div>
           </div>
+          <div style="clear:both"></div>
         </div>
       </div>
     </div>
