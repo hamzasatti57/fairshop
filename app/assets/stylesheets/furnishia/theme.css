@@ -6704,3 +6704,9 @@ h2.title.h4.custom-btn-cityy{
     border-top: solid 1px #666;
 
 }
+.custom-blg-img img{
+    height: 200px !important;
+}
+.advrt-img img{
+    height: 200px !important;
+}

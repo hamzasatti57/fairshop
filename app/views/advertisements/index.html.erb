@@ -23,11 +23,11 @@
             <div class="col-md-4">
               <article>
                 <%= link_to advertisement do%>
-                  <div class="image" >
+                  <div class="image advrt-img" >
                     <% if advertisement.image.attached? %>
-                      <%= image_tag(url_for(advertisement.image)) %><br>
+                      <%= image_tag(url_for(advertisement.image)) %>
                     <% else %>
-                      <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                      <img src="/assets/furnishia/product-1.png"  />
                     <% end %>
                   </div>
                   <div class="entry entry-table">

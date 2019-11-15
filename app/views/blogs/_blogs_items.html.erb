@@ -1,14 +1,14 @@
 <div class="col-md-9">
     <div class="row">
         <% blogs.each do |blog| %>
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-xs-6 col-md-6">
             <article>
                 <%= link_to blog do%>
-                <div class="image" >
+                <div class="image custom-blg-img" >
                     <% if blog.image.attached? %>
-                    <%= image_tag(url_for(blog.image)) %><br>
+                    <%= image_tag(url_for(blog.image)) %>
                     <% else %>
-                    <img src="/assets/furnishia/product-1.png" alt="" width="360" />
+                    <img src="/assets/furnishia/product-1.png"  />
                     <% end %>
                 </div>
                 <div class="entry entry-table">

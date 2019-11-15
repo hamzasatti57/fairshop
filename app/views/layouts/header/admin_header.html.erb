@@ -1,10 +1,11 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <% if user_signed_in? %>
   <header class="app-header navbar">
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
       <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">
-      <%=image_tag("coreui/logo.svg", size: "89x25", class: "navbar-brand-full")%>
+      <%#=image_tag("coreui/logo.svg", size: "89x25", class: "navbar-brand-full")%>
 
       <%=image_tag("coreui/sygnet.svg", size: "30x30", class: "navbar-brand-minimized")%>
     </a>
@@ -15,8 +16,10 @@
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-
-          <%=image_tag("coreui/6.jpg", size: "30x30", class: "img-avatar")%>
+<!--          <i class="fa fa-lock">-->
+            <%#=image_tag("coreui/6.jpg", size: "30x30", class: "img-avatar")%>
+<!--          </i>-->
+          <i class="fa fa-angle-down" aria-hidden="true"></i>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <%= link_to root_path, class: "dropdown-item" do %>
