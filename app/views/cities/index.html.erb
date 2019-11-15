@@ -15,42 +15,59 @@
 
 <!-- ======================== Products ======================== -->
 
-<section class="products">
+<section class="products custom-city-show">
   <div class="container">
     <div class="row">
-      <div class="col-md-12 col-xs-12">
-        <div class="row">
-          <%  @cities.each do |city|  %>
-            <div class="col-md-4 col-xs-6">
-              <article>
-                <div class="figure-grid">
-                  <div class="image">
-                    <% if city.image.attached? %>
-                      <%= link_to city do%>
-                        <%= image_tag(url_for(city.image)) %><br>
-                      <% end %>
-                    <% else %>
-                      <%= link_to city do%>
-                        <img src="/assets/furnishia/product-1.png" alt="" width="360" />
-                      <% end %>
-                    <% end %>
-                  </div>
-                  <div class="text">
+      <div class="col-md-12">
+        <%  @cities.each do |city|  %>
+          <div class="col-md-3">
+            <article>
+              <div class="figure-grid custom-card-container text-center">
+                <div class="image custom-figure-grid custom-city-image-grid">
+                  <% if city.image.attached? %>
                     <%= link_to city do%>
-                      <h2 class="title h4"><%= city.title %></h2>
+                      <%= image_tag(url_for(city.image)) %><br>
                     <% end %>
-                  </div>
+                  <% else %>
+                    <%= link_to city do%>
+                      <img src="/assets/furnishia/product-1.png"/>
+                    <% end %>
+                  <% end %>
                 </div>
-              </article>
-            </div>
-          <% end %>
-        </div><!--/row-->
-        <!--Pagination-->
-        <div class="pagination-wrapper">
-          <%= will_paginate @cities %>
-        </div>
-      </div> <!--/product items-->
-    </div><!--/row-->
+                <div class="text">
+                  <%= link_to city do%>
+                    <h2 class="title h4"><%= city.title %></h2>
+                  <% end %>
+                </div>
+              </div>
+            </article>
+            <!--              <article>-->
+            <!--                <div class="figure-grid">-->
+            <!--                  <div class="image">-->
+            <%# if city.image.attached? %>
+            <%#= link_to city do%>
+            <!--                        <%#= image_tag(url_for(city.image)) %><br>-->
+            <%# end %>
+            <%# else %>
+            <%#= link_to city do%>
+            <!--                        <img src="/assets/furnishia/product-1.png"/>-->
+            <%# end %>
+            <%# end %>
+            <!--                  </div>-->
+            <!--                  <div class="text">-->
+            <%#= link_to city do%>
+            <!--                      <h2 class="title h4"><%#= city.title %></h2>-->
+            <%# end %>
+            <!--                  </div>-->
+            <!--                </div>-->
+            <!--              </article>-->
+          </div>
+        <% end %>
+      </div><!--/row-->
+    </div> <!--/product items-->
   </div><!--/container-->
 </section>
+<div class="pagination-wrapper">
+  <%= will_paginate @cities %>
+</div>
 

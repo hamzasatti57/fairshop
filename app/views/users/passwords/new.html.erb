@@ -1,5 +1,4 @@
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
 <div class="app custom-login-page login-page flex-row align-items-center">
     <div class="container">
       <div class="row">
@@ -9,15 +8,8 @@
               <div class="card-body text-center">
                 <h2>Forgot your password?</h2>
                 <hr>
-                <% flash.each do |name, msg| %>
-                  <% if msg.class == Array %>
-                    <% msg.each do |message| %>
-                      <li><%= message %></li>
-                    <% end %>
-                  <% else %>
-                    <li><%= msg %></li>
-                  <% end %>
-                <% end %>
+                <%= f.error_notification %>
+                <hr>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">

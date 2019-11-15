@@ -2409,6 +2409,22 @@ nav .cart-wrapper.open {
     border:4px #4e4e4e;
     border-style:double;
 }
+.products article .custom-city-image-grid img {
+
+    max-width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    object-fit: fill;
+    border:4px #4e4e4e;
+    border-style:double;
+
+}
+.products article .custom-city-image-grid {
+    overflow: hidden;
+    height: 200px;
+    width: 200px;
+    display: inline;
+}
 
 .products article .btn-add {
     -moz-transform: translate3d(100%, 0, 0);
@@ -3702,10 +3718,12 @@ nav .cart-wrapper.open {
 }
 
 .designer .image img {
-    width: 80%;
+    max-width: 80%;
+    height: 200px;
     margin: 0 auto;
     display: block;
     border-radius: 100%;
+    object-fit: scale-down;
 }
 
 .designer .name {
@@ -6605,6 +6623,8 @@ article.custom-product-article{
 .custom-product-card-img{
     padding-top: 10px;
 }
+
+
 
 #color-overlay {
     position: absolute;
