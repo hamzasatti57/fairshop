@@ -15,120 +15,42 @@
 
 <section class="product custom-city-show">
   <div class="container">
-    <% @vendors.each_with_index do |vendor, index| %>
-
-      <% if index % 3 == 0 %>
-        <% if index != 0 %>
-          </div>
-        <% end %>
-        <div class="row">
-          <div class="col-md-4 col-sm-4">
-            <div class="designer" style="margin-top: 0">
-              <div class="box">
-                <div class="image">
-                  <% if vendor.profile.image.attached? %>
-                    <% if vendor.display_products? %>
-                      <%= link_to products_path(user_id: vendor.id) do %>
-                        <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
-                      <% end %>
-                    <% end %>
-                    <% if vendor.display_projects? %>
-                      <%= link_to profiles_path(user_id: vendor.id) do %>
-                        <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
-                      <% end %>
-                    <% end %>
-                  <%else %>
-                    <% if vendor.display_products? %>
-                      <%= link_to products_path(user_id: vendor.id) do %>
-                        <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
-                      <% end %>
-                    <% end %>
-                    <% if vendor.display_projects? %>
-                      <%= link_to profiles_path(user_id: vendor.id) do %>
-                        <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                </div>
-                <div class="name">
-                  <% if vendor.display_products? %>
-                    <%= link_to products_path(user_id: vendor.id) do %>
-                      <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
-                    <% end %>
-                  <% end %>
-                  <% if vendor.display_projects? %>
-                    <%= link_to profiles_path(user_id: vendor.id) do %>
-                      <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
-                    <% end %>
-                  <% end %>
-                  <hr/>
-                  <p><i class="icon icon-envelope"></i> <%= vendor.email %></p>
-                  <p><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></p>
-                  <p>
-                    <a href="<%= vendor.profile.facebook %>" class="btn btn-main btn-xs"><i class="fa fa-facebook"></i></a>
-                    <a href="<%= vendor.profile.instagram %>" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
-                    <a href="<%= vendor.profile.twitter %>" class="btn btn-main btn-xs"><i class="fa fa-twitter"></i></a>
-                  </p>
-                </div> <!--/name-->
-              </div> <!--/box-->
-            </div> <!--/designer-->
-          </div>
-      <% else %>
+    <div class="row">
+      <% @vendors.each_with_index do |vendor, index| %>
         <div class="col-md-4 col-sm-4">
           <div class="designer" style="margin-top: 0">
             <div class="box">
               <div class="image">
                 <% if vendor.profile.image.attached? %>
-                  <% if vendor.display_products? %>
-                    <%= link_to products_path(user_id: vendor.id) do %>
-                      <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
-                    <% end %>
-                  <% end %>
-                  <% if vendor.display_projects? %>
-                    <%= link_to profiles_path(user_id: vendor.id) do %>
-                      <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
-                    <% end %>
+                  <%= link_to profiles_path(user_id: vendor.id) do %>
+                    <%= image_tag(url_for(vendor.profile.image)) %>
                   <% end %>
                 <%else %>
-                  <% if vendor.display_products? %>
-                    <%= link_to products_path(user_id: vendor.id) do %>
-                      <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
-                    <% end %>
-                  <% end %>
-                  <% if vendor.display_projects? %>
-                    <%= link_to profiles_path(user_id: vendor.id) do %>
-                      <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
-                    <% end %>
+                  <%= link_to profiles_path(user_id: vendor.id) do %>
+                    <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
                   <% end %>
                 <% end %>
               </div>
               <div class="name">
-                <% if vendor.display_products? %>
-                  <%= link_to products_path(user_id: vendor.id) do %>
-                    <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
-                  <% end %>
-                <% end %>
-                <% if vendor.display_projects? %>
-                  <%= link_to profiles_path(user_id: vendor.id) do %>
-                    <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
-                  <% end %>
+                <%= link_to profiles_path(user_id: vendor.id) do %>
+                  <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
                 <% end %>
                 <hr/>
-                <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= vendor.email %></a></p>
-                <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></a></p>
+                <p><i class="icon icon-envelope"></i> <%= vendor.email %></p>
+                <p><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></p>
                 <p>
                   <a href="<%= vendor.profile.facebook %>" class="btn btn-main btn-xs"><i class="fa fa-facebook"></i></a>
                   <a href="<%= vendor.profile.instagram %>" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
-                  <a href="<%= vendor.profile.twitter %>" class="btn btn-main btn-xs"><i class="fa fa-twitter"></i></a>                    </p>
+                  <a href="<%= vendor.profile.twitter %>" class="btn btn-main btn-xs"><i class="fa fa-twitter"></i></a>
+                </p>
               </div> <!--/name-->
             </div> <!--/box-->
           </div> <!--/designer-->
         </div>
       <% end %>
-    <% end %>
     </div><!--/container-->
-    <!--/info-->
-    </section>
+  </div>
+</section>
 <!-- === pagination === -->
 <div class="pagination-wrapper">
   <%= will_paginate @vendors  %>

@@ -16,10 +16,14 @@
     <ul class="nav navbar-nav ml-auto">
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-<!--          <i class="fa fa-lock">-->
-            <%#=image_tag("coreui/6.jpg", size: "30x30", class: "img-avatar")%>
-<!--          </i>-->
-          <i class="fa fa-angle-down" aria-hidden="true"></i>
+          <!--          <i class="fa fa-lock">-->
+          <%if current_user.profile.image.attached? %>
+            <%=image_tag(url_for(current_user.profile.image), size: "30x30", class: "img-avatar")%>
+          <% else %>
+            <%=image_tag("coreui/user-1.jpg", size: "30x30", class: "img-avatar")%>
+          <% end %>
+          <!--          </i>-->
+          <!--          <i class="fa fa-angle-down" aria-hidden="true"></i>-->
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <%= link_to root_path, class: "dropdown-item" do %>

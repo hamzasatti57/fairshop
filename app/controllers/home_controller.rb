@@ -30,7 +30,12 @@ class HomeController < ApplicationController
   def search
     respond_to do |format|
       format.js {
-        @products = Product.search_filter(params[:product_category_id])
+        if params.has_key?(:user_id)
+          @user = User.find(params[:user_id])
+          @products = @user.products.search_filter(params[:product_category_id])
+        else
+          @products = Product.search_filter(params[:product_category_id])
+        end
       }
       format.html {
         @categories = Category.all

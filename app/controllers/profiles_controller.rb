@@ -2,7 +2,11 @@ class ProfilesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @user.punch(request)
-    @projects = @user.projects
+    if @user.display_products?
+      @products = @user.products
+    elsif @user.display_projects?
+      @projects = @user.projects
+    end
   end
 
   def update_download_catalog_count

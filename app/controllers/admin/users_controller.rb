@@ -20,6 +20,7 @@ class Admin::UsersController < AdminController
       if current_user.role.is_admin?
         redirect_to admin_users_path
       elsif current_user.role.is_vendor?
+        @user.punch(request)
         redirect_to admin_dashboards_path
       end
     else

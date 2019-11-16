@@ -3,7 +3,25 @@ class ProductsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @user.punch(request)
-    @products = @user.products.where(visibility: true).paginate(page: params[:page], per_page: 21)
+    # @products = @user.products.where(visibility: true).paginate(page: params[:page], per_page: 21)
+    respond_to do |format|
+      format.js {
+        @products = Product.search_filter(params[:product_category_id]).paginate(page: params[:page], per_page: 21)
+
+      }
+      format.html {
+        @categories = Category.all
+        # if params[:q].blank? and params[:location].blank?
+        #   @products = Product.all.paginate(page: params[:page], per_page: 20)
+        # else
+        #   @products = Product.search(params[:q], params[:location]).paginate(page: params[:page], per_page: 20)
+        # end
+        # @products = User.where(city_id:(params[:city_id])).collect(&:@products).flatten
+        @products = @user.products.where(visibility: true).paginate(page: params[:page], per_page: 21)
+        @product_categories = ProductCategory.all
+        # @product_types = ProductType.all
+      }
+    end
   end
 
   def show

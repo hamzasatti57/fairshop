@@ -15,7 +15,7 @@
 <br>
   <div class="form-group">
     <%= f.label :City %>
-    <%= f.select(:city_id, options_for_select(city_options, selected: selected_city(user)), { prompt: "Please Select" }, { class: 'form-control' }) %>
+    <%= f.select(:city_id, options_for_select(city_options, selected: selected_city(user)), { prompt: "Please Select City" }, { class: 'form-control' }) %>
   </div>
   <div class="form-group">
     <%= f.label :username %>
@@ -38,7 +38,7 @@
   <% end %>
   <div class="form-group">
     <%= f.label :Category %>
-    <%= f.select(:category_id, options_for_select(category_options, selected: selected_category(user)), { prompt: "Please Select" }, { class: 'form-control' }) %>
+    <%= f.select(:category_id, options_for_select(category_options, selected: selected_category(user)), { prompt: "Please Select Category" }, { class: 'form-control' }) %>
   </div>
   <div class="form-group">
     <%= f.label "Active" %>

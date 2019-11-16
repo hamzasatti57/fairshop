@@ -36,14 +36,14 @@
               <div class="box">
                 <div class="image">
                   <% if vendor.profile.image.attached? %>
-                    <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
+                    <%= image_tag(url_for(vendor.profile.image)) %>
                   <%else %>
-                    <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
+                    <img src="/assets/furnishia/user-1.jpg" />
                   <% end %>
                 </div>
                 <div class="name">
                   <% if vendor.display_products? %>
-                    <%= link_to products_path(user_id: vendor.id) do %>
+                    <%= link_to profiles_path(user_id: vendor.id) do %>
                       <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
                     <% end %>
                   <% end %>

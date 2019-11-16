@@ -6,6 +6,7 @@
       <ol class="breadcrumb breadcrumb-inverted">
         <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
         <li><a href="<%= vendors_path(category_id: @user.category_id) %>"><%= @user.category.title %> Vendors</a></li>
+        <li><a href="<%= profiles_path(user_id: @user.id) %>"> Profile</a></li>
         <li><a class="active" href="<%= products_path(user_id: @user.id)%>">Products</a></li>
       </ol>
     </div>
@@ -14,44 +15,112 @@
 
 <!-- ======================== Products ======================== -->
 
+<!--<section class="products custom-product-details-page custom-city-show">-->
+<!--  <div class="container">-->
+<!--    <div class="row">-->
+<%#  @products.each  do |product|  %>
+<%# if product.visibility == true %>
+<!--          <div class="col-md-3">-->
+<!--            <article class="custom-product-article">-->
+<!--              <div class="figure-grid custom-product-card-img custom-card-container text-center">-->
+<!--                <div class="image custom-product-card custom-figure-grid">-->
+<%# if product.images.attached? %>
+<%#= link_to product do%>
+<!--                      <%#= image_tag(url_for(product.images.first)) %><br>-->
+<%# end %>
+<%# else %>
+<%#= link_to product do%>
+<!--                      <img src="/assets/furnishia/no_image_product.jpg" alt=""  />-->
+<%# end %>
+<%# end %>
+<!--                </div>-->
+<!--                <div class="text">-->
+<%#= link_to product do%>
+<!--                    <h2 class="title h4"><%#=product.title %></h2>-->
+<!--                    <hr class="card-text-divider">-->
+<!--                    <span> <%#= product.user.category.title %></span>-->
+<%# end %>
+<!--                </div>-->
+<!--                <a href="<%#= product_path(product) %>" class="btn card-btn btn-main">View</a>-->
+<!--              </div>-->
+<!--            </article>-->
+<!--          </div>-->
+<%# end %>
+<%# end %>
+<!--    </div>-->
+<!--        <div class="pagination-wrapper">-->
+<%#= will_paginate @products %>
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+
 <section class="products custom-product-details-page custom-city-show">
   <div class="container">
     <div class="row">
-      <%  @products.each  do |product|  %>
-        <% if product.visibility == true %>
-          <div class="col-md-3">
-            <article class="custom-product-article">
-              <div class="figure-grid custom-product-card-img custom-card-container text-center">
-                <div class="image custom-product-card custom-figure-grid">
-                  <% if product.images.attached? %>
-                    <%= link_to product do%>
-                      <%= image_tag(url_for(product.images.first)) %><br>
-                    <% end %>
-                  <% else %>
-                    <%= link_to product do%>
-                      <img src="/assets/furnishia/no_image_product.jpg" alt=""  />
-                    <% end %>
-                  <% end %>
-                </div>
-                <div class="text">
-                  <%= link_to product do%>
-                    <h2 class="title h4"><%=product.title %></h2>
-                    <hr class="card-text-divider">
-                    <span> <%= product.user.category.title %></span>
-                  <% end %>
-                </div>
-                <a href="<%= product_path(product) %>" class="btn card-btn btn-main">View</a>
-              </div>
-            </article>
-          </div>
+      <!-- === product-filters === -->
+      <div class="col-md-3 col-xs-12">
+        <div id="filters" class="filters custom-filters">
+          <div class="filter-box active">
+            <div class="title">
+              Product Categories
+            </div>
+            <div class="filter-content">
+               <span class="checkbox">
+                <input type="radio" class="category-radio" id="all-categories" name="product-category" value="" checked="checked">
+                <label for="all-categories">All <i><%=  @user.products.where(visibility: true).count %></i></label>
+                </span>
+              <% @product_categories.each_with_index do |product_category, index| %>
+                  <span class="checkbox">
+                    <input type="radio" class="category-radio" id="product-category-<%= product_category.id %>" name="product-category" value="<%= product_category.id %>">
+                    <label for="product-category-<%= product_category.id %>"><%= product_category.title %> <i><%= @user.products.where(product_category_id: product_category.id, visibility: true).count %></i></label>
+                  </span>
+              <% end %>
+            </div>
+          </div> <!--/filter-box-->
+          <!--Type-->
+          <!--            <div class="filter-box active">-->
+          <!--              <div class="title">-->
+          <!--                Product Types-->
+          <!--              </div>-->
+          <!--              <div class="filter-content">-->
+          <!--                 <span class="checkbox">-->
+          <!--                  <input type="radio" class="type-radio" name="product_type" id="all-types" value="" checked="checked">-->
+          <!--                  <label for="all-types">All <i><%#= Product.count %></i></label>-->
+          <!--                 </span>-->
+          <%# @product_types.each do |product_type| %>
+          <!--                  <span class="checkbox">-->
+          <!--                    <input type="radio" class="type-radio" name="product_type" id="product-type-<%#= product_type.id %>" value="<%#= product_type.id %>">-->
+          <!--                    <label for="product-type-<%#= product_type.id %>"><%#= product_type.title %> <i><%#= product_type.products.count %></i></label>-->
+          <!--                  </span>-->
+          <%# end %>
+          <!--              </div>-->
+          <!--            </div> -->
+        </div> <!--/filters-->
+      </div>
+      <!--product items-->
+      <div class="col-md-9 col-xs-12" id="product-items">
+        <% if !@products.nil? %>
+          <%= render partial: 'product_items', locals: { products: @products} %>
         <% end %>
-      <% end %>
+      </div> <!--/product items-->
     </div><!--/row-->
-    <!--Pagination-->
-    <div class="pagination-wrapper">
-      <%= will_paginate @products %>
-    </div>
   </div><!--/container-->
 </section>
+<div class="pagination-wrapper">
+  <%= will_paginate @products %>
+</div>
+<script>
+    $(function(){
 
-
+        $('.category-radio').change(function(){
+            product_category_id = $('.category-radio:checked').val();
+            user_id = <%= @user.id %>;
+                        // product_type_id = $('.type-radio:checked').val();
+            // price = $('#range-price-slider').val().split(';').join(',');
+            $.ajax({
+                url: `<%= search_home_index_path(format: :js) %>?product_category_id=${product_category_id}&user_id=${user_id}`
+            });
+        })
+    })
+</script>

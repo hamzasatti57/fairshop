@@ -15,7 +15,8 @@
       <ol class="breadcrumb breadcrumb-inverted">
         <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
         <li><a href="<%= vendors_path(category_id: @vendor.category_id) %>"><%= @vendor.category.title %> Vendors</a></li>
-        <li><a href="<%= products_path(user_id: @vendor.id)%>">Products</a></li>
+        <li><a href="<%= profiles_path(user_id: @vendor.id) %>"> Profile</a></li>
+        <!--        <li><a href="<%#= products_path(user_id: @vendor.id)%>">Products</a></li>-->
         <li><a class="active">Product overview</a></li>
       </ol>
     </div>
@@ -126,7 +127,7 @@
 
         <div class="col-md-8 col-sm-12 product-flex-gallery">
           <!-- === product gallery === -->
-          <div class="owl-product-gallery open-popup-gallery">
+          <div class="owl-product-gallery open-popup-gallery" >
             <% if @product.images.attached? %>
               <% @product.images.each do |image| %>
                 <%= image_tag(url_for(image)) %>
@@ -258,7 +259,12 @@
                         </article>
                       </div>
                     <% end %>
-                  </div> <!--/row-->
+                  </div>
+                  <div class="custom-view-all-btn">
+                    <% if @products.any? %>
+                      <a href="<%= products_path(user_id: @vendor.id)%>" class="btn btn-main">View All Products</a>
+                    <% end %>
+                  </div><!--/row-->
                 </div> <!--/products-->
               </div> <!--/content-->
             </div> <!--/tab-pane-->

@@ -208,7 +208,7 @@ h3, .h3 {
 
 @media (min-width: 992px) {
     h3, .h3 {
-        font-size: 26px;
+
         margin-top: 26.66667px;
         margin-bottom: 26.66667px;
     }
@@ -6709,4 +6709,11 @@ h2.title.h4.custom-btn-cityy{
 }
 .advrt-img img{
     height: 200px !important;
+}
+.custom-view-all-btn {
+    text-align: center;
+}
+.custom-view-all-btn a{
+    margin-top: 30px;
+    text-align: center;
 }
