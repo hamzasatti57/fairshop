@@ -192,7 +192,7 @@
       <div class="responsivee">
         <% @popular_products.each_with_index do |product, index| %>
           <% if product.visibility == true && product.user.active == true %>
-            <% if index == 8 %>
+            <% if index == 50 %>
               <% break %>
             <% end %>
             <article>
@@ -250,7 +250,7 @@
       <div class="responsivee">
         <% @popular_vendors.each_with_index do |vendor, index| %>
           <% if vendor.active == true %>
-            <% if index == 8 %>
+            <% if index == 50 %>
               <% break %>
             <% end %>
             <article>
@@ -308,7 +308,7 @@
       <div class="responsivee">
         <% @popular_architects.each_with_index do |architect, index| %>
           <% if architect.active == true %>
-            <% if index == 8 %>
+            <% if index == 50 %>
               <% break %>
             <% end %>
             <article>
@@ -367,7 +367,7 @@
       <div class="responsivee">
         <% @popular_interior_designers.each_with_index do |interior_designer, index| %>
           <% if interior_designer.active == true %>
-            <% if index == 8 %>
+            <% if index == 50 %>
               <% break %>
             <% end %>
             <article>
@@ -425,7 +425,7 @@
       <div class="responsivee">
         <% @popular_product_designers.each_with_index do |designer, index| %>
           <% if designer.active == true %>
-          <% if index == 8 %>
+          <% if index == 50 %>
             <% break %>
           <% end %>
           <article>
@@ -483,7 +483,7 @@
     <div class="row">
       <div class="responsivee custom-blog-card custom-card-card">
         <% @blogs.each_with_index do |blog, index| %>
-          <% if index == 8 %>
+          <% if index == 50 %>
             <% break %>
           <% end %>
           <article>
@@ -541,7 +541,7 @@
     <div class="row">
       <div class="responsivee custom-blog-card custom-card-card">
         <% @advertisements.each_with_index do |advertisement, index| %>
-          <% if index == 8 %>
+          <% if index == 50 %>
             <% break %>
           <% end %>
           <article>
