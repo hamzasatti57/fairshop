@@ -31,7 +31,7 @@
               <td><%= job.title %></td>
               <td><%= truncate(job.description, length: 15) %></td>
               <td><%= truncate(job.address, length: 15) %></td>
-              <td><%= truncate(job.country, length: 15) %></td>
+              <td><%= truncate(job.country.title, length: 15) %></td>
               <td><%= job.salary %></td>
               <td><%= link_to "Edit",  edit_admin_job_path(job), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
                 <%= link_to "Delete", admin_job_path(job), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn" %></td>
