@@ -1,10 +1,6 @@
 <%= render 'shared/errors', obj: job %>
 <%= form_for  job, job_form_attributes(job) do |f| %>
   <div class="form-group">
-    <%= f.label :company %>
-    <%= f.text_field :company, class: "form-control", :required => true, autocomplete: false, placeholder: "Company", autofocus: true %> <br/>
-  </div>
-  <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Job Title", autofocus: true %> <br/>
   </div>
@@ -18,8 +14,14 @@
   </div>
   <div class="form-group">
     <%= f.label :country %>
-    <%= f.select(:country_id, options_for_select(country_options(), selected: selected_country(current_user)), { prompt: "Please Select Country" }, { :required => true, class: 'form-control' } ) %>
+    <%= select_tag("Country", options_for_select(country_options, selected_country(current_user)),{prompt: "Please Select Country", :required => true,:id => 'country_select' ,:class => 'form-control', :onchange => 'country_onchange_handler()'}) %>
+
   </div>
+  <div class="form-group">
+    <%= f.label :City %>
+    <%= f.select(:city_id, options_for_select(city_options(current_user), selected: selected_city(current_user)), { prompt: "Please Select City" }, { :required => true, class: 'form-control' } ,) %>
+  </div>
+
   <div class="form-group">
     <%= f.label :salary %>
     <%= f.text_field :salary, class: "form-control",:required => true, autocomplete: false, placeholder: "Job Salary", autofocus: true %> <br/>
@@ -27,3 +29,12 @@
   <%= f.file_field :image,  :required => true %>
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
 <% end %>
+
+
+<script>
+    function country_onchange_handler(){
+        $.ajax({
+            url: "/admin/countries/get_cities?country_id=" + $('#country_select option:selected').val()
+        })
+    }
+</script>

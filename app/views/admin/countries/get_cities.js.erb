@@ -1,1 +1,2 @@
 $('#user_city_id').html('<%= j options_for_select(@cities.map{|city| [city.title, city.id]}) %>')
+$('#job_city_id').html('<%= j options_for_select(@cities.map{|city| [city.title, city.id]}) %>')

@@ -3,4 +3,5 @@ class City < ApplicationRecord
   validates :title, uniqueness: true
   has_one :user, dependent: :destroy
   belongs_to :country
+  has_many :jobs
 end

@@ -3722,7 +3722,6 @@ nav .cart-wrapper.open {
     height: 200px;
     margin: 0 auto;
     display: block;
-    border-radius: 100%;
     object-fit: scale-down;
 }
 

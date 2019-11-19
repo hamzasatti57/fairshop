@@ -18,7 +18,7 @@
   <div class="container">
     <div class="row">
       <!-- === product-filters === -->
-      <div class="col-md-3 col-xs-12">
+      <div class="col-md-4 col-xs-12">
         <div id="filters" class="filters custom-filters">
           <!--Price-->
 <!--          <div class="filter-box active">-->
@@ -68,7 +68,7 @@
         </div> <!--/filters-->
       </div>
       <!--product items-->
-      <div class="col-md-9 col-xs-12" id="product-items">
+      <div class="col-md-8 col-xs-12" id="product-items">
         <% if !@products.nil? %>
           <%= render partial: 'product_items', locals: { products: @products } %>
         <% end %>
