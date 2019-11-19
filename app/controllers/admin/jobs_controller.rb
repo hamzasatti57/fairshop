@@ -2,7 +2,11 @@ class Admin::JobsController < AdminController
   before_action :get_job, only: [:show, :edit, :update, :destroy]
 
   def index
-    @jobs = current_user.jobs
+    if current_user.is_admin?
+      @jobs = Job.all
+    else
+      @jobs = current_user.jobs
+    end
   end
 
   def new
