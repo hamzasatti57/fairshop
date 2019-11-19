@@ -63,7 +63,7 @@
                       <div class="flex-l custom-company-detail-modal">
                         <div class="custom-company-logo">
                           <% if job.image.attached? %>
-                            <%= image_tag(url_for(job.image)) %>
+                            <%= image_tag(url_for(job.image),:style => "width: 100%") %>
                           <% end %>
                         </div>
                         <div class="custom-company-info">
