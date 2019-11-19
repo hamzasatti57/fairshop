@@ -46,7 +46,7 @@ class Admin::JobsController < AdminController
   private
 
   def job_params
-    params.required(:job).permit(:company, :title, :description, :address, :country, :salary, :user_id, :image)
+    params.required(:job).permit(:company, :title, :description, :address, :country_id, :salary, :user_id, :image)
   end
 
   def get_job

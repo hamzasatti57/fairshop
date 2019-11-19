@@ -41,7 +41,7 @@
               <td><%= job.title %></td>
               <td><%= truncate(job.description, length: 15) %></td>
               <td><%= truncate(job.address, length: 15) %></td>
-              <td><%= truncate(job.country, length: 15) %></td>
+              <td><%= truncate(job.country.title, length: 15) %></td>
               <td><%= job.salary %></td>
               <td><button type="button" class="custom-job-apply-btn btn-info btn btn-sm" data-toggle="modal" data-target="#<%= job.id %>">Apply</button></td>
             </tr>
