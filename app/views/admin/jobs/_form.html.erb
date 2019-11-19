@@ -2,32 +2,32 @@
 <%= form_for  job, job_form_attributes(job) do |f| %>
   <div class="form-group">
     <%= f.label :company %>
-    <%= f.text_field :company, class: "form-control", autocomplete: false, placeholder: "Company", autofocus: true %> <br/>
+    <%= f.text_field :company, class: "form-control", :required => true, autocomplete: false, placeholder: "Company", autofocus: true %> <br/>
   </div>
   <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Job Title", autofocus: true %> <br/>
+    <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Job Title", autofocus: true %> <br/>
   </div>
   <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, class: "form-control", autocomplete: false, placeholder: "Job Description", autofocus: true %> <br/>
-  </div>
-  <div class="form-group">
-    <%= f.label :Position %>
-    <%= f.text_field :position, class: "form-control", autocomplete: false, placeholder: "Job Position", autofocus: true %> <br/>
+    <%= f.text_area :description, class: "form-control", :required => true, autocomplete: false, placeholder: "Job Description", autofocus: true %> <br/>
   </div>
   <div class="form-group">
     <%= f.label :address %>
-    <%= f.text_field :address, class: "form-control", autocomplete: false, placeholder: "Job Address", autofocus: true %> <br/>
+    <%= f.text_field :address, class: "form-control", :required => true, autocomplete: false, placeholder: "Job Address", autofocus: true %> <br/>
   </div>
   <div class="form-group">
     <%= f.label :country %>
     <%= f.text_field :country, class: "form-control", autocomplete: false, placeholder: "Job Country", autofocus: true %> <br/>
   </div>
   <div class="form-group">
-    <%= f.label :salary %>
-    <%= f.text_field :salary, class: "form-control", autocomplete: false, placeholder: "Job Salary", autofocus: true %> <br/>
+    <%= f.label :country %>
+    <%= f.select(:country, options_for_select(country_options(), selected: selected_country(current_user)), { prompt: "Please Select Country" }, { :required => true, class: 'form-control' } ) %>
   </div>
-  <%= f.file_field :image %>
+  <div class="form-group">
+    <%= f.label :salary %>
+    <%= f.text_field :salary, class: "form-control",:required => true, autocomplete: false, placeholder: "Job Salary", autofocus: true %> <br/>
+  </div>
+  <%= f.file_field :image,  :required => true %>
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
 <% end %>

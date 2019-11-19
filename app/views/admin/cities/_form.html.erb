@@ -1,10 +1,14 @@
 <%= render 'shared/errors', obj: city %>
 <%= form_for  city, city_form_attributes(city) do |f| %>
   <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+    <%= f.label :country %>
+    <%= f.select(:country_id, options_for_select(country_options, selected: selected_country(city)), { prompt: "Please Select Country" }, { class: 'form-control' ,:required => true}) %>
   </div>
-  <%= f.file_field :image %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Title", autofocus: true,:required => true %> <br/>
+  </div>
+  <%= f.file_field :image ,:required => true%>
   <br>
   <br>
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>

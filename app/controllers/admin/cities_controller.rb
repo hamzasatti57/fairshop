@@ -10,7 +10,7 @@ class Admin::CitiesController < AdminController
   end
 
   def create
-    @city = City.new(city_params.merge(country_id: 1))
+    @city = City.new(city_params)
     if @city.save
       flash[:success] = "City Successfully Created"
       redirect_to admin_cities_path

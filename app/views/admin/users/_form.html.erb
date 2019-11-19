@@ -1,44 +1,48 @@
 <%#= form_for(@user, html: {class: "form-horizontal", role: "form"} ) do |f| %>
 <%= render 'shared/errors', obj: user %>
 <%= form_for  user, user_form_attributes(user) do |f| %>
-<div class="row">
-<div class="col-md-6">
- <%= f.label :first_name %>
-    <%= f.text_field :first_name, class: "form-control", autocomplete: false, placeholder: "First Name", autofocus: true %> <br/>
-</div>
-<div class="col-md-6">
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: "form-control", autocomplete: false, placeholder: "First Name", autofocus: true,:required => true %> <br/>
+    </div>
+    <div class="col-md-6">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: "form-control", autocomplete: false, placeholder: "Last Name",:required => true %> <br/>
+    </div>
+  </div>
+  <br>
+  <div class="form-group">
+    <%= f.label :country %>
+    <%= select_tag("Country", options_for_select(country_options, selected_country(user)),{prompt: "Please Select Country", :required => true,:id => 'country_select' ,:class => 'form-control', :onchange => 'country_onchange_handler()'}) %>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name, class: "form-control", autocomplete: false, placeholder: "Last Name" %> <br/>
-</div>
-</div>
-<br>
+  </div>
   <div class="form-group">
     <%= f.label :City %>
-    <%= f.select(:city_id, options_for_select(city_options, selected: selected_city(user)), { prompt: "Please Select City" }, { class: 'form-control' }) %>
+    <%= f.select(:city_id, options_for_select(city_options(user), selected: selected_city(user)), { prompt: "Please Select City" }, { :required => true, class: 'form-control' } ,) %>
   </div>
   <div class="form-group">
     <%= f.label :username %>
-    <%= f.text_field :username, class: "form-control", autocomplete: false, placeholder: "Username" %> <br/>
+    <%= f.text_field :username, class: "form-control", autocomplete: false, placeholder: "Username", :required => true %> <br/>
   </div>
   <div class="form-group">
     <%= f.label :Email %>
-    <%= f.text_field :email, class: "form-control", autocomplete: false, placeholder: "Email" %> <br/>
+    <%= f.text_field :email, class: "form-control", autocomplete: false, placeholder: "Email" , :required => true%> <br/>
   </div>
 
   <% if hide_password? user %>
     <div class="form-group">
       <%= f.label :Password %>
-      <%= f.password_field :password, class: "form-control", autocomplete: false, placeholder: "Password" %> <br/>
+      <%= f.password_field :password, class: "form-control", autocomplete: false, placeholder: "Password" , :required => true%> <br/>
     </div>
     <div class="form-group">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: false, placeholder: "Password" %> <br/>
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: false, placeholder: "Password" ,:required => true %> <br/>
     </div>
   <% end %>
   <div class="form-group">
     <%= f.label :Category %>
-    <%= f.select(:category_id, options_for_select(category_options, selected: selected_category(user)), { prompt: "Please Select Category" }, { class: 'form-control' }) %>
+    <%= f.select(:category_id, options_for_select(category_options, selected: selected_category(user)), { prompt: "Please Select Category" }, { :required => true, class: 'form-control' }) %>
   </div>
   <div class="form-group">
     <%= f.label "Active" %>
@@ -47,3 +51,11 @@
 
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
 <% end %>
+
+<script>
+    function country_onchange_handler(){
+        $.ajax({
+            url: "/admin/countries/get_cities?country_id=" + $('#country_select option:selected').val()
+        })
+    }
+</script>

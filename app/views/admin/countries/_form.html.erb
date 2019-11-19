@@ -1,0 +1,8 @@
+<%= render 'shared/errors', obj: country %>
+<%= form_for  country, country_form_attributes(country) do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+  </div>
+  <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
+<% end %>

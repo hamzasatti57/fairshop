@@ -2,7 +2,7 @@
 <%= form_for  product_category, product_category_form_attributes(product_category) do |f| %>
   <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Product Category Title", autofocus: true %> <br/>
+    <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Product Category Title", autofocus: true %> <br/>
   </div>
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
 <% end %>

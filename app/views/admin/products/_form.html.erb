@@ -18,12 +18,12 @@
 
   <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+    <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
     <%= f.label :Product_Category %>
-    <%= f.select(:product_category_id, options_for_select(product_category_options, selected: selected_product_category(product)), { prompt: "Please Select Product Category" }, { class: 'form-control' }) %>
+    <%= f.select(:product_category_id, options_for_select(product_category_options, selected: selected_product_category(product)), { prompt: "Please Select Product Category" }, { :required => true, class: 'form-control' }) %>
   </div>
 
 <!--  <div class="form-group">-->

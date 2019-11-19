@@ -71,6 +71,11 @@ Rails.application.routes.draw do
     resources :companies
     resources :colors
     resources :comments
+    resources :countries do
+      collection do
+        get :get_cities
+      end
+    end
     resources :product_types
     resources :product_categories
     resources :profiles

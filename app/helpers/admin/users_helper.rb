@@ -20,12 +20,21 @@ module Admin::UsersHelper
     user.category.present? ? user.category.id : nil
   end
 
-  def city_options
-    City.all.map{|city| [city.title, city.id]}
+  def city_options user
+    user.present? ? (user.city.present? ? City.where(country_id: user.city.country.id).map{|city| [city.title, city.id]} : []) : nil
   end
 
   def selected_city user
-    user.city.present? ? user.city.id : nil
+    user.present? ? (user.city.present? ? user.city.id : nil) : nil
+  end
+
+  def country_options
+    Country.all.map{|country| [country.title, country.id]}
+  end
+
+  def selected_country user
+    user.present? ? (user.city.present? ? user.city.country.id : nil) : nil
+
   end
 
 end

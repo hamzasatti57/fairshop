@@ -70,21 +70,26 @@
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="icon-home
-"></i>
+                        <i class="icon-home"></i>
                       </span>
                   </div>
-                  <%= f.select(:city_id, options_for_select(City.all.map{|city| [city.title, city.id]}), { prompt: "Please Select" }, {  :required => true, class: 'form-control' }) %>
+                  <%= select_tag("Country", options_for_select(country_options, selected_country(resource)),{prompt: "Please Select Country", :id => 'country_select' ,:class => 'form-control', :onchange => 'country_onchange_handler()'}) %>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                       <span class="input-group-text">
-                        <i class="icon-target
-
-"></i>
+                        <i class="icon-home"></i>
                       </span>
                   </div>
-                  <%= f.select(:category_id, options_for_select(Category.all.map{|category| [category.title, category.id]}),  { prompt: "Please Select" }, { :required => true, class: 'form-control' }) %>
+                  <%= f.select(:city_id, options_for_select(city_options(resource), selected: selected_city(resource)), { prompt: "Please Select City" }, { class: 'form-control' }) %>
+                </div>
+                <div class="input-group mb-4">
+                  <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="icon-target"></i>
+                      </span>
+                  </div>
+                  <%= f.select(:category_id, options_for_select(Category.all.map{|category| [category.title, category.id]}),  { prompt: "Please Select Category" }, { :required => true, class: 'form-control' }) %>
                 </div>
                 <div class="row">
                   <div class="col-6">
@@ -102,4 +107,10 @@
 <% end %>
 
 
-
+<script>
+    function country_onchange_handler(){
+        $.ajax({
+            url: "/admin/countries/get_cities?country_id=" + $('#country_select option:selected').val()
+        })
+    }
+</script>

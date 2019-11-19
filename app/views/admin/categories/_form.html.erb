@@ -13,7 +13,7 @@
         <%= f.select(:parent_id, options_for_select(category_options), { prompt: "Please Select" }, { class: 'form-control' }) %>
       </div>
     <%= f.label :Title %>
-    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+    <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
   </div>
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
 <% end %>
