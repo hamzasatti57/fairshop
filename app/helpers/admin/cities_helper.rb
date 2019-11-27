@@ -9,7 +9,7 @@ module Admin::CitiesHelper
   def country_options
     Country.all.map{|country| [country.title, country.id]}
   end
-  def selected_country city
+  def selected_country_for_city city
     city.country.present? ? city.country.id : nil
   end
 end
