@@ -5,8 +5,10 @@ class Category < ApplicationRecord
 
   belongs_to :parent, class_name: "Category", optional: true
 
+
+
   def self.product_categories
-    ["Furniture", "Upholstery & Repair", "Paints", "Tiles", "Sanitary", "Appliances" ]
+    ["Furniture", "Kitchens", "Paints", "Tiles", "Sanitary", "Doors & Wardrobes" ]
   end
 
   def self.project_categories

@@ -85,6 +85,9 @@ Rails.application.routes.draw do
     resources :dashboards
     resources :reports do
       collection do
+
+        post :category_reporting
+        get :category_reporting
         post :user_reporting
         get :user_reporting
         post :detail_product_project_hits

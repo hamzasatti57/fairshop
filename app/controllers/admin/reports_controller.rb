@@ -30,6 +30,11 @@ class Admin::ReportsController < AdminController
       @projects = current_user.projects
     end
   end
+  def category_reporting
+    if current_user.display_products?
+      @product_categories = ProductCategory.all
+    end
+  end
 
   def user_reporting
     @user = current_user

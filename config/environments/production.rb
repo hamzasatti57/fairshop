@@ -89,7 +89,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "http://165.227.27.132/" }
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

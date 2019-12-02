@@ -71,6 +71,27 @@ body {
     line-height: 1.3;
     color: #666666;
 }
+.title-cutom{
+    font-size: 42px;
+    font-weight: 600;
+/* color: white; */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    text-transform: none;
+}
+
+
+.upper-section {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    top: 52%;
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 99;
+}
 
 @media (min-width: 992px) {
     body {
@@ -6631,7 +6652,7 @@ article.custom-product-article{
     width: 100%;
     height: 100%;
     background-color: black;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 section.custom-section-job{

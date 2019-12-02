@@ -206,9 +206,9 @@
             singleItem: true,
             addClassActive: true,
             // transitionStyle: "fadeUp",
-            // afterMove: animatetCaptions,
-            // autoPlay: 8000,
-            // stopOnHover: false
+            afterMove: animatetCaptions,
+            autoPlay: 5000,
+            stopOnHover: false
         });
 
         animatetCaptions(); 

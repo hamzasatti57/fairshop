@@ -6,55 +6,65 @@
 
 <!-- ==========  Search wrapper ========== -->
 <!-- ==================  Header content ======================== -->
-
-<section class="header-content">
-  <div class="owl-slider">
+<section class="header-content" id="load-header">
+  <div class="owl-slider ">
 
     <div class="item" style="background-image:url('<%= asset_path('furnishia/0.jpeg') %>');">
       <div id="color-overlay"></div>
-      <div class="box mt-30">
-        <div class="container">
-          <div class="col-md-5">
-            <h4 class="title">Your Creative World</h4>
-            <div class="animated" data-animation="fadeInUp">
-              <p> Find trusted locals, now.</p>
-            </div>
-            <br>
-            <div class="animated" data-animation="fadeInUp">
-              <%= form_tag search_home_index_path  do %>
-                <div class="form-group">
-                  <%= text_field_tag :q, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Find:   Products, Bath and Sanitary , Furniture, Kitchen, Tiles, Interior design", autofocus: true %>
+    </div>
+    <div class="item" style="background-image:url('<%= asset_path('furnishia/Room 2.jpeg') %>');">
+      <div id="color-overlay"></div>
+    </div>
+    <div class="item" style="background-image:url('<%= asset_path('furnishia/Room 6.jpeg') %>');">
+      <div id="color-overlay"></div>
+    </div>
+    <div class="item" style="background-image:url('<%= asset_path('furnishia/Room 7.jpeg') %>');">
+      <div id="color-overlay"></div>
+    </div>
+  </div>
+  <div class="upper-section">
+    <div class="box mt-30">
+      <div class="container">
+        <div class="col-md-5">
+          <h4 class="title title-cutom">Your Creative World</h4>
+          <div class="animated" data-animation="fadeInUp">
+            <p> Find trusted locals, now.</p>
+          </div>
+          <br>
+          <div class="animated" data-animation="fadeInUp">
+            <%= form_tag search_home_index_path  do %>
+              <div class="form-group">
+                <%= text_field_tag :q, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Find:   Products, Bath and Sanitary , Furniture, Kitchen, Tiles, Interior design", autofocus: true %>
 
-                  <%= text_field_tag :location, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Location", autofocus: true %>
+                <%= text_field_tag :location, nil, class: "form-control custom-slider-input", autocomplete: false, placeholder: "Location", autofocus: true %>
 
-                  <%= submit_tag "Search", class: "btn btn-primary btn-md custom-slider-btn"%>
+                <%= submit_tag "Search", class: "btn btn-primary btn-md custom-slider-btn"%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-6">
+          <p class="custom-tiles-heading">The most popular categories picked by customers around the world:</p>
+          <div class="custom-home-tiles">
+            <div class="row">
+              <% @categories.each_with_index  do |category, index| %>
+                <% if index == 9 %>
+                  <% break %>
+                <% end %>
+                <% if index % 3 == 0 %>
+                  <div class="col-md-2">
+                  </div>
+                <% end %>
+                <div class="col-md-3 custom-padding-homepage">
+                  <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
                 </div>
               <% end %>
             </div>
           </div>
-          <div class="col-md-1">
-          </div>
-          <div class="col-md-6">
-            <p class="custom-tiles-heading">The most popular categories picked by customers around the world:</p>
-            <div class="custom-home-tiles">
-              <div class="row">
-                <% @categories.each_with_index  do |category, index| %>
-                  <% if index == 9 %>
-                    <% break %>
-                  <% end %>
-                  <% if index % 3 == 0 %>
-                    <div class="col-md-2">
-                    </div>
-                  <% end %>
-                  <div class="col-md-3 custom-padding-homepage">
-                    <a href="<%= vendors_path(category_id: category.id) %>" class="btn btn-outlined btn-default"><%= category.title %></a>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-          <div style="clear:both"></div>
         </div>
+        <div style="clear:both"></div>
       </div>
     </div>
   </div>
@@ -425,33 +435,33 @@
       <div class="responsivee">
         <% @popular_product_designers.each_with_index do |designer, index| %>
           <% if designer.active == true %>
-          <% if index == 50 %>
-            <% break %>
-          <% end %>
-          <article>
-            <div class="figure-grid custom-card-container text-center">
-              <div class="image custom-figure-grid">
-                <% if designer.profile.image.attached? %>
-                  <%= link_to profiles_path(user_id: designer.id) do %>
-                    <%= image_tag(url_for(designer.profile.image)) %>
-                  <% end %>
-                <% else %>
-                  <%= link_to profiles_path(user_id: designer.id) do %>
-                    <img src="/assets/furnishia/user-1.jpg" alt=""  />
-                  <% end %>
-                <% end %>
-              </div>
-              <div class="text">
-                <%= link_to profiles_path(user_id: designer.id) do %>
-                  <h2 class="title h4"><%= designer.full_name %></h2>
-                  <hr class="card-text-divider">
-                  <span><%= designer.category_title %></span>
-                <% end %>
-              </div>
-              <a href="<%= profiles_path(user_id: designer.id) %>" class="btn card-btn btn-main">View</a>
-            </div>
-          </article>
+            <% if index == 50 %>
+              <% break %>
             <% end %>
+            <article>
+              <div class="figure-grid custom-card-container text-center">
+                <div class="image custom-figure-grid">
+                  <% if designer.profile.image.attached? %>
+                    <%= link_to profiles_path(user_id: designer.id) do %>
+                      <%= image_tag(url_for(designer.profile.image)) %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to profiles_path(user_id: designer.id) do %>
+                      <img src="/assets/furnishia/user-1.jpg" alt=""  />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <%= link_to profiles_path(user_id: designer.id) do %>
+                    <h2 class="title h4"><%= designer.full_name %></h2>
+                    <hr class="card-text-divider">
+                    <span><%= designer.category_title %></span>
+                  <% end %>
+                </div>
+                <a href="<%= profiles_path(user_id: designer.id) %>" class="btn card-btn btn-main">View</a>
+              </div>
+            </article>
+          <% end %>
         <% end %>
       </div>
     </div> <!--/row-->
@@ -578,7 +588,8 @@
     </div>
   </div> <!--/container-->
 </section>
-
-
-
-
+<script>
+    window.onload = function()
+    {
+        document.getElementById('load-header').scrollIntoView();
+    };</script>
