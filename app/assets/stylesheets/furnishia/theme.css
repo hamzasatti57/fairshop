@@ -1,56 +1,4 @@
-﻿/*!
-    ----------------------------------
-
-    * Mobel Furniture Template Theme
-    * Version - 2.2.0
-    * Copyright (c) 2017 ElaThemes.com
-
-    ----------------------------------
-
-    [Table of contents]
-
-    1. Default body styles
-    2. Page loader
-    3. Headings
-    4. Anchors
-    5. Button styles
-    6. Breadcrumbs
-    7. Checkbox
-    8. Sections
-    9. Header
-    10. Main Header
-    11. Main navigation
-    12. Categories
-    13. Header content
-    14. Blocks
-    15. Sort bar
-    16. Price filter
-    17. Pagination
-    18. Filters
-    19. Products category
-    20. Product page
-    21. Product color buttons
-    22. BLog
-    23. Designer
-    24. Tabs navigation
-    25. Comments
-    26. Wrapper more
-    27. Stretcher
-    28. Scroll to top
-    29. Banner
-    30. Main popup
-    31. Instagram
-    32. Checkout
-    33. Checkout steps
-    34. Login wrapper
-    35. Contact
-    36. Map Info window
-    37. Shortcodes
-    38. Tabsy wrapper
-    39. History
-    40. Intro
-    41. Text blocks
-    42. Quotes
+l    42. Quotes
     43. Team
     44. Owl-icons
     45. Footer
@@ -2416,6 +2364,16 @@ nav .cart-wrapper.open {
     overflow: hidden;
     height: 200px;
     width: 200px;
+}
+
+
+@media only screen and (max-width: 600px) {
+ .image {
+    overflow: hidden;
+    height: 200px;
+   /* width: 200px;*/
+   margin:0px auto;
+}
 }
 
 .products article .image a {
@@ -6615,6 +6573,16 @@ section.custom-city-show{
     padding-top: 15px;
 }
 
+
+.@media only screen and (max-width: 700px) {
+  
+  .designer{
+
+    border:1px solid red;
+  }
+
+}
+
 .card-btn{
 padding: 2px 20px;
 }
@@ -6735,4 +6703,34 @@ h2.title.h4.custom-btn-cityy{
 .custom-view-all-btn a{
     margin-top: 30px;
     text-align: center;
+}
+
+.about-content-style{
+
+    margin-bottom: 50px;
+
+}
+.topmargin{
+
+    margin-top: 30px;
+}
+
+
+@media screen and (max-width: 600px) {
+ article.custom-product-article {
+    /*width: 224px;*/
+    margin: 0px auto;
+    height: 331px;
+}
+
+nav .navigation-main .open-menu {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    color: #fff;
+    text-align: center;
+    border-left: 1px solid #333;
+}
 }
