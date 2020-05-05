@@ -1,11 +1,11 @@
 class VendorsController < ApplicationController
   def index
     @category = Category.find(params[:category_id])
-    @vendors = User.vendors.where(active: true, category: @category).paginate(page: params[:page], per_page: 21)
+    @vendors = User.vendors.where(active: true,AAA: false, category: @category).paginate(page: params[:page], per_page: 21)
   end
 
   def popular_list
-    @popular_vendors = User.most_hit(nil,100).where(active: true).paginate(page: params[:page], per_page: 21)
+    @popular_vendors = User.most_hit(nil,100).where(active: true,AAA: false).paginate(page: params[:page], per_page: 21)
   end
 
   def popular_architect
@@ -13,7 +13,7 @@ class VendorsController < ApplicationController
     if category.nil?
       @popular_architects = nil
     else
-      @popular_architects = User.most_hit(nil ,100).vendor.where(active: true, category_id: category.id).paginate(page: params[:page], per_page: 21)
+      @popular_architects = User.most_hit(nil ,100).vendor.where(active: true,AAA: false, category_id: category.id).paginate(page: params[:page], per_page: 21)
     end
   end
 
@@ -22,7 +22,7 @@ class VendorsController < ApplicationController
     if category.nil?
       @popular_interior_designers = nil
     else
-      @popular_interior_designers = User.most_hit(nil ,100).vendor.where(active: true, category_id: category.id).paginate(page: params[:page], per_page: 20)
+      @popular_interior_designers = User.most_hit(nil ,100).vendor.where(active: true,AAA: false, category_id: category.id).paginate(page: params[:page], per_page: 20)
     end
   end
 
@@ -31,7 +31,7 @@ class VendorsController < ApplicationController
     if category.nil?
       @popular_product_designers = nil
     else
-      @popular_product_designers = User.most_hit(nil ,100).vendor.where(active: true, category_id: category.id).paginate(page: params[:page], per_page: 20)
+      @popular_product_designers = User.most_hit(nil ,100).vendor.where(active: true,AAA: false, category_id: category.id).paginate(page: params[:page], per_page: 20)
     end
   end
 
