@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_181934) do
+ActiveRecord::Schema.define(version: 2020_05_05_075317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,13 +34,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_181934) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "admin_advertisements", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "advertisements", force: :cascade do |t|
@@ -91,9 +84,9 @@ ActiveRecord::Schema.define(version: 2019_11_19_181934) do
   create_table "comments", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_id"
     t.integer "parent_type"
     t.string "statement"
-    t.integer "parent_id"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -230,6 +223,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_181934) do
     t.string "contact_details"
     t.boolean "active", default: true
     t.bigint "city_id"
+    t.boolean "AAA", default: false
     t.index ["category_id"], name: "index_users_on_category_id"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true

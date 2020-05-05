@@ -27,6 +27,8 @@ User.create(email:'superadmin@furnishia.com', password: 'superadmin', role: 0, f
 
 
 
+
+
 # @vender = Vender.create(name: 'Tahir',email: 'vender@example.com')
 # @store1 = Store.create(store_name: 'Tahir home Furniture',store_address: 'H block DHA LHR',store_city: 'lahore',store_country: 'pakistan',store_state: 'islambad',store_area: 'DHA',stroe_active: true,vender_id: @vender.id)
 # # @store1.pictures.create(Pathname.new(Rails.root.join("assets/images/mcdonalds_logo.png")).open

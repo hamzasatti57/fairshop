@@ -17,6 +17,7 @@ default: &default
   username: postgres
   password: furnishia_algorepublic
 
+
 development:
   <<: *default
   database: furnishia_development
