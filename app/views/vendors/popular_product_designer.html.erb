@@ -48,7 +48,7 @@
                 <div class="box">
                   <div class="image">
                     <% if designer.profile.image.attached? %>
-                      <%= image_tag(url_for(designer.profile.image.variant(resize: '200x200'))) %>
+                      <%= image_tag(url_for(designer.profile.image)) %>
                     <%else %>
                       <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
                     <% end %>
@@ -75,7 +75,7 @@
               <div class="box">
                 <div class="image">
                   <% if designer.profile.image.attached? %>
-                    <%= image_tag(url_for(designer.profile.image.variant(resize: '200x200'))) %>
+                    <%= image_tag(url_for(designer.profile.image)) %>
                   <%else %>
                     <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
                   <% end %>
