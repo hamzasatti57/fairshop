@@ -1,113 +1,160 @@
-
 <script>
-    $(document).ready( function () {
+    $(document).ready(function() {
         $('#table_id').dataTable();
-    } );
+
+    });
 </script>
 <section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
-  <header>
-    <div class="container">
-      <h1 class="h2 title">Jobs</h1>
-      <ol class="breadcrumb breadcrumb-inverted">
-        <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
-        <li><a class="active" >All jobs</a></li>
-      </ol>
-    </div>
-  </header>
+    <header>
+        <div class="container">
+            <h1 class="h2 title">Jobs</h1>
+            <ol class="breadcrumb breadcrumb-inverted">
+                <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
+                <li><a class="active">All jobs</a></li>
+            </ol>
+        </div>
+    </header>
 </section>
 
 <section class="blog custom-section-job">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <table id="table_id" class="table table-bordered table-striped display nowrap dataTable dtr-inline collapsed">
-          <thead>
-          <tr>
-            <th>Sr#</th>
-            <th>Company</th>
-            <th>Position</th>
-            <th>Description</th>
-            <th>Location</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Salary</th>
-            <th>Actions</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @jobs.each_with_index  do |job, index| %>
-            <tr>
-              <td><%= index  + 1%></td>
-              <td><%= job.user.full_name %></td>
-              <td><%= job.title %></td>
-              <td><%= truncate(job.description, length: 15) %></td>
-              <td><%= truncate(job.address, length: 15) %></td>
-              <td><%= truncate(job.city.title, length: 15) %></td>
-              <td><%= truncate(job.city.country.title, length: 15) %></td>
-              <td><%= job.salary %></td>
-              <td><button type="button" class="custom-job-apply-btn btn-info btn btn-sm" data-toggle="modal" data-target="#<%= job.id %>">Apply</button></td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-        <% @jobs.each  do |job| %>
-          <div class="modal fade custom-job-modal" id="<%= job.id %>" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4 class="modal-title">Apply for job</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="job-listing-table-data  table-boody-scrollbar" style="width: 100%">
+                    <table id="table_id" class="table table-bordered table-striped display nowrap dataTable dtr-inline collapsed  table-sm">
+                        <thead>
+                            <tr>
+                                <th>Sr#</th>
+                                <th>Company</th>
+                                <th>Position</th>
+                                <th>Description</th>
+                                <th>Location</th>
+                                <th>City</th>
+                                <th>Country</th>
+                                <th>Salary</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <% @jobs.each_with_index  do |job, index| %>
+                                <tr>
+                                    
+                                    <td>
+                                        <%= index  + 1%>
+                                    </td>
+                                    
+                                    <td>
+                                        <%= job.user.full_name %>
+                                    </td>
+                                    
+                                    <td>
+                                        <%= job.title %>
+                                    </td>
+                                    
+                                    <td>
+                                        <%= truncate(job.description, length: 15) %>
+                                    </td>
+                                    
+                                    <td>
+                                        <%= truncate(job.address, length: 15) %>
+                                    </td>
+                                    
+                                    <td>
+                                        <%= truncate(job.city.title, length: 15) %>
+                                    </td>
+
+                                    <td>
+                                        <%= truncate(job.city.country.title, length: 15) %>
+                                    </td>
+
+                                    <td>
+                                        <%= job.salary %>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="custom-job-apply-btn btn-info btn btn-sm" data-toggle="modal" data-target="#<%= job.id %>">Apply</button>
+                                    </td>
+                                </tr>
+                                <% end %>
+                        </tbody>
+                    </table>
+
                 </div>
-                <div class="modal-body">
-                  <div class="">
-                    <div class="row">
-                      <div class="flex-l custom-company-detail-modal">
-                        <div class="custom-company-logo">
-                          <% if job.image.attached? %>
-                            <%= image_tag(url_for(job.image),:style => "width: 100%") %>
-                          <% end %>
-                        </div>
-                        <div class="custom-company-info">
-                          <h4> <%= job.user.full_name  %></h4>
-                          <hr class="custom-divider">
-                          <p><%= job.user.profile.address %></p>
-                          <p><%= job.user.profile.phone %></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="custom-company-details">
-                          <hr>
-                          <h5>Salary:<span><%= job.salary %></span> </h5>
-                          <hr>
-                          <h5>Description:</h5>
-                          <p><%= simple_format(job.description) %></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <%= form_tag  job_email_send_job_mails_path, method: :post, multipart: true  do %>
-                        <div class="form-group">
-                          <%= hidden_field_tag :to_email, job.user.email  %>
-                          <%= text_field_tag :name, nil, class: "form-control ", autocomplete: false, placeholder: "Full Name", autofocus: true, :required => true %>
-                          <%= text_field_tag :from_email, nil, class: "form-control", autocomplete: false, placeholder: "Email", autofocus: true, :required => true %>
-                          <%= file_field_tag :attachment , :required => true%>
-                          <%= submit_tag "Apply", class: "custom-modal-email-btn btn btn-primary btn-md custom-slider-btn"%>
-                        </div>
-                      <% end %>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-              </div>
+
+                
             </div>
-          </div>
-        <% end %>
-      </div>
-    </div> <!--/row-->
-  </div><!--/container-->
+        </div>
+         </div>
+        <!--/row-->
+
+
+
+
+
+
+
+        <% @jobs.each  do |job| %>
+                    <div class="modal fade custom-job-modal" id="<%= job.id %>" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Apply for job</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="flex-l custom-company-detail-modal">
+                                                <div class="custom-company-logo">
+                                                    <% if job.image.attached? %>
+                                                        <%= image_tag(url_for(job.image),:style => "width: 100%") %>
+                                                            <% end %>
+                                                </div>
+                                                <div class="custom-company-info">
+                                                    <h4> <%= job.user.full_name  %></h4>
+                                                    <hr class="custom-divider">
+                                                    <p>
+                                                        <%= job.user.profile.address %>
+                                                    </p>
+                                                    <p>
+                                                        <%= job.user.profile.phone %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="custom-company-details">
+                                                    <hr>
+                                                    <h5>Salary:<span><%= job.salary %></span> </h5>
+                                                    <hr>
+                                                    <h5>Description:</h5>
+                                                    <p>
+                                                        <%= simple_format(job.description) %>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <%= form_tag  job_email_send_job_mails_path, method: :post, multipart: true  do %>
+                                                <div class="form-group">
+                                                    <%= hidden_field_tag :to_email, job.user.email  %>
+                                                        <%= text_field_tag :name, nil, class: "form-control ", autocomplete: false, placeholder: "Full Name", autofocus: true, :required => true %>
+                                                            <%= text_field_tag :from_email, nil, class: "form-control", autocomplete: false, placeholder: "Email", autofocus: true, :required => true %>
+                                                                <%= file_field_tag :attachment , :required => true%>
+                                                                    <%= submit_tag "Apply", class: "custom-modal-email-btn btn btn-primary btn-md custom-slider-btn"%>
+                                                </div>
+                                                <% end %>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% end %>
+   
+    <!--/container-->
 </section>
