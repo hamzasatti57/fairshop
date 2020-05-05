@@ -34,4 +34,8 @@ class VendorsController < ApplicationController
       @popular_product_designers = User.most_hit(nil ,100).vendor.where(active: true, category_id: category.id).paginate(page: params[:page], per_page: 20)
     end
   end
+
+  def aaa_caetgory
+    @aaa = User.all.where(:AAA => true).paginate(page: params[:page], per_page: 20)
+  end
 end
