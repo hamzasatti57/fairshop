@@ -1,0 +1,64 @@
+
+<!-- ========================  Main header ======================== -->
+
+<section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
+  <header>
+    <div class="container">
+      <h1 class="h2 title"> AAA</h1>
+      <ol class="breadcrumb breadcrumb-inverted">
+        <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
+        <li><a class="active" > Popular AAA</a></li>
+      </ol>
+    </div>
+  </header>
+</section>
+
+<!-- ========================  Product ======================== -->
+
+<section class="product custom-city-show">
+  <!-- === product-info === -->
+  <div class="container">
+    <div class="row">
+      <% @aaa.each_with_index do |vendor, index| %>
+        <div class="col-md-4">
+          <div class="designer" style="margin-top: 0">
+            <div class="box">
+              <div class="image">
+                <% if vendor.profile.image.attached? %>
+                  <%= image_tag(url_for(vendor.profile.image.variant(resize: '200x200'))) %>
+                <%else %>
+                  <img src="/assets/furnishia/user-1.jpg" alt="" width="200" />
+                <% end %>
+              </div>
+              <div class="name">
+                <%if vendor.display_products? %>
+                  <%= link_to products_path(user_id: vendor.id) do %>
+                    <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
+                  <% end %>
+                  <%else %>
+                  <%= link_to profiles_path(user_id: vendor.id) do %>
+                    <div class="h3 title"><%= vendor.full_name %> <small><%= vendor.category_title %></small></div>
+                  <% end %>
+                  <%end %>
+                <hr/>
+                <p><a href="mailto:johndoe@mail.com"><i class="icon icon-envelope"></i> <%= vendor.email %></a></p>
+                <p><a href="tel:002255858"><i class="icon icon-phone-handset"></i> <%= vendor.profile.phone %></a></p>
+                <p>
+                  <a href="<%= vendor.profile.facebook %>" class="btn btn-main btn-xs"><i class="fa fa-facebook"></i></a>
+                  <a href="<%= vendor.profile.instagram %>" class="btn btn-main btn-xs"><i class="fa fa-instagram"></i></a>
+                  <a href="<%= vendor.profile.twitter %>" class="btn btn-main btn-xs"><i class="fa fa-twitter"></i></a>
+                </p>
+              </div> <!--/name-->
+            </div> <!--/box-->
+          </div> <!--/designer-->
+        </div>
+      <% end %>
+    </div><!--/container-->
+  </div>
+</section>
+
+<div class="pagination-wrapper">
+  <%= will_paginate @aaa %>
+</div>
+<!-- ================== Footer  ================== -->
+

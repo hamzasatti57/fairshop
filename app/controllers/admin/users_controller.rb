@@ -17,9 +17,9 @@ class Admin::UsersController < AdminController
     @user = User.new(user_params.merge(role: 1))
     if @user.save
       flash[:success] = "Vendor was successfully created"
-      if current_user.role.is_admin?
+      if current_user.is_admin?
         redirect_to admin_users_path
-      elsif current_user.role.is_vendor?
+      elsif current_user.is_vendor?
         @user.punch(request)
         redirect_to admin_dashboards_path
       end
@@ -57,7 +57,7 @@ class Admin::UsersController < AdminController
 
     def user_params
       params.required(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation,
-      :username,:contact_details, :category_id, :active, :city_id)
+      :username,:contact_details, :category_id, :active, :city_id, :AAA)
     end
 
     def get_user

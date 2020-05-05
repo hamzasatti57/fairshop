@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     @popular_products = Product.most_hit(nil, 100)
     @popular_vendors = User.product_vendors.most_hit(nil,100)
     @advertisements = Advertisement.all.order("created_at DESC")
-
+    @aaa = User.all
     category = Category.find_by(title: 'Architects')
     if category.nil?
       @popular_architects = []

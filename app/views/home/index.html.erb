@@ -201,6 +201,67 @@
 </section>
 
 
+<section class="products custom-product-homepage">
+  <div class="container">
+    <!-- === header title === -->
+    <header>
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 text-center">
+          <h2 class="title">Most Viewed AAA</h2>
+          <div class="text custom-divider">
+            <p>Check out our AAA</p>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="row">
+      <div class="responsivee">
+        <% @aaa.each_with_index do |vendor, index| %>
+          <% if vendor.active == true && vendor.AAA == true %>
+            <% if index == 50 %>
+              <% break %>
+            <% end %>
+            <article>
+              <div class="figure-grid custom-card-container text-center">
+                <div class="image custom-figure-grid">
+                  <% if vendor.profile.image.attached? %>
+                    <%= link_to profiles_path(user_id: vendor.id) do %>
+                      <%= image_tag(url_for(vendor.profile.image)) %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to profiles_path(user_id: vendor.id) do %>
+                      <img src="/assets/furnishia/user-1.jpg" />
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="text">
+                  <%= link_to profiles_path(user_id: vendor.id) do %>
+                    <h2 class="title h4"><%= vendor.full_name %></h2>
+                    <hr class="card-text-divider">
+                    <span><%= vendor.category_title %></span>
+                  <% end %>
+                </div>
+                <a href="<%= profiles_path(user_id: vendor.id) %>" class="btn card-btn btn-main">View</a>
+              </div>
+            </article>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <!-- === button more === -->
+    <div class="wrapper-more">
+      <a href="<%= aaa_caetgory_vendors_path %>" class="btn btn-main">View More AAA</a>
+      <hr class="home-page">
+    </div>
+  </div> <!--/container-->
+</section>
+
+
+
+
+
+
 <!-- ========================  Products widget ======================== -->
 <section class="products custom-product-homepage">
   <div class="container">

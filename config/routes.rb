@@ -37,6 +37,8 @@ Rails.application.routes.draw do
       get :popular_architect
       post :popular_interior_designer
       get :popular_interior_designer
+      post :aaa_caetgory
+      get :aaa_caetgory
     end
   end
   resources :projects
