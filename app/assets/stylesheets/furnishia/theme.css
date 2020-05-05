@@ -1,4 +1,4 @@
-l    42. Quotes
+/*   42. Quotes
     43. Team
     44. Owl-icons
     45. Footer
@@ -1023,7 +1023,7 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
         transform: rotateY(0deg);
     }
     nav .navigation-main .floating-menu > ul > li:last-child > a {
-        padding-right: 10;
+        padding-right: 10px;
     }
     nav .navigation-main .floating-menu > ul > li:last-child .navbar-dropdown.navbar-dropdown-single {
         right: 0;
@@ -6553,7 +6553,7 @@ section.custom-product-homepage{
     display: inline-block;
     padding: 6px 12px;
 }
-.current:hover, .current:active,{
+.current:hover, .current:active{
     border: 0;
     /* border-radius: 100%; */
     color: white;
@@ -6576,7 +6576,7 @@ section.custom-city-show{
 }
 
 
-.@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px) {
   
   .designer{
 
@@ -6724,56 +6724,56 @@ h2.title.h4.custom-btn-cityy{
 
 
 @media screen and (max-width: 600px) {
- article.custom-product-article {
-    /*width: 224px;*/
-    margin: 0px auto;
-    height: 331px;
-}
+    article.custom-product-article {
+        /*width: 224px;*/
+        margin: 0px auto;
+        height: 331px;
+    }
 
 
-.designer .image {
-    background: #ffffff;
-    padding: 10px;
-    border-bottom: 1px solid #dddddd;
-    border:1px solid #dddd;
-}
+    .designer .image {
+        background: #ffffff;
+        padding: 10px;
+        border-bottom: 1px solid #dddddd;
+        border: 1px solid #dddd;
+    }
 
-.designer .name {
-    background-color: #f5f5f5;
-    text-align: left;
-    padding-left: 15px;
-    padding: 20px !important;
-    border:1px solid #dddd;
-}
+    .designer .name {
+        background-color: #f5f5f5;
+        text-align: left;
+        padding-left: 15px;
+        padding: 20px !important;
+        border: 1px solid #dddd;
+    }
 
-#table_id_filter{
+    #table_id_filter {
 
-    text-align: left;
-}
-#table_id_filter label input {
+        text-align: left;
+    }
 
-    width: 100%;
-}
+    #table_id_filter label input {
 
-#table_id_length{
+        width: 100%;
+    }
 
-    text-align: left;
+    #table_id_length {
 
-}
+        text-align: left;
 
-div.dataTables_wrapper div.dataTables_length select {
-    width: auto;
-    display: inline-block;
-    margin-left: 20px;
-}
+    }
+
+    div.dataTables_wrapper div.dataTables_length select {
+        width: auto;
+        display: inline-block;
+        margin-left: 20px;
+    }
 
 
-#table_id_paginate{
-     text-align: left; 
-}
+    #table_id_paginate {
+        text-align: left;
+    }
 
-.dataTables_info{
-    text-align: 
-}
-
+    .dataTables_info {
+        text-align: center;
+    }
 }
