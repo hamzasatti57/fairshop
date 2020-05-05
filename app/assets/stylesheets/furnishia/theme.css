@@ -6723,14 +6723,4 @@ h2.title.h4.custom-btn-cityy{
     height: 331px;
 }
 
-nav .navigation-main .open-menu {
-    position: absolute;
-    top: 0px;
-    right: 0;
-    width: 40px;
-    height: 100%;
-    color: #fff;
-    text-align: center;
-    border-left: 1px solid #333;
-}
 }
