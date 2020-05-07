@@ -18,6 +18,8 @@
     width: 100%;
     color: #fff;
     top: 52%;
+    height: auto;
+
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
@@ -1730,7 +1732,7 @@ nav .cart-wrapper.open {
 .header-content {
     padding: 0;
     position: relative;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .header-content .item {
@@ -6548,16 +6550,6 @@ section.custom-city-show{
     padding-top: 15px;
 }
 
-
-@media only screen and (max-width: 700px) {
-  
-  .designer{
-
-    border:1px solid red;
-  }
-
-}
-
 .card-btn{
 padding: 2px 20px;
 }
@@ -6695,11 +6687,57 @@ h2.title.h4.custom-btn-cityy{
 
 
 @media screen and (max-width: 600px) {
-    article.custom-product-article {
-        /*width: 224px;*/
-        margin: 0px auto;
-        height: 331px;
+    
+    /*home-screen-image-center*/
+    .products article .image {
+    overflow: hidden;
+    height: 200px;
+    margin:0px auto;
+}
+
+
+.custom-tiles-heading {
+    
+    margin:3px auto 15px auto;
+}
+
+/*.custom-padding-homepage {
+    padding: 2px;
+}
+*/
+.header-content .owl-theme .owl-controls .owl-pagination {
+    text-align: end;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+/*navbar-icon*/
+ nav .navigation-main .open-menu .icon {
+        font-size: 15px;
+        line-height: 24px;
     }
+
+
+    /*search bar-item-align*/
+
+    .custom-product-article {
+    /* width: 224px;*/ 
+    height: 331px;
+    margin: 0px auto;
+}
+
+
+.header-content .item {
+    height: 1270px;
+    position: relative;
+    /*overflow: hidden;*/
+    background-position: center;
+    background-size: cover;
+}
+
+.contact .contact-block {
+    margin-top: -324px;
+}
 
 
     .designer .image {
@@ -6747,5 +6785,30 @@ h2.title.h4.custom-btn-cityy{
     .dataTables_info {
         text-align: center;
     }
+
+
+    .image .custom-figure-grid{
+
+        margin:0px auto;
+    }
+
+    .owl-carousel .owl-wrapper-outer {
+   /* overflow: hidden;*/
+    position: relative;
+    width: 100%;
+    height:1270px;
 }
+
+/*.w-100{
+
+    height: 100vh;
+}*/
+
+}
+
+
+
+
+
+
 >>>>>>> bbbb27f6a44cb69db2e4fea7adbed6f726002798

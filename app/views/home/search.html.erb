@@ -68,7 +68,7 @@
         </div> <!--/filters-->
       </div>
       <!--product items-->
-      <div class="col-md-8 col-xs-12" id="product-items">
+      <div class="col-md-8 col-xs-12">
         <% if !@products.nil? %>
           <%= render partial: 'product_items', locals: { products: @products } %>
         <% end %>
@@ -76,6 +76,8 @@
     </div><!--/row-->
   </div><!--/container-->
 </section>
+
+
 <div class="pagination-wrapper">
   <%= will_paginate @products %>
 </div>
