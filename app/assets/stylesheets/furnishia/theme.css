@@ -1113,8 +1113,8 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
         display: none;
         background-color: #1a1a1a;
         padding: 0 10px;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
+        /*border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;*/
         margin-bottom: 10px;
     }
     nav .navigation-main .floating-menu > ul {
@@ -1326,7 +1326,7 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
         padding: 0;
     }
     nav .navigation-main .navbar-dropdown .navbar-box ul > li > a {
-        border-color: #252525;
+        /*border-color: #252525;*/
         font-size: 14px;
         padding-top: 8px;
         padding-bottom: 8px;
@@ -6695,6 +6695,14 @@ h2.title.h4.custom-btn-cityy{
     margin:0px auto;
 }
 
+
+.navbar-dropdown.navbar-dropdown-single {
+     margin-left: 0%; 
+}
+
+ nav .navigation-main .navbar-dropdown .box-1 {
+        display: block;
+    }
 
 .custom-tiles-heading {
     
