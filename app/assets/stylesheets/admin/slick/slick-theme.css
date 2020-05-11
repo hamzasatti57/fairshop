@@ -114,6 +114,7 @@
 }
 
 /* Dots */
+
 .slick-dotted.slick-slider
 {
     margin-bottom: 30px;
@@ -130,6 +131,8 @@
     list-style: none;
     text-align: center;
 }
+
+
 .slick-dots li
 {
     position: relative;
@@ -205,27 +208,6 @@
 
 
 
-
-@media screen and(max-width: 600px) {
-
-.slick-dots li button {
-    font-size: 0;
-    line-height: 0;
-    display: none;
-    width: 20px;
-    height: 20px;
-    padding: 5px;
-    cursor: pointer;
-    color: transparent;
-    border: 0;
-    outline: 0;
-    background: 0 0;
-}
-
-
-
-
-}
 
 
 
