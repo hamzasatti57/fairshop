@@ -718,9 +718,9 @@ nav .navigation ul li {
     list-style-type: none;
 }
 
-nav .navigation > ul {
+/*nav .navigation > ul {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
+}*/
 
 nav .navigation > ul > li,
 nav .navigation > ul > li > a {
@@ -829,6 +829,7 @@ nav .navigation-main .floating-menu > ul > li > a {
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
+   /* background-color:red;*/
 }
 
 nav .navigation-main .navbar-dropdown .navbar-box .row > div {
@@ -908,6 +909,9 @@ nav .navigation-main .navbar-dropdown .navbar-box ul > li:last-child > a {
         position: relative;
         text-align: right;
         border-bottom: 0px solid #CCC;
+        background-color: reen;
+        float: right;
+
     }
     nav .navigation-main .floating-menu > ul > li > a {
         color: white;
@@ -6686,6 +6690,22 @@ h2.title.h4.custom-btn-cityy{
 }
 
 
+
+
+
+
+
+
+/*logo*/
+
+.logo-class-section{
+
+background-color: red;
+float: left;
+margin-top: -32px;
+
+}
+
 @media screen and (max-width: 600px) {
     
     /*home-screen-image-center*/
@@ -6818,7 +6838,7 @@ section.custom-product-homepage {
 
 
 
-.pagination .current {
+.pagination.current {
     border: 0;
     color: white;
     background-color: #000 !important;
@@ -6925,6 +6945,21 @@ section.custom-product-homepage {
 {
     opacity: .75;
     color: black;
+}
+
+
+/*----logo on small device-----*/
+
+.logo-class-section{
+
+
+
+
+    background-color: red;
+    float: left;
+    margin-top: -66px;
+    
+
 }
 
 

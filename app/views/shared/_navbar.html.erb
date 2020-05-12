@@ -6,49 +6,25 @@
     <!-- ==========  Top navigation ========== -->
 <div class="row">
   <div class="col-md-12">
-      <div class="navigation navigation-top clearfix">
 
-       <!--  -->
-
-
-
+    <div class="navigation navigation-top clearfix">
 
 <!-- <a href="<%= root_path %>" class="logo" >
-
-       
       </a> -->
 <!-- </div> -->
+     <!-- <div class="logo-div" style="display:inlin-block;margin-left:10px;padding-left:20px;float:left; width:100px;height:100px;background-color: green"> 
+    </div> -->
+
+
         
-      <ul >
-         
-       <li style="float: left">
-         
-         <div class="logo-div" style="display: inline;margin-left:10px;padding-left:20px;float:left; width:50px;height:35px;"> <%= image_tag "furnishia/logo_icon.jpeg",style: 'height:35px;width:100%;' %>
-</div>
-
-
-
-
-       </li>
-        <!--add active class for current page-->
-        <!--Language selector-->
-
-        <!--        <li><a href="javascript:void(0);" class="open-search"><i class="icon icon-magnifier"></i></a></li>-->
-<!--    </div>-->
-<!--    <span>-->
-<!--              <h5>For Company Account</h5>-->
-<!--              <a href="<%#= new_user_session_path %>">Login &nbsp; &nbsp;</a>-->
-<!--              <a href="<%#= new_user_registration_path %>">Registration</a>-->
-<!--            </span>-->
-<!--  </div>-->
-        <li style="color: white">Company &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;</li>
-        <li> <a href="<%= new_user_session_path %>">Sign In</a></li>
-        <li> <a href="<%= new_user_registration_path %>">Sign Up</a></li>
-<!--        <li><a href="javascript:void(0);" onclick="signin_signup_function()" id="1" class="open-login">Login</a></li>-->
-<!--        <li><a href="javascript:void(0);" onclick="signin_signup_function()" id="2" class="open-login">Register</a></li>-->
-
+      <ul style="float:right">
+        <li style="color: white;">Company &nbsp; &nbsp; &nbsp;   &nbsp; &nbsp;</li>
+        <li > <a href="<%= new_user_session_path %>">Sign In</a></li>
+        <li > <a href="<%= new_user_registration_path %>">Sign Up</a></li>
       </ul>
     </div> <!--/navigation-top-->
+
+
   </div>
   
 </div>
@@ -57,13 +33,13 @@
     <!-- ==========  Main navigation ========== -->
 <div class="row">
   <div class="col-md-12">
-       <div class="navigation navigation-main">
+
+       <div class="navigation navigation-main d-inline-flex">
 
       <!-- Setup your logo here-->
 
-      <a href="<%= root_path %>" class="logo">
-
-        <%= image_tag "" %>
+         <a href="<%= root_path %>"  class="logo-class-section">
+        <%= image_tag "furnishia/logo_icon.jpeg",style: 'height:100px;' %>
       </a>
 
       <!-- Mobile toggle menu -->
@@ -106,7 +82,28 @@
           <li><a href="<%= jobs_path%>">Jobs</a></li>
         </ul>
       </div> <!--/floating-menu-->
-    </div> <!--/navigation-main-->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   </div>
 </div>
  
