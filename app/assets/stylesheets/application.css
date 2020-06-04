@@ -15,15 +15,31 @@
 
 
  *= require_self
- *= require furnishia/bootstrap.css
+ *= require furnishia_1/bootstrap.css
+ *= require furnishia_1/animate.css
+ *= require furnishia_1/font-awesome.css
+ *= require furnishia_1/furniture-icons.css
+ *= require furnishia_1/linear-icons.css
+ *= require furnishia_1/magnific-popup.css
+ *= require furnishia_1/owl.carousel.css
+ *= require furnishia_1/ion-range-slider.css
+ *= require furnishia_1/theme.css
+ *= require furnishia/all.css
  *= require furnishia/animate.css
- *= require furnishia/font-awesome.css
- *= require furnishia/furniture-icons.css
- *= require furnishia/linear-icons.css
+ *= require furnishia/aos.css
+ *= require furnishia/flaticon.css
+ *= require furnishia/font-awesome.min.css
+ *= require furnishia/lightslider.min.css
  *= require furnishia/magnific-popup.css
- *= require furnishia/owl.carousel.css
- *= require furnishia/ion-range-slider.css
- *= require furnishia/theme.css
+ *= require furnishia/nice-select.css
+ *= require furnishia/owl.carousel.min.css
+ *= require furnishia/price_rangs.css
+ *= require furnishia/slick-theme.min.css
+ *= require furnishia/slick.css
+ *= require furnishia/slick.min.css
+ *= require furnishia/style.css
+ *= require furnishia/swiper.min.css
+ *= require furnishia/themify-icons.css
  *= require toastr
  *= require datatables
  */
