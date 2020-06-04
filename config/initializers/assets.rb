@@ -13,4 +13,3 @@ Rails.application.config.assets.precompile += %w( admin.js )
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
-@fontPath: 'https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/themes/default/assets/fonts';
