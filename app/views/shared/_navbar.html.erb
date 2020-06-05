@@ -78,13 +78,28 @@
                 </div>
             </div>
         </div>
-<!--         <div class="search_input" id="search_input_box">
+        <div class="search_input" id="search_input_box">
             <div class="container ">
                 <form class="d-flex justify-content-between search-inner">
                     <input type="text" class="form-control" id="search_input" placeholder="Search Here">
                     <button type="submit" class="btn"></button>
-                    <span class="ti-close" id="close_search" title="Close Search"></span>
+                    <span class="ti-close fa fa-close" id="close_search" title="Close Search"></span>
                 </form>
             </div>
-        </div> -->
+        </div>
     </header>
+
+    <script type="text/javascript">
+      // $(document).ready(function(){
+        // Search Toggle
+        $("#search_input_box").hide();
+        $("#search_1").on("click", function () {
+          $("#search_input_box").slideToggle();
+          $("#search_input").focus();
+        });
+        $("#close_search").on("click", function () {
+          $('#search_input_box').slideUp(500);
+        });
+      // })
+
+    </script>
