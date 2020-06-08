@@ -1,127 +1,123 @@
-<section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
-    <header>
-        <div class="container text-center">
-            <h2 class="h2 title">Contact</h2>
-            <ol class="breadcrumb breadcrumb-inverted">
-                <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
-                <li><a class="active">Contact Us</a></li>
-            </ol>
+<!-- ========================  Main header ======================== -->
+  <section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb_iner text-center">
+            <div class="breadcrumb_iner_item">
+              <h2>Contact</h2>
+            </div>
+          </div>
         </div>
-    </header>
-</section>
+      </div>
+    </div>
+  </section>
 
 <!-- ========================  Contact ======================== -->
 
-<section class="contact">
-
-    <!-- === Goolge map === -->
-
-    <div id="map"></div>
-
+  <!-- ================ contact section start ================= -->
+  <section class="contact-section padding_top">
     <div class="container">
+      <div class="d-none d-sm-block mb-5 pb-4">
+        <div id="map" style="height: 480px;"></div>
+        <script>
+          function initMap() {
+            var uluru = {
+              lat: -25.363,
+              lng: 131.044
+            };
+            var grayStyles = [{
+                featureType: "all",
+                stylers: [{
+                    saturation: -90
+                  },
+                  {
+                    lightness: 50
+                  }
+                ]
+              },
+              {
+                elementType: 'labels.text.fill',
+                stylers: [{
+                  color: '#ccdee9'
+                }]
+              }
+            ];
+            var map = new google.maps.Map(document.getElementById('map'), {
+              center: {
+                lat: -31.197,
+                lng: 150.744
+              },
+              zoom: 9,
+              styles: grayStyles,
+              scrollwheel: false
+            });
+          }
+        </script>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap">
+        </script>
 
-        <div class="row">
+      </div>
 
-            <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
 
-                <div class="contact-block">
-
-                    <div class="contact-info">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <figure class="text-center">
-                                    <span class="icon icon-map-marker"></span>
-                                    <figcaption>
-                                        <strong>Where are we?</strong>
-                                        <span>NETSOL Avenue، Main Ghazi Rd,  <br />Khuda Buksh Colony, Lahore,</span>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <div class="col-sm-4">
-                                <figure class="text-center">
-                                    <span class="icon icon-phone"></span>
-                                    <figcaption>
-                                        <strong>Call us</strong>
-                                        <span>
-                                                    <strong>Email: </strong> contact@furnishia.com <br />
-                                                    <strong>Phone No: </strong> +92-313-4331213
-                                                </span>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                            <div class="col-sm-4">
-                                <figure class="text-center">
-                                    <span class="icon icon-clock"></span>
-                                    <figcaption>
-                                        <strong>Working hours</strong>
-                                        <span>
-                                                    <strong>Mon</strong> - Sat: 10 am - 6 pm <br />
-                                                    <strong>Sun</strong> 12pm - 2 pm
-                                                </span>
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="banner">
-                        <div class="row">
-                            <div class="col-md-offset-1 col-md-10 text-center">
-                                <h2 class="title">Send an email</h2>
-                                <p>
-                                    Thanks for your interest in Mobel Theme. We believe in creativity as one of the major forces of progress. Please use this form if you have any questions about our products and we'll get back with you very soon.
-                                </p>
-
-                                <div class="contact-form-wrapper">
-
-                                    <a class="btn btn-clean open-form" data-text-open="Contact us via form" data-text-close="Close form">Contact us via form</a>
-
-                                    <div class="contact-form clearfix">
-                                        <form id="sendmail" name="sendmail" action="sendmail.php" method="post">
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input id="Name" name="Name" type="text" value="" class="form-control" placeholder="Your name">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <input id="Email" name="Email" type="email" value="" class="form-control" placeholder="Your email">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <input id="Subject" name="Subject" type="text" value="" class="form-control" placeholder="Subject">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <textarea id="Comment" name="Comment" class="form-control" placeholder="Your message" rows="10"></textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-12 text-center">
-                                                    <input type="submit" class="btn btn-clean" value="Send message" />
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                  
-                </div>
-
-            </div>
-            <!--col-sm-8-->
+      <div class="row">
+        <div class="col-12">
+          <h2 class="contact-title">Get in Touch</h2>
         </div>
-        <!--/row-->
+        <div class="col-lg-8">
+          <form id="sendmail" name="sendmail" action="sendmail.php" method="post">
+            <div class="row">
+              <div class="col-12">
+                <div class="form-group">
+                  <textarea id="Comment" name="Comment" class="form-control w-100" placeholder='Enter Message'  cols="30" rows="9"></textarea>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input id="Name" name="Name" type="text" value="" class="form-control" placeholder="Enter your name">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input id="Email" name="Email" type="email" value="" class="form-control" placeholder="Enter email address">
+              </div>
+            </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <input id="Subject" name="Subject" type="text" value="" class="form-control" placeholder="Enter Subject">
+                </div>
+              </div>
+                
+            </div>
+            <div class="form-group mt-3">
+              <input type="submit" class="btn_3 button-contactForm" value="Send message" />
+            </div>
+          </form>
+        </div>
+        <div class="col-lg-4">
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="fa fa-home"></i></span>
+            <div class="media-body">
+              <h3>Buttonwood, California.</h3>
+              <p>Rosemead, CA 91770</p>
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="fa fa-tablet"></i></span>
+            <div class="media-body">
+              <h3>00 (440) 9865 562</h3>
+              <p>Mon to Fri 9am to 6pm</p>
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="fa fa-envelope"></i></span>
+            <div class="media-body">
+              <h3>support@colorlib.com</h3>
+              <p>Send us your query anytime!</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!--/container-->
-</section>
+  </section>
