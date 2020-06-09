@@ -21,6 +21,7 @@
 //= require furnishia_1/jquery.isotope.pkgd.js
 //= require furnishia_1/main.js
 //= require furnishia/popper.min.js
+//= require furnishia/lightslider.min.js
 //= require furnishia/bootstrap.min.js
 //= require furnishia/jquery.magnific-popup.js
 //= require furnishia/swiper.min.js
