@@ -4,19 +4,23 @@
 
     });
 </script>
-<section class="main-header" style="background-image:url(assets/images/gallery-2.jpg)">
-    <header>
-        <div class="container">
-            <h1 class="h2 title">Jobs</h1>
-            <ol class="breadcrumb breadcrumb-inverted">
-                <li><a href="<%= root_path %>"><span class="icon icon-home"></span></a></li>
-                <li><a class="active">All jobs</a></li>
-            </ol>
+  <!-- breadcrumb start-->
+  <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/breadcrumb.png') %>');">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="breadcrumb_iner">
+            <div class="breadcrumb_iner_item">
+              <h2>JOBS</h2>
+              <p>Home <span>-</span> Jobs</p>
+            </div>
+          </div>
         </div>
-    </header>
-</section>
+      </div>
+    </div>
+  </section>
 
-<section class="blog custom-section-job">
+<section class="blog custom-section-job" style="background-color: #ffffff">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -85,12 +89,6 @@
         </div>
          </div>
         <!--/row-->
-
-
-
-
-
-
 
         <% @jobs.each  do |job| %>
                     <div class="modal fade custom-job-modal" id="<%= job.id %>" role="dialog">

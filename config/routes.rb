@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  resources :confirmation
+  resources :cart
+  resources :checkout
+  resources :tracking
+  resources :brands
   resources :about
   resources :product_category
   resources :what_new

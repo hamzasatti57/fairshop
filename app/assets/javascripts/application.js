@@ -13,15 +13,15 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require furnishia_1/jquery.min.js
+//= require furnishia/jquery-1.12.1.min.js
 //= require furnishia_1/jquery.bootstrap.js
 //= require furnishia_1/jquery.magnific-popup.js
 //= require furnishia_1/jquery.owl.carousel.js
 //= require furnishia_1/jquery.ion.rangeSlider.js
 //= require furnishia_1/jquery.isotope.pkgd.js
 //= require furnishia_1/main.js
-//= require furnishia/jquery-1.12.1.min.js
 //= require furnishia/popper.min.js
+//= require furnishia/lightslider.min.js
 //= require furnishia/bootstrap.min.js
 //= require furnishia/jquery.magnific-popup.js
 //= require furnishia/swiper.min.js
