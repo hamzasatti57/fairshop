@@ -2,14 +2,14 @@
 /**************** extend css start ****************/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_extends.scss */
-.btn_2, .form-contact .form-group .btn_1 i {
+/*.btn_2, .form-contact .form-group .btn_1:hover {
   background-image: linear-gradient(16deg, #FF005A 0%, #FF5D2D 64%, #FFBA00 100%);
-}
+}*/
 
 /* line 10, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_extends.scss */
-.form-contact .form-group .btn_1 {
+/*.form-contact .form-group .btn_1 {
   background-image: linear-gradient(to left, #fff 0%, #fff 51%, #fff 100%);
-}
+}*/
 
 /**************** extend css start ****************/
 /**************** common css start ****************/
@@ -555,6 +555,7 @@ ul {
 .btn_2:hover {
   color: #fff !important;
   background-position: right center;
+
 }
 
 @media (max-width: 991px) {
@@ -7777,8 +7778,8 @@ h6 {
 
 /*# sourceMappingURL=style.css.map */
 
-.btn-1{
-  background-color: #8dc63f;
+.btn_custom_1{
+  background-color: #8dc63f !important;
 }
 
 .custom-top-bar{
