@@ -34,7 +34,7 @@ input:focus {
 
 /* line 20, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
 .gray_bg {
-  background-color: #ecfdff;
+  background-color: #8dc63f52;
 }
 
 /* line 24, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
@@ -491,7 +491,7 @@ ul {
   display: inline-block;
   padding: 9px 42px;
   border-radius: 50px;
-  background-color: #ecfdff;
+  background-color: #8dc63f52;
   font-size: 15px;
   font-weight: 700;
   color: #333;
@@ -511,7 +511,7 @@ ul {
   padding: 9px 42px;
   border-radius: 50px;
   background-color: #e9414f;
-  border: 1px solid #ecfdff;
+  border: 1px solid #8dc63f52;
   font-size: 15px;
   font-weight: 700;
   color: #fff;
@@ -2425,7 +2425,7 @@ ul {
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_banner.scss */
 .banner_part {
   position: relative;
-  background-color: #ecfdff;
+  background-color: #8dc63f52;
   overflow: hidden;
 }
 
@@ -2921,7 +2921,7 @@ ul {
 /************* our offer *****************/
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_our_offer.scss */
 .our_offer {
-  background-color: #ecfdff;
+  background-color: #8dc63f52;
 }
 
 /* line 5, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_our_offer.scss */
@@ -4081,7 +4081,7 @@ ul {
 
 /* line 818, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_description_area .tab-content .total_rate .box_total {
-  background: #ecfdff;
+  background: #8dc63f52;
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -4580,8 +4580,8 @@ ul {
 .cart_inner .table tbody tr.shipping_area .shipping_box .shipping_select {
   display: block;
   width: 100%;
-  background: #ecfdff;
-  border: 1px solid #ecfdff;
+  background: #8dc63f52;
+  border: 1px solid #8dc63f52;
   height: 40px;
   margin-bottom: 20px;
 }
@@ -4603,8 +4603,8 @@ ul {
 .cart_inner .table tbody tr.shipping_area .shipping_box input {
   height: 40px;
   outline: none;
-  background: #ecfdff;
-  border: 1px solid #ecfdff;
+  background: #8dc63f52;
+  border: 1px solid #8dc63f52;
   width: 100%;
   padding: 0px 15px;
   margin-bottom: 20px;
@@ -4675,7 +4675,7 @@ ul {
   font-size: 14px;
   font-weight: normal;
   font-family: "Poppins", sans-serif;
-  background: #ecfdff;
+  background: #8dc63f52;
   line-height: 40px;
   padding-left: 30px;
   margin-bottom: 0px;
@@ -4980,7 +4980,7 @@ ul {
 
 /* line 1599, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .order_box {
-  background: #ecfdff;
+  background: #8dc63f52;
   padding: 30px;
 }
 
@@ -5531,7 +5531,7 @@ ul {
 
 /* line 11, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
 .confirmation_part .single_confirmation_details {
-  background-color: #ecfdff;
+  background-color: #8dc63f52;
   padding: 35px 40px;
 }
 
@@ -5583,7 +5583,7 @@ ul {
 /* line 47, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
 .confirmation_part .order_details_iner {
   margin-top: 50px;
-  background-color: #ecfdff;
+  background-color: #8dc63f52;
   padding: 30px 30px 15px;
   text-transform: capitalize;
 }
