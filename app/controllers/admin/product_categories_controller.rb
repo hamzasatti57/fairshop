@@ -42,7 +42,7 @@ class Admin::ProductCategoriesController < AdminController
   private
 
   def product_category_params
-    params.required(:product_category).permit(:title)
+    params.required(:product_category).permit(:title, :super_category_id)
   end
 
   def get_product_category
