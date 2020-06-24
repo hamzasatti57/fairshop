@@ -8,7 +8,7 @@ class Ability
       can :manage, User, ["role = ?", 1] do |u|
         u.is_vendor?
       end
-    elsif user.vendor?
+    # elsif user.vendor?
       can :create, User
       can :manage, User, ["role = ?", 1] do |u|
         u.is_vendor?

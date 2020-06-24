@@ -17,7 +17,7 @@ end
 
 Country.create(title: 'Pakistan')
 City.create(title: 'Lahore', country_id: 1)
-User.create(email:'superadmin@furnishia.com', password: 'superadmin', role: 0, first_name: 'Super',
+User.create(email:'admin@fairprice.co.za', password: 'Admin@786#', role: 0, first_name: 'Super',
             last_name: 'Admin', username: 'superadmin', contact_details: 'Admin', category_id: 1, city_id: 1)
 
 

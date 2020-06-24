@@ -11,10 +11,10 @@
     </div>
   <% end %><br>
 
-<!--  <div class="form-group">-->
-    <%#= f.label :Company %>
-    <%#= f.select(:company_id, options_for_select(company_options, selected: selected_company(product)), { prompt: "Please Select" }, { class: 'form-control' }) %>
-<!--  </div>-->
+  <div class="form-group">
+    <%= f.label :Company, "Brand" %>
+    <%= f.select(:company_id, options_for_select(company_options, selected: selected_company(product)), { prompt: "Please Select Brand" }, { class: 'form-control' }) %>
+  </div>
 
   <div class="form-group">
     <%= f.label :title %>
@@ -23,7 +23,7 @@
 
   <div class="form-group">
     <%= f.label :Product_Category %>
-    <%= f.select(:product_category_id, options_for_select(product_category_options, selected: selected_product_category(product)), { prompt: "Please Select Product Category" }, { :required => true, class: 'form-control' }) %>
+    <%= f.select(:product_category_id, options_for_select(product_category_options, selected: selected_product_category(product)), { prompt: "Please Select Category" }, { :required => true, class: 'form-control' }) %>
   </div>
 
 <!--  <div class="form-group">-->
