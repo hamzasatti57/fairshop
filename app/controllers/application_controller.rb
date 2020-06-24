@@ -16,9 +16,9 @@ class ApplicationController < ActionController::Base
   def after_sign_up_path_for(resource)
     if resource.is_admin?
       admin_users_path
-    elsif resource.is_vendor?
-      admin_profile_path resource.profile
-    elsif resource.is_customer?
+    else
+    #   admin_profile_path resource.profile
+    # elsif resource.is_customer?
       root_path
     end
   end
@@ -26,10 +26,10 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     if resource.is_admin?
       admin_users_path
-    elsif resource.is_vendor?
+    else
       # admin_profile_path resource.profile
-      admin_dashboards_path
-    elsif resource.is_customer?
+    #   admin_dashboards_path
+    # elsif resource.is_customer?
       root_path
     end
   end

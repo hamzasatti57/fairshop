@@ -19,9 +19,9 @@ class Admin::UsersController < AdminController
       flash[:success] = "Vendor was successfully created"
       if current_user.is_admin?
         redirect_to admin_users_path
-      elsif current_user.is_vendor?
+      else
         @user.punch(request)
-        redirect_to admin_dashboards_path
+        redirect_to root_path
       end
     else
       render 'new'
@@ -36,8 +36,8 @@ class Admin::UsersController < AdminController
       flash[:success] = "Vendor successfully Updated"
       if current_user.is_admin?
         redirect_to admin_users_path
-      elsif current_user.is_vendor?
-        redirect_to admin_dashboards_path
+      else
+        redirect_to root_path
       end
     else
       render 'edit'

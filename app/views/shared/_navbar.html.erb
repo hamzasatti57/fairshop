@@ -16,14 +16,22 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
-                  <div class="hearer_icon d-flex" style="    text-align: right; margin-left: 90%; margin-bottom: -8px;">
+                  <div class="hearer_icon d-flex" style="text-align: right; margin-left: 90%; margin-bottom: -8px;">
                     <ul class="navbar-nav" style="display: contents;">
-                      <li class="nav-item" style="margin-right: 16px;">
-                          <a class="nav-link" href="/users/sign_in">Login</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="/users/sign_up">Sign Up</a>
-                      </li>
+                      <% if current_user.present? %>
+                        <li class="nav-item" style="margin-right: 16px; padding-bottom: 3px;">
+                          <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                            Logout
+                          <% end %>
+                        </li>
+                      <% else %>
+                        <li class="nav-item" style="margin-right: 16px;">
+                            <a class="nav-link" href="/users/sign_in">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/sign_up">Sign Up</a>
+                        </li>
+                      <% end%>
                     </ul>
                   </div>
                 </div>
