@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   def index
     @categories = Category.all
     @brands = Company.all
+    @best_seller_products = Product.all.limit(5)
     @blogs = Blog.all.order("created_at DESC")
     @popular_products = Product.most_hit(nil, 100)
     @popular_vendors = User.product_vendors.most_hit(nil,100)
