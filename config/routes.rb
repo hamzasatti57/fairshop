@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   }
 
   root 'home#index'
+  get '/store_locator' => 'contact_us#store_locator'
   devise_scope :user do
     get "admin" => "users/sessions#new"
   end
