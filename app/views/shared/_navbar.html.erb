@@ -60,7 +60,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
                                       <% Category.all.each do |category| %>
-                                        <a class="dropdown-item" href="/product_category"> <%= category.title %></a>
+                                        <a class="dropdown-item" href="/product_category?type=<%= category.title.gsub(" ", "_") %>"> <%= category.title %></a>
                                       <% end %>
                                     </div>
                                 </li>
@@ -71,7 +71,7 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown_2">
                                       <% Company.all.each do |brand| %>
-                                        <a class="dropdown-item" href="/product_category"><%= brand.title %></a>
+                                        <a class="dropdown-item" href="/product_category?brand=<%= brand.title.gsub(" ", "_") %>"><%= brand.title %></a>
                                       <% end %>
                                     </div>
                                 </li>
