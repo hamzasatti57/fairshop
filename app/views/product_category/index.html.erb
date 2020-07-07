@@ -28,76 +28,32 @@
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
-                                    <li>
-                                        <a href="#">Frozen Fish</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Dried Fish</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fresh Fish</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Meat Alternatives</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Fresh Fish</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Meat Alternatives</a>
-                                        <span>(250)</span>
-                                    </li>
-                                    <li>
-                                        <a href="#">Meat</a>
-                                        <span>(250)</span>
-                                    </li>
+                                  <% @product_categories.each do |category| %>
+                                    <% if category.products.count > 0 %>
+                                      <li>
+                                          <a href="/product_category?type=<%= params[:type] %>&category=<%= category.title.gsub(" ", "_") %>"><%= category.title %></a>
+                                          <span><%= category.products.count %></span>
+                                      </li>
+                                    <% end %>
+                                  <% end %>
                                 </ul>
                             </div>
                         </aside>
 
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
-                                <h3>Product filters</h3>
+                                <h3>Browse Brands</h3>
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
-                                    <li>
-                                        <a href="#">Apple</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Asus</a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="#">Gionee</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Micromax</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Samsung</a>
-                                    </li>
-                                </ul>
-                                <ul class="list">
-                                    <li>
-                                        <a href="#">Apple</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Asus</a>
-                                    </li>
-                                    <li class="active">
-                                        <a href="#">Gionee</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Micromax</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Samsung</a>
-                                    </li>
+                                  <% @companies.to_a.each do |brand| %>
+                                    <% if brand.products.count > 0 %>
+                                      <li>
+                                          <a href="/product_category?type=<%= params[:type] %>&brand=<%= brand.title.gsub(" ", "_") %>&category=<%= params[:category] %>"><%= brand.title %></a>
+                                          <span><%= brand.products.count %></span>
+                                      </li>
+                                    <% end %>
+                                  <% end %>
                                 </ul>
                             </div>
                         </aside>
@@ -155,7 +111,7 @@
                         <div class="col-lg-12">
                             <div class="product_top_bar d-flex justify-content-between align-items-center">
                                 <div class="single_product_menu">
-                                    <p><span>10000 </span> Prodict Found</p>
+                                    <p><span><%= @products.count %> </span> <%= (@products.count > 1) ? "Products" : "Product" %> Found</p>
                                 </div>
                                 <div class="single_product_menu d-flex">
                                     <h5>short by : </h5>
