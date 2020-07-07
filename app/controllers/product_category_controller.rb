@@ -10,6 +10,7 @@ class ProductCategoryController < ApplicationController
       query = "%#{params[:category].gsub("_", " ")}%"
       @product_category = ProductCategory.where("title ILIKE ?", query).first
       @products = Product.where(product_category_id: @product_category.id)
+      @brand_products = @products
       @companies = Company.where(id: @products.pluck(:company_id))
       if params[:brand].present?
         query = "%#{params[:brand].gsub("_", " ")}%"
@@ -21,6 +22,7 @@ class ProductCategoryController < ApplicationController
       @category = Category.where("title ILIKE ?", query).first
       @product_categories = @category.product_categories
       @products = Product.where(product_category_id: @category.product_categories.pluck(:id))
+      @brand_products = @products
       @companies = Company.where(id: @products.pluck(:company_id))
       if params[:brand].present?
         query = "%#{params[:brand].gsub("_", " ")}%"

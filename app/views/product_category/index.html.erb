@@ -47,10 +47,10 @@
                             <div class="widgets_inner">
                                 <ul class="list">
                                   <% @companies.to_a.each do |brand| %>
-                                    <% if @products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count > 0 %>
+                                    <% if @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count > 0 %>
                                       <li>
                                           <a href="/product_category?type=<%= params[:type] %>&brand=<%= brand.title.gsub(" ", "_") %>&category=<%= params[:category] %>"><%= brand.title %></a>
-                                          <span><%= @products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count %></span>
+                                          <span><%= @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count %></span>
                                       </li>
                                     <% end %>
                                   <% end %>
