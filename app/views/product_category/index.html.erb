@@ -57,7 +57,7 @@
                                 </ul>
                             </div>
                         </aside>
-
+<!-- 
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
                                 <h3>Color Filter</h3>
@@ -81,7 +81,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </aside>
+                        </aside> -->
 
                         <aside class="left_widgets p_filter_widgets price_rangs_aside">
                             <div class="l_w_title">
@@ -133,7 +133,7 @@
                                 </div>
                                 <div class="single_product_menu d-flex">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="search"
+                                      <input type="text" class="form-control" id="search-product" placeholder="search"
                                             aria-describedby="inputGroupPrepend">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="inputGroupPrepend"><i
@@ -367,5 +367,23 @@
           });
 
     });
+
+
+
+    $('#inputGroupPrepend').click(function(){
+      var query = $('#search-product').val()
+
+        $.ajax({
+          type: 'GET',
+          url:'/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=#{query}',
+          // dataType: 'json',
+          data: {search: query},
+          success: function(data){
+            window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
+            // window.location.href = '/'
+          }
+        });
+    });
+
 
     </script>
