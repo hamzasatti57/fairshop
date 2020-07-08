@@ -20,6 +20,15 @@ class ProductCategoryController < ApplicationController
       if params[:search].present?
         @products = @products.where("title ILIKE '%#{params[:search]}%'")
       end
+      if params[:sort_by].present?
+        if params[:sort_by] == "price(low to high)"
+          @products = @products.order("price ASC")
+        elsif params[:sort_by] == "price(high to low)"
+          @products = @products.order("price DESC")
+        else
+          @products = @products.order("#{params[:sort_by]} DESC")
+        end
+      end
     elsif params[:type].present?
       query = "%#{params[:type].gsub("_", " ")}%"
       @category = Category.where("title ILIKE ?", query).first
@@ -34,6 +43,15 @@ class ProductCategoryController < ApplicationController
       end
       if params[:search].present?
         @products = @products.where("title ILIKE '%#{params[:search]}%'")
+      end
+      if params[:sort_by].present?
+        if params[:sort_by] == "price(low to high)"
+          @products = @products.order("price ASC")
+        elsif params[:sort_by] == "price(high to low)"
+          @products = @products.order("price DESC")
+        else
+          @products = @products.order("#{params[:sort_by]} DESC")
+        end
       end
     else
       @products = Product.all

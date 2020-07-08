@@ -115,10 +115,11 @@
                                 </div>
                                 <div class="single_product_menu d-flex">
                                     <h5>short by : </h5>
-                                    <select>
-                                        <option data-display="Select">name</option>
-                                        <option value="1">price</option>
-                                        <option value="2">product</option>
+                                    <select class= "sorter">
+                                        <option data-display="Select">sort by</option>
+                                        <option id="sort-by-price" value="1">price(low to high)</option>
+                                        <option id="sort-by-price" value="2">price(high to low)</option>
+                                        <option id="sort-by-name" value="3">newest</option>
                                     </select>
                                 </div>
                                 <div class="single_product_menu d-flex">
@@ -371,19 +372,19 @@
 
 
     $('#inputGroupPrepend').click(function(){
-      var query = $('#search-product').val()
-
-        $.ajax({
-          type: 'GET',
-          url:'/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=#{query}',
-          // dataType: 'json',
-          data: {search: query},
-          success: function(data){
-            window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
+      window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
             // window.location.href = '/'
-          }
-        });
     });
 
+    $(".sorter").change(function() {
+        // Pure JS
+        var selectedVal = this.value;
+        var selectedText = this.options[this.selectedIndex].text;
+        if (selectedText === "newest") {
+            selectedText = "created_at";
+        }
+        // jQuery
+        window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&sort_by=' + selectedText
+    });
 
     </script>
