@@ -2,6 +2,7 @@ class ProductCategoryController < ApplicationController
   def index
     # @product_category = ProductCategory.find(params[:product_category_id])
     # @product_category.punch(request)
+    @best_seller_products = Product.all.limit(5)
     # @products = Product.where(product_category_id: params[:product_category_id]).paginate(page: params[:page], per_page: 21)
     if params[:category].present? && params[:type].present?
       query_1 = "%#{params[:type].gsub("_", " ")}%"
@@ -59,6 +60,7 @@ class ProductCategoryController < ApplicationController
   end
 
   def brand_products
+    @best_seller_products = Product.all.limit(5)
     if params[:brand].present?
       query = "%#{params[:brand].gsub("_", " ")}%"
       @brand = Company.where("title ILIKE ?", query).first
