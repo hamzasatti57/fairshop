@@ -73,6 +73,8 @@ Rails.application.routes.draw do
   get '/store_locator' => 'contact_us#store_locator'
   get '/privacy_policy' => 'about#privacy_policy'
   get '/disclaimer' => 'about#disclaimer'
+  get '/employee_bursaries' => 'about#employee_bursaries'
+  get '/terms_and_conditions' => 'about#terms_and_conditions'
   devise_scope :user do
     get "admin" => "users/sessions#new"
   end

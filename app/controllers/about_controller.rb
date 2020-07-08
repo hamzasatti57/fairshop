@@ -10,4 +10,12 @@ class AboutController < ApplicationController
   def disclaimer
     
   end
+
+  def employee_bursaries
+    
+  end
+
+  def terms_and_conditions
+    
+  end
 end

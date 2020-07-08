@@ -257,118 +257,114 @@
     </section>
     <!-- product_list part end-->
 
-
-
     <script type="text/javascript">
-        var best_product_slider = $('.best_product_slider');
-          if (best_product_slider.length) {
-            best_product_slider.owlCarousel({
-              items: 4,
-              loop: true,
-              dots: false,
-              autoplay: true,
-              autoplayHoverPause: true,
-              autoplayTimeout: 5000,
-              nav: true,
-              navText: ["next", "previous"],
-              responsive: {
-                0: {
-                  margin: 15,
-                  items: 1,
-                  nav: false
-                },
-                576: {
-                  margin: 15,
-                  items: 2,
-                  nav: false
-                },
-                768: {
-                  margin: 30,
-                  items: 3,
-                  nav: true
-                },
-                991: {
-                  margin: 30,
-                  items: 4,
-                  nav: true
-                }
+      var best_product_slider = $('.best_product_slider');
+        if (best_product_slider.length) {
+          best_product_slider.owlCarousel({
+            items: 4,
+            loop: true,
+            dots: false,
+            autoplay: true,
+            autoplayHoverPause: true,
+            autoplayTimeout: 5000,
+            nav: true,
+            navText: ["next", "previous"],
+            responsive: {
+              0: {
+                margin: 15,
+                items: 1,
+                nav: false
+              },
+              576: {
+                margin: 15,
+                items: 2,
+                nav: false
+              },
+              768: {
+                margin: 30,
+                items: 3,
+                nav: true
+              },
+              991: {
+                margin: 30,
+                items: 4,
+                nav: true
               }
+            }
+          });
+        }
+
+        // Trigger
+
+        $(function () {
+          
+        var $range = $(".js-range-slider"),
+            $inputFrom = $(".js-input-from"),
+            $inputTo = $(".js-input-to"),
+            instance,
+            min = 0,
+            max = 1000,
+            from = 10,
+            to = 100;
+
+        $range.ionRangeSlider({
+            type: "double",
+            min: min,
+            max: max,
+            from: 0,
+            to: 500,
+          prefix: 'tk. ',
+            onStart: updateInputs,
+            onChange: updateInputs,
+            step: 1,
+            prettify_enabled: true,
+            prettify_separator: ".",
+          values_separator: " - ",
+          force_edges: true
+          
+
+        });
+
+        instance = $range.data("ionRangeSlider");
+
+        function updateInputs (data) {
+            from = data.from;
+            to = data.to;
+            
+            $inputFrom.prop("value", from);
+            $inputTo.prop("value", to); 
+        }
+
+        $inputFrom.on("input", function () {
+            var val = $(this).prop("value");
+            
+            // validate
+            if (val < min) {
+                val = min;
+            } else if (val > to) {
+                val = to;
+            }
+            
+            instance.update({
+                from: val
             });
-          }
+        });
 
-          // Trigger
-
-          $(function () {
+        $inputTo.on("input", function () {
+            var val = $(this).prop("value");
             
-          var $range = $(".js-range-slider"),
-              $inputFrom = $(".js-input-from"),
-              $inputTo = $(".js-input-to"),
-              instance,
-              min = 0,
-              max = 1000,
-              from = 10,
-              to = 100;
-
-          $range.ionRangeSlider({
-              type: "double",
-              min: min,
-              max: max,
-              from: 0,
-              to: 500,
-            prefix: 'tk. ',
-              onStart: updateInputs,
-              onChange: updateInputs,
-              step: 1,
-              prettify_enabled: true,
-              prettify_separator: ".",
-            values_separator: " - ",
-            force_edges: true
+            // validate
+            if (val < from) {
+                val = from;
+            } else if (val > max) {
+                val = max;
+            }
             
-
-          });
-
-          instance = $range.data("ionRangeSlider");
-
-          function updateInputs (data) {
-              from = data.from;
-              to = data.to;
-              
-              $inputFrom.prop("value", from);
-              $inputTo.prop("value", to); 
-          }
-
-          $inputFrom.on("input", function () {
-              var val = $(this).prop("value");
-              
-              // validate
-              if (val < min) {
-                  val = min;
-              } else if (val > to) {
-                  val = to;
-              }
-              
-              instance.update({
-                  from: val
-              });
-          });
-
-          $inputTo.on("input", function () {
-              var val = $(this).prop("value");
-              
-              // validate
-              if (val < from) {
-                  val = from;
-              } else if (val > max) {
-                  val = max;
-              }
-              
-              instance.update({
-                  to: val
-              });
-          });
-
+            instance.update({
+                to: val
+            });
+        });
     });
-
 
 
     $('#inputGroupPrepend').click(function(){
