@@ -69,6 +69,7 @@ Rails.application.routes.draw do
   }
 
   root 'home#index'
+  get '/brand_products' => 'product_category#brand_products'
   get '/store_locator' => 'contact_us#store_locator'
   get '/privacy_policy' => 'about#privacy_policy'
   get '/disclaimer' => 'about#disclaimer'

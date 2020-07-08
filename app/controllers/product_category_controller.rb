@@ -57,4 +57,36 @@ class ProductCategoryController < ApplicationController
       @products = Product.all
     end
   end
+
+  def brand_products
+    if params[:brand].present?
+      query = "%#{params[:brand].gsub("_", " ")}%"
+      @brand = Company.where("title ILIKE ?", query).first
+      @products = @brand.products
+      @brand_products = @products
+      @product_categories = ProductCategory.where(id: @products.pluck(:product_category_id))
+      @category = Category.where(id: @product_categories.pluck(:category_id)).first
+      @companies = Company.where(id: @products.pluck(:company_id))
+      if params[:brand].present?
+        query = "%#{params[:brand].gsub("_", " ")}%"
+        @brand = Company.where("title ILIKE ?", query).first
+        @products = @products.where(company_id: @brand.id)
+      end
+      if params[:search].present?
+        @products = @products.where("title ILIKE '%#{params[:search]}%'")
+      end
+      if params[:sort_by].present?
+        if params[:sort_by] == "price(low to high)"
+          @products = @products.order("price ASC")
+        elsif params[:sort_by] == "price(high to low)"
+          @products = @products.order("price DESC")
+        else
+          @products = @products.order("#{params[:sort_by]} DESC")
+        end
+      end
+    end
+  end
 end
+
+
+
