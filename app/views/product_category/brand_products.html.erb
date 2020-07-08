@@ -6,8 +6,8 @@
                 <div class="col-lg-8">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>All Products</h2>
-                            <p>Home <span>-</span> All Products</p>
+                            <h2>Products</h2>
+                            <p>Brand <span>-</span> <%= params[:brand].gsub("_", " ") %></p>
                         </div>
                     </div>
                 </div>
@@ -29,10 +29,10 @@
                             <div class="widgets_inner">
                                 <ul class="list">
                                   <% @product_categories.each do |category| %>
-                                    <% if category.products.count > 0 %>
+                                    <% if category.products.where(id: @products.pluck(:id)).count > 0 %>
                                       <li>
-                                          <a href="/product_category?type=<%= params[:type] %>&category=<%= category.title.gsub(" ", "_") %>"><%= category.title %></a>
-                                          <span><%= category.products.count %></span>
+                                          <a href="/brand_products?type=<%= params[:type] %>&category=<%= category.title.gsub(" ", "_") %>&brand=<%= params[:brand] %>"><%= category.title %></a>
+                                          <span><%= category.products.where(id: @products.pluck(:id)).count %></span>
                                       </li>
                                     <% end %>
                                   <% end %>
@@ -49,7 +49,7 @@
                                   <% @companies.to_a.each do |brand| %>
                                     <% if @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count > 0 %>
                                       <li>
-                                          <a href="/product_category?type=<%= params[:type] %>&brand=<%= brand.title.gsub(" ", "_") %>&category=<%= params[:category] %>"><%= brand.title %></a>
+                                          <a href="/brand_products?&brand=<%= params[:brand] %>"><%= brand.title %></a>
                                           <span><%= @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count %></span>
                                       </li>
                                     <% end %>
@@ -372,7 +372,7 @@
 
 
     $('#inputGroupPrepend').click(function(){
-      window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
+      window.location.href = '/brand_products?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
             // window.location.href = '/'
     });
 
@@ -384,7 +384,7 @@
             selectedText = "created_at";
         }
         // jQuery
-        window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&sort_by=' + selectedText
+        window.location.href = '/brand_products?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&sort_by=' + selectedText
     });
 
     </script>

@@ -72,6 +72,11 @@ class ProductCategoryController < ApplicationController
         @brand = Company.where("title ILIKE ?", query).first
         @products = @products.where(company_id: @brand.id)
       end
+      if params[:category].present?
+        query = "%#{params[:category].gsub("_", " ")}%"
+        @product_category = ProductCategory.where("title ILIKE ?", query).first
+        @products = @products.where(product_category_id: @product_category.id)
+      end
       if params[:search].present?
         @products = @products.where("title ILIKE '%#{params[:search]}%'")
       end
