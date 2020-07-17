@@ -1,4 +1,4 @@
-class StoresController < ApplicationController
+class Admin::StoresController < AdminController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
 
   # GET /stores
@@ -28,7 +28,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
+        format.html { redirect_to admin_stores_path, notice: 'Store was successfully created.' }
         format.json { render :show, status: :created, location: @store }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class StoresController < ApplicationController
   def update
     respond_to do |format|
       if @store.update(store_params)
-        format.html { redirect_to @store, notice: 'Store was successfully updated.' }
+        format.html { redirect_to admin_stores_path, notice: 'Store was successfully updated.' }
         format.json { render :show, status: :ok, location: @store }
       else
         format.html { render :edit }
@@ -56,9 +56,23 @@ class StoresController < ApplicationController
   def destroy
     @store.destroy
     respond_to do |format|
-      format.html { redirect_to stores_url, notice: 'Store was successfully destroyed.' }
+      format.html { redirect_to admin_stores_path, notice: 'Store was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def bulk_upload_stores
+    xlsx = Roo::Excelx.new(params["store"]["stores"].tempfile, extension: :xlsx)
+    xlsx.sheet(1).each_with_index do |row, index|
+      next if index == 0
+      # Store.create!(store_name: row[0], store_address: Company.last.id, store_city: row[1], store_country: row[6], store_state: row[7], store_email: false, store_website: row[7], store_link: row[8], stroe_description: row[9])
+    end
+    flash[:success] = "stores uploaded successfully"
+    redirect_to admin_stores_path
+  end
+
+  def bulk_upload
+    @store = Store.new
   end
 
   private

@@ -1,0 +1,19 @@
+<%= render 'shared/errors', obj: @store %>
+<%= form_for  @store, :url => bulk_upload_stores_admin_stores_path do |f| %>
+  
+  <div class="form-group">
+    <label><b>Bulk Upload</b></label>
+    <br>
+    <%= f.file_field :stores %><br><br>
+  </div>
+
+  <%= f.submit class: "btn btn-block btn-primary custom-table-edit-btn"%>
+<% end %>
+
+<script>
+    $(document).ready(function() {
+        var x = new SlimSelect({
+            select: '#demo'
+        });
+    });
+</script>

@@ -201,6 +201,21 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item nav-dropdown">
+              <a class="nav-link nav-dropdown-toggle" >
+                <i class="nav-icon icon-cursor"></i> Stores</a>
+              <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-cursor"></i> Stores List'.html_safe, admin_stores_path,class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to '<i class="nav-icon icon-cursor"></i> Add New Store'.html_safe, new_admin_store_path,class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%#= link_to '<i class="nav-icon icon-cursor"></i> Bulk Upload Store'.html_safe, bulk_upload_admin_stores_path,class:"nav-link" %>
+                </li>
+              </ul>
+            </li>
           <% end %>
         <% end %>
         <% if current_user.is_vendor? %>

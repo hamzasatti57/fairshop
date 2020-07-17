@@ -33,7 +33,6 @@ Rails.application.routes.draw do
       get :popular_list
     end
   end
-  resources :stores
   resources :venders
   resources :vendors do
     collection do
@@ -126,6 +125,12 @@ Rails.application.routes.draw do
       collection do
         get :bulk_upload
         post :bulk_upload_products
+      end
+    end
+    resources :stores do
+      collection do
+        get :bulk_upload
+        post :bulk_upload_stores
       end
     end
   end

@@ -7,6 +7,14 @@ module Admin::ProductsHelper
     end
   end
 
+  def store_form_attributes store
+    if Store.exists? store.id
+      return {url: admin_store_path(store), method: :put}
+    else
+      return {url: admin_stores_path, method: :post}
+    end
+  end
+
   def product_category_options
     ProductCategory.all.map{|product_category| [product_category.title, product_category.id]}
   end

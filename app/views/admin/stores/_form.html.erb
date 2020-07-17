@@ -1,0 +1,70 @@
+<%= render 'shared/errors', obj: store %>
+<%= form_for  store, store_form_attributes(store) do |f| %>
+
+  <div class="form-group">
+    <%= f.label :store_name %>
+    <%= f.text_field :store_name, class: "form-control", :required => true, autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+  </div>
+
+<!--  <div class="form-group">-->
+    <%#= f.label :store_Type %>
+    <%#= f.select(:store_type_id, options_for_select(store_type_options, selected: selected_store_type(store)), { prompt: "Please Select" }, { class: 'form-control' }) %>
+<!--  </div>-->
+
+  <div class="form-group">
+    <%= f.label :store_address %>
+    <%= f.text_area :store_address, class: "form-control", :required => true, autocomplete: false, placeholder: "Description", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :store_city %>
+    <%= f.text_field :store_city, class: "form-control", autocomplete: false, placeholder: "Inventory", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :store_country %>
+    <%= f.text_field :store_country, :required => true, class: "form-control", autocomplete: false, placeholder: "Price", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :store_state %>
+    <%= f.text_field :store_state, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :store_phone %>
+    <%= f.text_field :store_phone, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :store_email %>
+    <%= f.text_field :store_email, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :store_website %>
+    <%= f.text_field :store_website, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :store_link %>
+    <%= f.text_field :store_link, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :stroe_description %>
+    <%= f.text_field :stroe_description, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+  </div>
+
+
+  <%= f.submit class: "btn btn-block btn-primary custom-table-edit-btn"%>
+<% end %>
+
+<script>
+    $(document).ready(function() {
+        var x = new SlimSelect({
+            select: '#demo'
+        });
+    });
+</script>
