@@ -48,8 +48,8 @@
                     <% unless @product.height.nil? %>
                       x <%= @product.height %>
                     <% end %></li>
-                  <li><span>Status </span><%= @product.status%></li>
-                  <li><span>Visibility </span><%= @product.visibility%></li>
+                  <li><span>Clean and Care </span><%= @product.clean_and_care ? "Yes" : "No" %></li>
+                  <li><span>Warranty </span><%= @product.warranty ? "Yes" : "No" %></li>
                 </ul>
               </div>
               <div class="add-to-cart">

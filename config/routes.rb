@@ -123,6 +123,10 @@ Rails.application.routes.draw do
       member do
         delete :delete_image_attachment
       end
+      collection do
+        get :bulk_upload
+        post :bulk_upload_products
+      end
     end
   end
 

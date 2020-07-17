@@ -4,7 +4,7 @@ class Admin::ProductsController < AdminController
   load_and_authorize_resource
 
   def index
-    # @products = current_user.products
+    @products = Product.all
   end
 
   def show
@@ -65,6 +65,20 @@ class Admin::ProductsController < AdminController
 
   end
 
+  def bulk_upload_products
+    xlsx = Roo::Excelx.new(params["product"]["products"].tempfile, extension: :xlsx)
+    xlsx.sheet(1).each_with_index do |row, index|
+      next if index == 0
+      Product.create!(title: "Sample Product #{index}", company_id: Company.last.id, code: row[1], description: row[6], product_category_id: ProductCategory.find_or_create_by!(title: row[5], category_id: Category.find_or_create_by!(title: row[4]).id).id, status: false, price: row[7].gsub("R", "").to_f, height: row[8], width: row[9], length: row[10], m2: row[12])
+    end
+    flash[:success] = "Products uploaded successfully"
+    redirect_to admin_products_path
+  end
+
+  def bulk_upload
+    @product = Product.new
+  end
+
   private
   def load_user_product
     # if action_name == 'new'
@@ -81,7 +95,7 @@ class Admin::ProductsController < AdminController
 
   def product_params
     params.required(:product).permit(:user_id , :title, :description, :inventory, :price, :length,
-                                     :width, :height, :status, :visibility, :company_id, :product_category_id, :color_id, images: [])
+                                     :width, :height, :status, :visibility, :company_id, :product_category_id, :clean_and_care, :warranty , :color_id, images: [])
 
   end
 

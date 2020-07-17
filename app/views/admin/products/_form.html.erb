@@ -47,6 +47,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :sub_category_material %>
+    <%= f.text_field :sub_category_material, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
     <%= f.label :Colors %>
     <select name="product[color_ids][]"  id="demo" multiple>
       <% Color.all.each_with_index  do |color,index| %>
@@ -67,14 +72,24 @@
 
   </div>
 
-  <div class="form-group">
-    <%= f.label :status %>
-    <%= f.check_box :status %> <br/>
+<!--   <div class="form-group">
+    <%#= f.label :status %>
+    <%#= f.check_box :status %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :visibility %>
-    <%= f.check_box :visibility %> <br/>
+    <%#= f.label :visibility %>
+    <%#= f.check_box :visibility %> <br/>
+  </div> -->
+
+  <div class="form-group">
+    <%= f.label :clean_and_care %>
+    <%= f.check_box :clean_and_care %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :warranty %>
+    <%= f.check_box :warranty %> <br/>
   </div>
 
 
