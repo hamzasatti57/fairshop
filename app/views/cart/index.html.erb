@@ -42,19 +42,21 @@
               </tr>
             </thead>
             <tbody>
+              <% @cart.each do |cart| %>
               <tr>
                 <td>
                   <div class="media">
                     <div class="d-flex">
-                      <%=image_tag("img/product/single-product/cart-1.jpg")%>
+                      <img src="<%=url_for(cart.product.images.first) %>">
+                      <%#=image_tag("img/product/single-product/cart-1.jpg")%>
                     </div>
                     <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use</p>
+                      <p><%= cart.product.title %></p>
                     </div>
                   </div>
                 </td>
                 <td>
-                  <h5>$360.00</h5>
+                  <h5><%= cart.product.price %></h5>
                 </td>
                 <td>
                   <div class="product_count">
@@ -64,69 +66,10 @@
                   </div>
                 </td>
                 <td>
-                  <h5>$720.00</h5>
+                  <h5><%= cart.sub_total %></h5>
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <div class="media">
-                    <div class="d-flex">
-                      <%=image_tag("img/product/single-product/cart-1.jpg")%>
-                    </div>
-                    <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <h5>$360.00</h5>
-                </td>
-                <td>
-                  <div class="product_count">
-                    <!-- <input type="text" value="1" min="0" max="10" title="Quantity:"
-                      class="input-text qty input-number" />
-                    <button
-                      class="increase input-number-increment items-count" type="button">
-                      <i class="fa fa-angle-up"></i>
-                    </button>
-                    <button
-                      class="reduced input-number-decrement items-count" type="button">
-                      <i class="fa fa-angle-down"></i>
-                    </button> -->
-                    <span class="input-number-decrement"> <i class="fa fa-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="fa fa-angle-up"></i></span>
-                  </div>
-                </td>
-                <td>
-                  <h5>$720.00</h5>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="media">
-                    <div class="d-flex">
-                      <%=image_tag("img/product/single-product/cart-1.jpg")%>
-                    </div>
-                    <div class="media-body">
-                      <p>Minimalistic shop for multipurpose use</p>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <h5>$360.00</h5>
-                </td>
-                <td>
-                  <div class="product_count">
-                    <span class="input-number-decrement"> <i class="fa fa-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="fa fa-angle-up"></i></span>
-                  </div>
-                </td>
-                <td>
-                  <h5>$720.00</h5>
-                </td>
-              </tr>
+              <% end %>
               <tr class="bottom_button">
                 <td>
                   <a class="btn_1" href="#">Update Cart</a>
@@ -200,3 +143,55 @@
       </div>
   </section>
   <!--================End Cart Area =================-->
+
+
+
+
+  <script type="text/javascript">
+    // click counter js
+(function() {
+ 
+  window.inputNumber = function(el) {
+
+    var min = el.attr('min') || false;
+    var max = el.attr('max') || false;
+
+    var els = {};
+
+    els.dec = el.prev();
+    els.inc = el.next();
+
+    el.each(function() {
+      init($(this));
+    });
+
+    function init(el) {
+
+      els.dec.on('click', decrement);
+      els.inc.on('click', increment);
+
+      function decrement() {
+        var value = el[0].value;
+        value--;
+        if(!min || value >= min) {
+          debugger
+          el[0].value = value;
+        }
+      }
+
+      function increment() {
+        var value = el[0].value;
+        value++;
+        if(!max || value <= max) {
+          debugger
+          el[0].value = value++;
+        }
+      }
+    }
+  }
+})();
+
+inputNumber($('.input-number'));
+
+  // click counter js
+  </script>

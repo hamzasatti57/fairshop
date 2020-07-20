@@ -5,6 +5,8 @@ class Product < ApplicationRecord
   belongs_to :product_category
   belongs_to :product_type, optional: true
   belongs_to :company
+  has_many :user_cart_products
+  has_many :users, through: :user_cart_products
   # belongs_to :user, through: :company
   # has_many :user, through: :company
   has_and_belongs_to_many :colors

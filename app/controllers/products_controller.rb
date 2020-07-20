@@ -24,6 +24,18 @@ class ProductsController < ApplicationController
     end
   end
 
+  def add_to_cart
+    if current_user.present?
+      @product = Product.find(params[:id])
+      current_user.user_cart_products.create(product_id: @product.id, quantity: 1, sub_total: @product.price)
+      flash[:success] = "Product added to card"
+      redirect_to cart_index_path
+    else
+      flash[:danger] = "Need to login first"
+      redirect_back(fallback_location: root_path)
+    end
+  end
+
   def show
     @product = Product.find(params[:id])
     @product.punch(request)

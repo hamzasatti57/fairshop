@@ -2,7 +2,7 @@
 <%= form_for  store, store_form_attributes(store) do |f| %>
 
   <div class="form-group">
-    <%= f.label :store_name %>
+    <%= f.label :name %>
     <%= f.text_field :store_name, class: "form-control", :required => true, autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
   </div>
 
@@ -12,54 +12,82 @@
 <!--  </div>-->
 
   <div class="form-group">
-    <%= f.label :store_address %>
-    <%= f.text_area :store_address, class: "form-control", :required => true, autocomplete: false, placeholder: "Description", autofocus: true %> <br/>
+    <%= f.label :category_tags %>
+    <%= f.text_area :category_tags, class: "form-control", :required => true, autocomplete: false, placeholder: "Category / Tags", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :store_city %>
-    <%= f.text_field :store_city, class: "form-control", autocomplete: false, placeholder: "Inventory", autofocus: true %> <br/>
+    <%= f.label :address %>
+    <%= f.text_area :store_address, class: "form-control", :required => true, autocomplete: false, placeholder: "Store Address", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :store_country %>
-    <%= f.text_field :store_country, :required => true, class: "form-control", autocomplete: false, placeholder: "Price", autofocus: true %> <br/>
+    <%= f.label :city %>
+    <%= f.text_field :store_city, class: "form-control", autocomplete: false, placeholder: "Store City", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :store_state %>
-    <%= f.text_field :store_state, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+    <%= f.label :country %>
+    <%= f.text_field :store_country, :required => true, class: "form-control", autocomplete: false, placeholder: "Store Country", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :store_phone %>
-    <%= f.text_field :store_phone, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+    <%= f.label :state %>
+    <%= f.text_field :store_state, class: "form-control", autocomplete: false, placeholder: "Store State", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :store_email %>
-    <%= f.text_field :store_email, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+    <%= f.label :phone %>
+    <%= f.text_field :store_phone, class: "form-control", autocomplete: false, placeholder: "Store Phone Number", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :store_website %>
-    <%= f.text_field :store_website, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+    <%= f.label :email %>
+    <%= f.text_field :store_email, class: "form-control", autocomplete: false, placeholder: "Store Email", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :store_link %>
-    <%= f.text_field :store_link, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+    <%= f.label :fax %>
+    <%= f.text_field :store_fax, class: "form-control", autocomplete: false, placeholder: "Store Fax", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :website %>
+    <%= f.text_field :store_website, class: "form-control", autocomplete: false, placeholder: "Store Website", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :link %>
+    <%= f.text_field :store_link, class: "form-control", autocomplete: false, placeholder: "Store Link", autofocus: true %> <br/>
   </div>
 
 
   <div class="form-group">
-    <%= f.label :stroe_description %>
-    <%= f.text_field :stroe_description, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+    <%= f.label :description %>
+    <%= f.text_area :stroe_description, class: "form-control", autocomplete: false, placeholder: "Store Description", autofocus: true %> <br/>
+    <!-- <textarea name="editor1"></textarea> -->
   </div>
 
+  <div class="form-group">
+    <%= f.label :latitude %>
+    <%= f.text_field :lat, class: "form-control", autocomplete: false, placeholder: "Latitude", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :longitude %>
+    <%= f.text_field :long, class: "form-control", autocomplete: false, placeholder: "Longitude", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image %> <br>
+  <%= f.file_field :images, multiple: true %><br><br>
+  </div>
 
   <%= f.submit class: "btn btn-block btn-primary custom-table-edit-btn"%>
 <% end %>
+
+
+<script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -67,4 +95,6 @@
             select: '#demo'
         });
     });
+
+    CKEDITOR.replace( 'editor1' );
 </script>

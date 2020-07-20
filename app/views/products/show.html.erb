@@ -61,7 +61,10 @@
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="fa fa-plus"></i></span>
               </div>
-              <a href="/cart" class="btn_3">add to cart</a>
+                <%= link_to add_to_cart_product_path(@product.id), class: "btn_3", method: :post do %>
+                  add to cart
+                <% end %>
+              <!-- <a href="/cart" class="btn_3">add to cart</a> -->
               <a href="#" class="like_us"> <i class="fa fa-heart-o"></i> </a>
             </div>
           </div>
@@ -71,7 +74,7 @@
   </div>
   <!--================End Single Product Area =================-->
 
-  <!--================Product Description Area =================-->
+<!--================Product Description Area =================-->
   <section class="product_description_area">
     <div class="container">
       <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -203,7 +206,7 @@
                 <div class="review_item">
                   <div class="media">
                     <div class="d-flex">
-                      <%=image_tag("img/product/single-product/review-1.png")%>
+                      <img src="img/product/single-product/review-1.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -221,7 +224,7 @@
                 <div class="review_item reply">
                   <div class="media">
                     <div class="d-flex">
-                      <%=image_tag("img/product/single-product/review-2.png")%>
+                      <img src="img/product/single-product/review-2.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -239,7 +242,7 @@
                 <div class="review_item">
                   <div class="media">
                     <div class="d-flex">
-                      <%=image_tag("img/product/single-product/review-3.png")%>
+                      <img src="img/product/single-product/review-3.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -355,7 +358,7 @@
                 <div class="review_item">
                   <div class="media">
                     <div class="d-flex">
-                      <%=image_tag("img/product/single-product/review-1.png")%>
+                      <img src="img/product/single-product/review-1.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -376,7 +379,7 @@
                 <div class="review_item">
                   <div class="media">
                     <div class="d-flex">
-                      <%=image_tag("img/product/single-product/review-2.png")%>
+                      <img src="img/product/single-product/review-2.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -397,7 +400,7 @@
                 <div class="review_item">
                   <div class="media">
                     <div class="d-flex">
-                      <%=image_tag("img/product/single-product/review-3.png")%>
+                      <img src="img/product/single-product/review-3.png" alt="" />
                     </div>
                     <div class="media-body">
                       <h4>Blake Ruiz</h4>
@@ -587,6 +590,48 @@
               ]
               });  
              }
+
+             (function() {
+ 
+  window.inputNumber = function(el) {
+
+    var min = el.attr('min') || false;
+    var max = el.attr('max') || false;
+
+    var els = {};
+
+    els.dec = el.prev();
+    els.inc = el.next();
+
+    el.each(function() {
+      init($(this));
+    });
+
+    function init(el) {
+
+      els.dec.on('click', decrement);
+      els.inc.on('click', increment);
+
+      function decrement() {
+        var value = el[0].value;
+        value--;
+        if(!min || value >= min) {
+          el[0].value = value;
+        }
+      }
+
+      function increment() {
+        var value = el[0].value;
+        value++;
+        if(!max || value <= max) {
+          el[0].value = value++;
+        }
+      }
+    }
+  }
+})();
+
+inputNumber($('.input-number'));
 
            });
   

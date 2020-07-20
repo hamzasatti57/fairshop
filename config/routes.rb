@@ -32,6 +32,9 @@ Rails.application.routes.draw do
       post :popular_list
       get :popular_list
     end
+    member do
+      post :add_to_cart
+    end
   end
   resources :venders
   resources :vendors do

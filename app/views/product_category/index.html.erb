@@ -156,7 +156,9 @@
                                 <div class="single_product_text">
                                     <h4><%= product.title %></h4>
                                     <h3>$<%= product.price %></h3>
-                                    <a href="/cart" class="add_cart">+ add to cart<i class="fa fa-heart-o"></i></a>
+                                    <%= link_to add_to_cart_product_path(product.id), class: "add_cart", method: :post do %>
+                                      + add to cart<i class="fa fa-heart-o"></i>
+                                    <% end %>
                                 </div>
                             </div>
                         </div>
