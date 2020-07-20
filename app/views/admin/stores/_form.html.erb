@@ -69,6 +69,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :operating_hours %>
+    <%= f.text_area :operating_hours, class: "form-control", autocomplete: false, placeholder: "Operating Hours", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
     <%= f.label :latitude %>
     <%= f.text_field :lat, class: "form-control", autocomplete: false, placeholder: "Latitude", autofocus: true %> <br/>
   </div>
@@ -96,5 +101,5 @@
         });
     });
 
-    CKEDITOR.replace( 'editor1' );
+    CKEDITOR.replace( 'store[operating_hours]' );
 </script>
