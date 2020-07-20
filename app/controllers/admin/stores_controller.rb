@@ -63,9 +63,9 @@ class Admin::StoresController < AdminController
 
   def bulk_upload_stores
     xlsx = Roo::Excelx.new(params["store"]["stores"].tempfile, extension: :xlsx)
-    xlsx.sheet(1).each_with_index do |row, index|
+    xlsx.sheet(0).each_with_index do |row, index|
       next if index == 0
-      # Store.create!(store_name: row[0], store_address: Company.last.id, store_city: row[1], store_country: row[6], store_state: row[7], store_email: false, store_website: row[7], store_link: row[8], stroe_description: row[9])
+      Store.create!(store_name: row[0], category_tags: row[1], store_address: row[2], store_city: row[3], store_country: row[5], store_zip: row[6], store_phone: row[7], store_fax: row[8], store_email: row[9], store_website: row[10], store_link: row[11], stroe_description: row[12], operating_hours: row[13])
     end
     flash[:success] = "stores uploaded successfully"
     redirect_to admin_stores_path

@@ -4,42 +4,45 @@
   <div class="card-body">
     <div class="row">
       <div class="col-lg-12">
-        <table id="store-table" class="table table-bordered table-striped display nowrap dataTable dtr-inline collapsed">
-          <thead>
-          <tr>
-            <th>Sr#</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>State</th>
-            <!-- <th>Phone</th>
-            <th>Email</th>
-            <th>Website</th>
-            <th>Description</th> -->
-            <th>Actions</th>
-          </tr>
-          </thead>
-          <tbody>
-          <% @stores.each_with_index do |store, index| %>
+        <div style="overflow-x: scroll;">
+          <table id="store-table" class="table table-bordered table-striped display nowrap dataTable dtr-inline collapsed">
+            <thead>
             <tr>
-              <td><%= index + 1 %></td>
-              <td><%= store.store_name %></td>
-              <td><%= store.store_address %></td>
-              <td><%= store.store_city %></td>
-              <td><%= store.store_country %></td>
-              <td><%= store.store_state %></td>
-              <!-- <td><%= store.store_phone %></td>
-              <td><%= store.store_email %></td>
-              <td><%= store.store_website %></td>
-              <td><%= store.stroe_description %></td> -->
-              <td><%= link_to "Edit",  edit_admin_store_path(store), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
-                <%#= link_to "Show",  admin_store_path(store), class: "btn btn-xs btn-success custom-table-show-btn" %>
-                <%= link_to "Delete", admin_store_path(store), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn" %></td>
+              <th>Sr#</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>State</th>
+              <!-- <th>Phone</th>
+              <th>Email</th>
+              <th>Website</th>
+              <th>Description</th> -->
+              <th>Actions</th>
             </tr>
-          <% end %>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+            <% @stores.each_with_index do |store, index| %>
+              <tr>
+                <td><%= index + 1 %></td>
+                <td><%= store.store_name %></td>
+                <td><%= store.store_address %></td>
+                <td><%= store.store_city %></td>
+                <td><%= store.store_country %></td>
+                <td><%= store.store_state %></td>
+                <!-- <td><%= store.store_phone %></td>
+                <td><%= store.store_email %></td>
+                <td><%= store.store_website %></td>
+                <td><%= store.stroe_description %></td> -->
+                <td><%= link_to "Edit",  edit_admin_store_path(store), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
+                  <%#= link_to "Show",  admin_store_path(store), class: "btn btn-xs btn-success custom-table-show-btn" %>
+                  <%= link_to "Delete", admin_store_path(store), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn" %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+          
+        </div>
       </div>
     </div>
   </div>

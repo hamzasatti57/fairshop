@@ -150,9 +150,11 @@
                       <% @products.each do |product| %>
                         <div class="col-lg-4 col-sm-6">
                             <div class="single_product_item">
-                              <%= link_to "/products/#{product.id}" do %>
-                                <img src="<%=url_for(product.images.first) %>">
+                              <div class="cutome-img-size">
+                                <%= link_to "/products/#{product.id}" do %>
+                                  <img src="<%=url_for(product.images.first) %>">
                                 <% end %>
+                              </div>
                                 <div class="single_product_text">
                                     <h4><%= product.title %></h4>
                                     <h3>$<%= product.price %></h3>
