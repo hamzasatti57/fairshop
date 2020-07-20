@@ -83,6 +83,6 @@ class Admin::StoresController < AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:store_name, :store_address, :store_city, :store_country, :store_state, :store_zip, :store_phone, :store_email, :store_website, :store_link, :stroe_description, :store_on_time, :store_close_time, :vender_id)
+      params.require(:store).permit(:store_name, :store_address, :store_city, :store_country, :store_state, :store_zip, :store_phone, :store_email, :store_website, :store_link, :store_description, :store_on_time, :store_close_time, :vender_id, :lat, :long, :store_fax, :category_tags, :operating_hours, images: [])
     end
 end

@@ -4339,10 +4339,13 @@ ul {
 /* line 1068, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .cart_inner .table tbody tr td .media .d-flex {
   padding-right: 30px;
+  height: 150px;
+  width: 200px;
 }
 
 /* line 1071, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .cart_inner .table tbody tr td .media .d-flex img {
+  width: 100%;
   border: 1px solid #eeeeee;
   border-radius: 3px;
 }
