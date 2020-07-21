@@ -47,6 +47,9 @@
 <body>
 <!-- <div class="page-loader"></div> -->
 <!-- <div class="wrapper"> -->
+  <% if flash[:notice] %>
+      <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
   <%= render partial: 'shared/navbar' %>
   <%= yield %>
 <!-- </div> -->
@@ -93,6 +96,11 @@
             // instead of a settings object
         ]
     });
+    
+    <% flash.each do |f| %>
+    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'success') %>
+      toastr['<%= type %>']('<%= f[1] %>');
+    <% end %>
 </script>
 <%= render partial: 'shared/footer' %>
 </body>

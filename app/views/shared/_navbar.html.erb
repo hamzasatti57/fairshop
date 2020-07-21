@@ -1,3 +1,10 @@
+<% if current_user.present? %>
+  <style type="text/css">
+    .main_menu .cart i:after{
+      content: "<%= current_user.user_cart_products.count %>";
+    }
+  </style>
+<% end %>
 <!-- <div class="custom-top-bar">
     <div class="container">
         <div class="row">
@@ -38,8 +45,8 @@
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ecfdff;">
                         <a class="navbar-brand" href="index.html">
-                        <%= link_to "/" do %>
-                          <%=image_tag("img/logo-1.png")%>
+                          <%= link_to "/" do %>
+                            <%=image_tag("img/logo-1.png")%>
                           <% end %>
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -112,12 +119,16 @@
                         </div>
                         <div class="hearer_icon d-flex">
                             <a id="search_1" href="javascript:void(0)"><i class="fa fa-search"></i></a>
-                            <a href=""><i class="fa fa-heart"></i></a>
-                            <div class="dropdown cart">
-                                <a class="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-cart-plus"></i>
-                                </a>
+                            <% if current_user.present? %>
+                              <a href=""><i class="fa fa-heart"></i></a>
+                              <div class="dropdown cart">
+                                  <a class="dropdown-toggle" href="" id="navbarDropdown3" role="button"
+                                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <%= link_to "/cart" do %>
+                                      <i class="fa fa-cart-plus" style=""></i>
+                                    <% end %>
+                                  </a>
+                            <% end %>
                                 <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <div class="single_product">
     
