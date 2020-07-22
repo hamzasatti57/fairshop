@@ -92,6 +92,10 @@
     <%= f.check_box :warranty %> <br/>
   </div>
 
+  <div class="form-group">
+    <%= f.label :code %>
+    <%= f.text_field :code, class: "form-control", autocomplete: false, placeholder: "Code", autofocus: true %> <br/>
+  </div>
 
   <%= f.file_field :images, multiple: true %><br><br>
 
