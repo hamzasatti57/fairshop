@@ -12,7 +12,7 @@ class BlogsController < ApplicationController
       }
       format.html {
         @blogs = Blog.all.paginate(page: params[:page], per_page: 20)
-        @popular_blogs = Blog.all.most_hit(nil, 10)
+        # @popular_blogs = Blog.all.most_hit(nil, 10)
       }
     end
 
@@ -20,7 +20,7 @@ class BlogsController < ApplicationController
 
   def show
     @blog = Blog.find(params[:id])
-    @blog.punch(request)
+    # @blog.punch(request)
     @blog_next = @blog.next
     @blog_prev = @blog.prev
 
@@ -28,6 +28,6 @@ class BlogsController < ApplicationController
 
   def search
 
-    @popular_blogs = Blog.all.most_hit(nil, 10)
+    # @popular_blogs = Blog.all.most_hit(nil, 10)
   end
 end

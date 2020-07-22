@@ -20,7 +20,7 @@ class Admin::UsersController < AdminController
       if current_user.is_admin?
         redirect_to admin_users_path
       else
-        @user.punch(request)
+        # @user.punch(request)
         redirect_to root_path
       end
     else

@@ -12,7 +12,7 @@ class Admin::ProductCategoriesController < AdminController
   def create
     @product_category = ProductCategory.new(product_category_params)
     if @product_category.save
-      @product_category.punch(request)
+      # @product_category.punch(request)
       flash[:success] = "Product Category Successfully Created"
       redirect_to admin_product_categories_path
     else

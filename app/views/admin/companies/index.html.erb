@@ -2,25 +2,25 @@
   <div class="col-lg-8 offset-2">
     <div class="card">
       <div class="card-header">
-        <i class="fa fa-align-justify"></i> Listing all Brands</div>
+        <i class="fa fa-align-justify"></i> All Brands</div>
       <div class="card-body">
         <table class="table table-responsive-sm">
           <thead>
           <tr>
             <th>Title</th>
-            <th>Address</th>
-            <th>Contact</th>
-            <th>Individual Experience</th>
+            <th>Brand Logo</th>
             <th colspan="2">Action</th>
           </tr>
           </thead>
           <tbody>
           <% @companies.each do |company| %>
             <tr>
-              <td><%= company.title %>
-              <td><%= company.address %></td>
-              <td><%= company.contact %></td>
-              <td><%= company.individual_experience %></td>
+              <td><%= company.title %></td>
+              <% if company.image.present? %>
+              <td><img src="<%=url_for(company.image) %>" class="display-img" style= "height: 100px; width: 150px"></td>
+              <% else %>
+              <td></td>
+              <% end %>
               <td><%= link_to "Edit",  edit_admin_company_path(company), class: "btn btn-xs btn-primary" %></td>
               <td><%= link_to "Delete", admin_company_path(company), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger" %></td>
             </tr>

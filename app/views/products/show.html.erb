@@ -226,22 +226,22 @@
                   novalidate="novalidate"> -->
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Your Full name" />
+                      <%= f.text_field(:commentor_full_name, :class => 'form-control', placeholder: "Your Full name") %>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" />
+                      <%= f.text_field(:commentor_email_address, :class => 'form-control', placeholder: "Email Address") %>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="text" class="form-control" id="number" name="number" placeholder="Phone Number" />
+                      <%= f.text_field(:commentor_phone_number, :class => 'form-control', placeholder: "Phone Number") %>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_area(:statement, size: '50x10', :class => 'form-control', placeholder: "Message") %>
+                      <%= f.text_area(:statement, size: '70x10', :class => 'form-control', placeholder: "Message") %>
                       <%= f.hidden_field(:parent_id, value: @product.id , :id => "comment_area") %>
                       <%= f.hidden_field(:parent_type, value: Comment.parent_type_product ) %>
                     </div>
@@ -477,7 +477,7 @@
                     <% end %>
                       <div class="single_product_text">
                           <h4><%= product.title %></h4>
-                          <h3>$<%= product.price %></h3>
+                          <h3>R<%= product.price %></h3>
                       </div>
                   </div>
                   <% end %>

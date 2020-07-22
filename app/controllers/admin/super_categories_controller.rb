@@ -12,7 +12,7 @@ class Admin::SuperCategoriesController < ApplicationController
   def create
     @super_category = SuperCategory.new(super_category_params)
     if @super_category.save
-      @super_category.punch(request)
+      # @super_category.punch(request)
       flash[:success] = "Super Category Successfully Created"
       redirect_to admin_super_categories_path
     else

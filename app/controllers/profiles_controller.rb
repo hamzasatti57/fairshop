@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @user.punch(request)
+    # @user.punch(request)
     if @user.display_products?
       @products = @user.products
     elsif @user.display_projects?

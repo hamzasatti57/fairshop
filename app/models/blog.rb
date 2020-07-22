@@ -1,5 +1,5 @@
 class Blog < ApplicationRecord
-  acts_as_punchable
+  # acts_as_punchable
   has_one_attached :image
   scope :search, -> (q) {
     if q

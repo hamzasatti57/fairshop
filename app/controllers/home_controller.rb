@@ -4,27 +4,27 @@ class HomeController < ApplicationController
     @brands = Company.all
     @best_seller_products = Product.all.limit(5)
     @blogs = Blog.all.order("created_at DESC")
-    @popular_products = Product.most_hit(nil, 100)
-    @popular_vendors = User.product_vendors.most_hit(nil,100)
+    # @popular_products = Product.most_hit(nil, 100)
+    # @popular_vendors = User.product_vendors.most_hit(nil,100)
     @advertisements = Advertisement.all.order("created_at DESC")
     @aaa = User.all.where(AAA:true)
     category = Category.find_by(title: 'Architects')
     if category.nil?
       @popular_architects = []
     else
-      @popular_architects = User.most_hit(nil ,100).vendor.where(category_id: category.id)
+      # @popular_architects = User.most_hit(nil ,100).vendor.where(category_id: category.id)
     end
     category = Category.find_by(title: 'Interior Designer')
     if category.nil?
       @popular_interior_designers = []
     else
-      @popular_interior_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
+      # @popular_interior_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
     end
     category = Category.find_by(title: 'Product Designer')
     if category.nil?
       @popular_product_designers = []
     else
-      @popular_product_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
+      # @popular_product_designers = User.most_hit(nil ,100).vendor.where(category_id: category.id)
     end
     @cities = City.all.order("created_at DESC")
   end

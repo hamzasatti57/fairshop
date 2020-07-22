@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @user.punch(request)
+    # @user.punch(request)
     # @products = @user.products.where(visibility: true).paginate(page: params[:page], per_page: 21)
     respond_to do |format|
       format.js {
@@ -43,9 +43,9 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @product.punch(request)
+    # @product.punch(request)
     @vendor = @product.user
-    @vendor.punch(request)
+    # @vendor.punch(request)
     @products = @vendor.products.where(visibility: true)
     @likes = @product.likes
     @comments = @product.comments.order("created_at DESC")
@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
   end
 
   def popular_list
-    @popular_products = Product.most_hit(nil, 100).where(visibility: true).paginate(page: params[:page], per_page: 21)
+    # @popular_products = Product.most_hit(nil, 100).where(visibility: true).paginate(page: params[:page], per_page: 21)
   end
   def update_download_catalog_count
     @user = User.find(params[:user_id])

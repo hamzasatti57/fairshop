@@ -22,7 +22,7 @@ class User < ApplicationRecord
             length: {maximum: 105},
             format: {with: VALID_EMAIL_REGEX}
   enum role: {admin: 0, vendor: 1, customer: 2}
-  acts_as_punchable
+  # acts_as_punchable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
