@@ -257,7 +257,7 @@
                     url: '/ratings',
                     method: 'post',
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                    data: jQuery.param({ rating: {value:rating ,parent_id:<%=@project.id%>, parent_type:'<%=Rating.parent_type_project%>'} })
+                    data: jQuery.param({ rating: {value:rating ,parent_id:<%=@product.id%>, parent_type:'<%=Rating.parent_type_product%>'} })
                 });
             },
         });

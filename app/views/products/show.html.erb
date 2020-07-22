@@ -221,8 +221,9 @@
             <div class="col-lg-6">
               <div class="review_box">
                 <h4>Post a comment</h4>
-                <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
-                  novalidate="novalidate">
+                <%= form_for Comment.new, remote: true do |f| %>
+                <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                  novalidate="novalidate"> -->
                   <div class="col-md-12">
                     <div class="form-group">
                       <input type="text" class="form-control" id="name" name="name" placeholder="Your Full name" />
@@ -240,8 +241,9 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <textarea class="form-control" name="message" id="message" rows="1"
-                        placeholder="Message"></textarea>
+                      <%= f.text_area(:statement, size: '50x10', :class => 'form-control', placeholder: "Message") %>
+                      <%= f.hidden_field(:parent_id, value: @product.id , :id => "comment_area") %>
+                      <%= f.hidden_field(:parent_type, value: Comment.parent_type_product ) %>
                     </div>
                   </div>
                   <div class="col-md-12 text-right">
@@ -249,23 +251,31 @@
                       Submit Now
                     </button>
                   </div>
-                </form>
+                <% end %>
               </div>
             </div>
           </div>
         </div>
         <div class="" id="review" role="tabpanel" aria-labelledby="review-tab">
+          <div class="rate-box">
+            <strong>Rate this Product</strong>
+            <div id="rateYo"></div>
+
+          </div>
+
+          <br>
+          <br>
           <div class="row">
             <div class="col-lg-6">
               <div class="row total_rate">
                 <div class="col-6">
                   <div class="box_total">
                     <h5>Overall</h5>
-                    <h4>4.0</h4>
-                    <h6>(03 Reviews)</h6>
+                    <h4><%= @avg_rating.present? ? @avg_rating : 0.0 %></h4>
+                    <h6>(<%= @product.ratings.count %> Reviews)</h6>
                   </div>
                 </div>
-                <div class="col-6">
+   <!--              <div class="col-6">
                   <div class="rating_list">
                     <h3>Based on 3 Reviews</h3>
                     <ul class="list">
@@ -377,9 +387,9 @@
                     ullamco laboris nisi ut aliquip ex ea commodo
                   </p>
                 </div>
-              </div>
+              </div> -->
             </div>
-            <div class="col-lg-6">
+           <!--  <div class="col-lg-6">
               <div class="review_box">
                 <h4>Add a Review</h4>
                 <p>Your Rating:</p>
@@ -439,7 +449,7 @@
                   </div>
                 </form>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -637,6 +647,26 @@ inputNumber($('.input-number'));
     $("#review").css("display", "block");
   });
 
-           });
-  
+});
+
+    $(function () {
+
+        $("#rateYo").rateYo({
+            rating: <%= @rating.present? ? @rating.value : 0.0 %>,
+            onSet: function (rating, rateYoInstance) {
+                $.ajax({
+                    url: '/ratings',
+                    method: 'post',
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    data: jQuery.param({ rating: {value:rating ,parent_id:<%=@product.id%>, parent_type:'<%=Rating.parent_type_product%>'} })
+                });
+            },
+        });
+        $("#avg_rate").rateYo({
+            rating: <%= @avg_rating.present? ? @avg_rating : 0.0 %>,
+            readOnly: true
+        });
+
+    });
+
 </script>
