@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   belongs_to :product_category
   belongs_to :product_type, optional: true
   belongs_to :company
-  has_many :user_cart_products
+  has_many :user_cart_products, dependent: :destroy
   has_many :users, through: :user_cart_products
   # belongs_to :user, through: :company
   # has_many :user, through: :company
@@ -13,6 +13,8 @@ class Product < ApplicationRecord
   has_many :comments, class_name: "Comment", foreign_key: "parent_id"
   has_many :ratings, class_name: "Rating", foreign_key: "parent_id"
   has_many :likes, class_name: "Like", foreign_key: "parent_id"
+
+  validates :code, uniqueness: true, on: :create
   # acts_as_punchable
   scope :search_filter, -> (product_category_id) {
     filters = {}

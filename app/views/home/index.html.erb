@@ -20,6 +20,9 @@
                                         <div class="banner_text_iner">
                                             <h1><%= product.title %></h1>
                                             <p><%= product.description %></p>
+                                            <%= link_to add_to_cart_product_path(product.id), class: "btn_2", method: :post do %>
+                                              buy now
+                                            <% end %>
                                             <a href="/cart" class="btn_2">buy now</a>
                                             <a href="#" class="btn_2 btn_custom_1">Lay-bye</a>
                                         </div>
@@ -207,8 +210,13 @@
                             <img src="<%=url_for(product.images.first) %>">
                           <% end %>
                             <div class="single_product_text">
+                              <%= link_to "/products/#{product.id}" do %>
                                 <h4><%= product.title %></h4>
+                              <% end %>
                                 <h3>R<%= product.price %></h3>
+                                <%= link_to add_to_cart_product_path(product.id), class: "add_cart", method: :post do %>
+                                  + add to cart<i class="fa fa-heart-o"></i>
+                                <% end %>
                             </div>
                         </div>
                         <% end %>

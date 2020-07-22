@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_one_attached :resume
   has_one :profile, dependent: :destroy
   has_many :companies, dependent: :destroy
-  has_many :user_cart_products
+  has_many :user_cart_products, dependent: :destroy
   has_many :products, through: :user_cart_products
   has_many :projects, through: :companies
   has_many :products, through: :companies

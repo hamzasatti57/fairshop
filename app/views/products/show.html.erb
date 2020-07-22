@@ -476,7 +476,9 @@
                       <img src="<%=url_for(product.images.first) %>">
                     <% end %>
                       <div class="single_product_text">
+                        <%= link_to "/products/#{product.id}" do %>
                           <h4><%= product.title %></h4>
+                        <% end %>
                           <h3>R<%= product.price %></h3>
                       </div>
                   </div>

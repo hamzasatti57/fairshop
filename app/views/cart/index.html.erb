@@ -47,8 +47,10 @@
                 <td>
                   <div class="media">
                     <div class="d-flex">
+                      <% if cart.product.images.present? %>
                       <img src="<%=url_for(cart.product.images.first) %>">
                       <%#=image_tag("img/product/single-product/cart-1.jpg")%>
+                      <% end %>
                     </div>
                     <div class="media-body">
                       <p><%= cart.product.title %></p>
