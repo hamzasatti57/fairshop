@@ -18,9 +18,8 @@ class Ability
         user.companies.pluck(:id).include? project.company_id
         end
       can :create, Product
-      can :manage, Product, ["company_id IN (?)", user.companies.pluck(:id)] do |product|
-        user.companies.pluck(:id).include? product.company_id
-        end
+      can :manage, Product
+      
       can [:update, :read], Profile, ["user_id = ?", user.id] do |profile|
         profile.user_id == user.id
       end

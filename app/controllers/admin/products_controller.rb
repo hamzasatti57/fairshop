@@ -67,9 +67,9 @@ class Admin::ProductsController < AdminController
 
   def bulk_upload_products
     xlsx = Roo::Excelx.new(params["product"]["products"].tempfile, extension: :xlsx)
-    xlsx.sheet(1).each_with_index do |row, index|
+    xlsx.sheet(0).each_with_index do |row, index|
       next if index == 0
-      Product.create!(title: "Sample Product #{index}", company_id: Company.last.id, code: row[1], description: row[6], product_category_id: ProductCategory.find_or_create_by!(title: row[5], category_id: Category.find_or_create_by!(title: row[4]).id).id, status: false, price: row[7].gsub("R", "").to_f, height: row[8], width: row[9], length: row[10], m2: row[12])
+      Product.create!(title: row[1], company_id: Company.last.id, code: row[0], description: row[4], product_category_id: ProductCategory.find_or_create_by!(title: row[3], category_id: Category.find_or_create_by!(title: row[2]).id).id, status: false, price: row[5].gsub("R", "").to_f, height: row[6], width: row[7], length: row[8], m2: row[10])
     end
     flash[:success] = "Products uploaded successfully"
     redirect_to admin_products_path
