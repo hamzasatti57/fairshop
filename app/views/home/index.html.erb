@@ -125,9 +125,13 @@
                               <% @brands.first(8).each do |brand| %>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="single_product_item">
+                                      <%= link_to "/brand_products?brand=#{brand.title.gsub(" ", "_")}" do %>
                                         <%=image_tag(brand.image) if brand.image.attached? %>
+                                      <% end %>
                                         <div class="single_product_text">
+                                        <%= link_to "/brand_products?brand=#{brand.title.gsub(" ", "_")}" do %>
                                             <h4><%= brand.title %></h4>
+                                        <% end %>
                                         </div>
                                     </div>
                                 </div>
@@ -139,9 +143,13 @@
                               <% @brands.last(8).each do |brand| %>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="single_product_item">
+                                      <%= link_to "/brand_products?brand=#{brand.title.gsub(" ", "_")}" do %>
                                         <%=image_tag(brand.image) if brand.image.attached? %>
+                                      <% end %>
                                         <div class="single_product_text">
+                                          <%= link_to "/brand_products?brand=#{brand.title.gsub(" ", "_")}" do %>
                                             <h4><%= brand.title %></h4>
+                                          <% end %>
                                         </div>
                                     </div>
                                 </div>
