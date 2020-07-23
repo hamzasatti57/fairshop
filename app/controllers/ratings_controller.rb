@@ -13,6 +13,7 @@ class RatingsController < ApplicationController
       else
         @rating = current_user.customer_ratings.create(rating_params)
       end
+      render :json => {avg_ratting: @rating.product.ratings.average(:value), review_count: @rating.product.ratings.count }
       # @comments_count = @rating.parent.comments.count
     end
   end

@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     end
     member do
       post :add_to_cart
+      get :get_comments
     end
   end
   resources :venders

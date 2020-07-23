@@ -1,4 +1,3 @@
-
   <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/breadcrumb.png') %>');">
     <div class="container">
@@ -162,60 +161,23 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="comment_list">
-                <div class="review_item">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/review-1.png" alt="" />
+                <% @product.comments.order(id: :desc).each do |comment| %>
+                  <div class="review_item" id="pre-comment">
+                    <div class="media">
+                      <div class="d-flex">
+                        <%=image_tag("img/product/single-product/review-1.png")%>
+                      </div>
+                      <div class="media-body">
+                        <h4><%= comment.commentor_full_name %></h4>
+                        <h5><%= comment.created_at.strftime("%b %d, %Y %I:%M %P") %></h5>
+                        <!-- <a class="reply_btn" href="#">Reply</a> -->
+                      </div>
                     </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <h5>12th Feb, 2017 at 05:56 pm</h5>
-                      <a class="reply_btn" href="#">Reply</a>
-                    </div>
+                    <p>
+                      <%= comment.statement %>
+                    </p>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-                <div class="review_item reply">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/review-2.png" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <h5>12th Feb, 2017 at 05:56 pm</h5>
-                      <a class="reply_btn" href="#">Reply</a>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-                <div class="review_item">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/review-3.png" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <h5>12th Feb, 2017 at 05:56 pm</h5>
-                      <a class="reply_btn" href="#">Reply</a>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
+                <% end %>
               </div>
             </div>
             <div class="col-lg-6">
@@ -271,8 +233,8 @@
                 <div class="col-6">
                   <div class="box_total">
                     <h5>Overall</h5>
-                    <h4><%= @avg_rating.present? ? @avg_rating : 0.0 %></h4>
-                    <h6>(<%= @product.ratings.count %> Reviews)</h6>
+                    <h4 id="avg-ratting"><%= @avg_rating.present? ? @avg_rating : 0.0 %></h4>
+                    <h6>(<span id="review-count"><%= @product.ratings.count %></span> Reviews)</h6>
                   </div>
                 </div>
    <!--              <div class="col-6">
@@ -489,7 +451,7 @@
     </div>
   </section>
   <!-- product_list part end-->
-
+  <% image = 'img/product/single-product/review-1.png' %>
 
     <script type="text/javascript">
         var best_product_slider = $('.best_product_slider');
@@ -660,7 +622,11 @@ inputNumber($('.input-number'));
                     url: '/ratings',
                     method: 'post',
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                    data: jQuery.param({ rating: {value:rating ,parent_id:<%=@product.id%>, parent_type:'<%=Rating.parent_type_product%>'} })
+                    data: jQuery.param({ rating: {value:rating ,parent_id:<%=@product.id%>, parent_type:'<%=Rating.parent_type_product%>'} }),
+                    success: function(data){
+                       $('#avg-ratting').text(data.avg_ratting);
+                       $('#review-count').text(data.review_count);
+                    }
                 });
             },
         });
@@ -671,4 +637,30 @@ inputNumber($('.input-number'));
 
     });
 
+    $('#new_comment').on('submit', function(e){
+      // e.preventDefault(); // don't submit multiple times
+      // this.submit(); // use the native submit method of the form element
+      url = window.location.pathname;
+      id = url.substring(url.lastIndexOf('/') + 1);
+      setTimeout(function() {
+      $.ajax({
+          url:'/products/' + id + '/get_comments',
+          type:'get',
+          processData:false,
+          success:function (data) {
+            console.log(data);
+            debugger
+            html = "<div class='review_item'><div class='media'><div class='d-flex'>" + "<img src='<%= image_path image %>'>"
+ + "</div><div class='media-body'><h4>" + data.commentor_full_name + "</h4><h5>" + data.date + "</h5><!-- <a class='reply_btn' href='#'>Reply</a> --></div></div><p>" + data.statement + "</p></div>";
+            $("#pre-comment").prepend(html);
+          },
+
+          error:function (data) {
+
+              alert ('Error');
+          }
+
+      });
+      },100);
+    });
 </script>

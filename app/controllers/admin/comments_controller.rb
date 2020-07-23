@@ -12,7 +12,7 @@ class Admin::CommentsController < AdminController
   def create
     @comment = Comment.new(comment_params)
     if @comment.save
-            flash[:success] = "Comment Successfully Created"
+      flash[:success] = "Comment Successfully Created"
       redirect_to admin_comments_path
     else
       render 'new'

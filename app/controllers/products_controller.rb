@@ -41,6 +41,12 @@ class ProductsController < ApplicationController
     end
   end
 
+  def get_comments
+    @product = Product.find(params[:id])
+    @comment = @product.comments.last
+    render :json => @comment.attributes.merge( "date" => @comment.created_at.strftime("%b %d, %Y %I:%M %P"))
+  end
+
   def show
     @product = Product.find(params[:id])
     # @product.punch(request)
