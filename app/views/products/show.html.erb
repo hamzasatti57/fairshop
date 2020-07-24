@@ -64,7 +64,11 @@
                   add to cart
                 <% end %>
               <!-- <a href="/cart" class="btn_3">add to cart</a> -->
-              <a href="#" class="like_us"> <i class="fa fa-heart-o"></i> </a>
+              <% if @product.likes.where(user_id: current_user.id).present? %>
+                <a class="like_us_1"> <i class="fa fa-heart-o" id="product-like"></i> </a>
+              <% else %>
+                <a class="like_us_2"> <i class="fa fa-heart" id="product-like"></i> </a>
+              <% end %>
             </div>
           </div>
         </div>
@@ -72,6 +76,17 @@
     </div>
   </div>
   <!--================End Single Product Area =================-->
+
+    <div style="display: none">
+      <%= form_for Like.new, remote: true do |f| %>
+        <div class="form-group">
+          <%= f.hidden_field(:parent_id, value: @product.id ) %>
+          <%= f.hidden_field(:parent_type, value: Like.parent_type_product ) %>
+          <%= f.hidden_field(:value, value: true ) %>
+          <%= f.submit 'Like Project', :class => 'btn btn-main', :id => 'like-button' %>
+      <% end %>
+    </div>
+    </div>
 
 <!--================Product Description Area =================-->
   <section class="product_description_area">
@@ -615,6 +630,33 @@ inputNumber($('.input-number'));
     $("#review").css("display", "block");
   });
 
+    $( ".fa-heart-o" ).click(function() {
+      if ($('#product-like').hasClass( "fa-heart-o" )) {
+        $('#product-like').removeClass("fa-heart-o");
+        $('#product-like').addClass("fa-heart");
+        toastr.success('Added to favourites')
+      }
+      else{
+        $('#product-like').removeClass("fa-heart");
+        $('#product-like').addClass("fa-heart-o");
+        toastr.error('Removed to favourites')    
+      }
+      $( "#like-button" ).click();
+    });
+
+    $( ".fa-heart" ).click(function() {
+      if ($('#product-like').hasClass( "fa-heart" )) {
+        $('#product-like').removeClass("fa-heart");
+        $('#product-like').addClass("fa-heart-o");
+        toastr.error('Removed to favourites')
+      }
+      else{
+        $('#product-like').removeClass("fa-heart-o");
+        $('#product-like').addClass("fa-heart");
+        toastr.success('Added to favourites')   
+      }
+      $( "#like-button" ).click();
+    });
 });
 
     $(function () {
@@ -653,7 +695,6 @@ inputNumber($('.input-number'));
           processData:false,
           success:function (data) {
             console.log(data);
-            debugger
             html = "<div class='review_item'><div class='media'><div class='d-flex'>" + "<img src='<%= image_path image %>'>"
  + "</div><div class='media-body'><h4>" + data.commentor_full_name + "</h4><h5>" + data.date + "</h5><!-- <a class='reply_btn' href='#'>Reply</a> --></div></div><p>" + data.statement + "</p></div>";
             $("#pre-comment").prepend(html);
