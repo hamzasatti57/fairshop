@@ -107,62 +107,6 @@
     </section>
     <!-- upcoming_event part start-->
 
-    <!-- product_list start-->
-    <section class="product_list section_padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="section_tittle text-center">
-                        <h2>awesome <span>brands</span></h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="product_list_slider owl-carousel">
-                        <div class="single_product_list_slider">
-                            <div class="row align-items-center justify-content-between">
-                              <% @brands.first(8).each do |brand| %>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                      <%= link_to "/brand_products?brand=#{brand.title.gsub(" ", "_")}" do %>
-                                        <%=image_tag(brand.image) if brand.image.attached? %>
-                                      <% end %>
-                                        <div class="single_product_text">
-                                        <%= link_to "/brand_products?brand=#{brand.title.gsub(" ", "_")}" do %>
-                                            <h4><%= brand.title %></h4>
-                                        <% end %>
-                                        </div>
-                                    </div>
-                                </div>
-                              <% end %>
-                            </div>
-                        </div>
-                        <div class="single_product_list_slider">
-                            <div class="row align-items-center justify-content-between">
-                              <% @brands.last(8).each do |brand| %>
-                                <div class="col-lg-3 col-sm-6">
-                                    <div class="single_product_item">
-                                      <%= link_to "/brand_products?brand=#{brand.title.gsub(" ", "_")}" do %>
-                                        <%=image_tag(brand.image) if brand.image.attached? %>
-                                      <% end %>
-                                        <div class="single_product_text">
-                                          <%= link_to "/brand_products?brand=#{brand.title.gsub(" ", "_")}" do %>
-                                            <h4><%= brand.title %></h4>
-                                          <% end %>
-                                        </div>
-                                    </div>
-                                </div>
-                              <% end %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- product_list part start-->
-
     <!-- Awesome_shop start-->
     <section class="our_offer section_padding">
         <div class="container">
@@ -222,7 +166,8 @@
                               <% end %>
                                 <h3>R<%= product.price %></h3>
                                 <%= link_to add_to_cart_product_path(product.id), class: "add_cart", method: :post do %>
-                                  + add to cart<i class="fa fa-heart-o"></i>
+                                  + add to cart
+                                  <!-- <i class="fa fa-heart-o"></i> -->
                                 <% end %>
                             </div>
                         </div>
