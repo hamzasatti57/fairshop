@@ -40,23 +40,23 @@
                             </div>
                         </aside>
 
-                        <aside class="left_widgets p_filter_widgets">
+<!--                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
                                 <h3>Brands</h3>
                             </div>
                             <div class="widgets_inner">
                                 <ul class="list">
-                                  <% @companies.to_a.each do |brand| %>
-                                    <% if @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count > 0 %>
+                                  <%# @companies.to_a.each do |brand| %>
+                                    <%# if @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count > 0 %>
                                       <li>
-                                          <a href="/product_category?type=<%= params[:type] %>&brand=<%= brand.title.gsub(" ", "_") %>&category=<%= params[:category] %>"><%= brand.title %></a>
-                                          <span><%= @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count %></span>
+                                          <a href="/product_category?type=<%#= params[:type] %>&brand=<%#= brand.title.gsub(" ", "_") %>&category=<%#= params[:category] %>"><%#= brand.title %></a>
+                                          <span><%#= @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count %></span>
                                       </li>
-                                    <% end %>
-                                  <% end %>
+                                    <%# end %>
+                                  <%# end %>
                                 </ul>
                             </div>
-                        </aside>
+                        </aside> -->
 <!-- 
                         <aside class="left_widgets p_filter_widgets">
                             <div class="l_w_title">
