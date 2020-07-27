@@ -71,9 +71,9 @@ class Admin::ProductsController < AdminController
       next if index == 0
       if Product.where(code: row[0]).present?
         @product = Product.where(code: row[0]).first
-        @product.update!(title: row[1], company_id: Company.last.id, description: row[4], product_category_id: ProductCategory.find_or_create_by!(title: row[3], category_id: Category.find_or_create_by!(title: row[2]).id).id, status: false, price: row[5].gsub("R", "").to_f, height: row[6], width: row[7], length: row[8], m2: row[10])
+        @product.update!(title: row[1], company_id: Company.first.id, description: row[4], product_category_id: ProductCategory.find_or_create_by!(title: row[3], category_id: Category.find_or_create_by!(title: row[2]).id).id, status: false, price: row[5].gsub("R", "").to_f, height: row[6], width: row[7], length: row[8], m2: row[10])
       else
-        Product.create!(title: row[1], company_id: Company.last.id, code: row[0], description: row[4], product_category_id: ProductCategory.find_or_create_by!(title: row[3], category_id: Category.find_or_create_by!(title: row[2]).id).id, status: false, price: row[5].gsub("R", "").to_f, height: row[6], width: row[7], length: row[8], m2: row[10])
+        Product.create!(title: row[1], company_id: Company.first.id, code: row[0], description: row[4], product_category_id: ProductCategory.find_or_create_by!(title: row[3], category_id: Category.find_or_create_by!(title: row[2]).id).id, status: false, price: row[5].gsub("R", "").to_f, height: row[6], width: row[7], length: row[8], m2: row[10])
       end
     end
     flash[:success] = "Products uploaded successfully"
