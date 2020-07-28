@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     if current_user.present?
       @product = Product.find(params[:id])
       unless current_user.user_cart_products.pluck(:product_id).include?(@product.id)
-        current_user.user_cart_products.create(product_id: @product.id, quantity: 1, sub_total: @product.price)
+        current_user.user_cart_products.create(product_id: @product.id, quantity: params[:quantity].present? ? params[:quantity].to_i : 1, sub_total: @product.price * (params[:quantity].present? ? params[:quantity].to_i : 1))
         flash[:success] = "Product added to card"
         redirect_to cart_index_path
       else

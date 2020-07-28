@@ -58,17 +58,17 @@
                   </div>
                 </td>
                 <td>
-                  <h5><%= cart.product.price %></h5>
+                  <h5 id="per-total"><%= cart.product.price %></h5>
                 </td>
                 <td>
                   <div class="product_count">
-                    <span class="input-number-decrement"> <i class="fa fa-angle-down"></i></span>
-                    <input class="input-number" type="text" value="1" min="0" max="10">
-                    <span class="input-number-increment"> <i class="fa fa-angle-up"></i></span>
+                    <span class="input-number-decrement" style="cursor: pointer;"> <i class="fa fa-angle-down"></i></span>
+                    <input class="input-number" type="text" value="<%= cart.quantity %>" min="0" max="10">
+                    <span class="input-number-increment" style="cursor: pointer;"> <i class="fa fa-angle-up"></i></span>
                   </div>
                 </td>
                 <td>
-                  <h5><%= cart.sub_total %></h5>
+                  <h5 id="sub-total"><%= cart.sub_total %></h5>
                 </td>
               </tr>
               <% end %>
@@ -152,54 +152,23 @@
   </section>
   <!--================End Cart Area =================-->
 
-
-
-
   <script type="text/javascript">
-    // click counter js
-(function() {
- 
-  window.inputNumber = function(el) {
 
-    var min = el.attr('min') || false;
-    var max = el.attr('max') || false;
-
-    var els = {};
-
-    els.dec = el.prev();
-    els.inc = el.next();
-
-    el.each(function() {
-      init($(this));
+    $('.input-number-increment').on('click', function(e){
+      if($(this).parent().find("input").val() != 10){
+        $(this).parent().find("input").val(parseInt($(this).parent().find("input").val()) + 1);
+        price = parseFloat($(this).parent().parent().parent().find("#per-total").text()) + parseFloat($(this).parent().parent().parent().find("#sub-total").text())
+        $(this).parent().parent().parent().find("#sub-total").text(price.toFixed(1))
+      }
     });
 
-    function init(el) {
-
-      els.dec.on('click', decrement);
-      els.inc.on('click', increment);
-
-      function decrement() {
-        var value = el[0].value;
-        value--;
-        if(!min || value >= min) {
-          debugger
-          el[0].value = value;
-        }
+    $('.input-number-decrement').on('click', function(e){
+      if($(this).parent().find("input").val() != 1){
+        $(this).parent().find("input").val(parseInt($(this).parent().find("input").val()) - 1);
+        price = parseFloat($(this).parent().parent().parent().find("#sub-total").text()) - parseFloat($(this).parent().parent().parent().find("#per-total").text())
+        $(this).parent().parent().parent().find("#sub-total").text(price.toFixed(1))
       }
-
-      function increment() {
-        var value = el[0].value;
-        value++;
-        if(!max || value <= max) {
-          debugger
-          el[0].value = value++;
-        }
-      }
-    }
-  }
-})();
-
-inputNumber($('.input-number'));
+    });
 
   // click counter js
   </script>

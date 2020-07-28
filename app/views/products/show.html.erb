@@ -60,9 +60,10 @@
                 <input class="input-number" type="text" value="1" min="0" max="10">
                 <span class="number-increment"> <i class="fa fa-plus"></i></span>
               </div>
-                <%= link_to add_to_cart_product_path(@product.id), class: "btn_3", method: :post do %>
-                  add to cart
-                <% end %>
+                <%#= link_to add_to_cart_product_path(@product.id), class: "btn_3", method: :post do %>
+                  <!-- add to cart -->
+                <%# end %>
+                <a id="add-to-cart" class="btn_3" style="cursor: pointer;color: white;">add to cart</a>
               <!-- <a href="/cart" class="btn_3">add to cart</a> -->
               <% if @product.likes.where(user_id: current_user.id).present? %>
                 <a class="like_us_1"> <i class="fa fa-heart-o" id="product-like"></i> </a>
@@ -707,5 +708,30 @@ inputNumber($('.input-number'));
 
       });
       },100);
+    });
+
+
+    /////////add to cart /////////
+
+    $('#add-to-cart').on('click', function(e){
+      // e.preventDefault(); // don't submit multiple times
+      // this.submit(); // use the native submit method of the form element
+      count = $(".input-number").val()
+      url = window.location.pathname;
+      id = url.substring(url.lastIndexOf('/') + 1);
+      $.ajax({
+          headers: {   'X-CSRF-Token': Rails.csrfToken() },
+          url:'/products/' + id + '/add_to_cart?quantity=' + count,
+          type:'post',
+          success:function (data) {
+            console.log(data);
+          },
+
+          error:function (data) {
+
+              alert ('Error');
+          }
+
+      });
     });
 </script>
