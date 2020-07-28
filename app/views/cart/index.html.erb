@@ -57,17 +57,18 @@
                     </div>
                   </div>
                 </td>
-                <td>
+                <td id="per-total-parent">
                   <h5 id="per-total"><%= cart.product.price %></h5>
                 </td>
                 <td>
                   <div class="product_count">
+                    <p style="display: none"><%= cart.id %></p>
                     <span class="input-number-decrement" style="cursor: pointer;"> <i class="fa fa-angle-down"></i></span>
                     <input class="input-number" type="text" value="<%= cart.quantity %>" min="0" max="10">
                     <span class="input-number-increment" style="cursor: pointer;"> <i class="fa fa-angle-up"></i></span>
                   </div>
                 </td>
-                <td>
+                <td id="sub-total-parent">
                   <h5 id="sub-total"><%= cart.sub_total %></h5>
                 </td>
               </tr>
@@ -80,7 +81,7 @@
                 <td></td>
                 <td>
                   <div class="cupon_text float-right">
-                    <a class="btn_1" href="#">Update Cart</a>
+                    <a id="update-cart" class="btn_1" style="cursor: pointer;">Update Cart</a>
                   </div>
                 </td>
               </tr>
@@ -91,7 +92,7 @@
                   <h5>Subtotal</h5>
                 </td>
                 <td>
-                  <h5>$2160.00</h5>
+                  <h5 id="grand-sum"><%= @sum %></h5>
                 </td>
               </tr>
               <tr class="shipping_area">
@@ -170,5 +171,33 @@
       }
     });
 
+    $('#update-cart').on('click', function(e){
+      cart_arr = $(this).parent().parent().parent().siblings().slice(0, $(this).parent().parent().parent().siblings().length - 2)
+      var jsonObject = {}
+      cart_arr.each(function(index, element) {
+        jsonObject[element.children[2].children[0].children[0].textContent] = element.children[2].children[0].children[2].value;
+      });
+      console.log(jsonObject)
+      $.ajax({
+          headers: { 'X-CSRF-Token': Rails.csrfToken() },
+          url:'/products/save_cart',
+          data: { cart_object: jsonObject },
+          dataType: 'json',
+          type:'post',
+          success:function (data) {
+            debugger
+            $("#grand-sum").text(data.toFixed(1));
+            toastr.success('Cart Updated sucessfully')
+            console.log(data);
+          },
+
+          error:function (data) {
+            alert ('Error');
+          }
+
+      });
+
+    });
+    
   // click counter js
   </script>

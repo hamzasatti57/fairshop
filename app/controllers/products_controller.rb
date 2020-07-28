@@ -41,6 +41,15 @@ class ProductsController < ApplicationController
     end
   end
 
+  def save_cart
+    params["cart_object"].keys.each_with_index do |cart_id, index|
+      @user_cart_product = UserCartProduct.find_by_id(cart_id.to_i)
+      @user_cart_product.update(quantity: params["cart_object"]["#{cart_id.to_i}"], sub_total: @user_cart_product.product.price * params["cart_object"]["#{cart_id.to_i}"].to_f)
+    end
+    @sum = current_user.user_cart_products.pluck(:sub_total).sum
+    render :json => @sum
+  end
+
   def get_comments
     @product = Product.find(params[:id])
     @comment = @product.comments.last
