@@ -33,7 +33,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :category, optional: true
-  belongs_to :city, optional: true
+  # belongs_to :city, optional: true
 
 
 

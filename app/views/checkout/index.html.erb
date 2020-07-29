@@ -9,6 +9,9 @@
   input, textarea, select{
     -webkit-appearance: auto !important;
   }
+  .billing_details .contact_form .form-group textarea {
+    height: 70px;
+  }
 </style>
 
   <!--================Home Banner Area =================-->
@@ -100,18 +103,31 @@
                 </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code") %>
+                        <%= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control' %>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <%= f.collection_select :city_id, City.all,:id,:title, include_blank: false, :class => 'form-control' %>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true) %>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_area(:address, size: '70x10', :class => 'form-control', placeholder: "Address") %>
+                      <%= f.text_area(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true) %>
                       <%= f.hidden_field(:is_primary, value: true) %>
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
                   </div>
                   <div class="col-md-12 text-right" style="display: none">
-                    <button type="submit" value="submit" class="btn_3">
+                    <button type="submit" value="submit" class="btn_3 billing_address_1_submit">
                       Submit Now
                     </button>
                   </div>
@@ -134,18 +150,31 @@
                  
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code") %>
+                        <%= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control' %>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                        <%= f.collection_select :city_id, City.all,:id,:title, include_blank: false, :class => 'form-control' %>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true) %>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_area(:address, size: '70x10', :class => 'form-control', placeholder: "Address") %>
+                      <%= f.text_area(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true) %>
                       <%= f.hidden_field(:is_primary, value: false) %>
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
                   </div>
                   <div class="col-md-12 text-right" style="display: none">
-                    <button type="submit" value="submit" class="btn_3">
+                    <button type="submit" value="submit" class="btn_3 billing_address_2_submit">
                       Submit Now
                     </button>
                   </div>
@@ -218,7 +247,7 @@
                 <label for="f-option4">I’ve read and accept the </label>
                 <a href="#">terms & conditions*</a>
               </div>
-              <a class="btn_3" href="/confirmation">Proceed to Payfast</a>
+              <a class="btn_3 proceed_to_checkout" href="/confirmation">Proceed to Payfast</a>
             </div>
           </div>
         </div>
@@ -231,13 +260,14 @@
       <%= form_for new_checkout_path, remote: true do |f| %>
         <div class="col-md-12">
           <div class="form-group">
-            <%= f.hidden_field(:billing_address_id, value: current_user.billing_addresses.present? ? current_user.billing_addresses.first.id : 1) %>
+            <%= f.hidden_field(:billing_address_id, value: current_user.billing_addresses.present? ? current_user.billing_addresses.last.id : nil) %>
+            <%= f.hidden_field(:user_cart_id, value: current_user.user_cart.present? ? current_user.user_cart.id : nil ) %>
             <%= f.hidden_field(:user_id, value: current_user.id ) %>
-            <%= f.hidden_field(:user_id, value: current_user.id ) %>
+            <%= f.hidden_field(:amount, value: @sum ) %>
           </div>
         </div>
         <div class="col-md-12 text-right">
-          <button type="submit" value="submit" class="btn_3">
+          <button type="submit" value="submit" class="btn_3 checkout_submit">
             Submit Now
           </button>
         <% end %>
@@ -252,6 +282,27 @@
                 $("#shippment-address").css("display", "none");
             }
         });
+
+        $('#new-shippment').on('click', function(e){
+          if(document.getElementById('new-shippment').checked) {
+                $("#shippment-address").css("display", "block");
+            } else {
+                $("#shippment-address").css("display", "none");
+            }
+        });
+
+        $('.proceed_to_checkout').on('click', function(e){debugger
+          if(document.getElementById('new-shippment').checked) {
+            $(".billing_address_2_submit").click();
+            $(".checkout_submit").click();
+          }
+          else{
+            $(".billing_address_1_submit").click();
+            $(".checkout_submit").click();
+          }
+
+        });
+
       </script>
 
 

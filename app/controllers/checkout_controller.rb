@@ -7,7 +7,15 @@ class CheckoutController < ApplicationController
   end
 
   def create
-    @checkout = Checkout.create(checkout_params)
+    @checkout = Checkout.new(checkout_params)
+    @checkout.billing_address_id = current_user.billing_addresses.last.id if params["/checkout/new"]["billing_address_id"] == ""
+    respond_to do |format|
+      if @checkout.save
+        format.json { render @checkout, status: :created}
+      else
+        format.json { render json: @checkout.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def index
@@ -18,7 +26,7 @@ class CheckoutController < ApplicationController
   private
 
   def checkout_params
-    params.required(:checkout).permit(:billing_address_id, :user_cart_product_id, :user_id)
+    params.required("/checkout/new").permit(:billing_address_id, :user_cart_id, :user_id, :amount)
   end
 
   def get_checkout

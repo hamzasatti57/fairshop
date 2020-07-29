@@ -7,7 +7,7 @@ class BillingAddressesController < ApplicationController
   end
 
   def create
-    @billing_address = BillingAddress.create(billing_address_params)
+    @billing_address = BillingAddress.create!(billing_address_params)
   end
 
   private
