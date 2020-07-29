@@ -167,9 +167,9 @@
                                     <% end %>
 
                                   <% if current_user && product.likes.where(user_id: current_user.id).present? %>
-                                    <a class="like_us_1" style="margin-left: 23px;"> <i class="fa fa-heart-o heart-o-<%= product.id%>" id="product-like"></i> </a>
-                                  <% else %>
                                     <a class="like_us_2" style="margin-left: 23px;"> <i class="fa fa-heart heart-<%= product.id%>" id="product-like"></i> </a>
+                                  <% else %>
+                                    <a class="like_us_1" style="margin-left: 23px;"> <i class="fa fa-heart-o heart-o-<%= product.id%>" id="product-like"></i> </a>
                                   <% end %>
                                     
                                   </div>

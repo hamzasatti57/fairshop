@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     collection do
       post :popular_list
       get :popular_list
+      get :favourites
       post :save_cart
     end
     member do

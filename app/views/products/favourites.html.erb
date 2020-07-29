@@ -1,0 +1,118 @@
+<style type="text/css">
+  .current{
+         background-color: #ecfdff !important; 
+         color: black;
+  }
+  .current:hover{
+        background-color: #ecfdff !important; 
+        color: black;
+  }
+</style>
+
+  <!--================Home Banner Area =================-->
+  <!-- breadcrumb start-->
+  <section class="breadcrumb breadcrumb_bg">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="breadcrumb_iner">
+            <div class="breadcrumb_iner_item">
+              <h2>Favourites</h2>
+              <p>Home <span>-</span>Favourites</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- breadcrumb start-->
+
+  <!--================Cart Area =================-->
+  <section class="cart_area padding_top">
+    <div class="container">
+      <div class="cart_inner">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @products.each do |product| %>
+              <tr>
+                <td>
+                  <div class="media">
+                    <div class="d-flex">
+                      <% if product.images.present? %>
+                      <img src="<%=url_for(product.images.first) %>">
+                      <%#=image_tag("img/product/single-product/product-1.jpg")%>
+                      <% end %>
+                    </div>
+                    <div class="media-body">
+                      <p><%= product.title %></p>
+                    </div>
+                  </div>
+                </td>
+                <td id="per-total-parent">
+                  <h5 id="per-total"><%= product.price %></h5>
+                </td>
+                <td>
+                  <div class="product_count">
+                    <a class="like_us_2" style="margin-left: 23px; cursor: pointer;"> <i class="fa fa-heart heart-<%= product.id%>" id="product-like"></i> </a>
+                    
+                  </div>
+                </td>
+              </tr>
+
+              <div style="display: none">
+                <%= form_for Like.new, remote: true do |f| %>
+                  <div class="form-group">
+                    <%= f.hidden_field(:parent_id, value: product.id ) %>
+                    <%= f.hidden_field(:parent_type, value: Like.parent_type_product ) %>
+                    <%= f.hidden_field(:value, value: true ) %>
+                    <%= f.submit 'Like Project', :class => 'btn btn-main', name: "btnn-#{product.id}", :id => 'like-button' %>
+                   </div>
+                <% end %>
+              </div>
+
+              <script type="text/javascript">
+                $( ".heart-<%= product.id%>" ).click(function() {
+                  if ($(this).hasClass( "fa-heart-o" )) {
+                    $(this).toggleClass('fa-heart-o fa-heart');
+                    toastr.success('Added to favourites')
+                  }
+                  else{
+                    $(this).toggleClass('fa-heart-o fa-heart');
+                    toastr.error('Removed to favourites');
+                    $(this).parent().parent().parent().parent().hide();   
+                  }
+                  $("[name='btnn-<%= product.id%>']").click();
+                });
+              </script>
+              <% end %>
+              <tr class="bottom_button">
+                <td>
+                  <!-- <a class="btn_1" href="#">Update product</a> -->
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="checkout_btn_inner float-right">
+            <a class="btn_1" href="/">Continue Shopping</a>
+          </div>
+        </div>
+      </div>
+  </section>
+  <!--================End product Area =================-->
+
+  <script type="text/javascript">
+    
+  // click counter js
+  </script>

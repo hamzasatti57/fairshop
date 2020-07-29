@@ -56,6 +56,10 @@ class ProductsController < ApplicationController
     render :json => @comment.attributes.merge( "date" => @comment.created_at.strftime("%b %d, %Y %I:%M %P"))
   end
 
+  def favourites
+    @products = Product.where(id: current_user.customer_likes.pluck(:parent_id))
+  end
+
   def show
     @product = Product.find(params[:id])
     # @product.punch(request)
