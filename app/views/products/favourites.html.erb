@@ -47,12 +47,16 @@
                   <div class="media">
                     <div class="d-flex">
                       <% if product.images.present? %>
-                      <img src="<%=url_for(product.images.first) %>">
+                      <%= link_to "/products/#{product.id}" do %>
+                        <img src="<%=url_for(product.images.first) %>">
+                      <% end %>
                       <%#=image_tag("img/product/single-product/product-1.jpg")%>
                       <% end %>
                     </div>
                     <div class="media-body">
-                      <p><%= product.title %></p>
+                      <%= link_to "/products/#{product.id}" do %>
+                        <p><%= product.title %></p>
+                      <% end %>
                     </div>
                   </div>
                 </td>
