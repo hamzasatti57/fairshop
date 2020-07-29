@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :ratings
   resources :likes
+  resources :billing_addresses
   resources :profiles do
     collection do
       post :update_download_catalog_count

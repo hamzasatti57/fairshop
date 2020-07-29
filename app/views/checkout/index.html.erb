@@ -6,6 +6,9 @@
   .current:hover{
         background-color: #fff !important; 
   }
+  input, textarea, select{
+    -webkit-appearance: auto !important;
+  }
 </style>
 
   <!--================Home Banner Area =================-->
@@ -76,71 +79,81 @@
         <div class="row">
           <div class="col-lg-8">
             <h3>Billing Details</h3>
-            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="first" name="name" />
-                <span class="placeholder" data-placeholder="First name"></span>
-              </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="last" name="name" />
-                <span class="placeholder" data-placeholder="Last name"></span>
-              </div>
-              <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
-              </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="number" name="number" />
-                <span class="placeholder" data-placeholder="Phone number"></span>
-              </div>
-              <div class="col-md-6 form-group p_star">
-                <input type="text" class="form-control" id="email" name="compemailany" />
-                <span class="placeholder" data-placeholder="Email Address"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <select class="country_select">
-                  <option value="1">Country</option>
-                  <option value="2">Country</option>
-                  <option value="4">Country</option>
-                </select>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="add1" name="add1" />
-                <span class="placeholder" data-placeholder="Address line 01"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="add2" name="add2" />
-                <span class="placeholder" data-placeholder="Address line 02"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <input type="text" class="form-control" id="city" name="city" />
-                <span class="placeholder" data-placeholder="Town/City"></span>
-              </div>
-              <div class="col-md-12 form-group p_star">
-                <select class="country_select">
-                  <option value="1">District</option>
-                  <option value="2">District</option>
-                  <option value="4">District</option>
-                </select>
-              </div>
-              <div class="col-md-12 form-group">
-                <input type="text" class="form-control" id="zip" name="zip" placeholder="Postcode/ZIP" />
-              </div>
-              <div class="col-md-12 form-group">
-                <div class="creat_account">
-                  <input type="checkbox" id="f-option2" name="selector" />
-                  <label for="f-option2">Create an account?</label>
+                <%= form_for BillingAddress.new, remote: true do |f| %>
+                <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                  novalidate="novalidate"> -->
+              <div class="row contact_form">
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="first" name="name" placeholder="First name" value="<%= current_user.first_name %>" />
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="last" name="name" placeholder="Last name" value="<%= current_user.last_name %>" />
+                </div>
+                <!-- <div class="col-md-12 form-group">
+                  <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
+                </div> -->
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="number" name="number" placeholder="Phone number" value="<%= current_user.contact_details %>" />
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <input type="text" class="form-control" id="email" name="compemailany" placeholder="Email Address" value="<%= current_user.email %>" />
+                </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code") %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_area(:address, size: '70x10', :class => 'form-control', placeholder: "Address") %>
+                      <%= f.hidden_field(:is_primary, value: true) %>
+                      <%= f.hidden_field(:user_id, value: current_user.id ) %>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right" style="display: none">
+                    <button type="submit" value="submit" class="btn_3">
+                      Submit Now
+                    </button>
+                  </div>
+                </div>
+                <% end %>
+
+                <div class="col-md-12 form-group">
+                  <div class="creat_account">
+                    <h3>Shipping Details</h3>
+
+                    <label for="f-option3">Ship to a different address?</label>
+                    <br>
+                    <input type="checkbox" id="new-shippment">
+                  </div>
+                  <div id="shippment-address" style="display: none">
+                  <%= form_for BillingAddress.new, remote: true do |f| %>
+                  <div class="row contact_form">
+                  <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+                  novalidate="novalidate"> -->
+                 
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code") %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_area(:address, size: '70x10', :class => 'form-control', placeholder: "Address") %>
+                      <%= f.hidden_field(:is_primary, value: false) %>
+                      <%= f.hidden_field(:user_id, value: current_user.id ) %>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-right" style="display: none">
+                    <button type="submit" value="submit" class="btn_3">
+                      Submit Now
+                    </button>
+                  </div>
+                <% end %>
+                    
+                  </div>
                 </div>
               </div>
-              <div class="col-md-12 form-group">
-                <div class="creat_account">
-                  <h3>Shipping Details</h3>
-                  <input type="checkbox" id="f-option3" name="selector" />
-                  <label for="f-option3">Ship to a different address?</label>
-                </div>
-                <textarea class="form-control" name="message" id="message" rows="1"
-                  placeholder="Order Notes"></textarea>
-              </div>
-            </form>
           </div>
           <div class="col-lg-4">
             <div class="order_box">
@@ -151,29 +164,19 @@
                     <span>Total</span>
                   </a>
                 </li>
+                <% @cart.each do |cart| %>
                 <li>
-                  <a href="#">Fresh Blackberry
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
+                  <a href="#"><%= cart.product.title %>
+                    <span class="middle">x <%= cart.quantity %></span>
+                    <span class="last">R<%= cart.sub_total %></span>
                   </a>
                 </li>
-                <li>
-                  <a href="#">Fresh Tomatoes
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">Fresh Brocoli
-                    <span class="middle">x 02</span>
-                    <span class="last">$720.00</span>
-                  </a>
-                </li>
+                <% end %>
               </ul>
               <ul class="list list_2">
                 <li>
                   <a href="#">Subtotal
-                    <span>$2160.00</span>
+                    <span>R<%= @sum %></span>
                   </a>
                 </li>
                 <li>
@@ -223,3 +226,31 @@
     </div>
   </section>
   <!--================End Checkout Area =================-->
+
+    <div class="row contact_form" style="display: none">
+      <%= form_for new_checkout_path, remote: true do |f| %>
+        <div class="col-md-12">
+          <div class="form-group">
+            <%= f.hidden_field(:billing_address_id, value: current_user.billing_addresses.present? ? current_user.billing_addresses.first.id : 1) %>
+            <%= f.hidden_field(:user_id, value: current_user.id ) %>
+          </div>
+        </div>
+        <div class="col-md-12 text-right">
+          <button type="submit" value="submit" class="btn_3">
+            Submit Now
+          </button>
+        <% end %>
+      </div>
+
+      <script type="text/javascript">
+        
+        $('#new-shippment').on('click', function(e){
+          if(document.getElementById('new-shippment').checked) {
+                $("#shippment-address").css("display", "block");
+            } else {
+                $("#shippment-address").css("display", "none");
+            }
+        });
+      </script>
+
+
