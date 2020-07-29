@@ -233,6 +233,7 @@
           <div class="form-group">
             <%= f.hidden_field(:billing_address_id, value: current_user.billing_addresses.present? ? current_user.billing_addresses.first.id : 1) %>
             <%= f.hidden_field(:user_id, value: current_user.id ) %>
+            <%= f.hidden_field(:user_id, value: current_user.id ) %>
           </div>
         </div>
         <div class="col-md-12 text-right">
