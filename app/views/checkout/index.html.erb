@@ -103,25 +103,25 @@
                 </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                        <%= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control' %>
+                        <%= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control', value: @billing_address.present? ? @billing_address.province_id : nil%>
                     </div>
                   </div>
                   <br>
                   <br>
                   <div class="col-md-12">
                     <div class="form-group">
-                        <%= f.collection_select :city_id, City.all,:id,:title, include_blank: false, :class => 'form-control' %>
+                        <%= f.collection_select :city_id, City.all,:id,:title, include_blank: false, :class => 'form-control', value: @billing_address.present? ? @billing_address.city : nil%>
                     </div>
                   </div>
                   <br>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true) %>
+                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true, value: @billing_address.present? ? @billing_address.postal_code: "") %>
                     </div>
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_area(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true) %>
+                      <%= f.text_area(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true, value: @billing_address.present? ? @billing_address.address: "") %>
                       <%= f.hidden_field(:is_primary, value: true) %>
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
@@ -247,7 +247,20 @@
                 <label for="f-option4">I’ve read and accept the </label>
                 <a href="#">terms & conditions*</a>
               </div>
-              <a class="btn_3 proceed_to_checkout" href="/confirmation">Proceed to Payfast</a>
+              <form action="https://sandbox.payfast.co.za/eng/process" method="POST">
+                <input type="hidden" name="merchant_id" value="10019032">
+                <input type="hidden" name="merchant_key" value="90c5p2upcc2f1">
+                <input type="hidden" name="return_url" value="http://128.199.108.32/confirmation">
+                <input type="hidden" name="cancel_url" value="http://128.199.108.32/cancel">
+                <input type="hidden" name="notify_url" value="http://128.199.108.32/notify">
+                <input type="hidden" name="name_first" value=<%= current_user.first_name + current_user.last_name %>>
+                <input type="hidden" name="email_address" value=<%= current_user.email %>>
+                <input type="hidden" name="amount" value=<%= @sum %>>
+                <input type="hidden" name="item_name" value="Sample Product">
+                <!-- <input type="submit" value="Submit"> -->
+                <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button>
+              </form>
+              <!-- <a class="btn_3 proceed_to_checkout" href="/confirmation">Proceed to Payfast</a> -->
             </div>
           </div>
         </div>
@@ -256,22 +269,22 @@
   </section>
   <!--================End Checkout Area =================-->
 
-    <div class="row contact_form" style="display: none">
-      <%= form_for new_checkout_path, remote: true do |f| %>
+<!--     <div class="row contact_form" style="display: none">
+      <%#= form_for new_checkout_path, remote: true do |f| %>
         <div class="col-md-12">
           <div class="form-group">
-            <%= f.hidden_field(:billing_address_id, value: current_user.billing_addresses.present? ? current_user.billing_addresses.last.id : nil) %>
-            <%= f.hidden_field(:user_cart_id, value: current_user.user_cart.present? ? current_user.user_cart.id : nil ) %>
-            <%= f.hidden_field(:user_id, value: current_user.id ) %>
-            <%= f.hidden_field(:amount, value: @sum ) %>
+            <%#= f.hidden_field(:billing_address_id, value: current_user.billing_addresses.present? ? current_user.billing_addresses.last.id : nil) %>
+            <%#= f.hidden_field(:user_cart_id, value: current_user.user_cart.present? ? current_user.user_cart.id : nil ) %>
+            <%#= f.hidden_field(:user_id, value: current_user.id ) %>
+            <%#= f.hidden_field(:amount, value: @sum ) %>
           </div>
         </div>
         <div class="col-md-12 text-right">
           <button type="submit" value="submit" class="btn_3 checkout_submit">
             Submit Now
           </button>
-        <% end %>
-      </div>
+        <%# end %>
+      </div> -->
 
       <script type="text/javascript">
         
@@ -291,14 +304,18 @@
             }
         });
 
-        $('.proceed_to_checkout').on('click', function(e){debugger
+        $('.proceed_to_checkout').on('click', function(e){
           if(document.getElementById('new-shippment').checked) {
             $(".billing_address_2_submit").click();
-            $(".checkout_submit").click();
+            // setTimeout(function() {
+            //   $(".checkout_submit").click();
+            // },100);
           }
           else{
             $(".billing_address_1_submit").click();
-            $(".checkout_submit").click();
+            // setTimeout(function() {
+            //   $(".checkout_submit").click();
+            // },100);
           }
 
         });

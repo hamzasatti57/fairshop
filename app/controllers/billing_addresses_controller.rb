@@ -7,7 +7,11 @@ class BillingAddressesController < ApplicationController
   end
 
   def create
-    @billing_address = BillingAddress.create!(billing_address_params)
+    @billing_address = BillingAddress.where(is_primary: true, user_id: current_user.id).last if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
+    if @billing_address.blank? || params["billing_address"]["is_primary"] == "false"
+      @billing_address = BillingAddress.create!(billing_address_params)
+    end
+    @checkout = Checkout.create!(billing_address_id: @billing_address.id, user_id: current_user.id, user_cart_id: current_user.user_cart.present? ? current_user.user_cart.id : nil, amount: current_user.user_cart_products.pluck(:sub_total).sum)
   end
 
   private

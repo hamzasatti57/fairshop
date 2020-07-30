@@ -81,6 +81,8 @@ Rails.application.routes.draw do
   get '/disclaimer' => 'about#disclaimer'
   get '/employee_bursaries' => 'about#employee_bursaries'
   get '/terms_and_conditions' => 'about#terms_and_conditions'
+  get '/notify' => 'checkout#notify'
+  get '/cancel' => 'checkout#cancel_payment'
   devise_scope :user do
     get "admin" => "users/sessions#new"
   end

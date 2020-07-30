@@ -8,9 +8,11 @@ class CheckoutController < ApplicationController
 
   def create
     @checkout = Checkout.new(checkout_params)
-    @checkout.billing_address_id = current_user.billing_addresses.last.id if params["/checkout/new"]["billing_address_id"] == ""
+    @billing_address = BillingAddress.where(user_id: current_user.id).last if BillingAddress.where(user_id: current_user.id).present?
+    # @billing_address = BillingAddress.last if BillingAddress.count > 0
+    @checkout.billing_address_id = @billing_address.id if params["/checkout/new"]["billing_address_id"] == "" && @billing_address.present?
     respond_to do |format|
-      if @checkout.save
+      if @checkout.save!
         format.json { render @checkout, status: :created}
       else
         format.json { render json: @checkout.errors, status: :unprocessable_entity }
@@ -19,10 +21,19 @@ class CheckoutController < ApplicationController
   end
 
   def index
+    @billing_address = current_user.billing_addresses.where(is_primary: true).last if current_user.billing_addresses.present?
     @cart = current_user.user_cart_products
     @sum = current_user.user_cart_products.pluck(:sub_total).sum
   end
 
+  def notify
+    
+  end
+
+  def cancel_payment
+    
+  end
+  
   private
 
   def checkout_params
