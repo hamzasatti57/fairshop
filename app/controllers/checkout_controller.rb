@@ -27,13 +27,15 @@ class CheckoutController < ApplicationController
   end
 
   def notify
-    
+    logger.info "==================#{params.inspect}================="
+    puts "==================#{params.inspect}================="
   end
 
   def cancel_payment
+    current_user.checkouts.last.destroy
     
   end
-  
+
   private
 
   def checkout_params
