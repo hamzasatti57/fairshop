@@ -83,6 +83,7 @@ Rails.application.routes.draw do
   get '/terms_and_conditions' => 'about#terms_and_conditions'
   post '/notify' => 'checkout#notify'
   get '/cancel' => 'checkout#cancel_payment'
+  delete '/delete_cart_product/:id' => 'cart#delete_cart_product', :as => 'delete_cart_product'
   devise_scope :user do
     get "admin" => "users/sessions#new"
   end

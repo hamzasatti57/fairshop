@@ -7,6 +7,14 @@
         background-color: #ecfdff !important; 
         color: black;
   }
+  .btn-danger{
+    background-color: #25435d;
+    border-color: #25435d;
+  }
+    .btn-danger:hover{
+    background-color: #25435d;
+    border-color: #25435d;
+  }
 </style>
 
   <!--================Home Banner Area =================-->
@@ -64,7 +72,7 @@
                   <div class="product_count">
                     <p style="display: none"><%= cart.id %></p>
                     <span class="input-number-decrement" style="cursor: pointer;"> <i class="fa fa-angle-down"></i></span>
-                    <input class="input-number" type="text" value="<%= cart.quantity %>" min="0" max="10">
+                    <input class="input-number" type="text" value="<%= cart.quantity %>" min="0" max="100">
                     <span class="input-number-increment" style="cursor: pointer;"> <i class="fa fa-angle-up"></i></span>
                   </div>
                 </td>
@@ -72,6 +80,59 @@
                   <h5 id="sub-total"><%= cart.sub_total %></h5>
                 </td>
               </tr>
+
+                <div class="modal" id="po_modal_0">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+
+                      <!-- Modal Header -->
+                      <div class="modal-header">
+                        <h4 class="modal-title">Are you sure, want to remove this item from cart?</h4>
+                        <button type="button" class="close modal-close" data-dismiss="modal">&times;</button>
+                      </div>
+
+                      <!-- Modal body -->
+                      <div class="modal-body" style="display: inline-flex; padding-left: 35%;">
+                          <div class="form-group" style="padding-right: 15px;">
+                            <button type="button" class="btn btn-primary delete-cart-item" data-dismiss="modal" value="<%= cart.id %>">Yes</button>
+                          </div>
+
+                          <div class="form-group">
+                           <button type="button" class="btn btn-danger not-delete-cart-item" data-dismiss="modal" value="<%= cart.id %>">No</button>
+                          </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              <div style="display: none">
+              <%= link_to "Delete", delete_cart_product_path(cart), method: :delete, id: "cart-product-#{ cart.id }" %>
+
+              <script type="text/javascript">
+                $(document).on('turbolinks:load', function() {
+                  $('.input-number-decrement').on('click', function(e){
+                    if($(this).parent().find("input").val() == 0){
+                      $('#po_modal_0').modal('show');
+                      // $("#cart-product-<%= cart.id %>")[0].click();
+                      $(".delete-cart-item").val($(this).parent().find("p").text())
+                    }
+                  });
+                })
+
+              $('.delete-cart-item').on('click', function(e){
+                $("#cart-product-" + $(this).val())[0].click();
+              });
+
+              $('.not-delete-cart-item').on('click', function(e){
+                location.reload();
+              });
+
+              $('.modal-close').on('click', function(e){
+                location.reload();
+              });
+
+              </script>
+              </div>
               <% end %>
               <tr class="bottom_button">
                 <td>
@@ -149,12 +210,13 @@
         </div>
       </div>
   </section>
+
   <!--================End Cart Area =================-->
 
   <script type="text/javascript">
 
     $('.input-number-increment').on('click', function(e){
-      if($(this).parent().find("input").val() != 10){
+      if($(this).parent().find("input").val() != 100){
         $(this).parent().find("input").val(parseInt($(this).parent().find("input").val()) + 1);
         price = parseFloat($(this).parent().parent().parent().find("#per-total").text()) + parseFloat($(this).parent().parent().parent().find("#sub-total").text())
         $(this).parent().parent().parent().find("#sub-total").text(price.toFixed(1))
@@ -162,7 +224,7 @@
     });
 
     $('.input-number-decrement').on('click', function(e){
-      if($(this).parent().find("input").val() != 1){
+      if($(this).parent().find("input").val() != 0){
         $(this).parent().find("input").val(parseInt($(this).parent().find("input").val()) - 1);
         price = parseFloat($(this).parent().parent().parent().find("#sub-total").text()) - parseFloat($(this).parent().parent().parent().find("#per-total").text())
         $(this).parent().parent().parent().find("#sub-total").text(price.toFixed(1))
@@ -183,7 +245,6 @@
           dataType: 'json',
           type:'post',
           success:function (data) {
-            debugger
             $("#grand-sum").text(data.toFixed(1));
             toastr.success('Cart Updated sucessfully')
             console.log(data);
