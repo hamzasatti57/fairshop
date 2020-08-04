@@ -1,7 +1,7 @@
 <% if current_user.present? %>
   <style type="text/css">
     .main_menu .cart i:after{
-      content: "<%= current_user.user_cart_products.count %>";
+      content: "<%= current_user.user_carts.where(status: 0).present? ? current_user.user_carts.where(status: 0).last.user_cart_products.count : 0; %>";
     }
   </style>
 <% end %>

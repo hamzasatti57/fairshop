@@ -42,7 +42,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @cart.each do |cart| %>
+              <% @cart.to_a.each do |cart| %>
               <tr>
                 <td>
                   <div class="media">
