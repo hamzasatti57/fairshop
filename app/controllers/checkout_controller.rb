@@ -33,7 +33,7 @@ class CheckoutController < ApplicationController
     UserPayment.create!(user_id: @user.present? ? @user.id : current_user.id, amount: params["amount_gross"])
     xml = File.open(Rails.root.join('public', 'Sales.xml'))
     data = Hash.from_xml(xml)
-    _file_name = "Sale_Invoice_#{Time.now.to_s}"
+    _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
     data["Transaction"]["SalesHeader"]["CustomerName"] = params["name_first"]
     data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = params["amount_gross"]
     data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s
