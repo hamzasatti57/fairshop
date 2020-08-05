@@ -52,7 +52,7 @@ class CheckoutController < ApplicationController
     data["Transaction"]["DeliveryDetails"]["PostalCode"] = @user.user_carts.last.checkout.billing_address.postal_code
     puts data.to_xml
     FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.xml"))
-    File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
+    File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w") << data.to_xml
   end
 
   def cancel_payment
