@@ -52,6 +52,7 @@ class CheckoutController < ApplicationController
     data["Transaction"]["DeliveryDetails"]["PostalCode"] = @user.user_carts.last.checkout.billing_address.postal_code
     FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.json"))
     File.open("#{Rails.root}/public/Sales/#{_file_name}.json", "w+b") << data.to_xml
+    puts data.to_xml
   end
 
   def cancel_payment
