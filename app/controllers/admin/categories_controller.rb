@@ -35,7 +35,7 @@ class Admin::CategoriesController < AdminController
   end
   private
   def category_params
-    params.required(:category).permit(:title, :parent_id)
+    params.required(:category).permit(:title, :parent_id, :shipping_price)
   end
   def get_category
     @category = Category.find(params[:id])
