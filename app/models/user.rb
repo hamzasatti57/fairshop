@@ -42,8 +42,8 @@ class User < ApplicationRecord
   after_create :create_company
 
   scope :vendors, -> { where(role: 1) }
-  # delegate :title, to: :category, prefix: :category, allow_nil: true
-  # delegate :title, to: :city, prefix: :city, allow_nil: true
+  delegate :title, to: :category, prefix: :category, allow_nil: true
+  delegate :title, to: :city, prefix: :city, allow_nil: true
   scope :product_vendors, -> {
     category_ids = Category.where(title: Category.product_categories).pluck(:id)
     vendors.where(category_id: category_ids)

@@ -12,15 +12,15 @@
     </div>
   </div>
   <br>
-  <div class="form-group">
-    <%= f.label :country %>
-    <%= select_tag("Country", options_for_select(country_options, selected_country(user)),{prompt: "Please Select Country", :required => true,:id => 'country_select' ,:class => 'form-control', :onchange => 'country_onchange_handler()'}) %>
+<!--   <div class="form-group">
+    <%#= f.label :country %>
+    <%#= select_tag("Country", options_for_select(country_options, selected_country(user)),{prompt: "Please Select Country", :required => true,:id => 'country_select' ,:class => 'form-control', :onchange => 'country_onchange_handler()'}) %>
 
   </div>
   <div class="form-group">
-    <%= f.label :City %>
-    <%= f.select(:city_id, options_for_select(city_options(user), selected: selected_city(user)), { prompt: "Please Select City" }, { :required => true, class: 'form-control' } ,) %>
-  </div>
+    <%#= f.label :City %>
+    <%#= f.select(:city_id, options_for_select(city_options(user), selected: selected_city(user)), { prompt: "Please Select City" }, { :required => true, class: 'form-control' } ,) %>
+  </div> -->
   <div class="form-group">
     <%= f.label :username %>
     <%= f.text_field :username, class: "form-control", autocomplete: false, placeholder: "Username", :required => true %> <br/>
