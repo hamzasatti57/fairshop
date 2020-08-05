@@ -36,8 +36,6 @@ class User < ApplicationRecord
   belongs_to :category, optional: true
   # belongs_to :city, optional: true
 
-
-
   after_create :create_profile
   after_create :create_company
 
