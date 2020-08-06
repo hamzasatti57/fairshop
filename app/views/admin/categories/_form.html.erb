@@ -19,6 +19,10 @@
     <%= f.label :shipping_price %>
     <%= f.text_field :shipping_price, class: "form-control", :required => true, autocomplete: false, placeholder: "Shipping Price", autofocus: true %> <br/>
   </div>
+  <div class="form-group">
+    <%= f.label :image %> <br>
+  <%= f.file_field :images, multiple: true %><br><br>
+  </div>
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
 <% end %>
 <script>

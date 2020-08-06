@@ -5,6 +5,7 @@ class Category < ApplicationRecord
 
   has_many :product_categories
   belongs_to :parent, class_name: "Category", optional: true
+  has_many_attached :images
 
 
 
