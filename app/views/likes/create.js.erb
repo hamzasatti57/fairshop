@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
 $('#likes-count').text('<%= @likes_count %> likes');
 <% else %>
-toastr.error('Sign in to comment')
+toastr.error('Sign in to like')
 <% end %>
 
 

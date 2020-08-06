@@ -165,11 +165,12 @@
                                       + add to cart
                                       <!-- <i class="fa fa-heart-o"></i> -->
                                     <% end %>
-
-                                  <% if current_user && product.likes.where(user_id: current_user.id).present? %>
-                                    <a class="like_us_2" style="margin-left: 23px; cursor: pointer;"> <i class="fa fa-heart heart-<%= product.id%>" id="product-like"></i> </a>
-                                  <% else %>
-                                    <a class="like_us_1" style="margin-left: 23px; cursor: pointer;"> <i class="fa fa-heart-o heart-o-<%= product.id%>" id="product-like"></i> </a>
+                                  <% if current_user.present? %>
+                                    <% if product.likes.where(user_id: current_user.id).present? %>
+                                      <a class="like_us_2" style="margin-left: 23px; cursor: pointer;"> <i class="fa fa-heart heart-<%= product.id%>" id="product-like"></i> </a>
+                                    <% else %>
+                                      <a class="like_us_1" style="margin-left: 23px; cursor: pointer;"> <i class="fa fa-heart-o heart-o-<%= product.id%>" id="product-like"></i> </a>
+                                    <% end %>
                                   <% end %>
                                     
                                   </div>
@@ -196,7 +197,7 @@
       }
       else{
         $(this).toggleClass('fa-heart-o fa-heart');
-        toastr.error('Removed to favourites')    
+        toastr.error('Removed from favourites')    
       }
       $("[name='btnn-<%= product.id%>']").click();
     });
@@ -204,7 +205,7 @@
     $( ".heart-o-<%= product.id%>" ).click(function() {
       if ($(this).hasClass( "fa-heart" )) {
         $(this).toggleClass('fa-heart-o fa-heart');
-        toastr.error('Removed to favourites')
+        toastr.error('Removed from favourites')
       }
       else{
         $(this).toggleClass('fa-heart-o fa-heart');

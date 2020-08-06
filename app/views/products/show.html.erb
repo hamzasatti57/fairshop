@@ -89,10 +89,12 @@
                 <%# end %>
                 <a id="add-to-cart" class="btn_3" style="cursor: pointer;color: white;">add to cart</a>
               <!-- <a href="/cart" class="btn_3">add to cart</a> -->
+            <% if current_user.present? %>
               <% if @product.likes.where(user_id: current_user.id).present? %>
                 <a class="like_us_2"> <i class="fa fa-heart" id="product-like"></i> </a>
               <% else %>
                 <a class="like_us_1"> <i class="fa fa-heart-o" id="product-like"></i> </a>
+              <% end %>
               <% end %>
             </div>
           </div>
