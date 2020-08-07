@@ -7,7 +7,10 @@ class Category < ApplicationRecord
   belongs_to :parent, class_name: "Category", optional: true
   has_many_attached :images
 
-
+  enum category_type: {
+    "General" => 1,
+    "Feature" => 2
+  }  
 
   def self.product_categories
     ["Furniture", "Kitchens", "Paints", "Tiles", "Sanitary", "Doors & Wardrobes" ]

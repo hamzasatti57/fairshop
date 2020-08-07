@@ -70,38 +70,73 @@
                 </div>
             </div>
             <div class="row align-items-center justify-content-between">
+              <% @first_category = Category.where(category_type: "Feature").first if Category.where(category_type: "Feature").present? %>
+              <% if @first_category.present? %>
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest Form Chairs</h3>
+                        <h3><%= @first_category.title %></h3>
                         <a href="/product_category" class="feature_btn">EXPLORE NOW <i class="fa fa-play"></i></a>
-                          <%=image_tag("img/feature/feature_1.png", style: 'height: 85%;')%>
+                          <img src="<%=url_for(@first_category.images.first) %>" style= 'height: 85%;'>
+                          <%#=image_tag("img/feature/feature_1.png")%>
                     </div>
                 </div>
+                <% end %>
+              <% @second_category = Category.where(category_type: "Feature").second if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").second %>
+              <% if @second_category.present? %>
                 <div class="col-lg-5 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest Plastic Chairs</h3>
+                        <h3><%= @second_category.title %></h3>
                         <a href="/product_category" class="feature_btn">EXPLORE NOW <i class="fa fa-play"></i></a>
-                          <%=image_tag("img/feature/feature_2.png", style: 'height: 75%;')%>
+                          <img src="<%=url_for(@second_category.images.first) %>" style= 'height: 75%;'>
                     </div>
                 </div>
+                <% end %>
+              <% @third_category = Category.where(category_type: "Feature").third if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").third %>
+              <% if @third_category.present? %>
                 <div class="col-lg-5 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sitters</h3>
+                        <h3><%= @third_category.title %></h3>
                         <a href="/product_category" class="feature_btn">EXPLORE NOW <i class="fa fa-play"></i></a>
-                          <%=image_tag("img/feature/feature_3.png", style: 'height: 65%;')%>
+                        <img src="<%=url_for(@third_category.images.first) %>" style= 'height: 75%;'>
                     </div>
                 </div>
+                <% end %>
+              <% @fourth_category = Category.where(category_type: "Feature").fourth if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").fourth %>
+              <% if @fourth_category.present? %>
                 <div class="col-lg-7 col-sm-6">
                     <div class="single_feature_post_text">
                         <p>Premium Quality</p>
-                        <h3>Latest foam Sofa</h3>
+                        <h3><%= @fourth_category.title %></h3>
                         <a href="/product_category" class="feature_btn">EXPLORE NOW <i class="fa fa-play"></i></a>
-                          <%=image_tag("img/feature/feature_4.png")%>
+                        <img src="<%=url_for(@fourth_category.images.first) %>" style= 'height: 85%;'>
                     </div>
                 </div>
+                <% end %>
+              <% @fifth_category = Category.where(category_type: "Feature").fifth if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").fifth %>
+              <% if @fifth_category.present? %>
+                <div class="col-lg-7 col-sm-6">
+                    <div class="single_feature_post_text">
+                        <p>Premium Quality</p>
+                        <h3><%= @fifth_category.title %></h3>
+                        <a href="/product_category" class="feature_btn">EXPLORE NOW <i class="fa fa-play"></i></a>
+                        <img src="<%=url_for(@fifth_category.images.first) %>" style= 'height: 85%;'>
+                    </div>
+                </div>
+                <% end %>
+              <% @last_category = Category.where(category_type: "Feature").last if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
+              <% if @last_category.present? %>
+                <div class="col-lg-5 col-sm-6">
+                    <div class="single_feature_post_text">
+                        <p>Premium Quality</p>
+                        <h3><%= @last_category.title %></h3>
+                        <a href="/product_category" class="feature_btn">EXPLORE NOW <i class="fa fa-play"></i></a>
+                        <img src="<%=url_for(@last_category.images.first) %>" style= 'height: 75%;'>
+                    </div>
+                </div>
+                <% end %>
             </div>
         </div>
     </section>
@@ -148,7 +183,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="section_tittle text-center">
-                        <h2>Best Sellers <span>shop</span></h2>
+                        <h2>Top Products</h2>
                     </div>
                 </div>
             </div>
