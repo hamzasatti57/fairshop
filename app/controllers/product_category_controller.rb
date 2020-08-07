@@ -21,6 +21,9 @@ class ProductCategoryController < ApplicationController
       if params[:search].present?
         @products = @products.where("title ILIKE '%#{params[:search]}%'")
       end
+      if params[:min_val].present? && params[:max_val].present?
+        @products = @products.where(:price => (params[:min_val].to_f..params[:max_val].to_f))
+      end
       if params[:sort_by].present?
         if params[:sort_by] == "price(low to high)"
           @products = @products.order("price ASC")
@@ -44,6 +47,9 @@ class ProductCategoryController < ApplicationController
       end
       if params[:search].present?
         @products = @products.where("title ILIKE '%#{params[:search]}%'")
+      end
+      if params[:min_val].present? && params[:max_val].present?
+        @products = @products.where(:price => (params[:min_val].to_f..params[:max_val].to_f))
       end
       if params[:sort_by].present?
         if params[:sort_by] == "price(low to high)"

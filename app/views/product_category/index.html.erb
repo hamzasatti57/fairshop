@@ -1,3 +1,10 @@
+<style type="text/css">
+  .input-group-text{
+    width: 218px;
+    height: 37px;
+    line-height: 22px; 
+  }
+</style>
     <!--================Home Banner Area =================-->
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/breadcrumb.png') %>');">
@@ -100,6 +107,9 @@
                                             <span>to</span>
                                             <input type="text" class="js-input-to" id="amount" readonly />
                                         </div>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <a href="#" class="input-group-text btn_2" id="price-filter">Search</a>
                                     </div>
                                 </div>
                             </div>
@@ -397,6 +407,13 @@
     $('#inputGroupPrepend').click(function(){
       window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
             // window.location.href = '/'
+    });
+
+    $('#price-filter').click(function(){
+      min_val = $(".js-input-from").val()
+      max_val = $(".js-input-to").val()
+      window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&min_val=' + min_val + '&max_val=' + max_val
+
     });
 
     $(".sorter").change(function() {
