@@ -33,6 +33,9 @@ class ProductCategoryController < ApplicationController
           @products = @products.order("#{params[:sort_by]} DESC")
         end
       end
+      if request.xhr?
+        render partial: "products"
+      end
     elsif params[:type].present?
       query = "%#{params[:type].gsub("_", " ")}%"
       @category = Category.where("title ILIKE ?", query).first
@@ -60,8 +63,14 @@ class ProductCategoryController < ApplicationController
           @products = @products.order("#{params[:sort_by]} DESC")
         end
       end
+      if request.format.html? == nil
+        render partial: "products"
+      end
     else
       @products = Product.all
+      if request.xhr?
+        render partial: "products"
+      end
     end
   end
 
