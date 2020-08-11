@@ -1,3 +1,10 @@
+<style type="text/css">
+  .custom-dropdown:hover{
+        background-color: #ecfdff;
+  }
+</style>
+
+
 <% if current_user.present? %>
   <style type="text/css">
     .main_menu .cart i:after{
@@ -23,12 +30,12 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
-                  <div class="hearer_icon d-flex" style="text-align: right; margin-left: 90%; margin-bottom: -8px;">
+                  <div class="hearer_icon" style="text-align: right;margin-right: -35px;">
                     <ul class="navbar-nav" style="display: contents;">
                       <% if current_user.present? %>
-                        <li class="nav-item" style="margin-right: 16px; padding-bottom: 3px;">
-                          <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
-                            Logout
+                        <li class="nav-item" style="padding-bottom: 3px;">
+                          <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item custom-dropdown" do %>
+                            <i class="fa fa-sign-out" aria-hidden="true" style="font-size: 25px;"></i>
                           <% end %>
                         </li>
                       <% else %>
@@ -46,7 +53,7 @@
                     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ecfdff;">
                         <a class="navbar-brand" href="index.html">
                           <%= link_to "/" do %>
-                            <%=image_tag("img/logo-1.png")%>
+                            <%=image_tag("img/logo-1.png", style: "height: 55px;") %>
                           <% end %>
                         </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"

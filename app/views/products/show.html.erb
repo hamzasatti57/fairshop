@@ -1,19 +1,16 @@
 <style type="text/css">
 
-* {box-sizing: border-box;}
 
-.img-magnifier-container {
-  position:relative;
+  .zoom {
+  padding: 50px;
+  transition: transform .2s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
 }
 
-.img-magnifier-glass {
-  position: absolute;
-  border: 3px solid #000;
-/*  border-radius: 50%;*/
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
-  width: 250px;
-  height: 250px;
+.zoom:hover {
+  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 </style>
 
@@ -43,8 +40,8 @@
           <div class="product_slider_img">
             <div id="vertical">
               <% if @product.images.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.first)) %>" class="mg-magnifier-container" >
-                <%= image_tag(url_for(@product.images.first), id: 'myimage') %>
+              <div data-thumb="<%= asset_path(url_for(@product.images.first)) %>" class="zoom" >
+                <%= image_tag(url_for(@product.images.first)) %>
               </div>
               <% else %>
               <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>" >
@@ -52,7 +49,7 @@
               </div>
               <% end %>
               <% if @product.images.present? && @product.images.second.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.second)) %>" class="mg-magnifier-container" >
+              <div data-thumb="<%= asset_path(url_for(@product.images.second)) %>" class="zoom" >
                 <%= image_tag(url_for(@product.images.second)) %>
               </div>
               <% else %>
@@ -61,7 +58,7 @@
               </div>
               <% end %>
               <% if @product.images.present? && @product.images.third.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.third)) %>" class="mg-magnifier-container" >
+              <div data-thumb="<%= asset_path(url_for(@product.images.third)) %>" class="zoom" >
                 <%= image_tag(url_for(@product.images.third)) %>
               </div>
               <% else %>
@@ -70,7 +67,7 @@
               </div>
               <% end %>
               <% if @product.images.present? && @product.images.fourth.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.fourth)) %>" class="mg-magnifier-container" >
+              <div data-thumb="<%= asset_path(url_for(@product.images.fourth)) %>" class="zoom" >
                 <%= image_tag(url_for(@product.images.fourth)) %>
               </div>
               <% else %>
@@ -521,63 +518,6 @@
 
     <script type="text/javascript">
       // $('.zoom').zoom(); // add zoom
-
-    function magnify(imgID, zoom) {
-      var img, glass, w, h, bw;
-      img = document.getElementById(imgID);
-      /*create magnifier glass:*/
-      glass = document.createElement("DIV");
-      glass.setAttribute("class", "img-magnifier-glass");
-      /*insert magnifier glass:*/
-      img.parentElement.insertBefore(glass, img);
-      /*set background properties for the magnifier glass:*/
-      glass.style.backgroundImage = "url('" + img.src + "')";
-      glass.style.backgroundRepeat = "no-repeat";
-      glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
-      bw = 3;
-      w = glass.offsetWidth / 2;
-      h = glass.offsetHeight / 2;
-      /*execute a function when someone moves the magnifier glass over the image:*/
-      glass.addEventListener("mousemove", moveMagnifier);
-      img.addEventListener("mousemove", moveMagnifier);
-      /*and also for touch screens:*/
-      glass.addEventListener("touchmove", moveMagnifier);
-      img.addEventListener("touchmove", moveMagnifier);
-      function moveMagnifier(e) {
-        var pos, x, y;
-        /*prevent any other actions that may occur when moving over the image*/
-        e.preventDefault();
-        /*get the cursor's x and y positions:*/
-        pos = getCursorPos(e);
-        x = pos.x;
-        y = pos.y;
-        /*prevent the magnifier glass from being positioned outside the image:*/
-        if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
-        if (x < w / zoom) {x = w / zoom;}
-        if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
-        if (y < h / zoom) {y = h / zoom;}
-        /*set the position of the magnifier glass:*/
-        glass.style.left = (x - w) + "px";
-        glass.style.top = (y - h) + "px";
-        /*display what the magnifier glass "sees":*/
-        glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
-      }
-      function getCursorPos(e) {
-        var a, x = 0, y = 0;
-        e = e || window.event;
-        /*get the x and y positions of the image:*/
-        a = img.getBoundingClientRect();
-        /*calculate the cursor's x and y coordinates, relative to the image:*/
-        x = e.pageX - a.left;
-        y = e.pageY - a.top;
-        /*consider any page scrolling:*/
-        x = x - window.pageXOffset;
-        y = y - window.pageYOffset;
-        return {x : x, y : y};
-      }
-    }
-
-    magnify("myimage", 3);
 
         var best_product_slider = $('.best_product_slider');
           if (best_product_slider.length) {
