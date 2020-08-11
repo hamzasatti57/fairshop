@@ -12,7 +12,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="banner_slider owl-carousel">
-                      <% Product.where(product_type_id: 1).each do |product| %>
+                      <% Product.where(product_type_id: 1, status: true).each do |product| %>
                         <div class="single_banner_slider">
                             <div class="row">
                                 <div class="col-lg-5 col-md-8">
