@@ -81,7 +81,7 @@
         <div class="col-lg-5 col-xl-4">
           <div class="s_product_text">
             <h3><%= @product.title %></h3>
-            <h2>R<%= @product.price%></h2>
+            <h2>R<%= @product.price.to_i %></h2>
             <ul class="list">
               <li>
                 <a class="active" href="#">
@@ -503,7 +503,7 @@
                         <%= link_to "/products/#{product.id}" do %>
                           <h4><%= product.title %></h4>
                         <% end %>
-                          <h3>R<%= product.price %></h3>
+                          <h3>R<%= product.price.to_i %></h3>
                       </div>
                   </div>
                   <% end %>

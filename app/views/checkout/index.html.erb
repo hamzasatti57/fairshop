@@ -197,7 +197,7 @@
                 <li>
                   <a href="#"><%= cart.product.title %>
                     <span class="middle">x <%= cart.quantity %></span>
-                    <span class="last">R<%= cart.sub_total %></span>
+                    <span class="last">R<%= cart.sub_total.to_i %></span>
                   </a>
                 </li>
                 <% end %>
@@ -205,17 +205,17 @@
               <ul class="list list_2">
                 <li>
                   <a href="#">Subtotal
-                    <span>R<%= @sum %></span>
+                    <span>R<%= @sum.to_i %></span>
                   </a>
                 </li>
                 <li>
                   <a href="#">Shipping
-                    <span>Flat rate: R0.0</span>
+                    <span>Flat rate: R0</span>
                   </a>
                 </li>
                 <li>
                   <a href="#">Total
-                    <span>R<%= @sum %></span>
+                    <span>R<%= @sum.to_i %></span>
                   </a>
                 </li>
               </ul>
