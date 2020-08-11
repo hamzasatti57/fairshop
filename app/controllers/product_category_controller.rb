@@ -10,7 +10,7 @@ class ProductCategoryController < ApplicationController
       @product_categories = @category.product_categories
       query = "%#{params[:category].gsub("_", " ")}%"
       @product_category = ProductCategory.where("title ILIKE ?", query).first
-      @products = Product.where(product_category_id: @product_category.id)
+      @products = Product.where(product_category_id: @product_category.id, status: true)
       @brand_products = @products
       @companies = Company.where(id: @products.pluck(:company_id))
       if params[:brand].present?
@@ -40,7 +40,7 @@ class ProductCategoryController < ApplicationController
       query = "%#{params[:type].gsub("_", " ")}%"
       @category = Category.where("title ILIKE ?", query).first
       @product_categories = @category.product_categories
-      @products = Product.where(product_category_id: @category.product_categories.pluck(:id))
+      @products = Product.where(product_category_id: @category.product_categories.pluck(:id), status: true)
       @brand_products = @products
       @companies = Company.where(id: @products.pluck(:company_id))
       if params[:brand].present?
@@ -63,11 +63,12 @@ class ProductCategoryController < ApplicationController
           @products = @products.order("#{params[:sort_by]} DESC")
         end
       end
+      @products = @products.where(status: true)
       if request.format.html? == nil
         render partial: "products"
       end
     else
-      @products = Product.all
+      @products = Product.where(status: true)
       if request.xhr?
         render partial: "products"
       end
