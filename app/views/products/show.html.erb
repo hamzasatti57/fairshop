@@ -22,7 +22,7 @@
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
               <h2><%= @product.title %></h2>
-              <p>Home <span>-</span> Products <span>-</span> <%= @product.title %></p>
+              <p><%= @product.product_category.category.title %> <span>-</span> <%= @product.product_category.title %> <span>-</span> <%= @product.title %></p>
             </div>
           </div>
         </div>
@@ -88,7 +88,10 @@
                   <span>Category</span> : <%= @product.product_category.title %></a>
               </li>
               <li>
-                <a href="#"> <span>Availibility</span> : In Stock</a>
+                <a href="#"> <span>Availibility</span> : <%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></a>
+              </li>
+              <li>
+                <a href="#"> <span>Warranty</span> : <%= @product.warranty == true ? "Yes" : "No" %></a>
               </li>
             </ul>
             <p>
@@ -192,7 +195,7 @@
                     <h5>Inventory</h5>
                   </td>
                   <td>
-                    <h5><%= @product.inventory %></h5>
+                    <h5><%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></h5>
                   </td>
                 </tr>
                 <tr>
