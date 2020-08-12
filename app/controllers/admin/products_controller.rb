@@ -17,6 +17,7 @@ class Admin::ProductsController < AdminController
 
   def create
     # @product = current_user.products.new(product_params)
+    params[:status] = true if params[:images].present?
     @product = current_user.products.new(product_params.merge(company_id: current_user.companies.first.id))
     if @product.save
       @product.add_colors params[:product][:color_ids]
@@ -37,6 +38,7 @@ class Admin::ProductsController < AdminController
   end
 
   def update
+    params[:status] = true if params[:images].present?
     if @product.update(product_params)
       @product.update_colors params[:product][:color_ids]
       flash[:success] = "Product Updated Succesfully"

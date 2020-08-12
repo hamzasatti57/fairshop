@@ -132,44 +132,6 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="product_top_bar d-flex justify-content-between align-items-center">
-                                <div class="single_product_menu">
-                                    <p><span><%= @products.count %> </span> <%= (@products.count > 1) ? "Products" : "Product" %> Found</p>
-                                </div>
-                                <div class="single_product_menu d-flex">
-                                    <h5>short by : </h5>
-                                    <select class= "sorter">
-                                        <option data-display="Select">sort by</option>
-                                        <option id="sort-by-price" value="1">price(low to high)</option>
-                                        <option id="sort-by-price" value="2">price(high to low)</option>
-                                        <option id="sort-by-name" value="3">newest</option>
-                                    </select>
-                                </div>
-                                <div class="single_product_menu d-flex">
-                                    <h5>show :</h5>
-                                    <div class="top_pageniation">
-                                        <ul>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="single_product_menu d-flex">
-                                    <div class="input-group">
-                                      <input type="text" class="form-control" id="search-product" placeholder="search"
-                                            aria-describedby="inputGroupPrepend">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupPrepend" style="cursor: pointer;"><i
-                                                    class="fa fa-search"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div id= "products-partial">
                       <%= render :partial => 'products', :object => @products %>
                     </div>
@@ -336,29 +298,12 @@
         });
     });
 
-
-    $('#inputGroupPrepend').click(function(){
-      window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
-            // window.location.href = '/'
-    });
-
     // $('#price-filter').click(function(){
     //   min_val = $(".js-input-from").val()
     //   max_val = $(".js-input-to").val()
     //   window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&min_val=' + min_val + '&max_val=' + max_val
 
     // });
-
-    $(".sorter").change(function() {
-        // Pure JS
-        var selectedVal = this.value;
-        var selectedText = this.options[this.selectedIndex].text;
-        if (selectedText === "newest") {
-            selectedText = "created_at";
-        }
-        // jQuery
-        window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&sort_by=' + selectedText
-    });
 
 
     $('#price-filter').on('click', function(e){

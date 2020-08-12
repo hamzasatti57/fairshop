@@ -20,6 +20,9 @@
                                         <div class="banner_text_iner">
                                             <h1><%= product.title %></h1>
                                             <p><%= product.description %></p>
+                                            <a href="/products/<%= product.id %>" class="feature_btn">VIEW MORE <i class="fa fa-play"></i></a>
+                                            <br>
+                                            <br>
                                             <%= link_to add_to_cart_product_path(product.id), class: "btn_2", method: :post do %>
                                               buy now
                                             <% end %>
@@ -155,12 +158,12 @@
     <!-- upcoming_event part start-->
 
     <!-- Awesome_shop start-->
-    <section class="our_offer section_padding">
+<!--     <section class="our_offer section_padding">
         <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="col-lg-6 col-md-6">
                     <div class="offer_img">
-                        <%=image_tag("img/offer_img.png")%>
+                        <%#=image_tag("img/offer_img.png")%>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
@@ -186,7 +189,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- awesome_shop part start-->
 
     <!-- product_list part start-->
@@ -250,44 +253,44 @@
     <!--::subscribe_area part end::-->
 
     <!-- subscribe_area part start-->
-    <section class="client_logo padding_top">
+<!--     <section class="client_logo padding_top">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_1.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_1.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_2.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_2.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_3.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_3.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_4.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_4.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_5.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_5.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_3.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_3.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_1.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_1.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_2.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_2.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_3.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_3.png")%>
                     </div>
                     <div class="single_client_logo">
-                        <%=image_tag("img/client_logo/client_logo_4.png")%>
+                        <%#=image_tag("img/client_logo/client_logo_4.png")%>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </div>
 <script>
     window.onload = function() {
