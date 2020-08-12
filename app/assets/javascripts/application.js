@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require furnishia/jquery-1.12.1.min.js
 //= require furnishia_1/jquery.bootstrap.js
 //= require furnishia_1/jquery.magnific-popup.js
