@@ -1,712 +1,711 @@
 <style type="text/css">
 
-
   .zoom {
-  padding: 50px;
-  transition: transform .2s; /* Animation */
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
-}
+    padding: 50px;
+    transition: transform .2s; /* Animation */
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+  }
 
-.zoom:hover {
-  transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
+  .zoom:hover {
+    transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
 </style>
 
-  <!-- breadcrumb start-->
-  <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/breadcrumb.png') %>');">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="breadcrumb_iner">
-            <div class="breadcrumb_iner_item">
-              <h2><%= @product.title %></h2>
-              <p><%= @product.product_category.category.title %> <span>-</span> <%= @product.product_category.title %> <span>-</span> <%= @product.title %></p>
-            </div>
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/breadcrumb.png') %>');">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="breadcrumb_iner">
+          <div class="breadcrumb_iner_item">
+            <h2><%= @product.title %></h2>
+            <p><%= @product.product_category.category.title %> <span>-</span> <%= @product.product_category.title %>
+              <span>-</span> <%= @product.title %></p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- breadcrumb start-->
-  <!--================End Home Banner Area =================-->
+  </div>
+</section>
+<!-- breadcrumb start-->
+<!--================End Home Banner Area =================-->
 
-  <!--================Single Product Area =================-->
-  <div class="product_image_area section_padding">
-    <div class="container">
-      <div class="row s_product_inner justify-content-between">
-        <div class="col-lg-7 col-xl-7">
-          <div class="product_slider_img">
-            <div id="vertical">
-              <% if @product.images.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.first)) %>" class="zoom" >
+<!--================Single Product Area =================-->
+<div class="product_image_area section_padding">
+  <div class="container">
+    <div class="row s_product_inner justify-content-between">
+      <div class="col-lg-7 col-xl-7">
+        <div class="product_slider_img">
+          <div id="vertical">
+            <% if @product.images.present? %>
+              <div data-thumb="<%= asset_path(url_for(@product.images.first)) %>" class="zoom">
                 <%= image_tag(url_for(@product.images.first)) %>
               </div>
-              <% else %>
-              <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>" >
-                <%=image_tag("img/product/single-product/product_1.png")%>
+            <% else %>
+              <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>">
+                <%= image_tag("img/product/single-product/product_1.png") %>
               </div>
-              <% end %>
-              <% if @product.images.present? && @product.images.second.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.second)) %>" class="zoom" >
+            <% end %>
+            <% if @product.images.present? && @product.images.second.present? %>
+              <div data-thumb="<%= asset_path(url_for(@product.images.second)) %>" class="zoom">
                 <%= image_tag(url_for(@product.images.second)) %>
               </div>
-              <% else %>
-              <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>" >
-                <%=image_tag("img/product/single-product/product_1.png")%>
+            <% else %>
+              <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>">
+                <%= image_tag("img/product/single-product/product_1.png") %>
               </div>
-              <% end %>
-              <% if @product.images.present? && @product.images.third.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.third)) %>" class="zoom" >
+            <% end %>
+            <% if @product.images.present? && @product.images.third.present? %>
+              <div data-thumb="<%= asset_path(url_for(@product.images.third)) %>" class="zoom">
                 <%= image_tag(url_for(@product.images.third)) %>
               </div>
-              <% else %>
-              <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>" >
-                <%=image_tag("img/product/single-product/product_1.png")%>
+            <% else %>
+              <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>">
+                <%= image_tag("img/product/single-product/product_1.png") %>
               </div>
-              <% end %>
-              <% if @product.images.present? && @product.images.fourth.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.fourth)) %>" class="zoom" >
+            <% end %>
+            <% if @product.images.present? && @product.images.fourth.present? %>
+              <div data-thumb="<%= asset_path(url_for(@product.images.fourth)) %>" class="zoom">
                 <%= image_tag(url_for(@product.images.fourth)) %>
               </div>
-              <% else %>
-              <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>" >
-                <%=image_tag("img/product/single-product/product_1.png")%>
+            <% else %>
+              <div data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>">
+                <%= image_tag("img/product/single-product/product_1.png") %>
               </div>
-              <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
-        <div class="col-lg-5 col-xl-4">
-          <div class="s_product_text">
-            <h3><%= @product.title %></h3>
-            <h2>R<%= @product.price.to_i %></h2>
-            <ul class="list">
-              <li>
-                <a class="active" href="#">
-                  <span>Category</span> : <%= @product.product_category.title %></a>
-              </li>
-              <li>
-                <a href="#"> <span>Availibility</span> : <%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></a>
-              </li>
-              <li>
-                <a href="#"> <span>Warranty</span> : <%= @product.warranty == true ? "Yes" : "No" %></a>
-              </li>
-            </ul>
-            <p>
-              <%= @product.description %>
-            </p>
-            <div class="card_area d-flex justify-content-between align-items-center">
-              <div class="product_count">
-                <span class="inumber-decrement"> <i class="fa fa-plus"></i></span>
-                <input class="input-number" type="text" value="1" min="0" max="10">
-                <span class="number-increment"> <i class="fa fa-plus"></i></span>
-              </div>
-                <%#= link_to add_to_cart_product_path(@product.id), class: "btn_3", method: :post do %>
-                  <!-- add to cart -->
-                <%# end %>
-                <a id="add-to-cart" class="btn_3" style="cursor: pointer;color: white;">add to cart</a>
-              <!-- <a href="/cart" class="btn_3">add to cart</a> -->
+      </div>
+      <div class="col-lg-5 col-xl-4">
+        <div class="s_product_text">
+          <h3><%= @product.title %></h3>
+          <h2>R<%= @product.price.to_i %></h2>
+          <ul class="list">
+            <li>
+              <a class="active" href="#">
+                <span>Category</span> : <%= @product.product_category.title %></a>
+            </li>
+            <li>
+              <a href="#"> <span>Availibility</span> : <%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %>
+              </a>
+            </li>
+            <li>
+              <a href="#"> <span>Warranty</span> : <%= @product.warranty == true ? "Yes" : "No" %></a>
+            </li>
+          </ul>
+          <p>
+            <%= @product.description %>
+          </p>
+          <div class="card_area d-flex justify-content-between align-items-center">
+            <div class="product_count">
+              <span class="inumber-decrement"> <i class="fa fa-plus"></i></span>
+              <input class="input-number" type="text" value="1" min="0" max="10">
+              <span class="number-increment"> <i class="fa fa-plus"></i></span>
+            </div>
+            <%#= link_to add_to_cart_product_path(@product.id), class: "btn_3", method: :post do %>
+            <!-- add to cart -->
+            <%# end %>
+            <a id="add-to-cart" class="btn_3" style="cursor: pointer;color: white;">add to cart</a>
+            <!-- <a href="/cart" class="btn_3">add to cart</a> -->
             <% if current_user.present? %>
               <% if @product.likes.where(user_id: current_user.id).present? %>
                 <a class="like_us_2"> <i class="fa fa-heart" id="product-like"></i> </a>
               <% else %>
                 <a class="like_us_1"> <i class="fa fa-heart-o" id="product-like"></i> </a>
               <% end %>
-              <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!--================End Single Product Area =================-->
+</div>
+<!--================End Single Product Area =================-->
 
-    <div style="display: none">
-      <%= form_for Like.new, remote: true do |f| %>
-        <div class="form-group">
-          <%= f.hidden_field(:parent_id, value: @product.id ) %>
-          <%= f.hidden_field(:parent_type, value: Like.parent_type_product ) %>
-          <%= f.hidden_field(:value, value: true ) %>
-          <%= f.submit 'Like Project', :class => 'btn btn-main', :id => 'like-button' %>
-      <% end %>
-    </div>
-    </div>
+<div style="display: none">
+  <%= form_for Like.new, remote: true do |f| %>
+    <div class="form-group">
+      <%= f.hidden_field(:parent_id, value: @product.id) %>
+      <%= f.hidden_field(:parent_type, value: Like.parent_type_product) %>
+      <%= f.hidden_field(:value, value: true) %>
+      <%= f.submit 'Like Project', :class => 'btn btn-main', :id => 'like-button' %>
+  <% end %>
+  </div>
+</div>
 
 <!--================Product Description Area =================-->
-  <section class="product_description_area">
-    <div class="container">
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-            aria-selected="true">Description</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-            aria-selected="false">Specification</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-            aria-selected="false">Comments</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
-            aria-selected="false">Reviews</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div id="home" role="tabpanel" aria-labelledby="home-tab" style="display: none">
-          <p>
-            <%= @product.description %>
-          </p>
-          <p>
+<section class="product_description_area">
+  <div class="container">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+           aria-selected="true">Description</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+           aria-selected="false">Specification</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+           aria-selected="false">Comments</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
+           aria-selected="false">Reviews</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div id="home" role="tabpanel" aria-labelledby="home-tab" style="display: none">
+        <p>
+          <%= @product.description %>
+        </p>
+        <p>
+      </div>
+      <div id="profile" role="tabpanel" aria-labelledby="profile-tab" style="display: none">
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+            <tr>
+              <td>
+                <h5>Width</h5>
+              </td>
+              <td>
+                <h5><%= @product.width %></h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Height</h5>
+              </td>
+              <td>
+                <h5><%= @product.height %></h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Length</h5>
+              </td>
+              <td>
+                <h5><%= @product.length %></h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Inventory</h5>
+              </td>
+              <td>
+                <h5><%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Warranty</h5>
+              </td>
+              <td>
+                <h5><%= @product.warranty == true ? "Yes" : "No" %></h5>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>Clean and Care</h5>
+              </td>
+              <td>
+                <h5><%= @product.clean_and_care == true ? "Yes" : "No" %></h5>
+              </td>
+            </tr>
+            </tbody>
+          </table>
         </div>
-        <div id="profile" role="tabpanel" aria-labelledby="profile-tab" style="display: none">
-          <div class="table-responsive">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td>
-                    <h5>Width</h5>
-                  </td>
-                  <td>
-                    <h5><%= @product.width %></h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5>Height</h5>
-                  </td>
-                  <td>
-                    <h5><%= @product.height %></h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5>Length</h5>
-                  </td>
-                  <td>
-                    <h5><%= @product.length %></h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5>Inventory</h5>
-                  </td>
-                  <td>
-                    <h5><%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5>Warranty</h5>
-                  </td>
-                  <td>
-                    <h5><%= @product.warranty == true ? "Yes" : "No" %></h5>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <h5>Clean and Care</h5>
-                  </td>
-                  <td>
-                    <h5><%= @product.clean_and_care == true ? "Yes" : "No" %></h5>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div id="contact" role="tabpanel" aria-labelledby="contact-tab" style="display: none">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="comment_list">
-                <% unless @product.comments.present? %>
+      </div>
+      <div id="contact" role="tabpanel" aria-labelledby="contact-tab" style="display: none">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="comment_list">
+              <% unless @product.comments.present? %>
                 <div id="pre-comment">
                 </div>
-                <% end %>
-                <% @product.comments.order(id: :desc).each do |comment| %>
-                  <div class="review_item" id="pre-comment">
-                    <div class="media">
-                      <div class="d-flex">
-                        <%=image_tag("img/product/single-product/review-1.png")%>
-                      </div>
-                      <div class="media-body">
-                        <h4><%= comment.commentor_full_name %></h4>
-                        <h5><%= comment.created_at.strftime("%b %d, %Y %I:%M %P") %></h5>
-                        <!-- <a class="reply_btn" href="#">Reply</a> -->
-                      </div>
+              <% end %>
+              <% @product.comments.order(id: :desc).each do |comment| %>
+                <div class="review_item" id="pre-comment">
+                  <div class="media">
+                    <div class="d-flex">
+                      <%= image_tag("img/product/single-product/review-1.png") %>
                     </div>
-                    <p>
-                      <%= comment.statement %>
-                    </p>
+                    <div class="media-body">
+                      <h4><%= comment.commentor_full_name %></h4>
+                      <h5><%= comment.created_at.strftime("%b %d, %Y %I:%M %P") %></h5>
+                      <!-- <a class="reply_btn" href="#">Reply</a> -->
+                    </div>
                   </div>
-                <% end %>
-              </div>
+                  <p>
+                    <%= comment.statement %>
+                  </p>
+                </div>
+              <% end %>
             </div>
-            <div class="col-lg-6">
-              <div class="review_box">
-                <h4>Post a comment</h4>
-                <%= form_for Comment.new, remote: true do |f| %>
+          </div>
+          <div class="col-lg-6">
+            <div class="review_box">
+              <h4>Post a comment</h4>
+              <%= form_for Comment.new, remote: true do |f| %>
                 <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
                   novalidate="novalidate"> -->
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <%= f.text_field(:commentor_full_name, :class => 'form-control', placeholder: "Your Full name") %>
-                    </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.text_field(:commentor_full_name, :class => 'form-control', placeholder: "Your Full name") %>
                   </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <%= f.text_field(:commentor_email_address, :class => 'form-control', placeholder: "Email Address") %>
-                    </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.text_field(:commentor_email_address, :class => 'form-control', placeholder: "Email Address") %>
                   </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <%= f.text_field(:commentor_phone_number, :class => 'form-control', placeholder: "Phone Number") %>
-                    </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.text_field(:commentor_phone_number, :class => 'form-control', placeholder: "Phone Number") %>
                   </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <%= f.text_area(:statement, size: '70x10', :class => 'form-control', placeholder: "Message") %>
-                      <%= f.hidden_field(:parent_id, value: @product.id , :id => "comment_area") %>
-                      <%= f.hidden_field(:parent_type, value: Comment.parent_type_product ) %>
-                    </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.text_area(:statement, size: '70x10', :class => 'form-control', placeholder: "Message") %>
+                    <%= f.hidden_field(:parent_id, value: @product.id, :id => "comment_area") %>
+                    <%= f.hidden_field(:parent_type, value: Comment.parent_type_product) %>
                   </div>
-                  <div class="col-md-12 text-right">
-                    <button type="submit" value="submit" class="btn_3">
-                      Submit Now
-                    </button>
-                  </div>
+                </div>
+                <div class="col-md-12 text-right">
+                  <button type="submit" value="submit" class="btn_3">
+                    Submit Now
+                  </button>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="" id="review" role="tabpanel" aria-labelledby="review-tab">
+        <div class="rate-box">
+          <strong>Rate this Product</strong>
+          <div id="rateYo"></div>
+
+        </div>
+
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row total_rate">
+              <div class="col-6">
+                <div class="box_total">
+                  <h5>Overall</h5>
+                  <h4 id="avg-ratting"><%= @avg_rating.present? ? @avg_rating : 0.0 %></h4>
+                  <h6>(<span id="review-count"><%= @product.ratings.count %></span> Reviews)</h6>
+                </div>
+              </div>
+              <!--              <div class="col-6">
+                             <div class="rating_list">
+                               <h3>Based on 3 Reviews</h3>
+                               <ul class="list">
+                                 <li>
+                                   <a href="#">5 Star
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i> 01</a>
+                                 </li>
+                                 <li>
+                                   <a href="#">4 Star
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i> 01</a>
+                                 </li>
+                                 <li>
+                                   <a href="#">3 Star
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i> 01</a>
+                                 </li>
+                                 <li>
+                                   <a href="#">2 Star
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i> 01</a>
+                                 </li>
+                                 <li>
+                                   <a href="#">1 Star
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i>
+                                     <i class="fa fa-star"></i> 01</a>
+                                 </li>
+                               </ul>
+                             </div>
+                           </div>
+                         </div>
+                         <div class="review_list">
+                           <div class="review_item">
+                             <div class="media">
+                               <div class="d-flex">
+                                 <img src="img/product/single-product/review-1.png" alt="" />
+                               </div>
+                               <div class="media-body">
+                                 <h4>Blake Ruiz</h4>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                               </div>
+                             </div>
+                             <p>
+                               Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                               sed do eiusmod tempor incididunt ut labore et dolore magna
+                               aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                               ullamco laboris nisi ut aliquip ex ea commodo
+                             </p>
+                           </div>
+                           <div class="review_item">
+                             <div class="media">
+                               <div class="d-flex">
+                                 <img src="img/product/single-product/review-2.png" alt="" />
+                               </div>
+                               <div class="media-body">
+                                 <h4>Blake Ruiz</h4>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                               </div>
+                             </div>
+                             <p>
+                               Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                               sed do eiusmod tempor incididunt ut labore et dolore magna
+                               aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                               ullamco laboris nisi ut aliquip ex ea commodo
+                             </p>
+                           </div>
+                           <div class="review_item">
+                             <div class="media">
+                               <div class="d-flex">
+                                 <img src="img/product/single-product/review-3.png" alt="" />
+                               </div>
+                               <div class="media-body">
+                                 <h4>Blake Ruiz</h4>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                                 <i class="fa fa-star"></i>
+                               </div>
+                             </div>
+                             <p>
+                               Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                               sed do eiusmod tempor incididunt ut labore et dolore magna
+                               aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                               ullamco laboris nisi ut aliquip ex ea commodo
+                             </p>
+                           </div>
+                         </div> -->
+            </div>
+            <!--  <div class="col-lg-6">
+               <div class="review_box">
+                 <h4>Add a Review</h4>
+                 <p>Your Rating:</p>
+                 <ul class="list">
+                   <li>
+                     <a href="#">
+                       <i class="fa fa-star"></i>
+                     </a>
+                   </li>
+                   <li>
+                     <a href="#">
+                       <i class="fa fa-star"></i>
+                     </a>
+                   </li>
+                   <li>
+                     <a href="#">
+                       <i class="fa fa-star"></i>
+                     </a>
+                   </li>
+                   <li>
+                     <a href="#">
+                       <i class="fa fa-star"></i>
+                     </a>
+                   </li>
+                   <li>
+                     <a href="#">
+                       <i class="fa fa-star"></i>
+                     </a>
+                   </li>
+                 </ul>
+                 <p>Outstanding</p>
+                 <form class="row contact_form" action="contact_process.php" method="post" novalidate="novalidate">
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <input type="text" class="form-control" name="name" placeholder="Your Full name" />
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <input type="email" class="form-control" name="email" placeholder="Email Address" />
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <input type="text" class="form-control" name="number" placeholder="Phone Number" />
+                     </div>
+                   </div>
+                   <div class="col-md-12">
+                     <div class="form-group">
+                       <textarea class="form-control" name="message" rows="1" placeholder="Review"></textarea>
+                     </div>
+                   </div>
+                   <div class="col-md-12 text-right">
+                     <button type="submit" value="submit" class="btn_3">
+                       Submit Now
+                     </button>
+                   </div>
+                 </form>
+               </div>
+             </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!--================End Product Description Area =================-->
+
+<!-- product_list part start-->
+<section class="product_list best_seller">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12">
+        <div class="section_tittle text-center">
+          <h2>Top Products</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center justify-content-between">
+      <div class="col-lg-12">
+        <div class="best_product_slider owl-carousel">
+          <% Product.first(5).each do |product| %>
+            <div class="single_product_item">
+              <%= link_to "/products/#{product.id}" do %>
+                <img src="<%= url_for(product.images.first) %>">
+              <% end %>
+              <div class="single_product_text">
+                <%= link_to "/products/#{product.id}" do %>
+                  <h4><%= product.title %></h4>
                 <% end %>
+                <h3>R<%= product.price.to_i %></h3>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="" id="review" role="tabpanel" aria-labelledby="review-tab">
-          <div class="rate-box">
-            <strong>Rate this Product</strong>
-            <div id="rateYo"></div>
-
-          </div>
-
-          <br>
-          <br>
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="row total_rate">
-                <div class="col-6">
-                  <div class="box_total">
-                    <h5>Overall</h5>
-                    <h4 id="avg-ratting"><%= @avg_rating.present? ? @avg_rating : 0.0 %></h4>
-                    <h6>(<span id="review-count"><%= @product.ratings.count %></span> Reviews)</h6>
-                  </div>
-                </div>
-   <!--              <div class="col-6">
-                  <div class="rating_list">
-                    <h3>Based on 3 Reviews</h3>
-                    <ul class="list">
-                      <li>
-                        <a href="#">5 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                      <li>
-                        <a href="#">4 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                      <li>
-                        <a href="#">3 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                      <li>
-                        <a href="#">2 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                      <li>
-                        <a href="#">1 Star
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i> 01</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="review_list">
-                <div class="review_item">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/review-1.png" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-                <div class="review_item">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/review-2.png" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-                <div class="review_item">
-                  <div class="media">
-                    <div class="d-flex">
-                      <img src="img/product/single-product/review-3.png" alt="" />
-                    </div>
-                    <div class="media-body">
-                      <h4>Blake Ruiz</h4>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                    </div>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo
-                  </p>
-                </div>
-              </div> -->
-            </div>
-           <!--  <div class="col-lg-6">
-              <div class="review_box">
-                <h4>Add a Review</h4>
-                <p>Your Rating:</p>
-                <ul class="list">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-star"></i>
-                    </a>
-                  </li>
-                </ul>
-                <p>Outstanding</p>
-                <form class="row contact_form" action="contact_process.php" method="post" novalidate="novalidate">
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="name" placeholder="Your Full name" />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <input type="email" class="form-control" name="email" placeholder="Email Address" />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <input type="text" class="form-control" name="number" placeholder="Phone Number" />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <textarea class="form-control" name="message" rows="1" placeholder="Review"></textarea>
-                    </div>
-                  </div>
-                  <div class="col-md-12 text-right">
-                    <button type="submit" value="submit" class="btn_3">
-                      Submit Now
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div> -->
-          </div>
+          <% end %>
         </div>
       </div>
     </div>
-  </section>
-  <!--================End Product Description Area =================-->
+  </div>
+</section>
+<!-- product_list part end-->
+<% image = 'img/product/single-product/review-1.png' %>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js" integrity="sha512-m5kAjE5cCBN5pwlVFi4ABsZgnLuKPEx0fOnzaH5v64Zi3wKnhesNUYq4yKmHQyTa3gmkR6YeSKW1S+siMvgWtQ==" crossorigin="anonymous"></script> -->
 
-  <!-- product_list part start-->
-  <section class="product_list best_seller">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-12">
-          <div class="section_tittle text-center">
-            <h2>Top Products</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row align-items-center justify-content-between">
-          <div class="col-lg-12">
-              <div class="best_product_slider owl-carousel">
-                <% Product.first(5).each do |product| %>
-                  <div class="single_product_item">
-                    <%= link_to "/products/#{product.id}" do %>
-                      <img src="<%=url_for(product.images.first) %>">
-                    <% end %>
-                      <div class="single_product_text">
-                        <%= link_to "/products/#{product.id}" do %>
-                          <h4><%= product.title %></h4>
-                        <% end %>
-                          <h3>R<%= product.price.to_i %></h3>
-                      </div>
-                  </div>
-                  <% end %>
-              </div>
-          </div>
-      </div>
-    </div>
-  </section>
-  <!-- product_list part end-->
-  <% image = 'img/product/single-product/review-1.png' %>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js" integrity="sha512-m5kAjE5cCBN5pwlVFi4ABsZgnLuKPEx0fOnzaH5v64Zi3wKnhesNUYq4yKmHQyTa3gmkR6YeSKW1S+siMvgWtQ==" crossorigin="anonymous"></script> -->
+<script type="text/javascript">
+    // $('.zoom').zoom(); // add zoom
 
-    <script type="text/javascript">
-      // $('.zoom').zoom(); // add zoom
-
-        var best_product_slider = $('.best_product_slider');
-          if (best_product_slider.length) {
-            best_product_slider.owlCarousel({
-              items: 4,
-              loop: true,
-              dots: false,
-              autoplay: true,
-              autoplayHoverPause: true,
-              autoplayTimeout: 5000,
-              nav: true,
-              navText: ["next", "previous"],
-              responsive: {
+    var best_product_slider = $('.best_product_slider');
+    if (best_product_slider.length) {
+        best_product_slider.owlCarousel({
+            items: 4,
+            loop: true,
+            dots: false,
+            autoplay: true,
+            autoplayHoverPause: true,
+            autoplayTimeout: 5000,
+            nav: true,
+            navText: ["next", "previous"],
+            responsive: {
                 0: {
-                  margin: 15,
-                  items: 1,
-                  nav: false
+                    margin: 15,
+                    items: 1,
+                    nav: false
                 },
                 576: {
-                  margin: 15,
-                  items: 2,
-                  nav: false
+                    margin: 15,
+                    items: 2,
+                    nav: false
                 },
                 768: {
-                  margin: 30,
-                  items: 3,
-                  nav: true
+                    margin: 30,
+                    items: 3,
+                    nav: true
                 },
                 991: {
-                  margin: 30,
-                  items: 4,
-                  nav: true
+                    margin: 30,
+                    items: 4,
+                    nav: true
                 }
-              }
-            });
-          }
-
-
-    $(document).ready(function(){
-
-           var product_overview = $('#vertical');
-             if(product_overview.length){
-              product_overview.lightSlider({
-                gallery:true,
-                item:1,
-                vertical:true,
-                verticalHeight:450,
-                thumbItem:3,
-                slideMargin:0,
-                speed:600,
-                autoplay: true,
-                responsive : [
-                  {
-                      breakpoint:991,
-                      settings: {
-                          item:1,
-                          
-                        }
-                  },
-                  {
-                      breakpoint:576,
-                      settings: {
-                          item:1,
-                          slideMove:1,
-                          verticalHeight:350,
-                        }
-                  }
-              ]
-              });  
-             }
-
-             (function() {
- 
-  window.inputNumber = function(el) {
-
-    var min = el.attr('min') || false;
-    var max = el.attr('max') || false;
-
-    var els = {};
-
-    els.dec = el.prev();
-    els.inc = el.next();
-
-    el.each(function() {
-      init($(this));
-    });
-
-    function init(el) {
-
-      els.dec.on('click', decrement);
-      els.inc.on('click', increment);
-
-      function decrement() {
-        var value = el[0].value;
-        value--;
-        if(!min || value >= min) {
-          el[0].value = value;
-        }
-      }
-
-      function increment() {
-        var value = el[0].value;
-        value++;
-        if(!max || value <= max) {
-          el[0].value = value++;
-        }
-      }
+            }
+        });
     }
-  }
-})();
-
-inputNumber($('.input-number'));
-
-  $( "#home-tab" ).click(function() {
-    $( "#home-tab" ).addClass("active");
-    $( "#profile-tab" ).removeClass("active");
-    $( "#contact-tab" ).removeClass("active");
-    $( "#review-tab" ).removeClass("active");
-    $("#home").css("display", "block");
-    $("#profile").css("display", "none");
-    $("#contact").css("display", "none");
-    $("#review").css("display", "none");
-  });
 
 
-  $( "#profile-tab" ).click(function() {
-    $( "#profile-tab" ).addClass("active");
-    $( "#home-tab" ).removeClass("active");
-    $( "#contact-tab" ).removeClass("active");
-    $( "#review-tab" ).removeClass("active");
-    $("#home").css("display", "none");
-    $("#profile").css("display", "block");
-    $("#contact").css("display", "none");
-    $("#review").css("display", "none");
-  });
+    $(document).ready(function () {
 
-  $( "#contact-tab" ).click(function() {
-    $( "#contact-tab" ).addClass("active");
-    $( "#profile-tab" ).removeClass("active");
-    $( "#home-tab" ).removeClass("active");
-    $( "#review-tab" ).removeClass("active");
-    $("#home").css("display", "none");
-    $("#profile").css("display", "none");
-    $("#contact").css("display", "block");
-    $("#review").css("display", "none");
-  });
+        var product_overview = $('#vertical');
+        if (product_overview.length) {
+            product_overview.lightSlider({
+                gallery: true,
+                item: 1,
+                vertical: true,
+                verticalHeight: 450,
+                thumbItem: 3,
+                slideMargin: 0,
+                speed: 600,
+                autoplay: true,
+                responsive: [
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            item: 1,
 
-  $( "#review-tab" ).click(function() {
-    $( "#review-tab" ).addClass("active");
-    $( "#profile-tab" ).removeClass("active");
-    $( "#contact-tab" ).removeClass("active");
-    $( "#home-tab" ).removeClass("active");
-    $("#home").css("display", "none");
-    $("#profile").css("display", "none");
-    $("#contact").css("display", "none");
-    $("#review").css("display", "block");
-  });
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            item: 1,
+                            slideMove: 1,
+                            verticalHeight: 350,
+                        }
+                    }
+                ]
+            });
+        }
 
-    $( ".fa-heart-o" ).click(function() {
-      if ($('#product-like').hasClass( "fa-heart-o" )) {
-        $('#product-like').removeClass("fa-heart-o");
-        $('#product-like').addClass("fa-heart");
-        toastr.success('Added to favourites')
-      }
-      else{
-        $('#product-like').removeClass("fa-heart");
-        $('#product-like').addClass("fa-heart-o");
-        toastr.error('Removed to favourites')    
-      }
-      $( "#like-button" ).click();
+        (function () {
+
+            window.inputNumber = function (el) {
+
+                var min = el.attr('min') || false;
+                var max = el.attr('max') || false;
+
+                var els = {};
+
+                els.dec = el.prev();
+                els.inc = el.next();
+
+                el.each(function () {
+                    init($(this));
+                });
+
+                function init(el) {
+
+                    els.dec.on('click', decrement);
+                    els.inc.on('click', increment);
+
+                    function decrement() {
+                        var value = el[0].value;
+                        value--;
+                        if (!min || value >= min) {
+                            el[0].value = value;
+                        }
+                    }
+
+                    function increment() {
+                        var value = el[0].value;
+                        value++;
+                        if (!max || value <= max) {
+                            el[0].value = value++;
+                        }
+                    }
+                }
+            }
+        })();
+
+        inputNumber($('.input-number'));
+
+        $("#home-tab").click(function () {
+            $("#home-tab").addClass("active");
+            $("#profile-tab").removeClass("active");
+            $("#contact-tab").removeClass("active");
+            $("#review-tab").removeClass("active");
+            $("#home").css("display", "block");
+            $("#profile").css("display", "none");
+            $("#contact").css("display", "none");
+            $("#review").css("display", "none");
+        });
+
+
+        $("#profile-tab").click(function () {
+            $("#profile-tab").addClass("active");
+            $("#home-tab").removeClass("active");
+            $("#contact-tab").removeClass("active");
+            $("#review-tab").removeClass("active");
+            $("#home").css("display", "none");
+            $("#profile").css("display", "block");
+            $("#contact").css("display", "none");
+            $("#review").css("display", "none");
+        });
+
+        $("#contact-tab").click(function () {
+            $("#contact-tab").addClass("active");
+            $("#profile-tab").removeClass("active");
+            $("#home-tab").removeClass("active");
+            $("#review-tab").removeClass("active");
+            $("#home").css("display", "none");
+            $("#profile").css("display", "none");
+            $("#contact").css("display", "block");
+            $("#review").css("display", "none");
+        });
+
+        $("#review-tab").click(function () {
+            $("#review-tab").addClass("active");
+            $("#profile-tab").removeClass("active");
+            $("#contact-tab").removeClass("active");
+            $("#home-tab").removeClass("active");
+            $("#home").css("display", "none");
+            $("#profile").css("display", "none");
+            $("#contact").css("display", "none");
+            $("#review").css("display", "block");
+        });
+
+        $(".fa-heart-o").click(function () {
+            if ($('#product-like').hasClass("fa-heart-o")) {
+                $('#product-like').removeClass("fa-heart-o");
+                $('#product-like').addClass("fa-heart");
+                toastr.success('Added to favourites')
+            } else {
+                $('#product-like').removeClass("fa-heart");
+                $('#product-like').addClass("fa-heart-o");
+                toastr.error('Removed to favourites')
+            }
+            $("#like-button").click();
+        });
+
+        $(".fa-heart").click(function () {
+            if ($('#product-like').hasClass("fa-heart")) {
+                $('#product-like').removeClass("fa-heart");
+                $('#product-like').addClass("fa-heart-o");
+                toastr.error('Removed to favourites')
+            } else {
+                $('#product-like').removeClass("fa-heart-o");
+                $('#product-like').addClass("fa-heart");
+                toastr.success('Added to favourites')
+            }
+            $("#like-button").click();
+        });
     });
-
-    $( ".fa-heart" ).click(function() {
-      if ($('#product-like').hasClass( "fa-heart" )) {
-        $('#product-like').removeClass("fa-heart");
-        $('#product-like').addClass("fa-heart-o");
-        toastr.error('Removed to favourites')
-      }
-      else{
-        $('#product-like').removeClass("fa-heart-o");
-        $('#product-like').addClass("fa-heart");
-        toastr.success('Added to favourites')   
-      }
-      $( "#like-button" ).click();
-    });
-});
 
     $(function () {
 
@@ -717,10 +716,16 @@ inputNumber($('.input-number'));
                     url: '/ratings',
                     method: 'post',
                     contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                    data: jQuery.param({ rating: {value:rating ,parent_id:<%=@product.id%>, parent_type:'<%=Rating.parent_type_product%>'} }),
-                    success: function(data){
-                       $('#avg-ratting').text(data.avg_ratting);
-                       $('#review-count').text(data.review_count);
+                    data: jQuery.param({
+                        rating: {
+                            value: rating,
+                            parent_id:<%=@product.id%>,
+                            parent_type: '<%=Rating.parent_type_product%>'
+                        }
+                    }),
+                    success: function (data) {
+                        $('#avg-ratting').text(data.avg_ratting);
+                        $('#review-count').text(data.review_count);
                     }
                 });
             },
@@ -732,53 +737,53 @@ inputNumber($('.input-number'));
 
     });
 
-    $('#new_comment').on('submit', function(e){
-      // e.preventDefault(); // don't submit multiple times
-      // this.submit(); // use the native submit method of the form element
-      url = window.location.pathname;
-      id = url.substring(url.lastIndexOf('/') + 1);
-      setTimeout(function() {
-      $.ajax({
-          url:'/products/' + id + '/get_comments',
-          type:'get',
-          processData:false,
-          success:function (data) {
-            console.log(data);
-            html = "<div class='review_item'><div class='media'><div class='d-flex'>" + "<img src='<%= image_path image %>'>"
- + "</div><div class='media-body'><h4>" + data.commentor_full_name + "</h4><h5>" + data.date + "</h5><!-- <a class='reply_btn' href='#'>Reply</a> --></div></div><p>" + data.statement + "</p></div>";
-            $("#pre-comment").prepend(html);
-          },
+    $('#new_comment').on('submit', function (e) {
+        // e.preventDefault(); // don't submit multiple times
+        // this.submit(); // use the native submit method of the form element
+        url = window.location.pathname;
+        id = url.substring(url.lastIndexOf('/') + 1);
+        setTimeout(function () {
+            $.ajax({
+                url: '/products/' + id + '/get_comments',
+                type: 'get',
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                    html = "<div class='review_item'><div class='media'><div class='d-flex'>" + "<img src='<%= image_path image %>'>"
+                        + "</div><div class='media-body'><h4>" + data.commentor_full_name + "</h4><h5>" + data.date + "</h5><!-- <a class='reply_btn' href='#'>Reply</a> --></div></div><p>" + data.statement + "</p></div>";
+                    $("#pre-comment").prepend(html);
+                },
 
-          error:function (data) {
+                error: function (data) {
 
-              alert ('Error');
-          }
+                    alert('Error');
+                }
 
-      });
-      },100);
+            });
+        }, 100);
     });
 
 
     /////////add to cart /////////
 
-    $('#add-to-cart').on('click', function(e){
-      // e.preventDefault(); // don't submit multiple times
-      // this.submit(); // use the native submit method of the form element
-      count = $(".input-number").val()
-      url = window.location.pathname;
-      id = url.substring(url.lastIndexOf('/') + 1);
-      $.ajax({
-          headers: {   'X-CSRF-Token': Rails.csrfToken() },
-          url:'/products/' + id + '/add_to_cart?quantity=' + count,
-          type:'post',
-          success:function (data) {
-            console.log(data);
-          },
-          error:function (data) {
+    $('#add-to-cart').on('click', function (e) {
+        // e.preventDefault(); // don't submit multiple times
+        // this.submit(); // use the native submit method of the form element
+        count = $(".input-number").val()
+        url = window.location.pathname;
+        id = url.substring(url.lastIndexOf('/') + 1);
+        $.ajax({
+            headers: {'X-CSRF-Token': Rails.csrfToken()},
+            url: '/products/' + id + '/add_to_cart?quantity=' + count,
+            type: 'post',
+            success: function (data) {
+                console.log(data);
+            },
+            error: function (data) {
 
-              alert ('Error');
-          }
+                alert('Error');
+            }
 
-      });
+        });
     });
 </script>
