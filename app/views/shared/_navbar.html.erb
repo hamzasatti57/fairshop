@@ -35,7 +35,7 @@
                       <% if current_user.present? %>
                         <li class="nav-item" style="padding-bottom: 3px;">
                           <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item custom-dropdown" do %>
-                            <i class="fa fa-sign-out" aria-hidden="true" style="font-size: 25px;"></i>
+                            <i class="fa fa-sign-out" aria-hidden="true" style="font-size: 25px;" title="Logout"></i>
                           <% end %>
                         </li>
                       <% else %>
@@ -130,14 +130,14 @@
                             </ul>
                         </div>
                         <div class="hearer_icon d-flex">
-                            <a id="search_1" href="javascript:void(0)"><i class="fa fa-search"></i></a>
+                            <a id="search_1" href="javascript:void(0)"><i class="fa fa-search" title="Search"></i></a>
                             <% if current_user.present? %>
-                              <a href="/products/favourites"><i class="fa fa-heart"></i></a>
+                              <a href="/products/favourites"><i class="fa fa-heart" title="Favourites"></i></a>
                               <div class="dropdown cart">
                                   <a class="dropdown-toggle" href="" id="navbarDropdown3" role="button"
                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <%= link_to "/cart" do %>
-                                      <i class="fa fa-cart-plus" style=""></i>
+                                      <i class="fa fa-cart-plus" style="" title="Cart"></i>
                                     <% end %>
                                   </a>
                             <% end %>
