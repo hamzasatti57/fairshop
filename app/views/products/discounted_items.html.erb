@@ -159,15 +159,15 @@
         <div class="best_product_slider owl-carousel">
           <% @best_seller_products.each do |product| %>
             <div class="single_product_item">
-              <%= link_to "/products/#{product.id}" do %>
-                <img src="<%= url_for(product.images.first) %>">
-              <% end %>
+              <div class="cutome-img-size">
+                <%= link_to "/products/#{product.id}" do %>
+                  <img src="<%= url_for(product.images.first) %>">
+                <% end %>
+              </div>
               <div class="single_product_text">
-                <div class="cutome-img-size">
-                  <%= link_to "/products/#{product.id}" do %>
-                    <h4><%= product.title %></h4>
-                  <% end %>
-                </div>
+                <%= link_to "/products/#{product.id}" do %>
+                  <h4><%= product.title %></h4>
+                <% end %>
                 <h3>R<%= product.price.to_i %></h3>
                 <%= link_to add_to_cart_product_path(product.id), class: "add_cart", method: :post do %>
                   + add to cart
