@@ -65,6 +65,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     # @product.punch(request)
     @vendor = @product.user
+    @best_seller_products = Product.where( status: true).limit(5)
     # @vendor.punch(request)
     @products = @vendor.products.where(visibility: true)
     @likes = @product.likes
