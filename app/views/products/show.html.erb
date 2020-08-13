@@ -6,6 +6,9 @@
   .zoom-custom{
     cursor: pointer !important;
   }
+  .custom-link a{
+    color: #777777;
+  }
 </style>
   <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/breadcrumb.png') %>');">
@@ -15,7 +18,7 @@
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
               <h2><%= @product.title %></h2>
-              <p><%= @product.product_category.category.title %> <span>-</span> <%= @product.product_category.title %> <span>-</span> <%= @product.title %></p>
+              <p class="custom-link"><a href="/product_category?type=<%= @product.product_category.category.title %>"><%= @product.product_category.category.title %></a> <span>-</span> <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a> <span>-</span> <%= @product.title %></p>
             </div>
           </div>
         </div>
@@ -78,14 +81,14 @@
             <h2>R<%= @product.price.to_i %></h2>
             <ul class="list">
               <li>
-                <a class="active" href="#">
-                  <span>Category</span> : <%= @product.product_category.title %></a>
+                  <span>Category</span>        <span  style="padding-left: 24px;">:</span>
+                <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
               </li>
               <li>
-                <a href="#"> <span>Availibility</span> : <%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></a>
+                <span style="padding-right: 20px;">Availibility</span>    :    <%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %>
               </li>
               <li>
-                <a href="#"> <span>Warranty</span> : <%= @product.warranty == true ? "Yes" : "No" %></a>
+                <span style="padding-right: 25px;">Warranty</span>    :    <%= @product.warranty == true ? "Yes" : "No" %>
               </li>
             </ul>
             <p>
