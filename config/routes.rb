@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   resources :products do
     collection do
       post :popular_list
-      get :popular_list
+      get :discounted_items
       get :favourites
       post :save_cart
     end
@@ -83,6 +83,7 @@ Rails.application.routes.draw do
   get '/terms_and_conditions' => 'about#terms_and_conditions'
   post '/notify' => 'checkout#notify'
   get '/cancel' => 'checkout#cancel_payment'
+  get '/peach_payment' => 'checkout#peach_payment'
   delete '/delete_cart_product/:id' => 'cart#delete_cart_product', :as => 'delete_cart_product'
   devise_scope :user do
     get "admin" => "users/sessions#new"

@@ -78,9 +78,38 @@ class ProductsController < ApplicationController
 
   end
 
-  def popular_list
+  def discounted_items
+    @best_seller_products = Product.where( status: true).limit(5)
+      @products = Product.where( status: true, is_discounted: true)
+      @product_categories = ProductCategory.where(id: @products.pluck(:product_category_id))
+      @brand_products = @products
+      @companies = Company.where(id: @products.pluck(:company_id))
+      if params[:brand].present?
+        query = "%#{params[:brand].gsub("_", " ")}%"
+        @brand = Company.where("title ILIKE ?", query).first
+        @products = @products.where(company_id: @brand.id)
+      end
+      if params[:search].present?
+        @products = @products.where("title ILIKE '%#{params[:search]}%'")
+      end
+      if params[:min_val].present? && params[:max_val].present?
+        @products = @products.where(:price => (params[:min_val].to_f..params[:max_val].to_f))
+      end
+      if params[:sort_by].present?
+        if params[:sort_by] == "price(low to high)"
+          @products = @products.order("price ASC")
+        elsif params[:sort_by] == "price(high to low)"
+          @products = @products.order("price DESC")
+        else
+          @products = @products.order("#{params[:sort_by]} DESC")
+        end
+      end
+      if request.xhr?
+        render partial: "products"
+      end
     # @popular_products = Product.most_hit(nil, 100).where(visibility: true).paginate(page: params[:page], per_page: 21)
   end
+
   def update_download_catalog_count
     @user = User.find(params[:user_id])
     @user.profile.update(catalog_download_count: @user.profile.catalog_download_count+1)
