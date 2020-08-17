@@ -97,7 +97,7 @@
             <div class="card_area d-flex justify-content-between align-items-center">
               <div class="product_count">
                 <span class="inumber-decrement"> <i class="fa fa-minus"></i></span>
-                <input class="input-number" type="text" value="1" min="1" max="100">
+                <input class="input-number" type="text" value="1" min="1" max="200">
                 <span class="number-increment"> <i class="fa fa-plus"></i></span>
               </div>
                 <%#= link_to add_to_cart_product_path(@product.id), class: "btn_3", method: :post do %>
@@ -572,7 +572,7 @@
               autoplayHoverPause: true,
               autoplayTimeout: 5000,
               nav: true,
-              navText: ["next", "previous"],
+              navText: ["previous", "next"],
               responsive: {
                 0: {
                   margin: 15,
@@ -788,12 +788,9 @@ inputNumber($('.input-number'));
  + "</div><div class='media-body'><h4>" + data.commentor_full_name + "</h4><h5>" + data.date + "</h5><!-- <a class='reply_btn' href='#'>Reply</a> --></div></div><p>" + data.statement + "</p></div>";
             $("#pre-comment").prepend(html);
           },
-
           error:function (data) {
-
-              alert ('Error');
+            // alert ('Need to Login!');
           }
-
       });
       },100);
     });

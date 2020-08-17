@@ -114,7 +114,7 @@
                                     <p><span><%= @products.count %> </span> <%= (@products.count > 1) ? "Products" : "Product" %> Found</p>
                                 </div>
                                 <div class="single_product_menu d-flex">
-                                    <h5>short by : </h5>
+                                    <h5>sort by : </h5>
                                     <select class= "sorter">
                                         <option data-display="Select">sort by</option>
                                         <option id="sort-by-price" value="1">price(low to high)</option>
@@ -249,7 +249,7 @@
               autoplayHoverPause: true,
               autoplayTimeout: 5000,
               nav: true,
-              navText: ["next", "previous"],
+              navText: ["previous", "next"],
               responsive: {
                 0: {
                   margin: 15,
