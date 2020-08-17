@@ -159,7 +159,7 @@
                               <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Shop</a>
                               <ul class="drop-menu-style">
-                                <% Category.all.each do |category| %>
+                                <% Category.order('LOWER(title)').each do |category| %>
                                   <li><a class="dropdown-item" href="/product_category?type=<%= category.title.gsub(" ", "_") %>"> <%= category.title %></a>
                                     <ul class="drop-menu-style">
                                       <% category.product_categories.each do |product_category| %>
