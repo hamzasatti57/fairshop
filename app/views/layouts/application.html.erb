@@ -59,6 +59,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+
 <script>
     $('.responsivee').slick({
         dots: true,
@@ -101,6 +103,11 @@
     <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'success') %>
       toastr['<%= type %>']('<%= f[1] %>');
     <% end %>
+
+    $(function($) {
+        console.log($("img").length);
+        $("img").lazyload();
+    });
 </script>
 <%= render partial: 'shared/footer' %>
 </body>

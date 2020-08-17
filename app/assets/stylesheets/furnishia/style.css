@@ -2280,7 +2280,7 @@ ul {
 /* line 165, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
 .dropdown .dropdown-menu {
   transition: all 0.5s;
-  overflow: hidden;
+  /*overflow: hidden;*/
   transform-origin: top center;
   transform: scale(1, 0);
   display: block;

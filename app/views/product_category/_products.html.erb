@@ -50,7 +50,7 @@
       <div class="single_product_item">
         <div class="cutome-img-size">
           <%= link_to "/products/#{product.id}" do %>
-            <img src="<%= url_for(product.images.first) %>">
+            <img src="<%= url_for(product.images.first.variant(resize: "250 x250")) %>">
           <% end %>
         </div>
         <div class="single_product_text">

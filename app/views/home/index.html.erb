@@ -300,10 +300,6 @@
     </section> -->
 </div>
 <script>
-    window.onload = function () {
-        document.getElementById('load-header').scrollIntoView();
-    };
-
     $(document).ready(function () {
         //single banner slider
         $('.banner_slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
@@ -322,7 +318,7 @@
             autoplayHoverPause: true,
             autoplayTimeout: 5000,
             nav: true,
-            navText: ["<<<<<<<    ---", "---    >>>>>>>"],
+            navText: ["Next", "Previous"],
             smartSpeed: 1000,
             responsive: {
                 0: {
