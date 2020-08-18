@@ -856,16 +856,15 @@ $('.input-number').on('keydown keyup', function(e){
     blog_id = $(this).data('id');
     type    = $(this).data('type');
     blog    = $(this).data('attributes');
-  debugger
     var url = createFBShareLink(blog_id, type, blog, '3563470663666159');
     window.open(url);
     });
 
  function createFBShareLink(id, type, blog, fbAppId) {
     var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `https://${window.location.hostname}`
-    var root_url = "<%= Rails.env.staging? ? 'https://ambassador-staging.saintlbeau.com' : 'https://ambassador.saintlbeau.com' %>"
+    var root_url = "<%= 'http://128.199.108.32/' %>"
     var url = `http://www.facebook.com/dialog/feed?app_id=${fbAppId}
-      &link=${root_url}/blog_detail?id=${id}
+      &link=${root_url}/product_detail?id=${id}
       &picture=${encodeURIComponent(`${blog.file_name}`)}
       &name=${blog.title}
       &caption=FairPrice product
