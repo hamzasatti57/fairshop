@@ -36,7 +36,7 @@
           <div class="product_slider_img">
             <div id="vertical">
               <% if @product.images.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.first)) %>" class="zoom zoom-custom" >
+              <div data-thumb="<%= asset_path(url_for(@product.images.first.variant(resize: "150 x150"))) %>" class="zoom zoom-custom" >
                 <%= image_tag(url_for(@product.images.first), id: "imageresource", title: "Click to expand") %>
               </div>
               <% else %>
@@ -45,7 +45,7 @@
               </div>
               <% end %>
               <% if @product.images.present? && @product.images.second.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.second)) %>" class="zoom1 zoom-custom" >
+              <div data-thumb="<%= asset_path(url_for(@product.images.second.variant(resize: "150 x150"))) %>" class="zoom1 zoom-custom" >
                 <%= image_tag(url_for(@product.images.second), id: "imageresource1", title: "Click to expand") %>
               </div>
               <% else %>
@@ -54,7 +54,7 @@
               </div>
               <% end %>
               <% if @product.images.present? && @product.images.third.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.third)) %>" class="zoom2 zoom-custom" >
+              <div data-thumb="<%= asset_path(url_for(@product.images.third.variant(resize: "150 x150"))) %>" class="zoom2 zoom-custom" >
                 <%= image_tag(url_for(@product.images.third), id: "imageresource2", title: "Click to expand") %>
               </div>
               <% else %>
@@ -63,7 +63,7 @@
               </div>
               <% end %>
               <% if @product.images.present? && @product.images.fourth.present? %>
-              <div data-thumb="<%= asset_path(url_for(@product.images.fourth)) %>" class="zoom3 zoom-custom" >
+              <div data-thumb="<%= asset_path(url_for(@product.images.fourth.variant(resize: "150 x150"))) %>" class="zoom3 zoom-custom" >
                 <%= image_tag(url_for(@product.images.fourth), id: "imageresource3", title: "Click to expand") %>
               </div>
               <% else %>
@@ -89,6 +89,11 @@
               </li>
               <li>
                 <span style="padding-right: 25px;">Warranty</span>    :    <%= @product.warranty == true ? "Yes" : "No" %>
+              </li>
+              <li>
+              <%= link_to "javascript:void(0);", class: 'share-on-facebook', data: { id: @product.id, type: 'facebook', attributes: product_attributes(@product) } do %>
+                share on facebook
+              <% end %>
               </li>
             </ul>
             <p>
@@ -845,4 +850,29 @@ $('.input-number').on('keydown keyup', function(e){
        $(this).val(200);
     }
 });
+
+
+ $('.share-on-facebook').click(function () {
+    blog_id = $(this).data('id');
+    type    = $(this).data('type');
+    blog    = $(this).data('attributes');
+  debugger
+    var url = createFBShareLink(blog_id, type, blog, '3563470663666159');
+    window.open(url);
+    });
+
+ function createFBShareLink(id, type, blog, fbAppId) {
+    var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `http://${window.location.hostname}`
+    var root_url = "http://128.199.108.32"
+    var url = `http://www.facebook.com/dialog/feed?app_id=${fbAppId}
+      &link=${root_url}/products/${id}
+      &picture=${encodeURIComponent(`${blog.file_name}`)}
+      &name=${blog.title}
+      &caption=Fair Price product
+      &description=This is just for testing purpose
+      &redirect_uri=${encodeURIComponent(`${link}/share_blog?id=${id}&value=${type}`)}
+      &display=popup`;
+    return url;
+  }
+
 </script>
