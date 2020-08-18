@@ -112,8 +112,11 @@ class ProductsController < ApplicationController
   end
 
   def product_detail
-    @blog = Product.find_by_id(params[:id])
-    return redirect_to root_path(blog_not_found: true) if @blog.blank?
+    @product = Product.find_by_id(params[:id])
+    if @product.blank?
+      flash[:error] = "This product is already in your cart."
+      return redirect_to root_path
+    end
   end
 
   def update_download_catalog_count

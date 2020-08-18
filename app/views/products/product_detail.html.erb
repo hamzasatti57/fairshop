@@ -851,6 +851,7 @@ $('.input-number').on('keydown keyup', function(e){
     }
 });
 
+
  $('.share-on-facebook').click(function () {
     blog_id = $(this).data('id');
     type    = $(this).data('type');
@@ -869,7 +870,7 @@ $('.input-number').on('keydown keyup', function(e){
       &name=${blog.title}
       &caption=FairPrice product
       &description=This is just for testing purpose
-      &redirect_uri=${encodeURIComponent(`${link}/products/${id}`)}
+      &redirect_uri=${encodeURIComponent(`${link}/share_blog?id=${id}&value=${type}`)}
       &display=popup`;
     return url;
   }
