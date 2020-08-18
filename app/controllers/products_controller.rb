@@ -111,6 +111,11 @@ class ProductsController < ApplicationController
     # @popular_products = Product.most_hit(nil, 100).where(visibility: true).paginate(page: params[:page], per_page: 21)
   end
 
+  def product_detail
+    @blog = Product.find_by_id(params[:id])
+    return redirect_to root_path(blog_not_found: true) if @blog.blank?
+  end
+
   def update_download_catalog_count
     @user = User.find(params[:user_id])
     @user.profile.update(catalog_download_count: @user.profile.catalog_download_count+1)

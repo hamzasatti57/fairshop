@@ -862,13 +862,13 @@ $('.input-number').on('keydown keyup', function(e){
     });
 
  function createFBShareLink(id, type, blog, fbAppId) {
-    var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `http://${window.location.hostname}`
-    var root_url = "http://128.199.108.32"
+    var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `https://${window.location.hostname}`
+    var root_url = "<%= 'http://128.199.108.32/' %>"
     var url = `http://www.facebook.com/dialog/feed?app_id=${fbAppId}
-      &link=${root_url}/products/${id}
+      &link=${root_url}/product_detail?id=${id}
       &picture=${encodeURIComponent(`${blog.file_name}`)}
       &name=${blog.title}
-      &caption=Fair Price product
+      &caption=FairPrice product
       &description=This is just for testing purpose
       &redirect_uri=${encodeURIComponent(`${link}/share_blog?id=${id}&value=${type}`)}
       &display=popup`;
