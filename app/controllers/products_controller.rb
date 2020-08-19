@@ -114,7 +114,7 @@ class ProductsController < ApplicationController
   def product_detail
     @product = Product.find_by_id(params[:id])
     if @product.blank?
-      flash[:error] = "This product is already in your cart."
+      flash[:error] = "Product not found."
       return redirect_to root_path
     end
   end

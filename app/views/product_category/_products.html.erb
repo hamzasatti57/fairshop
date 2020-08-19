@@ -3,7 +3,25 @@
   #inputGroupPrepend{
     background-color: #e9414f;
   }
+/*  .sorter .current {
+    border: 0;
+*/    /* border-radius: 100%; */
+ /*   color: white;
+    background-color: #000 !important;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+}*/
 
+  .sorter {
+    border: 0;
+    /* border-radius: 100%; */
+    color: white;
+    background-color: #000 !important;
+    margin: 0 3px;
+    display: inline-block;
+    padding: 6px 12px;
+}
 </style>
 
 <div class="row">
@@ -12,7 +30,7 @@
       <div class="single_product_menu">
         <p><span><%= @products.count %> </span> <%= (@products.count > 1) ? "Products" : "Product" %> Found</p>
       </div>
-      <div class="single_product_menu d-flex">
+      <div class="single_product_menu d-flex custom-sorter-parent">
         <h5>sort by : </h5>
         <select class="sorter">
           <option data-display="Select">sort by</option>
