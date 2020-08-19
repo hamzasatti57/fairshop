@@ -21,6 +21,18 @@
   .js-input-from {
     max-width: 46px !important;
   }
+
+  .sidebar-sticky-custom{
+
+  /*width: 25%;*/
+    height: 15vh; // experiment with this value, try changing to 110vh
+    /*min-height: 200px;*/
+    /*overflow: auto;*/
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5%;
+    margin-bottom: 60px;
+  }
 </style>
 <!--================Home Banner Area =================-->
 <!-- breadcrumb start-->
@@ -45,6 +57,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
+        <div class="sidebar-sticky-custom">
         <div class="left_sidebar_area">
           <aside class="left_widgets p_filter_widgets">
             <div class="l_w_title">
@@ -133,6 +146,8 @@
             </aside>
           <% end %>
         </div>
+          
+        </div>
       </div>
       <div class="col-lg-9">
         <div id="products-partial">
@@ -145,7 +160,7 @@
 <!--================End Category Product Area =================-->
 
 <!-- product_list part start-->
-<section class="product_list best_seller">
+<section class="product_list best_seller" style="margin-top: 60px;">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-12">
