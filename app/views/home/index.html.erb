@@ -88,7 +88,7 @@
               <i class="fa fa-play"></i></a>
             <% if @first_category.image.present? %>
             <div style="width: 300px;height:300px;float: right">
-              <img src="<%= url_for(@first_category.image) %>" style="width:100%;height: auto;margin-top: -49px;">
+              <img src="<%= url_for(@first_category.image) %>" style="width:100%;height: auto;margin-top: -100px;">
             </div>
               
             <% end %>
@@ -106,7 +106,7 @@
               NOW <i class="fa fa-play"></i></a>
             <% if @second_category.image.present? %>
              <div style="width: 300px;height:300px; float: right;">
-             <img src="<%= url_for(@second_category.image) %>" style='height: auto;width: 100%'>
+             <img src="<%= url_for(@second_category.image) %>" style='height: auto;width: 100%;;margin-top: -20px;'>
            </div>
             <% end %>
           </div>
@@ -122,7 +122,7 @@
               <i class="fa fa-play"></i></a>
             <% if @third_category.image.present? %>
              <div style="width: 300px;height:300px; float: right;">
-              <img src="<%= url_for(@third_category.image) %>" style='height: auto;width: 100%'> 
+              <img src="<%= url_for(@third_category.image) %>" style='height: auto;width: 100%;;margin-top: -14px;'> 
             </div>
             <% end %>
           </div>
@@ -137,8 +137,8 @@
             <a href="/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE
               NOW <i class="fa fa-play"></i></a>
             <% if @fourth_category.image.present? %>
-             <div style="width: 220px;height:220px; float: right;">
-             <img src="<%= url_for(@fourth_category.image) %>" style='height: auto;width: 100%'> 
+             <div style="width: 260px;height:260px; float: right;">
+             <img src="<%= url_for(@fourth_category.image) %>" style='height: auto;width: 100%;;margin-top: -60px;'> 
         </div>
             <% end %>
           </div>
