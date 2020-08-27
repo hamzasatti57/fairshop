@@ -71,6 +71,7 @@ class CheckoutController < ApplicationController
      -d "currency=ZAR" \
      -d "paymentType=DB" \
      -H "Authorization: Bearer OGFjN2E0Y2E3M2Q4Y2EzMDAxNzNlMWQ1MWYxZDBmZmV8UHM0RUhKZ0NZdA=="`
+     logger.info "=========#{results}============"
     result = JSON.parse(results)
     PeachPayment.create(user_id: current_user.id, checkout_id: result["id"])
     redirect_to peach_payment_path
