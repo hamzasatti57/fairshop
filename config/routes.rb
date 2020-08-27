@@ -84,6 +84,7 @@ Rails.application.routes.draw do
   post '/notify' => 'checkout#notify'
   get '/cancel' => 'checkout#cancel_payment'
   get '/peach_payment' => 'checkout#peach_payment'
+  post '/peach_payment' => 'checkout#peach_payment_request'
   get '/product_detail' => 'products#product_detail'
   delete '/delete_cart_product/:id' => 'cart#delete_cart_product', :as => 'delete_cart_product'
   devise_scope :user do

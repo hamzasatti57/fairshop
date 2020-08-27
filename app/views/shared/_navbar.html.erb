@@ -164,14 +164,17 @@
                            <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Shop</a>
-                              <ul class="drop-menu-style dropdown-menu" style="width: 220px">
+                              <ul class="drop-menu-style dropdown-menu" style="width: 250px">
                                 <% Category.order('LOWER(title)').each do |category| %>
                                   <li><a class="dropdown-item" href="/product_category?type=<%= category.title.gsub(" ", "_") %>"> <%= category.title %><span class="icon-right"><i class="fa fa-caret-right" aria-hidden="true"></i></span></a>
-                                    <ul class="drop-menu-style" style="width: 220px">
+
+                                  <% if category.product_categories.present? %>
+                                    <ul class="drop-menu-style" style="width: 250px">
                                       <% category.product_categories.each do |product_category| %>
                                         <li > <a href="/product_category?type=<%= category.title %>&category=<%= product_category.title %>"> <%= product_category.title %></a></li>
                                       <% end %>
                                     </ul>
+                                  <% end %>
                                   </li>
                                 <% end %>
                               </ul>

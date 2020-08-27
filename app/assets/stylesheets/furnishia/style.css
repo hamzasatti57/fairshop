@@ -2608,12 +2608,14 @@ ul {
   position: absolute;
   right: -16%;
   top: 38%;
+  display: none;
 }
 
 @media (max-width: 991px) {
   /* line 115, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_banner.scss */
   .banner_part .slider-counter {
     font-size: 40px;
+    display: none;
   }
 }
 
@@ -2621,6 +2623,7 @@ ul {
   /* line 115, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_banner.scss */
   .banner_part .slider-counter {
     font-size: 40px;
+    display: none;
   }
 }
 
@@ -2719,7 +2722,7 @@ ul {
 
 /* line 68, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_feature_part.scss */
 .feature_part .single_feature_post_text img {
-  position: absolute;
+  /*position: absolute;*/
   bottom: 0;
   right: 15px;
 }
