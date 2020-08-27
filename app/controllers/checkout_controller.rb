@@ -66,9 +66,10 @@ class CheckoutController < ApplicationController
 
   def peach_payment_request
     @sum = current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.present?
+    logger.info "===========#{@sum.to_i.round(2)}==========="
     results = `/usr/bin/curl https://test.oppwa.com/v1/checkouts \
      -d "entityId=8ac7a4ca73d8ca300173e1d5306c1005" \
-     -d "amount=#{@sum}" \
+     -d "amount=#{@sum.to_i.round(2)}" \
      -d "currency=ZAR" \
      -d "paymentType=DB" \
      -H "Authorization: Bearer OGFjN2E0Y2E3M2Q4Y2EzMDAxNzNlMWQ1MWYxZDBmZmV8UHM0RUhKZ0NZdA=="`
