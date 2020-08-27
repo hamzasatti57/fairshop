@@ -13,14 +13,14 @@
     padding: 6px 12px;
 }*/
 
-  .sorter {
-    border: 0;
+ .custom-sort-item-style .sorter {
+    border: 0 !important;
     /* border-radius: 100%; */
-    color: white;
-    background-color: #000 !important;
-    margin: 0 3px;
-    display: inline-block;
-    padding: 6px 12px;
+    color: white !important;
+    background-color: #e9414f !important;
+    margin: 0 3px !important;
+    display: inline-block !important;
+    padding: 6px 12px !important;
 }
 </style>
 
@@ -30,6 +30,8 @@
       <div class="single_product_menu">
         <p><span><%= @products.count %> </span> <%= (@products.count > 1) ? "Products" : "Product" %> Found</p>
       </div>
+
+      <div class="custom-sort-item-style">
       <div class="single_product_menu d-flex custom-sorter-parent">
         <h5>sort by : </h5>
         <select class="sorter">
@@ -38,6 +40,7 @@
           <option id="sort-by-price" value="2">price(high to low)</option>
           <option id="sort-by-name" value="3">newest</option>
         </select>
+      </div>
       </div>
       <div class="single_product_menu d-flex">
         <h5>show :</h5>

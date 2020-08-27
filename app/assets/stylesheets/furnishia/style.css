@@ -3688,6 +3688,7 @@ ul {
   line-height: 15px;
   font-weight: 300;
   text-transform: capitalize;
+  display: none !important;
 }
 
 /* line 432, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -3696,6 +3697,7 @@ ul {
   border-bottom: 1px solid #999;
   border-right: 1px solid #999;
   right: 0px;
+  display: none;
 }
 
 /* line 440, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
