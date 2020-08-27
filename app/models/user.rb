@@ -18,6 +18,7 @@ class User < ApplicationRecord
   has_many :customer_comments, class_name: "Comment", foreign_key: "user_id"
   has_many :customer_ratings, class_name: "Rating", foreign_key: "user_id"
   has_many :customer_likes, class_name: "Like", foreign_key: "user_id"
+  has_many :peach_payments, dependent: :destroy
   validates :username,
             uniqueness:{allow_nil: true, case_sensitive: false}
   VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i

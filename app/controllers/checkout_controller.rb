@@ -1,3 +1,7 @@
+require 'net/https'
+require 'uri'
+require 'json'
+
 class CheckoutController < ApplicationController
   before_action :get_checkout, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
@@ -54,6 +58,22 @@ class CheckoutController < ApplicationController
     logger.info "=========#{data.to_xml}=========="
     FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.xml"))
     File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w") << data.to_xml
+  end
+
+  def peach_payment
+    @checkout_id = current_user.peach_payments.last.checkout_id
+  end
+
+  def peach_payment_request
+    results = `curl https://test.oppwa.com/v1/checkouts \
+     -d "entityId=8ac7a4ca73d8ca300173e1d5306c1005" \
+     -d "amount=92.00" \
+     -d "currency=ZAR" \
+     -d "paymentType=DB" \
+     -H "Authorization: Bearer OGFjN2E0Y2E3M2Q4Y2EzMDAxNzNlMWQ1MWYxZDBmZmV8UHM0RUhKZ0NZdA=="`
+    result = JSON.parse(results)
+    PeachPayment.create(user_id: current_user.id, checkout_id: result["id"])
+    redirect_to peach_payment_path
   end
 
   def cancel_payment

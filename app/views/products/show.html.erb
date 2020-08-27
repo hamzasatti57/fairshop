@@ -94,9 +94,13 @@
               <li>
                 <span style="padding-right: 25px;">Warranty</span>    :    <%= @product.warranty == true ? "Yes" : "No" %>
               </li>
+
               <li>
+                  <span>Share on</span>
               <%= link_to "javascript:void(0);", class: 'share-on-facebook', data: { id: @product.id, type: 'facebook', attributes: product_attributes(@product) } do %>
-                share on facebook
+                <span>
+                  <i class="fab fa-facebook-f" style="font-size: 21px;margin-left: 30px;color: #3b5998;"></i>
+                </span>
               <% end %>
               </li>
             </ul>

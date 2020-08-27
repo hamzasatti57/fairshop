@@ -261,6 +261,21 @@
                 <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button>
               </form>
               <!-- <a class="btn_3 proceed_to_checkout" href="/confirmation">Proceed to Payfast</a> -->
+
+              <div class="payment_item active">
+                <div class="radion_btn">
+                  <input type="radio" id="f-option6" name="selector" checked="checked" />
+                  <label for="f-option6">Peach Payment </label>
+                  <%=image_tag("img/product/single-product/card.jpg")%>
+                  <div class="check"></div>
+                </div>
+                <p>
+                  Please send a check to Store Name, Store Street, Store Town,
+                  Store State / County, Store Postcode.
+                  <%= link_to "Proceed to Peach", peach_payment_path, method: :post  , class: "btn_3 proceed_to_checkout" %>
+                  <!-- <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button> -->
+                </p>
+              </div>
             </div>
           </div>
         </div>
