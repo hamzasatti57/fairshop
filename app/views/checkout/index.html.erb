@@ -272,7 +272,7 @@
                 <p>
                   Please send a check to Store Name, Store Street, Store Town,
                   Store State / County, Store Postcode.
-                  <%= link_to "Proceed to Peach", peach_payment_path, method: :post  , class: "btn_3 proceed_to_checkout" %>
+                  <%= link_to "Proceed to Peach", peach_payment_path, method: :post  , class: "btn_3 proceed_to_checkout_1" %>
                   <!-- <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button> -->
                 </p>
               </div>
@@ -335,6 +335,21 @@
 
         });
 
+        $('.proceed_to_checkout_1').on('click', function(e){
+          if(document.getElementById('new-shippment').checked) {
+            $(".billing_address_2_submit").click();
+            // setTimeout(function() {
+            //   $(".checkout_submit").click();
+            // },100);
+          }
+          else{
+            $(".billing_address_1_submit").click();
+            // setTimeout(function() {
+            //   $(".checkout_submit").click();
+            // },100);
+          }
+
+        });
       </script>
 
 
