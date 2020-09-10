@@ -10,7 +10,7 @@ class ProductCategoryController < ApplicationController
       @product_categories = @category.product_categories
       query = "%#{params[:category].gsub("_", " ")}%"
       @product_category = ProductCategory.where("title ILIKE ?", query).first
-      @products = Product.where(product_category_id: @product_category.id, status: true).order("price ASC")
+      @products = Product.where(product_category_id: @product_category.id, status: true)
       @brand_products = @products
       @companies = Company.where(id: @products.pluck(:company_id))
       if params[:brand].present?
@@ -29,9 +29,11 @@ class ProductCategoryController < ApplicationController
           @products = @products.order("price ASC")
         elsif params[:sort_by] == "price(high to low)"
           @products = @products.order("price DESC")
-        else
-          @products = @products.order("#{params[:sort_by]} DESC")
+        elsif params[:sort_by] == "newest"
+          @products = @products.order("created_at DESC")
         end
+      else
+        @products = @products.order("price ASC")
       end
       if request.xhr?
         render partial: "products"
@@ -40,7 +42,7 @@ class ProductCategoryController < ApplicationController
       query = "%#{params[:type].gsub("_", " ")}%"
       @category = Category.where("title ILIKE ?", query).first
       @product_categories = @category.product_categories
-      @products = Product.where(product_category_id: @category.product_categories.pluck(:id), status: true).order("price ASC")
+      @products = Product.where(product_category_id: @category.product_categories.pluck(:id), status: true)
       @brand_products = @products
       @companies = Company.where(id: @products.pluck(:company_id))
       if params[:brand].present?
@@ -59,9 +61,11 @@ class ProductCategoryController < ApplicationController
           @products = @products.order("price ASC")
         elsif params[:sort_by] == "price(high to low)"
           @products = @products.order("price DESC")
-        else
-          @products = @products.order("#{params[:sort_by]} DESC")
+        elsif params[:sort_by] == "newest"
+          @products = @products.order("created_at DESC")
         end
+      else
+        @products = @products.order("price ASC")
       end
       @products = @products.where(status: true)
       if request.format.html? == nil
