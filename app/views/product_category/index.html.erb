@@ -13,6 +13,10 @@
     display: initial !important;
     visibility: visible !important;
   }
+  
+  .custom-link a{
+    color: #777777;
+  }
 
   .js-input-to {
     max-width: 46px !important;
@@ -46,8 +50,8 @@
       <div class="col-lg-8">
         <div class="breadcrumb_iner">
           <div class="breadcrumb_iner_item">
-            <h2 style="white-space: break-spaces; width: 600px;"><%= params[:type].present? ?params[:type].gsub("_", " ") : "Products" %></h2>
-            <p>Category <span>-</span> <%= params[:type].present? ?params[:type].gsub("_", " ") : "Products" %></p>
+            <h2 style="white-space: break-spaces; width: 600px;"><%= params[:type].present? ? params[:type].gsub("_", " ") : "Products" %></h2>
+            <p class="custom-link"><a href="/product_category?type=<%= @category.title %>"><%= @category.title %></a> <span>-</span> <%= params[:category].present? ? params[:category].gsub("_", " ") : "Product" %></p>
           </div>
         </div>
       </div>
