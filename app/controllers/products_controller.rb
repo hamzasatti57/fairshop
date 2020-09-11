@@ -101,9 +101,11 @@ class ProductsController < ApplicationController
           @products = @products.order("price ASC")
         elsif params[:sort_by] == "price(high to low)"
           @products = @products.order("price DESC")
-        else
-          @products = @products.order("#{params[:sort_by]} DESC")
+        elsif params[:sort_by] == "newest"
+          @products = @products.order("created_at DESC")
         end
+      else
+        @products = @products.order("price ASC")
       end
       if request.xhr?
         render partial: "products"
