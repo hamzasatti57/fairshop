@@ -3550,7 +3550,7 @@ ul {
 .product_top_bar {
   clear: both;
   display: flex;
-  padding: 10px 0;
+  padding: 20px 0;
 }
 
 @media (max-width: 576px) {
@@ -3680,6 +3680,7 @@ ul {
   font-weight: 500;
   text-transform: capitalize;
   margin-bottom: 0;
+      margin-top: 8px;
 }
 
 /* line 425, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -3709,6 +3710,7 @@ ul {
 /* line 443, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .single_product_menu .top_pageniation ul {
   margin-left: 20px;
+  margin-top: 7px;
 }
 
 /* line 446, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
