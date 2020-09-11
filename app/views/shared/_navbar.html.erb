@@ -177,7 +177,7 @@
                                   </a>
 
                                   <% if category.product_categories.present? %>
-                                    <ul class="drop-menu-style custom-mega-menu-style" style="width: 250px;">
+                                    <ul class="drop-menu-style custom-mega-menu-style" style="width: 380px;">
                                       <% category.product_categories.order('LOWER(title)').each do |product_category| %>
                                         <li > <a href="/product_category?type=<%= category.title %>&category=<%= product_category.title %>"> <%= product_category.title %></a></li>
                                       <% end %>
