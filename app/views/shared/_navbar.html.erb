@@ -92,6 +92,10 @@
           .main_menu a .fa-caret-right{
              color: white;
           }
+          .custom-mega-menu-style{
+            width: 390px !important;
+            columns: 2;
+          }
 </style>
 
 
@@ -173,7 +177,7 @@
                                   </a>
 
                                   <% if category.product_categories.present? %>
-                                    <ul class="drop-menu-style" style="width: 250px;margin-top: -20px;">
+                                    <ul class="drop-menu-style <%= category.product_categories.count > 6 ? 'custom-mega-menu-style' : '' %>" style="width: 250px;">
                                       <% category.product_categories.order('LOWER(title)').each do |product_category| %>
                                         <li > <a href="/product_category?type=<%= category.title %>&category=<%= product_category.title %>"> <%= product_category.title %></a></li>
                                       <% end %>

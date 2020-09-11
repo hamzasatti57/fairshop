@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
       @user_cart_product = UserCartProduct.find_by_id(cart_id.to_i)
       @user_cart_product.update(quantity: params["cart_object"]["#{cart_id.to_i}"], sub_total: @user_cart_product.product.price * params["cart_object"]["#{cart_id.to_i}"].to_f)
     end
-    @sum = current_user.user_cart_products.pluck(:sub_total).sum
+    @sum = current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.present?
     render :json => @sum
   end
 
@@ -101,9 +101,11 @@ class ProductsController < ApplicationController
           @products = @products.order("price ASC")
         elsif params[:sort_by] == "price(high to low)"
           @products = @products.order("price DESC")
-        else
-          @products = @products.order("#{params[:sort_by]} DESC")
+        elsif params[:sort_by] == "newest"
+          @products = @products.order("created_at DESC")
         end
+      else
+        @products = @products.order("price ASC")
       end
       if request.xhr?
         render partial: "products"
