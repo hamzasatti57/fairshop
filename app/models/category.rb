@@ -6,6 +6,7 @@ class Category < ApplicationRecord
   has_many :product_categories
   belongs_to :parent, class_name: "Category", optional: true
   has_one_attached :image
+  has_one_attached :banner_image
 
   enum category_type: {
     "General" => 1,
