@@ -13,6 +13,10 @@
     display: initial !important;
     visibility: visible !important;
   }
+  .custom-reload{
+    font-size: 15px !important;
+    cursor: pointer;
+  }
 </style>
   <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/breadcrumb.png') %>');">
@@ -22,7 +26,7 @@
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
               <h2><%= @product.title %></h2>
-              <p class="custom-link"><a href="/product_category?type=<%= @product.product_category.category.title %>"><%= @product.product_category.category.title %></a> <span>-</span> <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a> <span>-</span> <%= @product.title %></p>
+              <p class="custom-link"><a href="/product_category?type=<%= @product.product_category.category.title %>"><%= @product.product_category.category.title %></a> <span>-</span> <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a> <span>-</span><span class="custom-reload"> <%= @product.title %></span></p>
             </div>
           </div>
         </div>
@@ -881,5 +885,9 @@ $('.input-number').on('keydown keyup', function(e){
       &display=popup`;
     return url;
   }
+
+    $('.custom-reload').on('click', function (e) {
+      window.location.reload();
+    });
 
 </script>

@@ -37,6 +37,10 @@
     top: 5%;
     margin-bottom: 60px;
   }
+  .custom-reload{
+    font-size: 14.5px !important;
+    cursor: pointer;
+  }
 </style>
 <!--================Home Banner Area =================-->
 <!-- breadcrumb start-->
@@ -51,7 +55,7 @@
         <div class="breadcrumb_iner">
           <div class="breadcrumb_iner_item">
             <h2 style="white-space: break-spaces; width: 600px;"><%= params[:type].present? ? params[:type].gsub("_", " ") : "Products" %></h2>
-            <p class="custom-link"><a href="/product_category?type=<%= @category.present? ? @category.title : "Category" %>"><%= @category.present? ? @category.title : "Category" %></a> <span>-</span> <%= params[:category].present? ? params[:category].gsub("_", " ") : "Products" %></p>
+            <p class="custom-link"><a href="/product_category?type=<%= @category.present? ? @category.title : "Category" %>"><%= @category.present? ? @category.title : "Category" %></a> <span>-</span> <span class= "custom-reload"> <%= params[:category].present? ? params[:category].gsub("_", " ") : "Products" %> </span></p>
           </div>
         </div>
       </div>
@@ -333,6 +337,10 @@
 
     // });
 
+
+    $('.custom-reload').on('click', function (e) {
+      window.location.reload();
+    });
 
     $('#price-filter').on('click', function (e) {
         min_val = $(".js-input-from").val()
