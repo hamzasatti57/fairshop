@@ -608,6 +608,10 @@
   </div>
 </div>
 
+<div class="custom-color-label" style="display: none" value = "">
+  
+</div>
+
     <script type="text/javascript">
       // $('.zoom').zoom(); // add zoom
 
@@ -872,12 +876,13 @@ inputNumber($('.input-number'));
     $('#add-to-cart').on('click', function(e){
       // e.preventDefault(); // don't submit multiple times
       // this.submit(); // use the native submit method of the form element
+      color = $('.custom-color-label').val();
       count = $(".input-number").val()
       url = window.location.pathname;
       id = url.substring(url.lastIndexOf('/') + 1);
       $.ajax({
           headers: {   'X-CSRF-Token': Rails.csrfToken() },
-          url:'/products/' + id + '/add_to_cart?quantity=' + count,
+          url:'/products/' + id + '/add_to_cart?quantity=' + count + '&color=' + color,
           type:'post',
           success:function (data) {
             console.log(data);
@@ -927,7 +932,6 @@ $('.input-number').on('keydown keyup', function(e){
 
  function createFBShareLink(id, type, blog, fbAppId) {
     var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `https://${window.location.hostname}`
-    debugger
     var root_url = "<%= 'http://128.199.108.32/' %>"
     var url = `http://www.facebook.com/dialog/feed?app_id=${fbAppId}
       &link=${root_url}/product_detail?id=${id}
@@ -943,5 +947,11 @@ $('.input-number').on('keydown keyup', function(e){
     $('.custom-reload').on('click', function (e) {
       window.location.reload();
     });
+
+
+      $('.radio-inline').click(function () {
+          $('.custom-color-label').val($(this).context.htmlFor)
+          // window.location.href = '/'
+      });
 
 </script>
