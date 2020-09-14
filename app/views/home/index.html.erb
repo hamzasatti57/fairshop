@@ -25,13 +25,15 @@
                     <div class="banner_text_iner">
                       <h1><%= product.title %></h1>
                       <p><%= product.description %></p>
-                      <a href="/products/<%= product.id %>" class="feature_btn">VIEW MORE <i class="fa fa-play"></i></a>
-                      <br>
-                      <br>
-                      <%= link_to add_to_cart_product_path(product.id), class: "btn_2", method: :post do %>
-                        buy now
+                      <% if product.is_promotional_banner.blank? %>
+                        <a href="/products/<%= product.id %>" class="feature_btn">VIEW MORE <i class="fa fa-play"></i></a>
+                        <br>
+                        <br>
+                        <%= link_to add_to_cart_product_path(product.id), class: "btn_2", method: :post do %>
+                          buy now
+                        <% end %>
+                        <a href="#" class="btn_2 btn_custom_1">Lay-bye</a>
                       <% end %>
-                      <a href="#" class="btn_2 btn_custom_1">Lay-bye</a>
                     </div>
                   </div>
                 </div>
