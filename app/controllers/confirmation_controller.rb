@@ -11,8 +11,9 @@ class ConfirmationController < ApplicationController
 
   def generate_xml
     if PeachPayment.last.checkout_id == params["id"]
+      random_number = rand(6**6)
       @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
-      current_user.user_carts.last.update(status: 2)
+      current_user.user_carts.last.update(status: 2, otp_code: random_number.to_s)
       UserPayment.create!(user_id: current_user.present? ? current_user.id : current_user.id, amount: @sum)
       xml = File.open(Rails.root.join('public', 'Sales.xml'))
       data = Hash.from_xml(xml)
@@ -20,6 +21,7 @@ class ConfirmationController < ApplicationController
       _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
       data["Transaction"]["SalesHeader"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = @sum
+      data["Transaction"]["SalesHeader"]["OtpCode"] = random_number.to_s
       data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s
       sale_detail = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
       data["Transaction"]["Details"]["SalesDetails"] = []
