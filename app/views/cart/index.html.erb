@@ -133,11 +133,10 @@
               </script>
               </div>
               <% end %>
-              <tr class="bottom_button">
+              <tr class="bottom_button" style="display: none">
                 <td>
                   <!-- <a class="btn_1" href="#">Update Cart</a> -->
                 </td>
-                <td></td>
                 <td></td>
                 <td>
                   <div class="cupon_text float-right">
@@ -203,8 +202,8 @@
             </tbody>
           </table>
           <div class="checkout_btn_inner float-right">
-            <a class="btn_1" href="/product_category">Continue Shopping</a>
-            <a class="btn_1 checkout_btn_1" href="/checkout">Proceed to checkout</a>
+            <a id="cont-shop" class="btn_1" href="/product_category">Continue Shopping</a>
+            <a id="proceed-checkout" class="btn_1 checkout_btn_1" href="/checkout">Proceed to checkout</a>
           </div>
         </div>
       </div>
@@ -213,6 +212,15 @@
   <!--================End Cart Area =================-->
 
   <script type="text/javascript">
+
+
+    $('#cont-shop').on('click', function(e){
+      $('#update-cart').click();
+    });
+
+    $('#proceed-checkout').on('click', function(e){
+      $('#update-cart').click();
+    });
 
     $('.input-number-increment').on('click', function(e){
       if($(this).parent().find("input").val() != 200){
@@ -245,7 +253,7 @@
           type:'post',
           success:function (data) {
             $("#grand-sum").text(data);
-            toastr.success('Cart Updated sucessfully')
+            // toastr.success('Cart Updated sucessfully')
             console.log(data);
           },
 
