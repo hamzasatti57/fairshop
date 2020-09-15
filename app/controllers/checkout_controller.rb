@@ -33,7 +33,8 @@ class CheckoutController < ApplicationController
   def notify
     # Parameters: {"m_payment_id"=>"", "pf_payment_id"=>"1115681", "payment_status"=>"COMPLETE", "item_name"=>"Sample Product", "item_description"=>"", "amount_gross"=>"4600.00", "amount_fee"=>"-105.80", "amount_net"=>"4494.20", "custom_str1"=>"", "custom_str2"=>"", "custom_str3"=>"", "custom_str4"=>"", "custom_str5"=>"", "custom_int1"=>"", "custom_int2"=>"", "custom_int3"=>"", "custom_int4"=>"", "custom_int5"=>"", "name_first"=>"HamzaSatti", "name_last"=>"", "email_address"=>"hamza@gmail.com", "merchant_id"=>"10019032", "signature"=>"fa590d44ff9c8f2a4774a7d60c7ad3fb"}
     @user = User.find_by_email(params["email_address"])
-    @user.user_carts.last.update(status: 2)
+    random_number = rand(6**6)
+    @user.user_carts.last.update(status: 2, otp_code: random_number.to_s)
     UserPayment.create!(user_id: @user.present? ? @user.id : current_user.id, amount: params["amount_gross"])
     xml = File.open(Rails.root.join('public', 'Sales.xml'))
     data = Hash.from_xml(xml)
@@ -41,6 +42,7 @@ class CheckoutController < ApplicationController
     _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
     data["Transaction"]["SalesHeader"]["CustomerName"] = params["name_first"] + " " + params["name_last"]
     data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = params["amount_gross"]
+    data["Transaction"]["SalesHeader"]["OtpCode"] = random_number.to_s
     data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s
     sale_detail = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
     data["Transaction"]["Details"]["SalesDetails"] = []

@@ -13,6 +13,39 @@
     display: initial !important;
     visibility: visible !important;
   }
+  .custom-reload{
+    font-size: 15px !important;
+    cursor: pointer;
+  }
+
+  .s_product_text .list li a span{
+    width: 85px !important;
+  }
+
+  .custom_radio_btn_tab input.custom-radio-tab {
+  position: absolute;
+  left: -99999em;
+  top: -99999em;
+  opacity: 1;
+  z-index: 1;
+  visibility: hidden;
+}
+.custom_radio_btn_tab input.custom-radio-tab+label {
+  cursor: pointer;
+  border-radius: 20px;
+  float: left;
+  border: 1px solid #aaa;
+  margin: 5px;
+  padding: .5em 1em;
+  position: relative;
+}
+.custom_radio_btn_tab input.custom-radio-tab+label:hover {
+  background-color: #ccc;
+}
+.custom_radio_btn_tab [type=radio]:checked+label {
+  background-color: #efefef;
+  z-index: 1;
+}
 </style>
   <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/breadcrumb.png') %>');">
@@ -22,7 +55,7 @@
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
               <h2><%= @product.title %></h2>
-              <p class="custom-link"><a href="/product_category?type=<%= @product.product_category.category.title %>"><%= @product.product_category.category.title %></a> <span>-</span> <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a> <span>-</span> <%= @product.title %></p>
+              <p class="custom-link"><a href="/product_category?type=<%= @product.product_category.category.title %>"><%= @product.product_category.category.title %></a> <span>-</span> <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a> <span>-</span><span class="custom-reload"> <%= @product.title %></span></p>
             </div>
           </div>
         </div>
@@ -91,6 +124,18 @@
               <li>
                 <span style="padding-right: 20px;">Availibility</span>    :    <%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %>
               </li>
+              <li style="display: inline-flex; vertical-align: middle;">
+                <span style="margin-top: 12px">Color</span>        <span  style="padding-left: 24px;"></span>
+                <div class="custom_radio_btn_tab">
+                  <div class="form-check">
+                    <div class="custom-radio-tabs">
+                      <% @product.colors.each do |color| %>
+                      <input id="<%= color.id %>" type="radio" class="form-check-input custom-radio-tab" name=" "><label for="<%= color.id %>" class="radio-inline"><%= color.title %></label>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </li>
               <li>
                 <span style="padding-right: 25px;">Warranty</span>    :    <%= @product.warranty == true ? "Yes" : "No" %>
               </li>
@@ -100,8 +145,21 @@
               <%= link_to "javascript:void(0);", class: 'share-on-facebook', data: { id: @product.id, type: 'facebook', attributes: product_attributes(@product) } do %>
                 <span>
                   <i class="fab fa-facebook-f" style="font-size: 21px;margin-left: 30px;color: #3b5998;"></i>
+
                 </span>
               <% end %>
+                <a class="share-on-pinterest" data-id="139" data-type="pinterest" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://128.199.108.32/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
+                  <span>
+                    <i class="fa fa-pinterest
+                              " style="font-size: 21px;margin-left: -26px;color: #ee1c21;"></i>
+                  </span>
+                </a>
+                    <a class="share-on-twitter" data-id="139" data-type="twitter" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://128.199.108.32/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
+                  <span>
+                    <i class="fa fa-twitter-square
+                              " style="font-size: 21px;margin-left: -83px;color: #1ea1f1;"></i>
+                  </span>
+                </a>
               </li>
             </ul>
             <p>
@@ -550,6 +608,10 @@
   </div>
 </div>
 
+<div class="custom-color-label" style="display: none" value = "">
+  
+</div>
+
     <script type="text/javascript">
       // $('.zoom').zoom(); // add zoom
 
@@ -814,12 +876,13 @@ inputNumber($('.input-number'));
     $('#add-to-cart').on('click', function(e){
       // e.preventDefault(); // don't submit multiple times
       // this.submit(); // use the native submit method of the form element
+      color = $('.custom-color-label').val();
       count = $(".input-number").val()
       url = window.location.pathname;
       id = url.substring(url.lastIndexOf('/') + 1);
       $.ajax({
           headers: {   'X-CSRF-Token': Rails.csrfToken() },
-          url:'/products/' + id + '/add_to_cart?quantity=' + count,
+          url:'/products/' + id + '/add_to_cart?quantity=' + count + '&color=' + color,
           type:'post',
           success:function (data) {
             console.log(data);
@@ -869,7 +932,6 @@ $('.input-number').on('keydown keyup', function(e){
 
  function createFBShareLink(id, type, blog, fbAppId) {
     var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `https://${window.location.hostname}`
-    debugger
     var root_url = "<%= 'http://128.199.108.32/' %>"
     var url = `http://www.facebook.com/dialog/feed?app_id=${fbAppId}
       &link=${root_url}/product_detail?id=${id}
@@ -881,5 +943,15 @@ $('.input-number').on('keydown keyup', function(e){
       &display=popup`;
     return url;
   }
+
+    $('.custom-reload').on('click', function (e) {
+      window.location.reload();
+    });
+
+
+      $('.radio-inline').click(function () {
+          $('.custom-color-label').val($(this).context.htmlFor)
+          // window.location.href = '/'
+      });
 
 </script>
