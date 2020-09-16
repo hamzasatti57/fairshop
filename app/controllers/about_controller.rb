@@ -18,4 +18,8 @@ class AboutController < ApplicationController
   def terms_and_conditions
     
   end
+
+  def domicile_and_regulation
+    
+  end
 end
