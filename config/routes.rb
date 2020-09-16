@@ -81,7 +81,7 @@ Rails.application.routes.draw do
   get '/disclaimer' => 'about#disclaimer'
   get '/employee_bursaries' => 'about#employee_bursaries'
   get '/terms_and_conditions' => 'about#terms_and_conditions'
-  get '/demicle_and_regulation' => 'about#demicle_and_regulation'
+  get '/domicile_and_regulation' => 'about#domicile_and_regulation'
   post '/notify' => 'checkout#notify'
   get '/cancel' => 'checkout#cancel_payment'
   get '/peach_payment' => 'checkout#peach_payment'

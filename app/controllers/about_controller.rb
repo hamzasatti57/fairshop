@@ -19,7 +19,7 @@ class AboutController < ApplicationController
     
   end
 
-  def demicle_and_regulation
+  def domicile_and_regulation
     
   end
 end
