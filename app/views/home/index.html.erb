@@ -24,8 +24,8 @@
                   <div class="banner_text">
                     <div class="banner_text_iner">
                       <h1><%= product.title %></h1>
-                      <p><%= product.description %></p>
                       <% if product.is_promotional_banner.blank? %>
+                        <p><%= product.description %></p>
                         <a href="/products/<%= product.id %>" class="feature_btn">VIEW MORE <i class="fa fa-play"></i></a>
                         <br>
                         <br>
