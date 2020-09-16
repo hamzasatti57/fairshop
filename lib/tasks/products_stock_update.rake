@@ -4,7 +4,6 @@ namespace :products_stock_update do
     xml = File.open(Rails.root.join('/var/sftp/uploads', 'StockFile.xml'))
     data = Hash.from_xml(xml)
     puts "=========#{data}=========="
-    debugger
     data["DocumentElement"]["StockOnHand"].each do |stock|
       @product = Product.find_by_code(stock["StockItemCode"])
       if @product.present?
