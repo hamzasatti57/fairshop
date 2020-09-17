@@ -25,11 +25,11 @@ class ProductCategoryController < ApplicationController
         @products = @products.where(:price => (params[:min_val].to_f..params[:max_val].to_f))
       end
       if params[:sort_by].present?
-        if params[:sort_by] == "price(low to high)"
+        if params[:sort_by] == "Price(low to high)"
           @products = @products.order("price ASC")
-        elsif params[:sort_by] == "price(high to low)"
+        elsif params[:sort_by] == "Price(high to low)"
           @products = @products.order("price DESC")
-        elsif params[:sort_by] == "newest"
+        elsif params[:sort_by] == "Newest"
           @products = @products.order("created_at DESC")
         end
       else
@@ -57,11 +57,11 @@ class ProductCategoryController < ApplicationController
         @products = @products.where(:price => (params[:min_val].to_f..params[:max_val].to_f))
       end
       if params[:sort_by].present?
-        if params[:sort_by] == "price(low to high)"
+        if params[:sort_by] == "Price(low to high)"
           @products = @products.order("price ASC")
-        elsif params[:sort_by] == "price(high to low)"
+        elsif params[:sort_by] == "Price(high to low)"
           @products = @products.order("price DESC")
-        elsif params[:sort_by] == "newest"
+        elsif params[:sort_by] == "Newest"
           @products = @products.order("created_at DESC")
         end
       else
@@ -103,9 +103,9 @@ class ProductCategoryController < ApplicationController
         @products = @products.where("title ILIKE '%#{params[:search]}%'")
       end
       if params[:sort_by].present?
-        if params[:sort_by] == "price(low to high)"
+        if params[:sort_by] == "Price(low to high)"
           @products = @products.order("price ASC")
-        elsif params[:sort_by] == "price(high to low)"
+        elsif params[:sort_by] == "Price(high to low)"
           @products = @products.order("price DESC")
         else
           @products = @products.order("#{params[:sort_by]} DESC")
