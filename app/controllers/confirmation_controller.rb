@@ -30,6 +30,9 @@ class ConfirmationController < ApplicationController
         sale_detail["UnitSellingPrice"] = product.product.price.to_s
         sale_detail["StockItemID"] = product.product.stock_item_id.present? ? product.product.stock_item_id.to_s : ""
         sale_detail["TotalPriceAfterDiscount"] = product.product.price.to_s
+        sale_detail["UnitPriceAfterDiscount"] = product.product.price.to_s
+        sale_detail["UnitVAT"] = (product.product.price.to_i * 15).to_s
+        sale_detail["DiscountPerUnit"] = ""
       end
       data["Transaction"]["Details"]["SalesDetails"] << detail_array.map(&:attributes)
       data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
