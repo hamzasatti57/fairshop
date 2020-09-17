@@ -1,3 +1,5 @@
+require 'aws-sdk-s3' 
+
 class ConfirmationController < ApplicationController
   before_action :generate_xml
 
@@ -46,11 +48,14 @@ class ConfirmationController < ApplicationController
         :region => 'us-east-1',
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
         :secret_access_key => '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')
-      object = s3.bucket('fairprice').object("#{Rails.root}/public/Sales/#{_file_name}.xml")
-      logger.info "=========#{object}=========="
-      File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", 'rb') do |file|
-        object.put(acl: "public-read", bucket: 'fairprice', body: file, content_type: 'application/xml')
-      end
+      file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
+      bucket = 'fairprice/Sales'
+      # Get just the file name
+      name = File.basename(file)
+      # Create the object to upload
+      obj = s3.bucket(bucket).object(name)
+      # Upload it      
+      obj.upload_file(file)
 
     end
   end
