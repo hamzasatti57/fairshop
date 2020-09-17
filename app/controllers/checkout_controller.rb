@@ -49,7 +49,7 @@ class CheckoutController < ApplicationController
     detail_array = @user.user_carts.last.user_cart_products.each do |product|
       sale_detail["Quantity"] = product.quantity
       sale_detail["UnitSellingPrice"] = product.product.price
-      sale_detail["StockItemID"] = product.product.stock_item_id.present? product.product.stock_item_id : ""
+      sale_detail["StockItemID"] = product.product.stock_item_id.present? ? product.product.stock_item_id : ""
       sale_detail["TotalPriceAfterDiscount"] = product.product.price
     end
     data["Transaction"]["Details"]["SalesDetails"] << detail_array.map(&:attributes)
