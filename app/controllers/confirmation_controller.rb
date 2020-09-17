@@ -1,3 +1,5 @@
+require 'aws-sdk-s3' 
+
 class ConfirmationController < ApplicationController
   before_action :generate_xml
 
@@ -20,18 +22,21 @@ class ConfirmationController < ApplicationController
       logger.info "=========#{data}=========="
       _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
       data["Transaction"]["SalesHeader"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
-      data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = @sum
+      data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = @sum.to_s
       data["Transaction"]["SalesHeader"]["OtpCode"] = random_number.to_s
       data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s
-      sale_detail = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
       data["Transaction"]["Details"]["SalesDetails"] = []
-      detail_array = current_user.user_carts.last.user_cart_products.each do |product|
-        sale_detail["Quantity"] = product.quantity
-        sale_detail["UnitSellingPrice"] = product.product.price
-        sale_detail["TotalPriceAfterDiscount"] = product.product.price
+      sale_details = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
+      current_user.user_carts.last.user_cart_products.each do |product|
+        sale_details["Quantity"] = product.quantity.to_s
+        sale_details["UnitSellingPrice"] = product.product.price.to_s
+        sale_details["StockItemID"] = product.product.stock_item_id.to_s
+        sale_details["TotalPriceAfterDiscount"] = product.product.price.to_s
+        sale_details["UnitPriceAfterDiscount"] = product.product.price.to_s
+        sale_details["UnitVAT"] = (product.product.price.to_i * 0.15).to_s
+        data["Transaction"]["Details"]["SalesDetails"] << sale_details
       end
-      data["Transaction"]["Details"]["SalesDetails"] << detail_array.map(&:attributes)
-      data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
+      # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
       data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title
       data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title
       data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address
@@ -39,6 +44,21 @@ class ConfirmationController < ApplicationController
       logger.info "=========#{data.to_xml}=========="
       FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.xml"))
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
+      s3 = Aws::S3::Resource.new(
+        :region => 'us-east-1',
+        :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
+        :secret_access_key => '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')
+      file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
+      bucket = 'fairprice'
+      # Get just the file name
+      name = File.basename(file)
+      path = 'Sales/' + name
+      logger.info "=========#{path}=========="
+      # Create the object to upload
+      obj = s3.bucket(bucket).object(path)
+      # Upload it      
+      obj.upload_file(file)
+
     end
   end
 end

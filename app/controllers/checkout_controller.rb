@@ -47,9 +47,11 @@ class CheckoutController < ApplicationController
     sale_detail = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
     data["Transaction"]["Details"]["SalesDetails"] = []
     detail_array = @user.user_carts.last.user_cart_products.each do |product|
-      sale_detail["Quantity"] = product.quantity
-      sale_detail["UnitSellingPrice"] = product.product.price
-      sale_detail["TotalPriceAfterDiscount"] = product.product.price
+      sale_detail["Quantity"] = product.quantity.to_s
+      sale_detail["UnitSellingPrice"] = product.product.price.to_s
+      sale_detail["StockItemID"] = product.product.stock_item_id.present? ? product.product.stock_item_id.to_s : ""
+      sale_detail["TotalPriceAfterDiscount"] = product.product.price.to_s
+      sale_detail["UnitVAT"] = (product.product.price.to_i * 15).to_s
     end
     data["Transaction"]["Details"]["SalesDetails"] << detail_array.map(&:attributes)
     data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
