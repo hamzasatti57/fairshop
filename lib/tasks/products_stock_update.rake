@@ -7,10 +7,19 @@ namespace :products_stock_update do
     data["DocumentElement"]["StockOnHand"].each do |stock|
       @product = Product.find_by_code(stock["StockItemCode"])
       @product_category = ProductCategory.find_by_title("Other")
-      if @product.present?
-        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"])
+      color = Color.find_by_title(stock["StockProfile"])
+      if color.present?
+        color.update!(stock_item_id: stock["StockItemID"])
+        @color = color
       else
-        Product.create!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], code: stock["StockItemCode"], product_category_id: @product_category.id)
+        @color = Color.create!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
+      end
+      if @product.present?
+        @color.products << @product
+        # @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"])
+      else
+        product = Product.create!( stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], code: stock["StockItemCode"], product_category_id: @product_category.id)
+        @color.products << product
       end
     end
   end
