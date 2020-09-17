@@ -52,8 +52,9 @@ class ConfirmationController < ApplicationController
       bucket = 'fairprice'
       # Get just the file name
       name = File.basename(file)
+      path = 'Sales/' + name
       # Create the object to upload
-      obj = s3.bucket(bucket).object(name)
+      obj = s3.bucket(bucket).object(path)
       # Upload it      
       obj.upload_file(file)
 
