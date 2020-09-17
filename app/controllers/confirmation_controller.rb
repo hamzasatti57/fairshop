@@ -53,6 +53,7 @@ class ConfirmationController < ApplicationController
       # Get just the file name
       name = File.basename(file)
       path = 'Sales/' + name
+      logger.info "=========#{path}=========="
       # Create the object to upload
       obj = s3.bucket(bucket).object(path)
       # Upload it      
