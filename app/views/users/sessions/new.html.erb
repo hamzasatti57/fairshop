@@ -30,7 +30,7 @@
                                       <% end %>
                                     <% end %>
                                 <div class="col-md-12 form-group p_star">
-                                    <%= f.email_field :email,  class: "form-control", placeholder: "Username", autofocus: true %>
+                                    <%= f.email_field :email,  class: "form-control", placeholder: "Email", autofocus: true %>
                                     <!-- <input type="text" class="form-control" id="name" name="name" value=""
                                         placeholder="Username"> -->
                                 </div>
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <div class="creat_account d-flex align-items-center">
-                                        <input type="radio" id="f-option6" name="selector" checked="checked" />
+                                        <input type="checkbox" id="f-option" name="selector" style="width: 13px; height: 13px;border:1px solid #4e4e4ed1;border-radius:2px" required>
                                         <label for="f-option">Remember me</label>
                                     </div>
                                       <%= f.submit "Log in", class: "btn_3" %>
