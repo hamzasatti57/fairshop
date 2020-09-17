@@ -30,10 +30,8 @@ namespace :products_stock_update do
     data = Hash.from_xml(xml)
     puts "=========#{data}=========="
     data["DocumentElement"]["StockOnHand"].each do |stock|
-      @product = Product.find_by_stock_item_id(stock["StockItemID"])
-      @product.update!(inventory: stock["OnHand"].to_i)
+      @color = Color.find_by_stock_item_id(stock["StockItemID"])
+      @color.update!(inventory: stock["OnHand"].to_i) if @color.present?
     end
-
   end
-
 end
