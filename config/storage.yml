@@ -11,11 +11,11 @@ production:
   root: <%= Rails.root.join("storage") %>
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
-  # service: S3
-  # access_key_id: AKIAI635Y3L3Z65XEG5Q
-  # secret_access_key: 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
-  # region: us-east-1
-  # bucket: furnishia
+#   service: S3
+#   access_key_id: AKIAJ4TWUFPR24VBAEYA
+#   secret_access_key: ELyALDf3kU/vz1XVQLUoEVK6SbGZ1ER/6mo0ruF8
+#   region: us-east-1
+#   bucket: fairprice
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:

@@ -42,6 +42,15 @@ class ConfirmationController < ApplicationController
       logger.info "=========#{data.to_xml}=========="
       FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.xml"))
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
+      s3 = Aws::S3::Resource.new(
+        :region => 'us-east-1',
+        :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
+        :secret_access_key => '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')
+      object = s3.bucket('fairprice-sales').object("#{Rails.root}/public/Sales/#{_file_name}.xml")
+      File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", 'rb') do |file|
+        object.put(acl: "public-read", bucket: 'fairprice-sales', body: file, content_type: 'application/xml')
+      end
+
     end
   end
 end
