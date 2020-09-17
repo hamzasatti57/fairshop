@@ -49,7 +49,7 @@ class ConfirmationController < ApplicationController
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
         :secret_access_key => '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')
       file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
-      bucket = 'fairprice/Sales'
+      bucket = 'fairprice'
       # Get just the file name
       name = File.basename(file)
       # Create the object to upload
