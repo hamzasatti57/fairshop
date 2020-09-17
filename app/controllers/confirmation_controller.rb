@@ -25,7 +25,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s
       sale_detail = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
       data["Transaction"]["Details"]["SalesDetails"] = []
-      detail_array = current_user.user_carts.last.user_cart_products.each do |product|
+      current_user.user_carts.last.user_cart_products.each do |product|
         sale_detail["Quantity"] = product.quantity.to_s
         sale_detail["UnitSellingPrice"] = product.product.price.to_s
         sale_detail["StockItemID"] = product.product.stock_item_id.present? ? product.product.stock_item_id.to_s : ""
@@ -34,8 +34,8 @@ class ConfirmationController < ApplicationController
         sale_detail["UnitVAT"] = (product.product.price.to_i * 15).to_s
         sale_detail["DiscountPerUnit"] = ""
       end
-      data["Transaction"]["Details"]["SalesDetails"] << detail_array.map(&:attributes)
-      data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
+      data["Transaction"]["Details"]["SalesDetails"] << sale_detail
+      # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
       data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title
       data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title
       data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address
