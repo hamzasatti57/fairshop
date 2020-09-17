@@ -46,9 +46,9 @@ class ConfirmationController < ApplicationController
         :region => 'us-east-1',
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
         :secret_access_key => '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')
-      object = s3.bucket('fairprice-sales').object("#{Rails.root}/public/Sales/#{_file_name}.xml")
+      object = s3.bucket('fairprice').object("#{Rails.root}/public/Sales/#{_file_name}.xml")
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", 'rb') do |file|
-        object.put(acl: "public-read", bucket: 'fairprice-sales', body: file, content_type: 'application/xml')
+        object.put(acl: "public-read", bucket: 'fairprice', body: file, content_type: 'application/xml')
       end
 
     end
