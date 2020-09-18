@@ -56,7 +56,7 @@ class ConfirmationController < ApplicationController
       path = 'Sales/' + name
       logger.info "=========#{path}=========="
       object = s3.bucket(bucket).object(path)
-      object.put(acl: "public-read", bucket: bucket, body: data.xml, content_type: 'application/xml')
+      object.put(acl: "public-read", bucket: bucket, body: data.to_xml, content_type: 'application/xml')
 
     end
   end
