@@ -121,7 +121,7 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_area(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true, value: @billing_address.present? ? @billing_address.address: "") %>
+                      <%= f.text_field(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true, value: @billing_address.present? ? @billing_address.address: "", id: :autocomplete_address) %>
                       <%= f.hidden_field(:is_primary, value: true) %>
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
@@ -168,7 +168,7 @@
                   </div>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_area(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true) %>
+                      <%= f.text_field(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true, id: :autocomplete_address_1) %>
                       <%= f.hidden_field(:is_primary, value: false) %>
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
@@ -350,6 +350,36 @@
           }
 
         });
+
+        $(document).on('turbolinks:load', function() {
+          function initializeAutocomplete(id) {     
+               var element = document.getElementById(id);
+               if (element) {
+                 var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'], componentRestrictions: {country: 'us'} });
+                 google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+                 }
+          }
+
+          function onPlaceChanged() {
+               var place = this.getPlace();     
+
+               // console.log(place);  // Uncomment this line to view the full object returned by Google API.     
+
+          for (var i in place.address_components) {
+           var component = place.address_components[i];
+           for (var j in component.types) {  // Some types are ["country", "political"]
+            var type_element = document.getElementById(component.types[j]);
+            if (type_element) {
+             type_element.value = component.long_name;
+             }
+            }
+           }
+          }   
+          google.maps.event.addDomListener(window, 'load', function() {
+           initializeAutocomplete('autocomplete_address');
+           initializeAutocomplete('autocomplete_address_1'); 
+           }); 
+          });
       </script>
 
 
