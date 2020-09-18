@@ -19,7 +19,7 @@
 
   <!--================Home Banner Area =================-->
   <!-- breadcrumb start-->
-  <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/cart-product.png') %>');">
+  <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/shopping-cart.png') %>');">
     <div class="container">
       <div class="row">
         <div class="col-lg-8">
@@ -46,7 +46,7 @@
                 <th scope="col">Product</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
-                <th scope="col">Total</th>
+                <th scope="col">Sub Total</th>
               </tr>
             </thead>
             <tbody>
@@ -148,7 +148,7 @@
                 <td></td>
                 <td></td>
                 <td>
-                  <h5>Subtotal</h5>
+                  <h5>Total</h5>
                 </td>
                 <td>
                   <h5 style="color: red">R<span id="grand-sum"><%= @sum.to_i %></span></h5>
