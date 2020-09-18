@@ -56,10 +56,7 @@ class ConfirmationController < ApplicationController
       path = 'Sales/' + name
       logger.info "=========#{path}=========="
       object = s3.bucket(bucket).object(path)
-      File.open(file, 'rb') do |file|
-        data = Hash.from_xml(file)
-        object.put(acl: "public-read", bucket: bucket, body: data.to_s, content_type: 'application/xml')
-      end
+      object.put(acl: "public-read", bucket: bucket, body: data.xml, content_type: 'application/xml')
 
     end
   end
