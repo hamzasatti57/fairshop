@@ -15,11 +15,13 @@ class ConfirmationController < ApplicationController
         :secret_access_key => 'ELyALDf3kU/vz1XVQLUoEVK6SbGZ1ER/6mo0ruF8')
     file = current_user.user_carts.last.sales_file_path
     logger.info "=========#{file}==========="
+    xml = File.open(file)
+    data = Hash.from_xml(xml)
+    logger.info "=========#{data}==========="
     bucket = 'fairprice'
     # Get just the file name
     name = File.basename(file)
     path = 'Sales/' + name
-    logger.info "=========#{path}=========="
     # Create the object to upload
     obj = s3.bucket(bucket).object(path)
     obj.upload_file(file)
@@ -61,7 +63,6 @@ class ConfirmationController < ApplicationController
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
       file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
       current_user.user_carts.last.update(sales_file_path: file.to_s)
-      logger.info "=========#{current_user.user_carts.last}=========="
       sleep 1
     end
   end
