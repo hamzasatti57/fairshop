@@ -42,14 +42,14 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address
       data["Transaction"]["DeliveryDetails"]["PostalCode"] = current_user.user_carts.last.checkout.billing_address.postal_code
       logger.info "=========#{data.to_xml}=========="
-      FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.xml"))
-      File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
-      sleep 1
+      FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.txt"))
+      File.open("#{Rails.root}/public/Sales/#{_file_name}.txt", "w+b") << data.to_xml
+      sleep 2
       s3 = Aws::S3::Resource.new(
         :region => 'us-east-1',
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
         :secret_access_key => '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')
-      file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
+      file = "#{Rails.root}/public/Sales/#{_file_name}.txt"
       logger.info "=========#{file}==========="
       bucket = 'fairprice'
       # Get just the file name
