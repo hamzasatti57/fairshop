@@ -37,27 +37,34 @@ class ConfirmationController < ApplicationController
         data["Transaction"]["Details"]["SalesDetails"] << sale_details
       end
       # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
-      data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title
-      data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title
-      data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address
-      data["Transaction"]["DeliveryDetails"]["PostalCode"] = current_user.user_carts.last.checkout.billing_address.postal_code
+      data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["PostalCode"] = current_user.user_carts.last.checkout.billing_address.postal_code if current_user.user_carts.last.checkout.present?
       logger.info "=========#{data.to_xml}=========="
-      FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.xml"))
+      FileUtils.rm_rf(Rails.root.join('/public/Sales/', "#{_file_name}.xml"))
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
       s3 = Aws::S3::Resource.new(
         :region => 'us-east-1',
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
         :secret_access_key => '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')
       file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
+      logger.info "=========#{file}=========="
       bucket = 'fairprice'
       # Get just the file name
       name = File.basename(file)
       path = 'Sales/' + name
       logger.info "=========#{path}=========="
       # Create the object to upload
-      obj = s3.bucket(bucket).object(path)
+      # obj = s3.bucket(bucket).object(path)
+
       # Upload it      
-      obj.upload_file(file)
+      # obj.upload_file(file, content_type: 'application/xml')
+      object = s3.bucket(bucket).object(path)
+      File.open(file, 'rb') do |file|
+        logger.info "==========+++#{file}+++============="
+        object.put(acl: "public-read", bucket: bucket, body: file, content_type: 'application/xml')
+      end
 
     end
   end

@@ -214,11 +214,17 @@
   <script type="text/javascript">
 
 
-    $('#cont-shop').on('click', function(e){
-      $('#update-cart').click();
+    $('#proceed-checkout').on('click', function(e){
+      if($('#grand-sum').text() == "0"){
+        toastr.success('Please add some items in cart.')
+        return false;
+      }
+      else{
+        $('#update-cart').click();
+      }
     });
 
-    $('#proceed-checkout').on('click', function(e){
+    $('#cont-shop').on('click', function(e){
       $('#update-cart').click();
     });
 
@@ -258,7 +264,7 @@
           },
 
           error:function (data) {
-            alert ('Error');
+            // alert ('Error');
           }
 
       });
