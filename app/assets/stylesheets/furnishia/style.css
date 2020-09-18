@@ -2152,7 +2152,7 @@ ul {
 
 /* line 46, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
 .main_menu #search_input_box {
-  position: fixed;
+  position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -2175,6 +2175,7 @@ ul {
   /* line 46, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
   .main_menu #search_input_box {
     margin-top: 15px;
+    position: absolute;
   }
 }
 
