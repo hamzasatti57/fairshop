@@ -61,6 +61,7 @@ class ConfirmationController < ApplicationController
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
       file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
       current_user.user_carts.last.update(sales_file_path: file.to_s)
+      logger.info "=========#{current_user.user_carts.last}=========="
       sleep 1
     end
   end
