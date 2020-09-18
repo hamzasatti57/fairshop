@@ -9,6 +9,21 @@ class ConfirmationController < ApplicationController
     @checkout = Checkout.last if Checkout.count > 0
     @cart = current_user.user_carts.last.user_cart_products if current_user.user_carts.present?
     @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+    s3 = Aws::S3::Resource.new(
+        :region => 'us-east-1',
+        :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
+        :secret_access_key => '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')
+    file = current_user.user_carts.last.sales_file_path
+    logger.info "=========#{file}==========="
+    bucket = 'fairprice'
+    # Get just the file name
+    name = File.basename(file)
+    path = 'Sales/' + name
+    logger.info "=========#{path}=========="
+    # Create the object to upload
+    obj = s3.bucket(bucket).object(path)
+    obj.upload_file(file)
+
   end
 
   def generate_xml
@@ -42,24 +57,11 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address
       data["Transaction"]["DeliveryDetails"]["PostalCode"] = current_user.user_carts.last.checkout.billing_address.postal_code
       logger.info "=========#{data.to_xml}=========="
-      FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.txt"))
-      File.open("#{Rails.root}/public/Sales/#{_file_name}.txt", "w+b") << data.to_xml
-      sleep 2
-      s3 = Aws::S3::Resource.new(
-        :region => 'us-east-1',
-        :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
-        :secret_access_key => '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')
-      file = "#{Rails.root}/public/Sales/#{_file_name}.txt"
-      logger.info "=========#{file}==========="
-      bucket = 'fairprice'
-      # Get just the file name
-      name = File.basename(file)
-      path = 'Sales/' + name
-      logger.info "=========#{path}=========="
-      # Create the object to upload
-      obj = s3.bucket(bucket).object(path)
-      obj.upload_file(file)
-
+      FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.xml"))
+      File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
+      file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
+      current_user.user_carts.last.update(sales_file_path: file.to_s)
+      sleep 1
     end
   end
 end
