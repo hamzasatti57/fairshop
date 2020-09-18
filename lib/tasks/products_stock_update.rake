@@ -1,7 +1,13 @@
 namespace :products_stock_update do
   desc "TODO"
   task update_stock: :environment do
-    xml = File.open(Rails.root.join('/var/sftp/uploads', 'StockFile.xml'))
+    s3 = Aws::S3::Resource.new(
+        :region => 'us-east-1',
+        :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
+        :secret_access_key => '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')
+    obj = s3.bucket('fairprice').object('StockFile.xml')
+    obj.get(response_target: Rails.root.join("public", "StockFile.xml"))
+    xml = File.open(Rails.root.join('public', 'StockFile.xml'))
     data = Hash.from_xml(xml)
     puts "=========#{data}=========="
     data["DocumentElement"]["StockOnHand"].each do |stock|
@@ -26,7 +32,13 @@ namespace :products_stock_update do
 
   desc "TODO"
   task update_inventory: :environment do
-    xml = File.open(Rails.root.join('/var/sftp/uploads', 'GP_StockFile.xml'))
+    s3 = Aws::S3::Resource.new(
+        :region => 'us-east-1',
+        :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
+        :secret_access_key => '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')
+    obj = s3.bucket('fairprice').object('GP_StockFile.xml')
+    obj.get(response_target: Rails.root.join("public", "GP_StockFile.xml"))
+    xml = File.open(Rails.root.join('public', 'GP_StockFile.xml'))
     data = Hash.from_xml(xml)
     puts "=========#{data}=========="
     data["DocumentElement"]["StockOnHand"].each do |stock|

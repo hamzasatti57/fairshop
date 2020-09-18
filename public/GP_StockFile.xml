@@ -1,0 +1,26 @@
+<DocumentElement>
+  <StockOnHand>
+    <StockItemID>e126b983-e943-42ab-b5e9-36133d1e900e</StockItemID>
+    <OnHand>0</OnHand>
+  </StockOnHand>
+  <StockOnHand>
+    <StockItemID>6371468a-78d9-4974-8e69-58788031d63b</StockItemID>
+    <OnHand>0</OnHand>
+  </StockOnHand>
+  <StockOnHand>
+    <StockItemID>31fac977-0291-444f-9ce7-677741466852</StockItemID>
+    <OnHand>1</OnHand>
+  </StockOnHand>
+  <StockOnHand>
+    <StockItemID>ac0d0c6d-0cdb-4e2d-918d-8766602d92dc</StockItemID>
+    <OnHand>0</OnHand>
+  </StockOnHand>
+  <StockOnHand>
+    <StockItemID>12c65199-04a4-4d5f-9a63-8c03740bad97</StockItemID>
+    <OnHand>0</OnHand>
+  </StockOnHand>
+  <StockOnHand>
+    <StockItemID>b3b723e2-cea1-4c98-8f96-b161e6391c0b</StockItemID>
+    <OnHand>100</OnHand>
+  </StockOnHand>
+</DocumentElement>
