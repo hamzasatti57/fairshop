@@ -56,7 +56,6 @@ class ConfirmationController < ApplicationController
       logger.info "=========#{path}=========="
       # Create the object to upload
       obj = s3.bucket(bucket).object(path)
-      obj.acl = :public_read
       obj.upload_file(file)
 
     end
