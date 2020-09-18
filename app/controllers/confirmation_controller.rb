@@ -44,6 +44,7 @@ class ConfirmationController < ApplicationController
       logger.info "=========#{data.to_xml}=========="
       FileUtils.rm_rf(Rails.root.join('public/Sales/', "#{_file_name}.xml"))
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
+      sleep 1
       s3 = Aws::S3::Resource.new(
         :region => 'us-east-1',
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
