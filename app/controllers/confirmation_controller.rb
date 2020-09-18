@@ -48,7 +48,7 @@ class ConfirmationController < ApplicationController
         :region => 'us-east-1',
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
         :secret_access_key => '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')
-      file = "/var/www/fair-price/public/Sales/Sale_Invoice_2020_18_09_10_59.xml"
+      file = "#{Rails.root}/public/Sales/#{_file_name}.xml"
       logger.info "=========#{file}=========="
       bucket = 'fairprice'
       # Get just the file name
@@ -61,7 +61,7 @@ class ConfirmationController < ApplicationController
       # Upload it      
       # obj.upload_file(file, content_type: 'application/xml')
       object = s3.bucket(bucket).object(path)
-      File.open(path, 'rb') do |file|
+      File.open(file, 'rb') do |file|
         object.put(acl: "public-read", bucket: bucket, body: file, content_type: 'application/xml')
       end
 
