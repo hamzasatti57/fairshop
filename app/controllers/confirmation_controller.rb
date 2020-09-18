@@ -62,6 +62,7 @@ class ConfirmationController < ApplicationController
       # obj.upload_file(file, content_type: 'application/xml')
       object = s3.bucket(bucket).object(path)
       File.open(file, 'rb') do |file|
+        logger.info "==========+++#{file}+++============="
         object.put(acl: "public-read", bucket: bucket, body: file, content_type: 'application/xml')
       end
 
