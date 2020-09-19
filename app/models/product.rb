@@ -2,7 +2,7 @@ class Product < ApplicationRecord
 
   # has_many :punches, as: :punchable, dependent: :destroy
   has_many_attached :images
-  belongs_to :product_category
+  belongs_to :product_category, optional: true
   belongs_to :product_type, optional: true
   belongs_to :company, optional: true
   has_many :user_cart_products, dependent: :destroy
