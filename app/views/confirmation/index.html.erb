@@ -30,6 +30,9 @@
             <h4>order info</h4>
             <ul>
               <li>
+                <p>Invoice number</p><span>: <%= @checkout.user_cart.otp_code %></span>
+              </li>
+              <li>
                 <p>order number</p><span>: <%= @checkout.id.to_s + @checkout.created_at.strftime("%Y%M").to_s %></span>
               </li>
               <li>

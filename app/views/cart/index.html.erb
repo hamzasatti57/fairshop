@@ -233,6 +233,8 @@
         $(this).parent().find("input").val(parseInt($(this).parent().find("input").val()) + 1);
         price = parseInt($(this).parent().parent().parent().find("#per-total").text()) + parseInt($(this).parent().parent().parent().find("#sub-total").text())
         $(this).parent().parent().parent().find("#sub-total").text(price)
+        grand_price = parseInt($("#grand-sum").text()) + parseInt($(this).parent().parent().parent().find("#per-total").text())
+        $("#grand-sum").text(grand_price);
       }
     });
 
@@ -241,6 +243,8 @@
         $(this).parent().find("input").val(parseInt($(this).parent().find("input").val()) - 1);
         price = parseInt($(this).parent().parent().parent().find("#sub-total").text()) - parseInt($(this).parent().parent().parent().find("#per-total").text())
         $(this).parent().parent().parent().find("#sub-total").text(price)
+        grand_price = parseInt($("#grand-sum").text()) - parseInt($(this).parent().parent().parent().find("#per-total").text())
+        $("#grand-sum").text(grand_price);
       }
     });
 
