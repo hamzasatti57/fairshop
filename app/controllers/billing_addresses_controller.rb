@@ -13,6 +13,7 @@ class BillingAddressesController < ApplicationController
     params["billing_address"]["city_id"] = City.find_or_create_by(title: results.first.city, province_id: params["billing_address"]["province_id"]).id
     params["billing_address"]["latitude"] = results.first.coordinates[0]
     params["billing_address"]["longitude"] = results.first.coordinates[1]
+    params["billing_address"]["postal_code"] = Geocoder.search(results.first.coordinates).first.postal_code.to_s
     @billing_address = BillingAddress.where(is_primary: true, user_id: current_user.id).last if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
     if @billing_address.blank? || params["billing_address"]["is_primary"] == "false"
       @billing_address = BillingAddress.create!(billing_address_params)
