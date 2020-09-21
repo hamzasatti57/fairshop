@@ -253,7 +253,7 @@
         
         <div class="search_input" id="search_input_box">
             <div class="container ">
-                <form class="d-flex justify-content-between search-inner">
+                <form class="d-flex justify-content-between search-inner" id="form-target">
                     <input type="text" class="form-control" id="search_input" placeholder="Search here..." id="field4">
                     <button type="submit" class="btn"></button>
                     <span class="ti-close fa fa-search" id="search-query" title="Close Search"></span>
@@ -278,7 +278,12 @@
         $("#search-query").on("click", function () {
           search_query = $('#search_input').val()
           window.location.href = '/product_category?search_query=' + search_query
+        });
 
+        $( "#form-target" ).submit(function( event ) {
+          search_query = $('#search_input').val()
+          window.location.href = '/product_category?search_query=' + search_query
+          event.preventDefault();
         });
 
     </script>
