@@ -41,8 +41,8 @@ class ConfirmationController < ApplicationController
         data["Transaction"]["Details"]["SalesDetails"] << sale_details
       end
       # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
-      data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.province.present?
+      data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.city.present?
       data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["PostalCode"] = current_user.user_carts.last.checkout.billing_address.postal_code if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
