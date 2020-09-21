@@ -3,6 +3,11 @@
         background-color: #ecfdff;
   }
 
+
+.search_input form input::placeholder {
+  color: white!important;
+}
+
   .custom-navbar-section .dropdown-item:focus, .dropdown-item:hover{
     background-color: transparent !important;
   }
@@ -244,12 +249,14 @@
                 </div>
             </div>
         </div>
+<!-- <i class="fa fa-search" title="Search"></i> -->
+        
         <div class="search_input" id="search_input_box">
             <div class="container ">
                 <form class="d-flex justify-content-between search-inner">
-                    <input type="text" class="form-control" id="search_input" placeholder="Search here...">
+                    <input type="text" class="form-control" id="search_input" placeholder="Search here..." id="field4">
                     <button type="submit" class="btn"></button>
-                    <span class="ti-close fa fa-close" id="close_search" title="Close Search"></span>
+                    <span class="ti-close fa fa-search" id="close_search" title="Close Search"></span>
                 </form>
             </div>
         </div>

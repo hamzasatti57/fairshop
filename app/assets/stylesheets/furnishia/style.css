@@ -2199,11 +2199,14 @@ ul {
 
 /* line 86, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
 .main_menu #search_input_box .ti-close {
-  color: #fff;
+  color: red;
   font-weight: 600;
   cursor: pointer;
   padding: 10px;
   padding-right: 0;
+  border-radius: 6px;
+      padding: 10px 25px;
+      background-color: #ffffff;
 }
 
 /* line 95, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
