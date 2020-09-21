@@ -101,29 +101,34 @@
                 <div class="col-md-6 form-group p_star">
                   <input type="text" class="form-control" id="email" name="compemailany" placeholder="Email Address" value="<%= current_user.email %>" />
                 </div>
-                  <div class="col-md-12">
+<!--                   <div class="col-md-12">
                     <div class="form-group">
-                        <%= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control', value: @billing_address.present? ? @billing_address.province_id : nil%>
+                        <%#= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control', value: @billing_address.present? ? @billing_address.province_id : nil%>
                     </div>
                   </div>
                   <br>
                   <br>
                   <div class="col-md-12">
                     <div class="form-group">
-                        <%= f.collection_select :city_id, City.all,:id,:title, include_blank: false, :class => 'form-control', value: @billing_address.present? ? @billing_address.city : nil%>
+                        <%#= f.collection_select :city_id, City.all,:id,:title, include_blank: false, :class => 'form-control', value: @billing_address.present? ? @billing_address.city : nil%>
                     </div>
                   </div>
                   <br>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true, value: @billing_address.present? ? @billing_address.postal_code: "") %>
+                      <%#= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true, value: @billing_address.present? ? @billing_address.postal_code: "") %>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_field(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true, value: @billing_address.present? ? @billing_address.address: "", id: :autocomplete_address) %>
+                      <%= f.text_field(:address, :class => 'form-control', placeholder: "Address", required: true, value: @billing_address.present? ? @billing_address.address: "", id: :autocomplete_address) %>
                       <%= f.hidden_field(:is_primary, value: true) %>
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_area(:instruction, size: '40x5', :class => 'form-control', placeholder: "Instructions", value: @billing_address.present? ? @billing_address.instruction : "") %>
                     </div>
                   </div>
                   <div class="col-md-12 text-right" style="display: none">
@@ -148,29 +153,34 @@
                   <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
                   novalidate="novalidate"> -->
                  
-                  <div class="col-md-12">
+<!--                   <div class="col-md-12">
                     <div class="form-group">
-                        <%= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control' %>
+                        <%#= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control' %>
                     </div>
                   </div>
                   <br>
                   <br>
                   <div class="col-md-12">
                     <div class="form-group">
-                        <%= f.collection_select :city_id, City.all,:id,:title, include_blank: false, :class => 'form-control' %>
+                        <%#= f.collection_select :city_id, City.all,:id,:title, include_blank: false, :class => 'form-control' %>
                     </div>
                   </div>
                   <br>
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true) %>
+                      <%#= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true) %>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="col-md-12">
                     <div class="form-group">
-                      <%= f.text_field(:address, size: '40x5', :class => 'form-control', placeholder: "Address", required: true, id: :autocomplete_address_1) %>
+                      <%= f.text_field(:address, :class => 'form-control', placeholder: "New Address", required: true, id: :autocomplete_address_1) %>
                       <%= f.hidden_field(:is_primary, value: false) %>
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_area(:instruction, size: '40x5', :class => 'form-control', placeholder: "Instructions") %>
                     </div>
                   </div>
                   <div class="col-md-12 text-right" style="display: none">

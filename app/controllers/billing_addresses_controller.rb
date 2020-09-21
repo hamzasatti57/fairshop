@@ -7,6 +7,12 @@ class BillingAddressesController < ApplicationController
   end
 
   def create
+    results = Geocoder.search(params["billing_address"]["address"])
+    params["billing_address"]["country_id"] = Country.find_or_create_by(title: results.first.country).id
+    params["billing_address"]["province_id"] = Province.find_or_create_by(title: results.first.state, country_id: params["billing_address"]["country_id"]).id
+    params["billing_address"]["city_id"] = City.find_or_create_by(title: results.first.city, province_id: params["billing_address"]["province_id"]).id
+    params["billing_address"]["latitude"] = results.first.coordinates[0]
+    params["billing_address"]["longitude"] = results.first.coordinates[1]
     @billing_address = BillingAddress.where(is_primary: true, user_id: current_user.id).last if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
     if @billing_address.blank? || params["billing_address"]["is_primary"] == "false"
       @billing_address = BillingAddress.create!(billing_address_params)
@@ -19,7 +25,7 @@ class BillingAddressesController < ApplicationController
   private
 
   def billing_address_params
-    params.required(:billing_address).permit(:address, :postal_code, :user_id, :city_id, :province_id, :country_id, :is_primary)
+    params.required(:billing_address).permit(:address, :postal_code, :user_id, :city_id, :province_id, :country_id, :is_primary, :instruction, :latitude, :longitude)
   end
 
   def get_billing_address
