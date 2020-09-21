@@ -1,14 +1,8 @@
 class UserMailer < ApplicationMailer
 
-  def job_email(params)
-
-    attachments[params[:attachment].original_filename] = params[:attachment].read()
-    mail({
-             from: params[:to_email],
-             to: params[:from_email],
-
-             subject: "Job Application"
-         })
-
+  def order_confiramtion_email(user)
+    @user = user
+    mail(to: @user.email, subject: "Thank you for shopping here")
   end
+
 end

@@ -59,16 +59,38 @@ Rails.application.configure do
 
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  # config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  # config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     :user_name => 'a_lgorepublic',
+  #     :password => 'P@ss@word1',
+  #     :domain => 'sendgrid.com',
+  #     :address => 'smtp.sendgrid.net',
+  #     :port => 587,
+  #     :authentication => :plain,
+  #     :enable_starttls_auto => true
+  # }
+
+  config.active_record.dump_schema_after_migration = false
+
   config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.default_url_options = { :host => 'http://128.199.108.32/' }
+
+  config.action_mailer.asset_host = { :host => 'http://128.199.108.32/' }
+
+  # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :user_name => 'a_lgorepublic',
-      :password => 'P@ss@word1',
-      :domain => 'sendgrid.com',
-      :address => 'smtp.sendgrid.net',
-      :port => 587,
-      :authentication => :plain,
+      :address              => 'smtp.gmail.com',
+      :port                 => 587,
+      :user_name            => 'hamza.satti@46labs.com',
+      :password             => 'hamza123',
+      :authentication       => 'plain',
       :enable_starttls_auto => true
   }
 end
