@@ -9,7 +9,7 @@ class ConfirmationController < ApplicationController
     @checkout = Checkout.last if Checkout.count > 0
     @cart = current_user.user_carts.last.user_cart_products if current_user.user_carts.present?
     @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
-    UserMailer.order_confiramtion_email(current_user)
+    UserMailer.order_confiramtion_email(current_user).deliver
   end
 
   def generate_xml
