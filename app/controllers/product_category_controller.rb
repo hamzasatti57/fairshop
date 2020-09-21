@@ -72,7 +72,11 @@ class ProductCategoryController < ApplicationController
         render partial: "products"
       end
     else
-      @products = Product.where(status: true)
+      if params[:search_query].present?
+        @products = Product.where("title ILIKE '%#{params[:search_query]}%' AND status = true")
+      else
+        @products = Product.where(status: true)
+      end
       if request.xhr?
         render partial: "products"
       end

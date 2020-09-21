@@ -42,7 +42,7 @@ class CheckoutController < ApplicationController
     _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
     data["Transaction"]["SalesHeader"]["CustomerName"] = params["name_first"] + " " + params["name_last"]
     data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = params["amount_gross"]
-    data["Transaction"]["SalesHeader"]["OtpCode"] = random_number.to_s
+    data["Transaction"]["SalesHeader"]["CustomerPin"] = random_number.to_s
     data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s
     sale_detail = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
     data["Transaction"]["Details"]["SalesDetails"] = []
