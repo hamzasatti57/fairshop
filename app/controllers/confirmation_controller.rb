@@ -22,16 +22,19 @@ class ConfirmationController < ApplicationController
       data = Hash.from_xml(xml)
       logger.info "=========#{data}=========="
       _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
+      data["Transaction"]["SalesHeader"]["InvoiceNumber"] = (current_user.user_carts.last.id + 1000).to_s
+      data["Transaction"]["SalesHeader"]["DeliveryCharge"] = (@sum.to_i * 0.10).to_s
       data["Transaction"]["SalesHeader"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = @sum.to_s
       data["Transaction"]["SalesHeader"]["CustomerPin"] = random_number.to_s
       data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s
+      data["Transaction"]["SalesHeader"]["TotalVAT"] = (@sum.to_i * 0.15).to_s
       data["Transaction"]["Details"]["SalesDetails"] = []
       sale_details = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
       current_user.user_carts.last.user_cart_products.each do |product|
         sale_details["Quantity"] = product.quantity.to_s
         sale_details["UnitSellingPrice"] = product.product.price.to_s
-        sale_details["StockItemID"] = product.product.stock_item_id.to_s
+        sale_details["StockItemId"] = product.product.stock_item_id.to_s
         sale_details["TotalPriceAfterDiscount"] = product.product.price.to_s
         sale_details["UnitPriceAfterDiscount"] = product.product.price.to_s
         sale_details["UnitVAT"] = (product.product.price.to_i * 0.15).to_s
@@ -42,6 +45,9 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["PostalCode"] = current_user.user_carts.last.checkout.billing_address.postal_code if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
+      data["Transaction"]["DeliveryDetails"]["DeliveryPrice"] = (@sum.to_i * 0.10).to_s
+      data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
       logger.info "=========#{data.to_xml}=========="
       FileUtils.rm_rf(Rails.root.join('/public/Sales/', "#{_file_name}.xml"))
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
