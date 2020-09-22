@@ -51,7 +51,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
       logger.info "=========#{data.to_xml}=========="
       FileUtils.rm_rf(Rails.root.join('/public/Sales/', "#{_file_name}.xml"))
-      File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml(skip_types: true)
+      File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml(:root => 'SalesHeader', skip_types: true)
       s3 = Aws::S3::Resource.new(
         :region => 'us-east-1',
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
@@ -64,7 +64,7 @@ class ConfirmationController < ApplicationController
       path = 'Sales/' + name
       logger.info "=========#{path}=========="
       object = s3.bucket(bucket).object(path)
-      object.put(acl: "public-read", bucket: bucket, body: data.to_xml(skip_types: true), content_type: 'application/xml')
+      object.put(acl: "public-read", bucket: bucket, body: data.to_xml(:root => 'SalesHeader', skip_types: true), content_type: 'application/xml')
 
     end
   end
