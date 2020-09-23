@@ -36,7 +36,8 @@ class BillingAddressesController < ApplicationController
     if @billing_address.present?
       @billing_address.update!(billing_address_params)
     else
-      @billing_address.create!(billing_address_params)
+      puts billing_address_params
+      BillingAddress.create!(billing_address_params)
     end
     render :json => @billing_address
     
