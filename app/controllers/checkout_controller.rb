@@ -26,6 +26,7 @@ class CheckoutController < ApplicationController
 
   def index
     @billing_address = current_user.billing_addresses.where(is_primary: true).last if current_user.billing_addresses.present?
+    @shipping_address = current_user.billing_addresses.where(is_primary: false).last if current_user.billing_addresses.present?
     @cart = current_user.user_carts.where(status: 0).last.user_cart_products if current_user.user_carts.where(status: 0).present?
     @sum = current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.present?
   end
