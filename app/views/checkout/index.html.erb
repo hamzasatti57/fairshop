@@ -87,19 +87,19 @@
                   novalidate="novalidate"> -->
               <div class="row contact_form">
                 <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="first" name="name" placeholder="First name" value="<%= current_user.first_name %>" />
+                  <input type="text" class="form-control" id="first" name="user[first_name]" placeholder="First name" value="<%= current_user.first_name %>" />
                 </div>
                 <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="last" name="name" placeholder="Last name" value="<%= current_user.last_name %>" />
+                  <input type="text" class="form-control" id="last" name="user[last_name]" placeholder="Last name" value="<%= current_user.last_name %>" />
                 </div>
                 <!-- <div class="col-md-12 form-group">
                   <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
                 </div> -->
                 <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="number" name="number" placeholder="Phone number" value="<%= current_user.contact_details %>" />
+                  <input type="text" class="form-control" id="number" name="user[contact_details]" placeholder="Phone number" value="<%= current_user.contact_details %>" />
                 </div>
                 <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="email" name="compemailany" placeholder="Email Address" value="<%= current_user.email %>" />
+                  <input type="text" class="form-control" id="email" name="user[email]" placeholder="Email Address" value="<%= current_user.email %>" />
                 </div>
 <!--                   <div class="col-md-12">
                     <div class="form-group">
@@ -348,6 +348,18 @@
         $('.proceed_to_checkout_1').on('click', function(e){
           if(document.getElementById('new-shippment').checked) {
             $(".billing_address_2_submit").click();
+              $.ajax({
+                  headers: { 'X-CSRF-Token': Rails.csrfToken() },
+                  url:'/billing_addresses/save_address?billing_address[address]=' + $('#autocomplete_address').val() + '&billing_address[instruction]=' + $('#billing_address_instruction').val(),
+                  // data: { cart_object: jsonObject },
+                  // dataType: 'json',
+                  type:'post',
+                  success:function (data) {
+                    debugger
+                    console.log(data);
+                  }
+
+              });
             // setTimeout(function() {
             //   $(".checkout_submit").click();
             // },100);
@@ -361,7 +373,7 @@
 
         });
 
-        $(document).on('turbolinks:load', function() {
+        $(document).ready(function(){
           function initializeAutocomplete(id) {     
                var element = document.getElementById(id);
                if (element) {
