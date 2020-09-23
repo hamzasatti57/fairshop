@@ -36,7 +36,7 @@ class BillingAddressesController < ApplicationController
     if @billing_address.present?
       @billing_address.update!(billing_address_params)
     else
-      puts billing_address_params
+      params["billing_address"]["is_primary"] = true
       current_user.billing_addresses.create!(billing_address_params)
     end
     render :json => @billing_address
