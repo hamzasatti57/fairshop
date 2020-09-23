@@ -33,7 +33,11 @@ class BillingAddressesController < ApplicationController
     params["billing_address"]["longitude"] = results.first.coordinates[1]
     params["billing_address"]["postal_code"] = Geocoder.search(results.first.coordinates).first.postal_code.to_s
     @billing_address = BillingAddress.where(is_primary: true, user_id: current_user.id).last if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
-    @billing_address.update(billing_address_params)
+    if @billing_address.present?
+      @billing_address.update!(billing_address_params)
+    else
+      @billing_address.create!(billing_address_params)
+    end
     render :json => @billing_address
     
   end
