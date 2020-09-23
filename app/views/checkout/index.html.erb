@@ -33,7 +33,7 @@
   <!-- breadcrumb start-->
 
   <!--================Checkout Area =================-->
-  <section class="checkout_area padding_top">
+  <section class="checkout_area padding_top" id="projectLoadComplete">
     <div class="container">
 <!--       <div class="returning_customer">
         <div class="check_title">
@@ -310,6 +310,7 @@
           </button>
         <%# end %>
       </div> -->
+      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaILC4Z-JG0A-_TZ-o3BiJMSFqUvh6cKk&libraries=places&callback=initializeMap" async defer></script> -->
 
       <script type="text/javascript">
         
@@ -373,7 +374,6 @@
 
         });
 
-        $(document).ready(function(){
           function initializeAutocomplete(id) {     
                var element = document.getElementById(id);
                if (element) {
@@ -396,12 +396,14 @@
              }
             }
            }
-          }   
-          google.maps.event.addDomListener(window, 'load', function() {
-           initializeAutocomplete('autocomplete_address');
-           initializeAutocomplete('autocomplete_address_1'); 
-           }); 
-          });
+          }
+          $(document).bind("projectLoadComplete", initializeAutocomplete('autocomplete_address'));
+          $(document).bind("projectLoadComplete", initializeAutocomplete('autocomplete_address_1'));
+            // google.maps.event.addDomListener(window, 'load', function() {
+            //    $(document).bind("projectLoadComplete", initialize);
+            //    initializeAutocomplete('autocomplete_address');
+            //    initializeAutocomplete('autocomplete_address_1'); 
+            // });
       </script>
 
 
