@@ -16,7 +16,7 @@ class BillingAddressesController < ApplicationController
     params["billing_address"]["postal_code"] = Geocoder.search(results.first.coordinates).first.postal_code.to_s
     @billing_address = BillingAddress.where(is_primary: true, user_id: current_user.id).last if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
     if @billing_address.blank? || params["billing_address"]["is_primary"] == "false"
-      @billing_address = BillingAddress.create!(billing_address_params)
+      @billing_address = current_user.billing_addresses.create!(billing_address_params)
     else
       current_user.update!(user_params)
       @billing_address.update!(billing_address_params)
@@ -37,7 +37,7 @@ class BillingAddressesController < ApplicationController
       @billing_address.update!(billing_address_params)
     else
       puts billing_address_params
-      BillingAddress.create!(billing_address_params)
+      current_user.billing_addresses.create!(billing_address_params)
     end
     render :json => @billing_address
     
