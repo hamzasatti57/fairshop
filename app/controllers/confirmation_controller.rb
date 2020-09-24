@@ -32,16 +32,17 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["SalesHeader"]["TotalVAT"] = (@sum.to_i * 0.15).to_s
       data["Transaction"]["Details"]["SalesDetails"] = []
       sale_details = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
-      detail_array = current_user.user_carts.last.user_cart_products.each do |product|
+      current_user.user_carts.last.user_cart_products.each do |product|
         sale_details["Quantity"] = product.quantity.to_s
         sale_details["UnitSellingPrice"] = product.product.price.to_s
         sale_details["StockItemId"] = product.product.stock_item_id.to_s
         sale_details["TotalPriceAfterDiscount"] = product.product.price.to_s
         sale_details["UnitPriceAfterDiscount"] = product.product.price.to_s
         sale_details["UnitVAT"] = (product.product.price.to_i * 0.15).to_s
+        logger.info "--=========#{sale_details.to_xml}==========--"
+        data["Transaction"]["Details"]["SalesDetails"] << sale_details
       end
-      data["Transaction"]["Details"]["SalesDetails"] << detail_array.map(&:attributes)
-      data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
+      # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
       data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.province.present?
       data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.city.present?
       data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address if current_user.user_carts.last.checkout.present?
