@@ -40,7 +40,7 @@ class ConfirmationController < ApplicationController
         sale_details["UnitPriceAfterDiscount"] = product.product.price.to_s
         sale_details["UnitVAT"] = (product.product.price.to_i * 0.15).to_s
         logger.info "--=========#{sale_details.to_xml}==========--"
-        data["Transaction"]["Details"]["SalesDetails"][index] << sale_details
+        data["Transaction"]["Details"]["SalesDetails"][index] = sale_details
       end
       # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
       data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.province.present?
