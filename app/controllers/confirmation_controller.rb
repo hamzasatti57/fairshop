@@ -33,15 +33,15 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["Details"]["SalesDetails"] = []
       sale_details = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
       current_user.user_carts.last.user_cart_products.each_with_index do |product, index|
-        index.to_s = {}
-        index.to_s["Quantity"] = product.quantity.to_s
-        index.to_s["UnitSellingPrice"] = product.product.price.to_s
-        index.to_s["StockItemId"] = product.product.stock_item_id.to_s
-        index.to_s["TotalPriceAfterDiscount"] = product.product.price.to_s
-        index.to_s["UnitPriceAfterDiscount"] = product.product.price.to_s
-        index.to_s["UnitVAT"] = (product.product.price.to_i * 0.15).to_s
-        logger.info "--=========#{index.to_s.to_xml}==========--"
-        data["Transaction"]["Details"]["SalesDetails"] << index.to_s
+        (index + 1).to_s = {}
+        (index + 1).to_s["Quantity"] = product.quantity.to_s
+        (index + 1).to_s["UnitSellingPrice"] = product.product.price.to_s
+        (index + 1).to_s["StockItemId"] = product.product.stock_item_id.to_s
+        (index + 1).to_s["TotalPriceAfterDiscount"] = product.product.price.to_s
+        (index + 1).to_s["UnitPriceAfterDiscount"] = product.product.price.to_s
+        (index + 1).to_s["UnitVAT"] = (product.product.price.to_i * 0.15).to_s
+        logger.info "--=========#{(index + 1).to_s.to_xml}==========--"
+        data["Transaction"]["Details"]["SalesDetails"] << (index + 1).to_s
       end
       # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
       data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.province.present?
