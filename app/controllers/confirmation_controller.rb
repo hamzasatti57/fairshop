@@ -40,8 +40,8 @@ class ConfirmationController < ApplicationController
         sale_details["UnitPriceAfterDiscount"] = product.product.price.to_s
         sale_details["UnitVAT"] = (product.product.price.to_i * 0.15).to_s
       end
-        data["Transaction"]["Details"]["SalesDetails"] << detail_array
-      # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
+      data["Transaction"]["Details"]["SalesDetails"] << detail_array.map(&:attributes)
+      data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
       data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.province.present?
       data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.city.present?
       data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address if current_user.user_carts.last.checkout.present?
