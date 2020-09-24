@@ -13,9 +13,9 @@ namespace :products_stock_update do
     data["DocumentElement"]["StockOnHand"].each do |stock|
       @product = Product.find_by_code(stock["StockItemCode"])
       @product_category = ProductCategory.find_by_title("Other")
-      color = Color.find_by_title(stock["StockProfile"])
+      color = Color.where("title = ? OR stock_item_id = ?", stock["StockProfile"], stock["StockItemID"]).last
       if color.present?
-        color.update!(stock_item_id: stock["StockItemID"])
+        color.update!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
         @color = color
       else
         @color = Color.create!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
