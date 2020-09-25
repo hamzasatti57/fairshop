@@ -1,5 +1,12 @@
 <%= render 'shared/errors', obj: color %>
 <%= form_for  color, color_form_attributes(color) do |f| %>
+
+    <div id="image_<%= @color.image %>">
+      <% if @color.image.present? %>
+        <%= image_tag(url_for(@color.image), style: "width: 100px") %>
+      <% end %>
+    </div><br>
+
   <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Color Title", autofocus: true %> <br/>
