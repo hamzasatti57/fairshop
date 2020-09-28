@@ -53,6 +53,11 @@
   margin: 0px 10px;
 }
 
+  .modal-body{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: auto;
+  }
 </style>
   <!-- breadcrumb start-->
 <% if @product.product_category.category.present? && @product.product_category.category.banner_image.present? %>
@@ -629,8 +634,44 @@
   
 </div>
 
+<div class="modal" id="add_to_cart_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title" style="padding-left: 27%;">Product Added to cart</h4>
+        <button type="button" class="close close_1" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body" style="display: inline-flex;">
+          <br>
+          <br>
+          <div class="checkout_btn_inner float-right">
+            <a  class="btn_1 checkout_btn_1" href="/cart">Go to Cart</a>
+          </div>
+
+          <div class="checkout_btn_inner float-right">
+            <a  class="btn_1 checkout_btn_2" href="" style="margin-left: 0px;">Continue Shopping</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<% if flash[:add_to_cart] %>
+  <script type="text/javascript">
+    $('#add_to_cart_modal').modal('show');
+  </script>
+<% end  %>
+
     <script type="text/javascript">
       // $('.zoom').zoom(); // add zoom
+      $(".checkout_btn_2").on('click', function (e) {
+        $('#add_to_cart_modal').modal('hide');
+      });
 
       $(".zoom").on("click", function() {
          $('#imagepreview').attr('src', $('#imageresource').attr('src')); // here asign the image to the modal when the user click the enlarge link
