@@ -56,7 +56,7 @@ class ConfirmationController < ApplicationController
       data = data.to_xml.to_s.gsub("Detail>", "SalesDetails>").to_yaml
       logger.info "=========#{data}=========="
       FileUtils.rm_rf(Rails.root.join('/public/Sales/', "#{_file_name}.xml"))
-      File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
+      File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data
       s3 = Aws::S3::Resource.new(
         :region => 'us-east-1',
         :access_key_id => 'AKIAJ4TWUFPR24VBAEYA',
@@ -69,7 +69,7 @@ class ConfirmationController < ApplicationController
       path = 'Sales/' + name
       logger.info "=========#{path}=========="
       object = s3.bucket(bucket).object(path)
-      object.put(acl: "public-read", bucket: bucket, body: data.to_xml, content_type: 'application/xml')
+      object.put(acl: "public-read", bucket: bucket, body: data, content_type: 'application/xml')
 
     end
   end
