@@ -5555,7 +5555,9 @@ ul {
 
 /* line 6, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
 .confirmation_part .confirmation_tittle span {
-  color: #e9414f;
+      color: #e9414f;
+    font-size: 22px;
+    font-weight: 400;
 }
 
 /* line 11, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
