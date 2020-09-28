@@ -53,9 +53,8 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["Instructions"] = current_user.user_carts.last.checkout.billing_address.instruction if current_user.user_carts.last.checkout.present?
       data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
       data["Transaction"]["Details"] = data["Transaction"]["Details"]["SalesDetails"]
-      data["Transaction"]["Details"]["SalesDetails"] = data.delete ["Transaction"]["Details"]["Detail"]
 
-      logger.info "=========#{data.to_xml}=========="
+      logger.info "=========#{data}=========="
       FileUtils.rm_rf(Rails.root.join('/public/Sales/', "#{_file_name}.xml"))
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data.to_xml
       s3 = Aws::S3::Resource.new(
