@@ -507,6 +507,8 @@ ul {
 
 /* line 38, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_button.scss */
 .btn_3 {
+  margin-bottom: 10px;
+  width: 100%;
   display: inline-block;
   padding: 9px 42px;
   border-radius: 50px;
@@ -5115,7 +5117,7 @@ ul {
 /* line 1710, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .order_box .payment_item p {
   background: #fff;
-  padding: 20px;
+  padding: 5px;
 }
 
 /* line 1717, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -5143,8 +5145,8 @@ ul {
 
 /* line 1739, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .order_box .btn_3 {
-  display: block;
-  line-height: 38px;
+  /*display: block;*/
+  line-height: 17px;
   text-transform: uppercase;
   text-align: center;
 }
@@ -5253,6 +5255,7 @@ ul {
   position: relative;
   margin-top: 10px;
   margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 /* line 1817, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
