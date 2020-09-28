@@ -10,7 +10,7 @@ class ConfirmationController < ApplicationController
     @billing_address = current_user.billing_addresses.where(is_primary: true).last
     @cart = current_user.user_carts.last.user_cart_products if current_user.user_carts.present?
     @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
-    UserMailer.order_confiramtion_email(current_user).deliver
+    UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum).deliver
   end
 
   def generate_xml
