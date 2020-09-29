@@ -206,7 +206,7 @@
           </div>
 
           <div class="checkout_btn_inner float-right">
-            <a  class="btn_1 checkout_btn_2" href="" style="margin-left: 20px;">Continue Shopping</a>
+            <a  class="btn_1 checkout_btn_2" href="" style="margin-left: 20px;">Continue</a>
           </div>
       </div>
 
@@ -217,7 +217,6 @@
 <div class="min-price-val" style="display: none"><%= @products.present? ? @products.minimum(:price) : "" %></div>
 <div class="max-price-val" style="display: none"><%= @products.present? ? @products.maximum(:price) : "" %></div>
 <!-- product_list part end-->
-
 
 <% if flash[:add_to_cart] %>
   <script type="text/javascript">
