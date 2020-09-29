@@ -18,12 +18,14 @@ class BillingAddressesController < ApplicationController
     if @billing_address.blank? || params["billing_address"]["is_primary"] == "false"
       @shipping_address = BillingAddress.where(is_primary: false, user_id: current_user.id).last if BillingAddress.where(is_primary: false, user_id: current_user.id).present?
       if @shipping_address.present?
+        params["billing_address"]["instruction"] = @billing_address.instruction if @billing_address.present?
         @shipping_address.update!(billing_address_params)
         @billing_address = @shipping_address
       else
         @billing_address = current_user.billing_addresses.create!(billing_address_params)
       end
     else
+      params["billing_address"]["instruction"] = @billing_address.instruction if @billing_address.present?
       current_user.update!(user_params)
       @billing_address.update!(billing_address_params)
     end
