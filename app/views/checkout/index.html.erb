@@ -13,6 +13,40 @@
     height: 70px;
   }
 
+
+
+
+
+  .order_box .payment-btn{
+    /* display: block; */
+    /*line-height: 38px;*/
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.payment-btn {
+  width: 100%;
+  margin:20px 0px;
+    display: inline-block;
+    padding: 9px 42px;
+    border-radius: 50px;
+    background-color: #e9414f;
+    border: 1px solid #ecfdff;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 400;
+    box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
+    border: 1px solid #e9414f;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+.payment-btn:hover{
+color:#ffffff;
+}
+
+
 </style>
 
   <!--================Home Banner Area =================-->
@@ -264,7 +298,7 @@
                 <input type="hidden" name="amount" value=<%= @sum %>>
                 <input type="hidden" name="item_name" value="General POS">
                 <!-- <input type="submit" value="Submit"> -->
-                <button type="submit" class="btn_3 payment-btn proceed_to_checkout">Proceed to Payfast</button>
+                <button type="submit" class="payment-btn proceed_to_checkout">Proceed to Payfast</button>
               </form>
               <!-- <a class="btn_3 proceed_to_checkout" href="/confirmation">Proceed to Payfast</a> -->
 
@@ -277,10 +311,11 @@
                 </div>
                 <p>
                   Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.
-                  <%= link_to "Proceed to Peach", peach_payment_path, method: :post  , class: "btn_3 payment-btn proceed_to_checkout_1" %>
+                  Store State / County, Store Postcode.</p>
+                 
+                  <%= link_to "Proceed to Peach", peach_payment_path, method: :post  , class: "payment-btn proceed_to_checkout_1" %>
                   <!-- <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button> -->
-                </p>
+                
               </div>
             </div>
           </div>
