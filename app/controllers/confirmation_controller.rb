@@ -15,6 +15,12 @@ class ConfirmationController < ApplicationController
 
   def generate_xml
     if PeachPayment.last.checkout_id == params["id"]
+      if current_user.user_carts.last.checkout.billing_address.province.blank?
+        results = Geocoder.search(current_user.user_carts.last.checkout.billing_address.address)
+        province_id = Province.find_or_create_by(title: results.first.state).id
+        city_id = City.find_or_create_by(title: results.first.city, province_id: province_id).id
+        current_user.user_carts.last.checkout.billing_address.update(province_id: province_id, city_id: city_id)
+      end
       random_number = rand(6**6)
       @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
       current_user.user_carts.last.update!(status: 2, otp_code: random_number.to_s)
