@@ -8,8 +8,8 @@ class BillingAddressesController < ApplicationController
 
   def create
     results = Geocoder.search(params["billing_address"]["address"])
-    params["billing_address"]["country_id"] = Country.find_or_create_by(title: results.first.country).id
-    params["billing_address"]["province_id"] = Province.find_or_create_by(title: results.first.state, country_id: params["billing_address"]["country_id"]).id
+    # params["billing_address"]["country_id"] = Country.find_or_create_by(title: results.first.country).id
+    params["billing_address"]["province_id"] = Province.find_or_create_by(title: results.first.state).id
     params["billing_address"]["city_id"] = City.find_or_create_by(title: results.first.city, province_id: params["billing_address"]["province_id"]).id
     params["billing_address"]["latitude"] = results.first.coordinates[0]
     params["billing_address"]["longitude"] = results.first.coordinates[1]
@@ -32,8 +32,8 @@ class BillingAddressesController < ApplicationController
 
   def save_address
     results = Geocoder.search(params["billing_address"]["address"])
-    params["billing_address"]["country_id"] = Country.find_or_create_by(title: results.first.country).id
-    params["billing_address"]["province_id"] = Province.find_or_create_by(title: results.first.state, country_id: params["billing_address"]["country_id"]).id
+    # params["billing_address"]["country_id"] = Country.find_or_create_by(title: results.first.country).id
+    params["billing_address"]["province_id"] = Province.find_or_create_by(title: results.first.state).id
     params["billing_address"]["city_id"] = City.find_or_create_by(title: results.first.city, province_id: params["billing_address"]["province_id"]).id
     params["billing_address"]["latitude"] = results.first.coordinates[0]
     params["billing_address"]["longitude"] = results.first.coordinates[1]
