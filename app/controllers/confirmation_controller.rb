@@ -57,7 +57,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["PostalCode"] = current_user.user_carts.last.checkout.billing_address.postal_code if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["DeliveryDetails"]["DeliveryPrice"] = (@sum.to_i * 0.10).to_s
-      data["Transaction"]["DeliveryDetails"]["Instructions"] = current_user.user_carts.last.checkout.billing_address.instruction if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Instructions"] = BillingAddress.where(is_primary: true, user_id: current_user.id).last.instruction if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
       data["Transaction"]["DeliveryDetails"]["Latitude"] = current_user.user_carts.last.checkout.billing_address.latitude if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["Longitude"] = current_user.user_carts.last.checkout.billing_address.longitude if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["PhoneNo"] = current_user.contact_details.to_s
