@@ -52,6 +52,10 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["DeliveryDetails"]["DeliveryPrice"] = (@sum.to_i * 0.10).to_s
       data["Transaction"]["DeliveryDetails"]["Instructions"] = current_user.user_carts.last.checkout.billing_address.instruction if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Latitude"] = current_user.user_carts.last.checkout.billing_address.latitude if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Longitude"] = current_user.user_carts.last.checkout.billing_address.longitude if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["PhoneNo"] = current_user.contact_details.to_s
+      data["Transaction"]["DeliveryDetails"]["DeliveryDate"] = (current_user.user_carts.last.checkout.create_at + 7.days).to_s if current_user.user_carts.last.checkout.present?
       # data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
       data["Transaction"]["Details"] = data["Transaction"]["Details"]["SalesDetails"]
       data = data.to_xml.to_s.gsub("Detail>", "SalesDetails>").gsub(" type=\"array\"", "").gsub("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<hash>\n  ", "").gsub("\n</hash>\n", "").to_yaml.gsub("--- |-\n", '')
