@@ -38,8 +38,9 @@ class ConfirmationController < ApplicationController
         sale[index]["Quantity"] = product.quantity.to_s
         sale[index]["UnitSellingPrice"] = product.product.price.to_s
         sale[index]["StockItemId"] = product.product.stock_item_id.to_s
-        sale[index]["TotalPriceAfterDiscount"] = product.product.price.to_s
+        sale[index]["DiscountPerUnit"] = "0.0".to_s
         sale[index]["UnitPriceAfterDiscount"] = product.product.price.to_s
+        sale[index]["TotalPriceAfterDiscount"] = product.product.price.to_s
         sale[index]["UnitVAT"] = (product.product.price.to_i * 0.15).to_s
         data["Transaction"]["Details"]["SalesDetails"] << sale[index]
       end
@@ -53,7 +54,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["Instructions"] = current_user.user_carts.last.checkout.billing_address.instruction if current_user.user_carts.last.checkout.present?
       # data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
       data["Transaction"]["Details"] = data["Transaction"]["Details"]["SalesDetails"]
-      data = data.to_xml.to_s.gsub("Detail>", "SalesDetails>").gsub(" type=\"array\"", "").to_yaml
+      data = data.to_xml.to_s.gsub("Detail>", "SalesDetails>").gsub(" type=\"array\"", "").gsub("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<hash>\n  ", "").gsub("\n</hash>\n", "").to_yaml
       logger.info "=========#{data}=========="
       FileUtils.rm_rf(Rails.root.join('/public/Sales/', "#{_file_name}.xml"))
       File.open("#{Rails.root}/public/Sales/#{_file_name}.xml", "w+b") << data
