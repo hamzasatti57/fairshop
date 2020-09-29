@@ -175,7 +175,7 @@
 
       <% @seventh_category = Category.where(category_type: "Feature").last(2).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @seventh_category.present? %>
-        <div class="col-lg-5 col-sm-6">
+        <div class="col-lg-6 col-sm-6">
           <div class="single_feature_post_text">
             <h3><%= @seventh_category.title %></h3>
             <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
@@ -191,14 +191,14 @@
 
       <% @last_category = Category.where(category_type: "Feature").last if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @last_category.present? %>
-        <div class="col-lg-5 col-sm-6">
+        <div class="col-lg-6 col-sm-6">
           <div class="single_feature_post_text">
             <h3><%= @last_category.title %></h3>
             <a href="/product_category?type=<%= @last_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @last_category.image.present? %>
              <div style="width: 220px;height:220px; float: right;">
-              <img src="<%= url_for(@last_category.image) %>" style='height: auto;width: 100%;margin-top: -59px;'>
+              <img src="<%= url_for(@last_category.image) %>" style='height: auto;width: 100%;margin-top: -35px;'>
             </div>
             <% end %>
           </div>
@@ -289,7 +289,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-7">
         <div class="subscribe_area_text text-center">
-          <h5 style="font-size: 26px">SPECIALS?</h5>
+          <h5 style="font-size: 26px;font-weight: 600">SPECIALS?</h5>
           <h2>JOIN OUR MAILING LIST!</h2>
           <div class="input-group">
             <input type="text" class="form-control" placeholder="enter email address"
@@ -346,18 +346,18 @@
     </section> -->
 </div>
 
-<div class="modal" id="add_to_cart_modal">
+<div class="modal" id="add_to_cart_modal" style="align-items: center;"> 
   <div class="modal-dialog">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title" style="padding-left: 27%;">Product Added to cart</h4>
+        <h4 class="modal-title" >Product Added to cart</h4>
         <button type="button" class="close close_1" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
-      <div class="modal-body" style="display: inline-flex; margin-left: 15%;">
+      <div class="modal-body" style="display: inline-flex;">
           <br>
           <br>
           <div class="checkout_btn_inner float-right">
