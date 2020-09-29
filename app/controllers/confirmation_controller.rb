@@ -34,7 +34,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["SalesHeader"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = @sum.to_s
       data["Transaction"]["SalesHeader"]["CustomerPin"] = random_number.to_s
-      data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s
+      data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s.gsub("+0000", "")
       data["Transaction"]["SalesHeader"]["TotalVAT"] = (@sum.to_i * 0.15).to_s
       data["Transaction"]["Details"]["SalesDetails"] = []
       sale_details = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
@@ -61,7 +61,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["Latitude"] = current_user.user_carts.last.checkout.billing_address.latitude if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["Longitude"] = current_user.user_carts.last.checkout.billing_address.longitude if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["PhoneNo"] = current_user.contact_details.to_s
-      data["Transaction"]["DeliveryDetails"]["DeliveryDate"] = (current_user.user_carts.last.checkout.created_at).to_s.gsub(" UTC", "") if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["DeliveryDate"] = Time.now.to_s.gsub("+0000", "")
       # data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
       data["Transaction"]["Details"] = data["Transaction"]["Details"]["SalesDetails"]
       data = data.to_xml.to_s.gsub("Detail>", "SalesDetails>").gsub(" type=\"array\"", "").gsub("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<hash>\n  ", "").gsub("\n</hash>\n", "").to_yaml.gsub("--- |-\n", '')
