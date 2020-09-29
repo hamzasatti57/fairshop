@@ -175,7 +175,7 @@
 
       <% @seventh_category = Category.where(category_type: "Feature").last(2).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @seventh_category.present? %>
-        <div class="col-lg-5 col-sm-6">
+        <div class="col-lg-6 col-sm-6">
           <div class="single_feature_post_text">
             <h3><%= @seventh_category.title %></h3>
             <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
@@ -191,14 +191,14 @@
 
       <% @last_category = Category.where(category_type: "Feature").last if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @last_category.present? %>
-        <div class="col-lg-5 col-sm-6">
+        <div class="col-lg-6 col-sm-6">
           <div class="single_feature_post_text">
             <h3><%= @last_category.title %></h3>
             <a href="/product_category?type=<%= @last_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @last_category.image.present? %>
              <div style="width: 220px;height:220px; float: right;">
-              <img src="<%= url_for(@last_category.image) %>" style='height: auto;width: 100%;margin-top: -59px;'>
+              <img src="<%= url_for(@last_category.image) %>" style='height: auto;width: 100%;margin-top: -35px;'>
             </div>
             <% end %>
           </div>
