@@ -32,7 +32,7 @@
                         <%= link_to add_to_cart_product_path(product.id), class: "btn_2", method: :post do %>
                           buy now
                         <% end %>
-                        <a href="#" class="btn_2 btn_custom_1">Lay-bye</a>
+                       <!--  <a href="#" class="btn_2 btn_custom_1">Lay-bye</a> -->
                       <% end %>
                     </div>
                   </div>
@@ -157,6 +157,38 @@
           </div>
         </div>
       <% end %>
+      <% @sixth_category = Category.where(category_type: "Feature").last(3).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
+      <% if @sixth_category.present? %>
+        <div class="col-lg-5 col-sm-6">
+          <div class="single_feature_post_text">
+            <h3><%= @sixth_category.title %></h3>
+            <a href="/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
+              <i class="fa fa-play"></i></a>
+            <% if @sixth_category.image.present? %>
+             <div style="width: 220px;height:220px; float: right;">
+              <img src="<%= url_for(@sixth_category.image) %>" style='height: auto;width: 100%;margin-top: -59px;'>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+      <% @seventh_category = Category.where(category_type: "Feature").last(2).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
+      <% if @seventh_category.present? %>
+        <div class="col-lg-5 col-sm-6">
+          <div class="single_feature_post_text">
+            <h3><%= @seventh_category.title %></h3>
+            <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
+              <i class="fa fa-play"></i></a>
+            <% if @seventh_category.image.present? %>
+             <div style="width: 220px;height:220px; float: right;">
+              <img src="<%= url_for(@seventh_category.image) %>" style='height: auto;width: 100%;margin-top: -59px;'>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
       <% @last_category = Category.where(category_type: "Feature").last if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @last_category.present? %>
         <div class="col-lg-5 col-sm-6">
@@ -218,7 +250,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-12">
         <div class="section_tittle text-center">
-          <h2>Top Products</h2>
+          <h2>TRENDING</h2>
         </div>
       </div>
     </div>
