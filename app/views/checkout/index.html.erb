@@ -178,7 +178,7 @@
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
                   </div>
-                  <div class="col-md-12">
+                  <div class="col-md-12" style="display: none">
                     <div class="form-group">
                       <%= f.text_area(:instruction, size: '40x5', :class => 'form-control', placeholder: "Instructions", value: @shipping_address.present? ? @shipping_address.instruction : "") %>
                     </div>
