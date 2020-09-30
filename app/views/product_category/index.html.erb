@@ -47,7 +47,24 @@
     padding-bottom: 30px;
     margin: auto;
   }
+  .custom-showMore-btn {
+  display: flex;
+  justify-content: center;
+  }
+  .showMore-btn-style {
+    padding: 10px 100px;
+    color: #444;
+    background-color: #fff;
+    border-color: #ccc;
+    padding: 8px 120px;
+    border-radius: 0px;
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
 </style>
+
+<% @products = @products.paginate(page: params[:page], per_page: 6) %>
 <!--================Home Banner Area =================-->
 <!-- breadcrumb start-->
 <% if @category.present? && @category.banner_image.present? %>
@@ -171,6 +188,9 @@
         <div id="products-partial">
           <%= render :partial => 'products', :object => @products %>
         </div>
+      </div>
+      <div class="col-md-12 text-center">
+        <%= will_paginate @products, class: 'custom-showMore-btn', renderer: BootstrapPagination::Rails %>
       </div>
     </div>
   </div>

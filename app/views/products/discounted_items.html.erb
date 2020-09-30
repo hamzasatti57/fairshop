@@ -27,6 +27,8 @@
     margin: auto;
   }
 </style>
+
+<% @products = @products.paginate(page: params[:page], per_page: 6) %>
 <!--================Home Banner Area =================-->
 <!-- breadcrumb start-->
 <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/promotion.png') %>');">

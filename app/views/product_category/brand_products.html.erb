@@ -8,7 +8,7 @@
   }
 </style>
 
-
+<% @products = @products.paginate(page: params[:page], per_page: 6) %>
 
     <!--================Home Banner Area =================-->
     <!-- breadcrumb start-->
