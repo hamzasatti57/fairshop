@@ -140,6 +140,7 @@
                      <span style="padding-right: 25px;">Warranty</span>    :    <%= @product.warranty == true ? "Yes" : "No" %>
                   </li> -->
                   <li>
+                     <div style="display:inline-flex; ">
                      <span>Share on</span>
                      <%= link_to "javascript:void(0);", class: 'share-on-facebook', data: { id: @product.id, type: 'facebook', attributes: product_attributes(@product) } do %>
                      <span>
@@ -159,12 +160,13 @@
                      </span>
                      </a>
 
-                       <a href="#" class="">
+                     <a href="#" class="">
                      <span>
-                     <i class="fa fa-whatsapp" style="font-size: 21px;margin-left: 12px;color: #1ea1f1;">
+                     <i class="fa fa-whatsapp" style="font-size: 21px;margin-left: -140px;color:#4FCE5D">
                      </i>
                      </span>
                      </a>
+                  </div>
 
 
                   </li>
