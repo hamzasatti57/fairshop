@@ -129,8 +129,11 @@
                <h2>R<%= @product.price.to_i %></h2>
                <ul class="list">
                   <li>
-                     <span>Category</span>        <span  style="padding-left: 24px;">:</span>
+                     <span>Category</span> <span  style="padding-left: 24px;">:</span>
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
+                  </li>
+                  <li>
+                     <span style="padding-right: 20px;">Availibility</span>    :    <%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
                   </li>
                 
               <!--     <li>
@@ -155,10 +158,17 @@
                         " style="font-size: 21px;margin-left: -83px;color: #1ea1f1;"></i>
                      </span>
                      </a>
+
+                       <a href="#" class="">
+                     <span>
+                     <i class="fa fa-whatsapp" style="font-size: 21px;margin-left: 12px;color: #1ea1f1;">
+                     </i>
+                     </span>
+                     </a>
+
+
                   </li>
-                    <li>
-                     <span style="padding-right: 20px;">Availibility</span>    :    <%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
-                  </li>
+                    
                   <li style="display: inline-flex; vertical-align: middle;">
                      <span style="margin-top: 12px">Color</span>        <span  style="padding-left: 24px;"></span>
                      <div class="custom_radio_btn_tab">
