@@ -88,16 +88,16 @@
     <div class="row align-items-center justify-content-between">
       <% @first_category = Category.where(category_type: "Feature").first if Category.where(category_type: "Feature").present? %>
       <% if @first_category.present? %>
-        <div class="col-lg-7 col-sm-6">
+        <div class="col-lg-7 col-sm-6" id="feature-1" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="/product_category?type=<%= @first_category.title.gsub(" ", "_") %>">
             <h3><%= @first_category.title %></h3>
             <a href="/product_category?type=<%= @first_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @first_category.image.present? %>
-            <div style="width: 300px;height:300px;float: right">
-              <img src="<%= url_for(@first_category.image) %>" style="width:100%;height: auto;margin-top: -100px;">
-            </div>
+              <div style="width: 300px;height:300px;float: right">
+                <img src="<%= url_for(@first_category.image) %>" style="width:100%;height: auto;margin-top: -100px;">
+              </div>
               
             <% end %>
             <%#=image_tag("img/feature/feature_1.png")%>
@@ -107,7 +107,7 @@
       <% end %>
       <% @second_category = Category.where(category_type: "Feature").second if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").second %>
       <% if @second_category.present? %>
-        <div class="col-lg-5 col-sm-6">
+        <div class="col-lg-5 col-sm-6" id="feature-2" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="/product_category?type=<%= @second_category.title.gsub(" ", "_") %>">
             <h3><%= @second_category.title %></h3>
@@ -124,7 +124,7 @@
       <% end %>
       <% @third_category = Category.where(category_type: "Feature").third if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").third %>
       <% if @third_category.present? %>
-        <div class="col-lg-5 col-sm-6">
+        <div class="col-lg-5 col-sm-6" id="feature-3" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="/product_category?type=<%= @third_category.title.gsub(" ", "_") %>">
             <h3><%= @third_category.title %></h3>
@@ -141,7 +141,7 @@
       <% end %>
       <% @fourth_category = Category.where(category_type: "Feature").fourth if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").fourth %>
       <% if @fourth_category.present? %>
-        <div class="col-lg-7 col-sm-6">
+        <div class="col-lg-7 col-sm-6" id="feature-4" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>">
             <h3><%= @fourth_category.title %></h3>
@@ -158,7 +158,7 @@
       <% end %>
       <% @fifth_category = Category.where(category_type: "Feature").fifth if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").fifth %>
       <% if @fifth_category.present? %>
-        <div class="col-lg-7 col-sm-6">
+        <div class="col-lg-7 col-sm-6" id="feature-5" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>">
             <h3><%= @fifth_category.title %></h3>
@@ -175,7 +175,7 @@
       <% end %>
       <% @sixth_category = Category.where(category_type: "Feature").last(3).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @sixth_category.present? %>
-        <div class="col-lg-5 col-sm-6">
+        <div class="col-lg-5 col-sm-6" id="feature-6" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>">
             <h3><%= @sixth_category.title %></h3>
@@ -193,7 +193,7 @@
 
       <% @seventh_category = Category.where(category_type: "Feature").last(2).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @seventh_category.present? %>
-        <div class="col-lg-6 col-sm-6">
+        <div class="col-lg-6 col-sm-6" id="feature-7" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>">
             <h3><%= @seventh_category.title %></h3>
@@ -211,7 +211,7 @@
 
       <% @last_category = Category.where(category_type: "Feature").last if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @last_category.present? %>
-        <div class="col-lg-6 col-sm-6">
+        <div class="col-lg-6 col-sm-6" id="feature-8" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="">
             <h3><%= @last_category.title %></h3>
@@ -407,6 +407,30 @@
       $('#add_to_cart_modal').modal('hide');
     });
 
+    $("#feature-1").on('click', function (e) {
+      window.location.href = '/product_category?type=<%= @first_category.title.gsub(" ", "_") %>'
+    });
+    $("#feature-2").on('click', function (e) {
+      window.location.href = '/product_category?type=<%= @second_category.title.gsub(" ", "_") %>'
+    });
+    $("#feature-3").on('click', function (e) {
+      window.location.href = '/product_category?type=<%= @third_category.title.gsub(" ", "_") %>'
+    });
+    $("#feature-4").on('click', function (e) {
+      window.location.href = '/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>'
+    });
+    $("#feature-5").on('click', function (e) {
+      window.location.href = '/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>'
+    });
+    $("#feature-6").on('click', function (e) {
+      window.location.href = '/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>'
+    });
+    $("#feature-7").on('click', function (e) {
+      window.location.href = '/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>'
+    });
+    $("#feature-8").on('click', function (e) {
+      window.location.href = '/product_category?type=<%= @last_category.title.gsub(" ", "_") %>'
+    });
     $(document).ready(function () {
         //single banner slider
         $('.banner_slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
