@@ -147,12 +147,14 @@
                   <div class="form-check">
                     <div class="custom-radio-tabs">
                       <% @product.colors.each do |color| %>
-                        <% if color.image.present? %>
                           <input id="x" type="radio" class="form-check-input custom-radio-tab" name=" " checked="">
                           <label for="x" class="radio-inline"><div class="custom_img_picker">
+                            <% if color.image.present? %>
                               <%= image_tag(url_for(color.image), width: '100%') %>
+                            <% else %>
+                              <%=image_tag("img/trans-color.png", width: '100%') %>
+                            <% end %>
                           </div><%= color.title %></label>
-                        <% end %>
                       <% end %>
                     </div>
                   </div>
