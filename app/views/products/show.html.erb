@@ -144,25 +144,25 @@
                      <span>Share on</span>
                      <%= link_to "javascript:void(0);", class: 'share-on-facebook', data: { id: @product.id, type: 'facebook', attributes: product_attributes(@product) } do %>
                      <span>
-                     <i class="fab fa-facebook-f" style="font-size: 21px;margin-left: 30px;color: #3b5998;"></i>
+                     <i class="fab fa-facebook-f" style="font-size: 21px;margin-left: 60px;color: #3b5998;"></i>
                      </span>
                      <% end %>
                      <a class="share-on-pinterest" data-id="139" data-type="pinterest" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://128.199.108.32/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
                      <span>
                      <i class="fa fa-pinterest
-                        " style="font-size: 21px;margin-left: -26px;color: #ee1c21;"></i>
+                        " style="font-size: 21px;margin-left: 3px;color: #ee1c21;"></i>
                      </span>
                      </a>
                      <a class="share-on-twitter" data-id="139" data-type="twitter" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://128.199.108.32/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
                      <span>
                      <i class="fa fa-twitter-square
-                        " style="font-size: 21px;margin-left: -83px;color: #1ea1f1;"></i>
+                        " style="font-size: 21px;margin-left: -57px;color: #1ea1f1;"></i>
                      </span>
                      </a>
 
                      <a href="#" class="">
                      <span>
-                     <i class="fa fa-whatsapp" style="font-size: 21px;margin-left: -140px;color:#4FCE5D">
+                     <i class="fa fa-whatsapp" style="font-size: 21px;margin-left: -115px;color:#4FCE5D">
                      </i>
                      </span>
                      </a>
@@ -208,7 +208,7 @@
                   <!-- <a href="/cart" class="btn_3">add to cart</a> -->
                   <% if current_user.present? %>
                   <% if @product.likes.where(user_id: current_user.id).present? %>
-                  <a class="like_us_2"> <i class="fa fa-heart" id="product-like"></i> </a>
+                  <a class="like_us_2"> <i class="fa fa-heart" id="product-like" style="font-size: 21px;"></i> </a>
                   <% else %>
                   <a class="like_us_1"> <i class="fa fa-heart-o" id="product-like"></i> </a>
                   <% end %>

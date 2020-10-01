@@ -32,7 +32,7 @@
             <h4>order info</h4>
             <ul>
               <li>
-                <p>Customer Pin</p><span>: <%= @checkout.user_cart.otp_code.present? ? @checkout.user_cart.otp_code : rand(6**6).to_s %></span>
+                <p>Customer Pin</p><span style="font-size: 19px;color: red;font-weight: 600;">: <%= @checkout.user_cart.otp_code.present? ? @checkout.user_cart.otp_code : rand(6**6).to_s %></span>
               </li>
               <li>
                 <p>order number</p><span>: <%= @checkout.id.to_s + @checkout.created_at.strftime("%Y%M").to_s %></span>
@@ -41,7 +41,7 @@
                 <p>Name</p><span>: <%= current_user.first_name + " " + current_user.last_name %></span>
               </li>
               <li>
-                <p>Customer Email</p><span>: <%= current_user.email %></span>
+                <p>Email</p><span>: <%= current_user.email %></span>
               </li>
               <li>
                 <p>Customer Phone</p><span>: <%= current_user.contact_details %></span>
@@ -75,6 +75,15 @@
                 <p>postcode</p><span>: <%= @billing_address.postal_code %></span>
               </li>
             </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-lx-4">
+          
+          <div class="custom-pin-section">
+
+            <h4 style="margin-left: 100px;font-size: 22px;color: yellowgreen;margin-top: 80px;">YOUR PIN IS YOUR SECRET</h4>
+            
           </div>
         </div>
         <div class="col-lg-6 col-lx-4">
