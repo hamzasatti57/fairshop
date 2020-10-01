@@ -90,6 +90,7 @@
       <% if @first_category.present? %>
         <div class="col-lg-7 col-sm-6" id="feature-1" style="cursor: pointer">
           <div class="single_feature_post_text">
+            <a href="/product_category?type=<%= @first_category.title.gsub(" ", "_") %>">
             <h3><%= @first_category.title %></h3>
             <a href="/product_category?type=<%= @first_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
@@ -100,6 +101,7 @@
               
             <% end %>
             <%#=image_tag("img/feature/feature_1.png")%>
+            </a>
           </div>
         </div>
       <% end %>
@@ -107,6 +109,7 @@
       <% if @second_category.present? %>
         <div class="col-lg-5 col-sm-6" id="feature-2" style="cursor: pointer">
           <div class="single_feature_post_text">
+            <a href="/product_category?type=<%= @second_category.title.gsub(" ", "_") %>">
             <h3><%= @second_category.title %></h3>
             <a href="/product_category?type=<%= @second_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE
               NOW <i class="fa fa-play"></i></a>
@@ -115,6 +118,7 @@
              <img src="<%= url_for(@second_category.image) %>" style='height: auto;width: 100%;;margin-top: -20px;'>
            </div>
             <% end %>
+            </a>
           </div>
         </div>
       <% end %>
@@ -122,6 +126,7 @@
       <% if @third_category.present? %>
         <div class="col-lg-5 col-sm-6" id="feature-3" style="cursor: pointer">
           <div class="single_feature_post_text">
+            <a href="/product_category?type=<%= @third_category.title.gsub(" ", "_") %>">
             <h3><%= @third_category.title %></h3>
             <a href="/product_category?type=<%= @third_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
@@ -130,6 +135,7 @@
               <img src="<%= url_for(@third_category.image) %>" style='height: auto;width: 100%;;margin-top: -14px;'> 
             </div>
             <% end %>
+            </a>
           </div>
         </div>
       <% end %>
@@ -137,6 +143,7 @@
       <% if @fourth_category.present? %>
         <div class="col-lg-7 col-sm-6" id="feature-4" style="cursor: pointer">
           <div class="single_feature_post_text">
+            <a href="/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>">
             <h3><%= @fourth_category.title %></h3>
             <a href="/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE
               NOW <i class="fa fa-play"></i></a>
@@ -145,6 +152,7 @@
              <img src="<%= url_for(@fourth_category.image) %>" style='height: auto;width: 100%;;margin-top: -60px;'> 
         </div>
             <% end %>
+            </a>
           </div>
         </div>
       <% end %>
@@ -152,6 +160,7 @@
       <% if @fifth_category.present? %>
         <div class="col-lg-7 col-sm-6" id="feature-5" style="cursor: pointer">
           <div class="single_feature_post_text">
+            <a href="/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>">
             <h3><%= @fifth_category.title %></h3>
             <a href="/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
@@ -160,6 +169,7 @@
               <img src="<%= url_for(@fifth_category.image) %>" style='width: 100%;height: auto; margin-top: -40px'>
             </div>
             <% end %>
+            </a>
           </div>
         </div>
       <% end %>
@@ -167,6 +177,7 @@
       <% if @sixth_category.present? %>
         <div class="col-lg-5 col-sm-6" id="feature-6" style="cursor: pointer">
           <div class="single_feature_post_text">
+            <a href="/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>">
             <h3><%= @sixth_category.title %></h3>
             <a href="/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
@@ -175,6 +186,7 @@
               <img src="<%= url_for(@sixth_category.image) %>" style='height: auto;width: 100%;margin-top: -59px;'>
             </div>
             <% end %>
+          </a>
           </div>
         </div>
       <% end %>
@@ -183,6 +195,7 @@
       <% if @seventh_category.present? %>
         <div class="col-lg-6 col-sm-6" id="feature-7" style="cursor: pointer">
           <div class="single_feature_post_text">
+            <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>">
             <h3><%= @seventh_category.title %></h3>
             <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
@@ -191,6 +204,7 @@
               <img src="<%= url_for(@seventh_category.image) %>" style='height: auto;width: 100%;margin-top: 40px;'>
             </div>
             <% end %>
+          </a>
           </div>
         </div>
       <% end %>
@@ -199,6 +213,7 @@
       <% if @last_category.present? %>
         <div class="col-lg-6 col-sm-6" id="feature-8" style="cursor: pointer">
           <div class="single_feature_post_text">
+            <a href="">
             <h3><%= @last_category.title %></h3>
             <a href="/product_category?type=<%= @last_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
@@ -207,6 +222,7 @@
               <img src="<%= url_for(@last_category.image) %>" style='height: auto;width: 100%;margin-top: -13px;'>
             </div>
             <% end %>
+            </a>
           </div>
         </div>
       <% end %>
@@ -371,7 +387,7 @@
           </div>
 
           <div class="checkout_btn_inner float-right">
-            <a  class="btn_1 checkout_btn_2" href="" style="margin-left: 20px;">Continue</a>
+            <a  class="btn_1 checkout_btn_2" href="" style="margin-left: 20px;">Shop More</a>
           </div>
       </div>
 
