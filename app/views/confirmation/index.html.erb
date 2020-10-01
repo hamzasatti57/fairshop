@@ -38,7 +38,7 @@
                 <p>order number</p><span>: <%= @checkout.id.to_s + @checkout.created_at.strftime("%Y%M").to_s %></span>
               </li>
               <li>
-                <p>Customer Name</p><span>: <%= current_user.first_name + " " + current_user.last_name %></span>
+                <p>Name</p><span>: <%= current_user.first_name + " " + current_user.last_name %></span>
               </li>
               <li>
                 <p>Customer Email</p><span>: <%= current_user.email %></span>
