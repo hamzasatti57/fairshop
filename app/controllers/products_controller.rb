@@ -80,7 +80,7 @@ class ProductsController < ApplicationController
 
   end
 
-  def discounted_items
+  def promotions
     @best_seller_products = Product.where( status: true).limit(5)
       @products = Product.where( status: true, is_discounted: true)
       @product_categories = ProductCategory.where(id: @products.pluck(:product_category_id))

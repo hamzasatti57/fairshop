@@ -12,11 +12,6 @@
   .billing_details .contact_form .form-group textarea {
     height: 70px;
   }
-
-
-
-
-
   .order_box .payment-btn{
     /* display: block; */
     /*line-height: 38px;*/
@@ -270,19 +265,19 @@ color:#ffffff;
                   Store State / County, Store Postcode.
                 </p>
               </div> -->
-              <div class="payment_item active">
+<!--               <div class="payment_item active">
                 <div class="radion_btn">
                   <input type="radio" id="f-option6" name="selector" checked="checked" />
                   <label for="f-option6">Payfast </label>
-                  <%=image_tag("img/product/single-product/card.jpg")%>
+                  <%#=image_tag("img/product/single-product/card.jpg")%>
                   <div class="check"></div>
                 </div>
                 <p>
                   Please send a check to Store Name, Store Street, Store Town,
                   Store State / County, Store Postcode.
                 </p>
-              </div>
-              <div class="creat_account">
+              </div> -->
+<!--               <div class="creat_account">
                 <input type="checkbox" id="f-option4" name="selector" />
                 <label for="f-option4">I’ve read and accept the </label>
                 <a href="#">terms & conditions*</a>
@@ -293,13 +288,13 @@ color:#ffffff;
                 <input type="hidden" name="return_url" value="http://128.199.108.32/confirmation">
                 <input type="hidden" name="cancel_url" value="http://128.199.108.32/cancel">
                 <input type="hidden" name="notify_url" value="http://128.199.108.32/notify">
-                <input type="hidden" name="name_first" value=<%= current_user.first_name + " " + current_user.last_name %>>
+                <input type="hidden" name="name_first" value=<%#= current_user.first_name + " " + current_user.last_name %>>
                 <input type="hidden" name="email_address" value=<%= current_user.email %>>
                 <input type="hidden" name="amount" value=<%= @sum %>>
-                <input type="hidden" name="item_name" value="General POS">
+                <input type="hidden" name="item_name" value="General POS"> -->
                 <!-- <input type="submit" value="Submit"> -->
-                <button type="submit" class="payment-btn proceed_to_checkout">Proceed to Payfast</button>
-              </form>
+                <!-- <button type="submit" class="payment-btn proceed_to_checkout">Proceed to Payfast</button>
+              </form> -->
               <!-- <a class="btn_3 proceed_to_checkout" href="/confirmation">Proceed to Payfast</a> -->
 
               <div class="payment_item active">

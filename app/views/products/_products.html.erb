@@ -56,6 +56,7 @@
 </div>
 <div class="row align-items-center latest_product_inner">
   <% @products.each do |product| %>
+  <% next if product.is_promotional_banner == true %>
     <div class="col-lg-4 col-sm-6">
       <div class="single_product_item">
         <div class="cutome-img-size">
@@ -160,12 +161,12 @@
             selectedText = "created_at";
         }
         // jQuery
-        window.location.href = '/products/discounted_items?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&sort_by=' + selectedText
+        window.location.href = '/products/promotions?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&sort_by=' + selectedText
     });
 
 
     $('#inputGroupPrepend').click(function () {
-        window.location.href = '/products/discounted_items?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
+        window.location.href = '/products/promotions?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
         // window.location.href = '/'
     });
 </script>

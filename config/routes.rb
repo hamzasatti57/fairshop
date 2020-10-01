@@ -35,7 +35,7 @@ Rails.application.routes.draw do
   resources :products do
     collection do
       post :popular_list
-      get :discounted_items
+      get :promotions
       get :favourites
       post :save_cart
     end

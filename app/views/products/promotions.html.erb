@@ -28,7 +28,7 @@
   }
 </style>
 
-<% @products = @products.paginate(page: params[:page], per_page: 6) %>
+<%# @products = @products.paginate(page: params[:page], per_page: 6) %>
 <!--================Home Banner Area =================-->
 <!-- breadcrumb start-->
 <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/promotions.png') %>');">
@@ -62,7 +62,7 @@
                 <%# @product_categories.each do |category| %>
                   <%# if category.products.where(status: true).count > 0 %>
                     <li>
-                      <a href="/products/discounted_items?type=<%#= params[:type] %>&category=<%#= category.title.gsub(" ", "_") %>"><%#= category.title %></a>
+                      <a href="/products/promotions?type=<%#= params[:type] %>&category=<%#= category.title.gsub(" ", "_") %>"><%#= category.title %></a>
                       <span><%#= category.products.where(status: true).count %></span>
                     </li>
                   <%# end %>
@@ -80,7 +80,7 @@
                                   <%# @companies.to_a.each do |brand| %>
                                     <%# if @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count > 0 %>
                                       <li>
-                                          <a href="/products/discounted_items?type=<%#= params[:type] %>&brand=<%#= brand.title.gsub(" ", "_") %>&category=<%#= params[:category] %>"><%#= brand.title %></a>
+                                          <a href="/products/promotions?type=<%#= params[:type] %>&brand=<%#= brand.title.gsub(" ", "_") %>&category=<%#= params[:category] %>"><%#= brand.title %></a>
                                           <span><%#= @brand_products.where(product_category_id: @category.product_categories.pluck(:id), company_id: brand.id).count %></span>
                                       </li>
                                     <%# end %>
@@ -349,7 +349,7 @@
     // $('#price-filter').click(function(){
     //   min_val = $(".js-input-from").val()
     //   max_val = $(".js-input-to").val()
-    //   window.location.href = '/products/discounted_items?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&min_val=' + min_val + '&max_val=' + max_val
+    //   window.location.href = '/products/promotions?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&min_val=' + min_val + '&max_val=' + max_val
 
     // });
 
@@ -360,7 +360,7 @@
         // e.preventDefault(); // don't submit multiple times
         // this.submit(); // use the native submit method of the form element
         $.ajax({
-            url: '/products/discounted_items?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&min_val=' + min_val + '&max_val=' + max_val,
+            url: '/products/promotions?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&min_val=' + min_val + '&max_val=' + max_val,
             type: "GET",
             processData: false,
             // beforeSend: function(xhr, settings) {
