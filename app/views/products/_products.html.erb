@@ -161,12 +161,12 @@
             selectedText = "created_at";
         }
         // jQuery
-        window.location.href = '/products/discounted_items?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&sort_by=' + selectedText
+        window.location.href = '/products/promotions?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&sort_by=' + selectedText
     });
 
 
     $('#inputGroupPrepend').click(function () {
-        window.location.href = '/products/discounted_items?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
+        window.location.href = '/products/promotions?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
         // window.location.href = '/'
     });
 </script>
