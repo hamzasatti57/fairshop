@@ -181,7 +181,11 @@
                               <input id="x" type="radio" class="form-check-input custom-radio-tab" name=" " checked="">
                               <label for="x" class="radio-inline">
                                  <div class="custom_img_picker">
-                                    <%= image_tag(url_for(color.image), width: '100%') %>
+                                    <% if color.image.present? %>
+                                      <%= image_tag(url_for(color.image), width: '100%') %>
+                                    <% else %>
+                                      <%=image_tag("img/trans-color.png", width: '100%') %>
+                                    <% end %>
                                  </div>
                                 <!--  <%= color.title %> -->
                               </label>
