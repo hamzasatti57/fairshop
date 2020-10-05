@@ -88,10 +88,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       :address              => 'mail.fairprice.co.za',
       :port                 => 25,
-      :user_name            => 'onlineorders',
+      :user_name            => 'onlineorders@fairprice.co.za',
       :password             => 'Password001',
-      :authentication       => 'plain',
-      :enable_starttls_auto => true
   }
 end
 
