@@ -21,8 +21,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <div style="font-size: 100px;text-align:center;color: #14BD14;/* width: 100px; *//* background-color: red; *//* display: flex; *//* display: table-cell; */"><i class="fa fa-check" style=" /* text-align: center; */"></i>
-        </div>
+         <!--  <div style="font-size: 100px;text-align:center;color: #14BD14; width: 100px;  background-color: red;  display: flex;  display: table-cell; "><i class="fa fa-check" style=" text-align: center;"></i>
+        </div> -->
           <div class="confirmation_tittle">
             <span>Thank you. Your order has been received.</span>
           </div>
@@ -32,7 +32,7 @@
             <h4>order info</h4>
             <ul>
               <li>
-                <p>Customer Pin</p><span style="font-size: 19px;color: red;font-weight: 600;">: <%= @checkout.user_cart.otp_code.present? ? @checkout.user_cart.otp_code : rand(6**6).to_s %></span>
+                <p style="font-size: 19px;font-weight: 600;">Customer Pin</p><span style="font-size: 19px;color: red;font-weight: 600;">: <%= @checkout.user_cart.otp_code.present? ? @checkout.user_cart.otp_code : rand(6**6).to_s %></span>
               </li>
               <li>
                 <p>order number</p><span>: <%= @checkout.id.to_s + @checkout.created_at.strftime("%Y%M").to_s %></span>
@@ -101,7 +101,7 @@
         <div class="col-lg-6 col-lx-4">
           
           <div class="custom-pin-section">
-            <h4 style="margin-left: 130px;font-size: 22px;color: yellowgreen;margin-top: 40px;">YOUR PIN IS YOUR SECRET</h4>
+            <h4 style="margin-left: 60px;font-size: 22px;color: #e9414f;margin-top: 40px;line-height: 2rem">YOUR PIN IS YOUR SECRET, only provide pin number to driver upon delivery.</h4>
           </div>
         </div>
       </div>

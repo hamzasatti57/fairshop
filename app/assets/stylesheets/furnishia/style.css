@@ -1,4 +1,4 @@
-/*Color Variables*/
+Color Variables*/
 /**************** extend css start ****************/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_extends.scss */
@@ -2309,7 +2309,7 @@ ul {
 @media (max-width: 991px) {
   /* line 194, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
   .main_menu {
-    padding: 26px 0px;
+    padding: 19px 0px;
   }
   /* line 198, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
   .home_menu .main-menu-item {
@@ -2383,7 +2383,7 @@ ul {
 @media (max-width: 576px) {
   /* line 273, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
   .main_menu {
-    padding: 20px 0px;
+    padding: 15px 0px;
   }
 }
 
@@ -5007,7 +5007,7 @@ ul {
 /* line 1599, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .order_box {
   background: #ecfdff;
-  padding: 30px;
+  padding: 20px;
 }
 
 /* line 1603, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -5039,7 +5039,7 @@ ul {
   float: none;
   width: 50px;
   text-align: right;
-  display: inline-block;
+  /*display: inline-block;*/
   margin-left: 30px;
   color: #2a2a2a;
 }
@@ -7826,4 +7826,20 @@ h6 {
   margin: 0px 10px;
   color: #fff;
   font-size: 16px;
+}
+
+
+
+/*----------------------------*/
+/*----custom media querry-----*/
+/*--------------------------- */
+@media only screen and (max-width: 600px) {
+
+  .banner_part .single_banner_slider .banner_text .banner_text_iner {
+    display: table-cell;
+     vertical-align: none !impo; 
+}
+ 
+
+
 }
