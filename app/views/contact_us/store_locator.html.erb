@@ -1,4 +1,14 @@
-<!-- ========================  Main header ======================== -->
+
+<style type="text/css">
+  
+  @media only screen and (max-width: 600px) {
+ .store-counter{
+  display:block !important ; 
+  margin-left: -7%;
+}
+</style>
+
+
   <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/store-locator-banner.png') %>');">
     <div class="container">
       <div class="row">
@@ -22,12 +32,12 @@
     <section class="subscribe_area section_padding">
         <div class="container">
             <div class="row ">
-                <div class="col-lg-7">
+                <div class="col-lg-12">
                     <div class="subscribe_area_text text-center">
                         <h3>SEARCH FOR A STORE NEAR YOU</h3>
                         <h5>See which stores are near your location or simply click the show all button to view all our stores</h5>
                         <div class="row" style="display: contents;">
-                            <div style="display: inline-flex; margin-left: -7%;">
+                            <div class="store-counter"style="display: inline-flex; margin-left: -7%;">
                                 <div style="padding: 20px">
                                   <h1>100</h1>
                                   <h2>Stores</h2>
@@ -54,7 +64,7 @@
 
   <section class="contact-section padding_top">
     <div class="container">
-      <div class="d-none d-sm-block mb-5 pb-4">
+      <div class="d-sm-block mb-5 pb-4">
         <div id="map" style="height: 480px;"></div>
         <script>
           function initMap() {
