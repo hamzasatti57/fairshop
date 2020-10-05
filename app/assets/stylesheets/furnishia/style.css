@@ -59,7 +59,7 @@ input:focus {
 @media (max-width: 576px) {
   /* line 24, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_common.scss */
   .section_padding {
-    padding: 30px 0px;
+    padding: 30px 25px;
   }
   .products-partial{
     margin-top: 140px !important;
@@ -2386,7 +2386,7 @@ ul {
 @media (max-width: 576px) {
   /* line 273, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
   .main_menu {
-    padding: 15px 0px;
+    padding: 8px 0px;
   }
 }
 
@@ -2700,6 +2700,11 @@ ul {
   .feature_part .single_feature_post_text h3 {
     margin-top: 10px;
   }
+   .feature_part .single_feature_post_text {
+    height: 10px;
+    padding: 35px 20px;
+  }
+
 }
 
 /* line 46, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_feature_part.scss */
@@ -7854,7 +7859,7 @@ h6 {
 }
 
 .feature_part .single_feature_post_text {
-    padding: 50px;
+   /* padding: 50px;*/
     background-color: #f8fbff;
     margin-bottom: 0px !important;
     position: relative;
