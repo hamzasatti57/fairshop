@@ -86,7 +86,7 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :address              => 'smtp.gmail.com',
+      :address              => 'mail.fairprice.co.za',
       :port                 => 587,
       :user_name            => 'onlineorders@fairprice.co.za',
       :password             => 'Password001',
