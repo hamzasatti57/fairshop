@@ -28,7 +28,7 @@
               <div class="row">
                 <div class="col-lg-5 col-md-8">
                   <div class="banner_text">
-                    <div class="banner_text_iner">
+                    <div class="banner_text_iner custom-slider-margin">
                       <h1><%= product.title %></h1>
                       <% if product.is_promotional_banner.blank? %>
                         <p><%= product.description %></p>
@@ -401,34 +401,9 @@
 
 <script>
 
-    $(".checkout_btn_2").on('click', function (e) {
-      $('#add_to_cart_modal').modal('hide');
-    });
+  // code here place
 
-    $("#feature-1").on('click', function (e) {
-      window.location.href = '/product_category?type=<%= @first_category.title.gsub(" ", "_") %>'
-    });
-    $("#feature-2").on('click', function (e) {
-      window.location.href = '/product_category?type=<%= @second_category.title.gsub(" ", "_") %>'
-    });
-    $("#feature-3").on('click', function (e) {
-      window.location.href = '/product_category?type=<%= @third_category.title.gsub(" ", "_") %>'
-    });
-    $("#feature-4").on('click', function (e) {
-      window.location.href = '/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>'
-    });
-    $("#feature-5").on('click', function (e) {
-      window.location.href = '/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>'
-    });
-    $("#feature-6").on('click', function (e) {
-      window.location.href = '/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>'
-    });
-    $("#feature-7").on('click', function (e) {
-      window.location.href = '/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>'
-    });
-    $("#feature-8").on('click', function (e) {
-      window.location.href = '/product_category?type=<%= @last_category.title.gsub(" ", "_") %>'
-    });
+  // code here end
     $(document).ready(function () {
         //single banner slider
         $('.banner_slider').on('initialized.owl.carousel changed.owl.carousel', function (e) {
