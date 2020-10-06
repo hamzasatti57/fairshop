@@ -54,48 +54,6 @@
    padding-bottom: 30px;
    margin: auto;
    }
-
-
-
-
-
-
-
-
-
-   /*-----button selection code----*/
-
-   .custom_radio_btn_tab input.custom-radio-tab {
-  position: absolute;
-  left: -99999em;
-  top: -99999em;
-  opacity: 1;
-  z-index: 1;
-}
-.custom_radio_btn_tab input.custom-radio-tab+label {
-  cursor: pointer;
-  float: left;
-  border: 1px solid #aaa;
-  margin-right: -1px;
-  padding: 10px 25px;
-  position: relative;
-  display: flex;
-  margin: 0px 10px;
-  border-radius: 50px;
-}
-.custom_radio_btn_tab input.custom-radio-tab+label:hover {
-    background-color: #ccc;
-}
-.custom_radio_btn_tab [type=radio]:checked+label {
-  background-color: #efefef;
-  z-index: 1;
-}
-.custom_img_picker{
-  width: 25px;
-  height: 25px;
-  margin: 0px 10px;
-}
-   /*------ button end ------*/
 </style>
 <!-- breadcrumb start-->
 <% if @product.product_category.category.present? && @product.product_category.category.banner_image.present? %>
@@ -215,22 +173,7 @@
                     
                   <li style="display: inline-flex; vertical-align: middle;">
                      <span style="margin-top: 12px">Color</span>        <span  style="padding-left: 24px;"></span>
-                     <!-- button selection code -->
-
                      <div class="custom_radio_btn_tab">
-    <div class="form-check">
-      <div class="custom-radio-tabs">
-       <div class="custom_img_picker"></div>
-        <input id="x" type="radio" class="form-check-input custom-radio-tab" name=" " checked=""><label for="x" class="radio-inline"><div class="custom_img_picker"><img src="extra-img/bg-01.jpg" width="100%"> </div> Black</label>
-        <input id="y" type="radio" class="form-check-input custom-radio-tab" name=" "><label for="y" class="radio-inline"><div class="custom_img_picker"><img src="extra-img/bg-01.jpg" width="100%"> </div>Red</label>
-        <input id="z" type="radio" class="form-check-input custom-radio-tab" name=" "><label for="z" class="radio-inline"><div class="custom_img_picker"><img src="extra-img/bg-01.jpg" width="100%"> </div>Orange</label>
-      </div>
-    </div>
-  </div>
-<!-- ruby code -->
-
-<!-- 
-<div class="custom_radio_btn_tab">
                         <div class="form-check">
                            <div class="custom-radio-tabs">
                               <% @product.colors.each do |color| %>
@@ -250,15 +193,7 @@
                               <% end %>
                            </div>
                         </div>
-                     </div> -->
-
-
-
-
-
-
-
-                     <!-- button selection end -->
+                     </div>
                   </li>
                </ul>
                <p>
