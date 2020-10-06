@@ -91,8 +91,8 @@ Rails.application.configure do
       :user_name            => 'onlineorders',
       :password             => 'Password001',
       :authentication       => :login,
-      :openssl_verify_mode  => false,
-      :enable_starttls_auto => true
+      :openssl_verify_mode  => 'verify_none'
+      #:enable_starttls_auto => true
   }
 end
 
