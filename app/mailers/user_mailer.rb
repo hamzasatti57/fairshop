@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'billing@fairprice.co.za'
+  default from: 'onlineorders@fairprice.co.za'
 
   def order_confiramtion_email(user, checkout, billing_address, cart, sum)
     @user = user

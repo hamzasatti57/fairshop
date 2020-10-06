@@ -90,7 +90,7 @@ Rails.application.configure do
       :port                 => 25,
       :user_name            => 'onlineorders@fairprice.co.za',
       :password             => 'Password001',
-      :authentication       => 'plain',
+      :authentication       => true,
       :openssl_verify_mode  => 'none',
       :enable_starttls_auto => true
   }
