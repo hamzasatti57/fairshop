@@ -1173,11 +1173,12 @@ ul {
     background-image: url(../img/breadcrumb.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain ;
+    background-size: contain !important;
+    background-color:#ecfdff !important;
 }
 
 .breadcrumb .breadcrumb_iner {
-    height: 339px;
+    height: 400px !important;
     width: 100%;
     display: table;
 }
