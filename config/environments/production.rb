@@ -122,8 +122,8 @@ Rails.application.configure do
       :user_name            => 'onlineorders',
       :password             => 'Password001',
       :authentication       => :login,
-      :openssl_verify_mode  => false,
-      :enable_starttls_auto => true
+      :openssl_verify_mode  => 'none'
+      #:enable_starttls_auto => true
   }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
