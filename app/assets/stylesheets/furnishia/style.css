@@ -62,7 +62,7 @@ input:focus {
     padding: 30px 25px;
   }
   .products-partial{
-    margin-top: 140px !important;
+    margin-top: 275px !important;
   }
 }
 
@@ -1173,11 +1173,12 @@ ul {
     background-image: url(../img/breadcrumb.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain ;
+    background-size: contain !important;
+    background-color:#ecfdff !important;
 }
 
 .breadcrumb .breadcrumb_iner {
-    height: 339px;
+    height: 400px !important;
     width: 100%;
     display: table;
 }
@@ -7893,7 +7894,7 @@ h6 {
     height: 400px;
 }
 .products-partial{
-    margin-top: 140px !important;
+    margin-top: 275px !important;
   }
 
    .product_top_bar .single_product_menu p {

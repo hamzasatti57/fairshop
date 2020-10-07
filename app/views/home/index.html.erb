@@ -239,8 +239,8 @@
             <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @seventh_category.image.present? %>
-             <div class="category_img7" style="width: 220px;height:220px; float: right;">
-              <img src="<%= url_for(@seventh_category.image) %>" style='height: auto;width: 100%;margin-top: -30px;'>
+             <div class="category_img7" style="width: 275px;height:275px; float: right;">
+              <img src="<%= url_for(@seventh_category.image) %>" style='height: auto;width: 100%;margin-top: -80px;'>
             </div>
             <% end %>
           </a>
@@ -257,7 +257,7 @@
             <a href="/product_category?type=<%= @last_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @last_category.image.present? %>
-             <div class="category_img8" style="width: 220px;height:220px; float: right;">
+             <div class="category_img8" style="width: 300px;height:220px; float: right;">
               <img src="<%= url_for(@last_category.image) %>" style='height: auto;width: 100%;margin: 15px;'>
             </div>
             <% end %>
@@ -442,7 +442,6 @@
 <script>
 
   // code here place
-
     $('#feature-1').on('click', function (e) {
       window.location.href = "/product_category?type=<%= @first_category.title.gsub(" ", "_") %>"
     });
@@ -467,6 +466,7 @@
     $('#feature-8').on('click', function (e) {
       window.location.href = "/product_category?type=<%= @last_category.title.gsub(" ", "_") %>"
     });
+
   // code here end
     $(document).ready(function () {
         //single banner slider
