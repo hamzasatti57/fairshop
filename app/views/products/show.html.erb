@@ -22,7 +22,7 @@
    .custom_radio_btn_tab input.custom-radio-tab {
    position: absolute;
    left: -99999em;
-   top: -99999em;
+   /*top: -99999em;*/
    opacity: 1;
    z-index: 1;
    }
@@ -42,6 +42,7 @@
    }
    .custom_radio_btn_tab [type=radio]:checked+label {
    background-color: #efefef;
+   border:1px solid red;
    z-index: 1;
    }
    .custom_img_picker{
@@ -179,7 +180,7 @@
                               <% @product.colors.each do |color| %>
                                 <%# if color.image.present? %>
                                 <input id="<%= color.id %>" type="radio" class="form-check-input custom-radio-tab" name=" " checked="">
-                                <label for="<%= color.id %>" class="radio-inline">
+                                <label for="<%= color.id %>" class="radio-inline" title="<%= color.title %>">
                                    <div class="custom_img_picker">
                                       <% if color.image.present? %>
                                         <%= image_tag(url_for(color.image), width: '100%') %>
