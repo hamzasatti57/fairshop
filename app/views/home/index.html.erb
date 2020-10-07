@@ -354,9 +354,9 @@
           <h2>JOIN OUR MAILING LIST!</h2>
           <div class="input-group">
             <input type="text" class="form-control" placeholder="enter email address"
-                   aria-label="Recipient's username" aria-describedby="basic-addon2">
+                   aria-label="Recipient's username" aria-describedby="basic-addon2" id="newsletter-form-email-1">
             <div class="input-group-append">
-              <a href="#" class="input-group-text btn_2" id="basic-addon2">subscribe now</a>
+              <a href="" class="input-group-text btn_2" id="basic-addon2">subscribe now</a>
             </div>
           </div>
         </div>
@@ -572,5 +572,18 @@
         });
     }
 
+      $("#basic-addon2").click(function () {
+        email = $('#newsletter-form-email-1').val()
+            $.ajax({
+              headers: { 'X-CSRF-Token': Rails.csrfToken() },
+              url: '/home/subscribe_user?email=' + email,
+              type: "POST",
+              processData: false,
+              success: function (data) {
+                window.location.href = '/';
+                // toastr.success('Email Subscribe sucessfully')
+              }
+        });
+      });
 
 </script>

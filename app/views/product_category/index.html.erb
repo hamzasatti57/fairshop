@@ -101,10 +101,10 @@
             <div class="widgets_inner">
               <ul class="list">
                 <% @product_categories.each do |category| %>
-                  <% if category.products.where(status: true).count > 0 %>
+                  <% if category.products.where(status: true, is_promotional_banner: false).count > 0 %>
                     <li>
                       <a href="/product_category?type=<%= params[:type] %>&category=<%= category.title.gsub(" ", "_") %>"><%= category.title %></a>
-                      <span><%= category.products.where(status: true).count %></span>
+                      <span><%= category.products.where(status: true, is_promotional_banner: false).count %></span>
                     </li>
                   <% end %>
                 <% end %>
