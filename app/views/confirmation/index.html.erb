@@ -106,7 +106,7 @@
 
           <div class="custom-pin-section" style="text-align: center;margin-top: 20px;">
            <span style="font-size: 24px;font-weight: 500;color: red;">Customer Pin</span>
-           <span style="font-size: 28px; color: red;font-weight: 600;margin-left: 20px;">45372</span>
+           <span style="font-size: 28px; color: red;font-weight: 600;margin-left: 20px;"><%= @checkout.user_cart.otp_code.present? ? @checkout.user_cart.otp_code : rand(6**6).to_s %></span>
          </div>
 
         </div>
