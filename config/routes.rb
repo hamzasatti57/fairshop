@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :comments
   resources :ratings
   resources :likes
+  resources :contacts, only: [:create, :new]
   resources :billing_addresses do 
     collection do
       post :save_address
@@ -68,6 +69,7 @@ Rails.application.routes.draw do
     collection do
       post :search
       get :search
+      post :subscribe_user
     end
   end
 
