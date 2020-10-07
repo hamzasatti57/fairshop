@@ -137,7 +137,7 @@
                   </li>
                 
               <!--     <li>
-                     <span style="padding-right: 25px;">Warranty</span>    :    <%= @product.warranty == true ? "Yes" : "No" %>
+                     <span style="padding-right: 25px;">Warranty</span>    :    <%#= @product.warranty == true ? "Yes" : "No" %>
                   </li> -->
                   <li>
                      <div style="display:inline-flex; ">
@@ -177,19 +177,19 @@
                         <div class="form-check">
                            <div class="custom-radio-tabs">
                               <% @product.colors.each do |color| %>
-                              <% if color.image.present? %>
-                              <input id="x" type="radio" class="form-check-input custom-radio-tab" name=" " checked="">
-                              <label for="x" class="radio-inline">
-                                 <div class="custom_img_picker">
-                                    <% if color.image.present? %>
-                                      <%= image_tag(url_for(color.image), width: '100%') %>
-                                    <% else %>
-                                      <%=image_tag("img/trans-color.png", width: '100%') %>
-                                    <% end %>
-                                 </div>
-                                <!--  <%= color.title %> -->
-                              </label>
-                              <% end %>
+                                <%# if color.image.present? %>
+                                <input id="<%= color.id %>" type="radio" class="form-check-input custom-radio-tab" name=" " checked="">
+                                <label for="<%= color.id %>" class="radio-inline">
+                                   <div class="custom_img_picker">
+                                      <% if color.image.present? %>
+                                        <%= image_tag(url_for(color.image), width: '100%') %>
+                                      <% else %>
+                                        <%=image_tag("img/trans-color.png", width: '100%') %>
+                                      <% end %>
+                                   </div>
+                                  <!--  <%= color.title %> -->
+                                </label>
+                                <%# end %>
                               <% end %>
                            </div>
                         </div>
@@ -298,14 +298,14 @@
                         <h5><%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></h5>
                      </td>
                   </tr>
-                  <tr>
+<!--                   <tr>
                      <td>
                         <h5>Warranty</h5>
                      </td>
                      <td>
-                        <h5><%= @product.warranty == true ? "Yes" : "No" %></h5>
+                        <h5><%#= @product.warranty == true ? "Yes" : "No" %></h5>
                      </td>
-                  </tr>
+                  </tr> -->
                   <!-- <tr>
                      <td>
                        <h5>Clean and Care</h5>
