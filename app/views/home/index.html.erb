@@ -73,7 +73,16 @@
                       <h1><%= product.title %></h1>
                       <% if product.is_promotional_banner.blank? %>
                         <p><%= product.description %></p>
-                        <a href="/products/<%= product.id %>" class="feature_btn">VIEW MORE <i class="fa fa-play"></i></a>
+                        
+                        <div class="custom-product-price" style="font-size: 3rem;text-shadow: 0 0 1px #000;color:red;margin-bottom: 30px">
+                         <span class="price__symbol"style="display:inline-block;margin-top: 10px;vertical-align: top;font-size: 2rem;font-weight: 500;">R</span>
+                         <span>20202</span>
+                       </div>
+
+
+                        
+                        <a href="/products/<%= product.id %>" class="feature_btn">VIEW MORE <i class="fa fa-play"></i>
+                        </a>
                         <br>
                         <br>
                         <%= link_to add_to_cart_product_path(product.id), class: "btn_2", method: :post do %>
@@ -232,15 +241,15 @@
 
       <% @seventh_category = Category.where(category_type: "Feature").last(2).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @seventh_category.present? %>
-        <div class="col-lg-6 col-sm-6" id="feature-7" style="cursor: pointer">
+        <div class="col-lg-5 col-sm-6" id="feature-7" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>">
             <h3><%= @seventh_category.title %></h3>
             <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @seventh_category.image.present? %>
-             <div class="category_img7" style="width: 275px;height:275px; float: right;">
-              <img src="<%= url_for(@seventh_category.image) %>" style='height: auto;width: 100%;margin-top: -80px;'>
+             <div class="category_img7" style="width: 260px;height:275px; float: right;">
+              <img src="<%= url_for(@seventh_category.image) %>" style='height: auto;width: 100%;margin-top: -50px;'>
             </div>
             <% end %>
           </a>
@@ -250,7 +259,7 @@
 
       <% @last_category = Category.where(category_type: "Feature").last if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
       <% if @last_category.present? %>
-        <div class="col-lg-6 col-sm-6" id="feature-8" style="cursor: pointer">
+        <div class="col-lg-7 col-sm-6" id="feature-8" style="cursor: pointer">
           <div class="single_feature_post_text">
             <a href="">
             <h3><%= @last_category.title %></h3>
@@ -442,30 +451,7 @@
 <script>
 
   // code here place
-    $('#feature-1').on('click', function (e) {
-      window.location.href = "/product_category?type=<%= @first_category.title.gsub(" ", "_") %>"
-    });
-    $('#feature-2').on('click', function (e) {
-      window.location.href = "/product_category?type=<%= @second_category.title.gsub(" ", "_") %>"
-    });
-    $('#feature-3').on('click', function (e) {
-      window.location.href = "/product_category?type=<%= @third_category.title.gsub(" ", "_") %>"
-    });
-    $('#feature-4').on('click', function (e) {
-      window.location.href = "/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>"
-    });
-    $('#feature-5').on('click', function (e) {
-      window.location.href = "/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>"
-    });
-    $('#feature-6').on('click', function (e) {
-      window.location.href = "/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>"
-    });
-    $('#feature-7').on('click', function (e) {
-      window.location.href = "/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>"
-    });
-    $('#feature-8').on('click', function (e) {
-      window.location.href = "/product_category?type=<%= @last_category.title.gsub(" ", "_") %>"
-    });
+   
 
   // code here end
     $(document).ready(function () {
