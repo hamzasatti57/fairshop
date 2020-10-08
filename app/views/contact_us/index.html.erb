@@ -23,8 +23,8 @@
         <script>
           function initMap() {
             var uluru = {
-              lat: -25.363,
-              lng: 131.044
+              lat: -26.243046,
+              lng: 28.006550
             };
             var grayStyles = [{
                 featureType: "all",
@@ -32,23 +32,23 @@
                     saturation: -90
                   },
                   {
-                    lightness: 50
+                    lightness: 30
                   }
                 ]
               },
               {
                 elementType: 'labels.text.fill',
                 stylers: [{
-                  color: '#ccdee9'
+                  color: '#858585'
                 }]
               }
             ];
             var map = new google.maps.Map(document.getElementById('map'), {
               center: {
-                lat: -31.197,
-                lng: 150.744
+              lat: -26.243046,
+              lng: 28.006550
               },
-              zoom: 9,
+              zoom: 12,
               styles: grayStyles,
               scrollwheel: false
             });
