@@ -37,6 +37,15 @@ class Admin::ColorsController < AdminController
     flash[:danger] = "Color Successfully Deleted"
     redirect_to admin_colors_path
   end
+  
+  def inventory
+    @color = Color.find(params[:id])
+    if @color.inventory > 0
+      render :json => {data: @color, message: "In stock, can be deliver in 3 days" }
+    else
+      render :json => {date: @color, message: "Out of stock, can be deliver in 3 weeks" }
+    end
+  end
 
   private
 
