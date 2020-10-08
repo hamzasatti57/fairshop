@@ -60,7 +60,9 @@
             </div>
         </div>
     </section>
-
+    <div style="display: none">
+      <p id="lat_long"><%= @lat_long %>></p>
+    </div>
 
   <section class="contact-section padding_top">
     <div class="container">
@@ -70,8 +72,9 @@
              var markers = [];
 
             function initialize() {
-            
-                var beaches = <%= @lat_long %>;
+                var beaches = $('#lat_long').text();
+                beaches = eval(beaches.replace(">", ""))
+                debugger
             
                 var map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 10,
