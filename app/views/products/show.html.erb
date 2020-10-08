@@ -130,11 +130,11 @@
                <h2>R<%= @product.price.to_i %></h2>
                <ul class="list">
                   <li>
-                     <span>Category</span> <span  style="padding-left: 24px;">:</span>
+                     <span>Category</span> <span  style="padding-left: 24px;"></span>
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 20px;">Availibility</span>    :    <%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
+                     <span style="padding-right: 20px;">Availibility</span><span id="stock-remaining"></span>
                   </li>
                 
               <!--     <li>
@@ -180,7 +180,7 @@
                               <% @product.colors.each do |color| %>
                                 <%# if color.image.present? %>
                                 <input id="<%= color.id %>" type="radio" class="form-check-input custom-radio-tab" name=" " checked="">
-                                <label for="<%= color.id %>" class="radio-inline" title="<%= color.title %>">
+                                <label for="<%= color.id %>" class="radio-inline" title="<%= color.title %>" id="radio-<%= color.id %>" value="<%= color.id %>">
                                    <div class="custom_img_picker">
                                       <% if color.image.present? %>
                                         <%= image_tag(url_for(color.image), width: '100%') %>
@@ -191,6 +191,21 @@
                                   <!--  <%= color.title %> -->
                                 </label>
                                 <%# end %>
+
+                                <script type="text/javascript">
+                                   $('#radio-<%= color.id %>').on('click', function(e){
+                                      id = $(this).attr('for');
+                                       $.ajax({
+                                         headers: { 'X-CSRF-Token': Rails.csrfToken() },
+                                         url:'/admin/colors/' + id + '/inventory',
+                                         type:'get',
+                                           success:function (data) {
+                                            debugger
+                                            $('#stock-remaining').text(data.message);
+                                           }
+                                        });
+                                    });
+                                </script>
                               <% end %>
                            </div>
                         </div>

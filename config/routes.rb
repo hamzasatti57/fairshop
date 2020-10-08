@@ -102,7 +102,11 @@ Rails.application.routes.draw do
     resources :users
     resources :categories
     resources :companies
-    resources :colors
+    resources :colors do
+      member do
+        get :inventory
+      end
+    end
     resources :comments
     resources :countries do
       collection do
