@@ -35,7 +35,7 @@
    position: relative;
    display: flex;
    margin: 5px 5px;
-   border-radius: 50px;
+   /*border-radius: 50px;*/
    }
    .custom_radio_btn_tab input.custom-radio-tab+label:hover {
    background-color: #ccc;
@@ -46,8 +46,8 @@
    z-index: 1;
    }
    .custom_img_picker{
-   width: 25px;
-   height: 25px;
+   width: 35px;
+   height: 35px;
    margin: 0px 10px;
    }
    .modal-body{
@@ -134,7 +134,7 @@
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 20px;">Availibility</span><span id="stock-remaining"></span>
+                     <span style="padding-right: 20px;margin: 10px auto">Availibility <span> raise 25% invoice </span></span><span id="stock-remaining"></span>
                   </li>
                 
               <!--     <li>
