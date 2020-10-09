@@ -59,8 +59,8 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["Landmark"] = current_user.user_carts.last.checkout.billing_address.landmark if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["Street"] = current_user.user_carts.last.checkout.billing_address.street if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["UnitNo"] = current_user.user_carts.last.checkout.billing_address.unit_no if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["HouseNo"] = current_user.user_carts.last.checkout.billing_address.house_no if current_user.use
-      data["Transaction"]["DeliveryDetails"]["Complex"] = current_user.user_carts.last.checkout.billing_address.complex if current_user.user_carts.last.checkout.present?r_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["HouseNo"] = current_user.user_carts.last.checkout.billing_address.house_no if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Complex"] = current_user.user_carts.last.checkout.billing_address.complex if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["PhoneNoAlternate"] = current_user.user_carts.last.checkout.billing_address.secondary_number if current_user.user_carts.last.checkout.present?
       data["Transaction"]["DeliveryDetails"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["DeliveryDetails"]["DeliveryPrice"] = (@sum.to_i * 0.10).to_s
