@@ -19,6 +19,15 @@
    .s_product_text .list li a span{
    width: 85px !important;
    }
+   .custom_radio_btn_tab{
+   /*background-color: #f3f3f3;*/
+   border-radius: 5px;
+   padding: 5px;}
+
+   .custom_radio_btn_tab .form-check{
+    /*display: contents !important;*/
+   }
+
    .custom_radio_btn_tab input.custom-radio-tab {
    position: absolute;
    left: -99999em;
@@ -31,25 +40,36 @@
    float: left;
    border: 1px solid #aaa;
    margin-right: -1px;
-   padding: 1px 1px;
+   /*padding: 1px 1px;*/
    position: relative;
    display: flex;
    margin: 5px 5px;
    /*border-radius: 50px;*/
    }
    .custom_radio_btn_tab input.custom-radio-tab+label:hover {
-   background-color: #ccc;
+   /*background-color: #ccc;*/
+   /*box-shadow: 0px 1px 3px 0px #0003;*/
    }
    .custom_radio_btn_tab [type=radio]:checked+label {
-   background-color: #efefef;
+   /*background-color: #efefef;*/
    border:1px solid red;
+   /*box-shadow: 0px 1px 3px 0px #0003;*/
    z-index: 1;
    }
    .custom_img_picker{
-   width: 35px;
-   height: 35px;
-   margin: 0px 10px;
+   width: 45px;
+   height: 45px;
+   /*margin: 0px 10px;*/
    }
+
+   .custom_img_picker img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   }
+
    .modal-body{
    padding-top: 30px;
    padding-bottom: 30px;
@@ -130,12 +150,13 @@
                <h2>R<%= @product.price.to_i %></h2>
                <ul class="list">
                   <li>
-                     <span>Category</span> <span  style="padding-left: 24px;"></span>
+                     <span>Category</span> <span  style="padding-left: 30px;"></span>
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 20px;margin: 10px auto">Availibility <span> raise 25% invoice </span></span><span id="stock-remaining"></span>
+                     <span style="padding-right: 20px;margin: 10px auto">Availibility </span><span id="stock-remaining"></span>
                   </li>
+
                 
               <!--     <li>
                      <span style="padding-right: 25px;">Warranty</span>    :    <%#= @product.warranty == true ? "Yes" : "No" %>
@@ -173,7 +194,7 @@
                   </li>
                     
                   <li style="display: inline-flex; vertical-align: middle;">
-                     <span style="margin-top: 12px">Color</span>        <span  style="padding-left: 24px;"></span>
+                     <span style="margin-top: 12px">Color</span>        <span  style="padding-left: 33px;"></span>
                      <div class="custom_radio_btn_tab">
                         <div class="form-check">
                            <div class="custom-radio-tabs">
@@ -200,7 +221,6 @@
                                          url:'/admin/colors/' + id + '/inventory',
                                          type:'get',
                                            success:function (data) {
-                                            debugger
                                             $('#stock-remaining').text(data.message);
                                            }
                                         });
