@@ -60,48 +60,50 @@
             </div>
         </div>
     </section>
-
+    <div style="display: none">
+      <p id="lat_long"><%= @lat_long %>></p>
+    </div>
 
   <section class="contact-section padding_top">
     <div class="container">
       <div class="d-sm-block mb-5 pb-4">
         <div id="map" style="height: 480px;"></div>
         <script>
-          function initMap() {
-            var uluru = {
-              lat: -25.363,
-              lng: 131.044
-            };
-            var grayStyles = [{
-                featureType: "all",
-                stylers: [{
-                    saturation: -90
-                  },
-                  {
-                    lightness: 50
-                  }
-                ]
-              },
-              {
-                elementType: 'labels.text.fill',
-                stylers: [{
-                  color: '#ccdee9'
-                }]
-              }
-            ];
-            var map = new google.maps.Map(document.getElementById('map'), {
-              center: {
-                lat: -31.197,
-                lng: 150.744
-              },
-              zoom: 9,
-              styles: grayStyles,
-              scrollwheel: false
-            });
-          }
-        </script>
-        <script
-          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaILC4Z-JG0A-_TZ-o3BiJMSFqUvh6cKk&callback=initMap">
+             var markers = [];
+
+            function initialize() {
+                var beaches = $('#lat_long').text();
+                beaches = eval(beaches.replace(">", ""))
+                debugger
+            
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 10,
+                    center: new google.maps.LatLng(-26.243046, 28.006550),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                });
+            
+                var infowindow = new google.maps.InfoWindow();
+            
+                for (var i = 0; i < beaches.length; i++) {
+            
+                    var newMarker = new google.maps.Marker({
+                        position: new google.maps.LatLng(beaches[i][1], beaches[i][2]),
+                        map: map,
+                        title: beaches[i][0]
+                    });
+            
+                    google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
+                        return function () {
+                            infowindow.setContent(beaches[i][0]);
+                            infowindow.open(map, newMarker);
+                        }
+                    })(newMarker, i));
+            
+                    markers.push(newMarker);
+                }
+            }
+            
+            initialize();
         </script>
 
       </div>
