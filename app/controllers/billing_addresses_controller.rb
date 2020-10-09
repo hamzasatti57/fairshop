@@ -54,7 +54,7 @@ class BillingAddressesController < ApplicationController
   private
 
   def billing_address_params
-    params.required(:billing_address).permit(:address, :postal_code, :user_id, :city_id, :province_id, :country_id, :is_primary, :instruction, :latitude, :longitude)
+    params.required(:billing_address).permit(:address, :postal_code, :user_id, :city_id, :province_id, :country_id, :is_primary, :instruction, :latitude, :longitude, :landmark, :street, :unit_no, :house_no, :suburb, :complex, :secondary_number)
   end
 
   def user_params
