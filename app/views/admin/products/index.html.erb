@@ -14,7 +14,6 @@
             <th>Price</th>
             <th>Code</th>
             <th>Inventory</th>
-            <th>Visibility</th>
             <th>Is Active</th>
             <th>Actions</th>
           </tr>
@@ -28,7 +27,6 @@
               <td><%= product.price %></td>
               <td><%= product.code %></td>
               <td><%= product.inventory %></td>
-              <td><%= product.visibility ? 'Yes' : 'No' %></td>
               <td><%= product.status ? 'Active' : 'Inactive'%></td>
               <td><%= link_to "Edit",  edit_admin_product_path(product), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
                 <%= link_to "Show",  admin_product_path(product), class: "btn btn-xs btn-success custom-table-show-btn" %>
