@@ -419,7 +419,20 @@ color:#ffffff;
         });
 
         $('.proceed_to_checkout_1').on('click', function(e){
+            x = $('#autocomplete_address').val();
+            if (x == "") {
+              alert("Billing Address can't be blank");
+              return false;
+            }
+            if(document.getElementById('new-shippment').checked) {
+              y = $('#autocomplete_address_1').val();
+              if (y == "") {
+                alert("Shippment Address can't be blank");
+                return false;
+              }
+            }
           if(document.getElementById('new-shippment').checked) {
+
             $(".billing_address_2_submit").click();
               $.ajax({
                   headers: { 'X-CSRF-Token': Rails.csrfToken() },
