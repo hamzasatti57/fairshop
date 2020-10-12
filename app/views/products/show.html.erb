@@ -275,30 +275,24 @@
    <div class="container">
    <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
-         <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-            aria-selected="true">Description</a>
+         <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+            aria-selected="false">Specification</a>
       </li>
       <li class="nav-item">
-         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-            aria-selected="false">Specification</a>
+         <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+            aria-selected="true">Description</a>
       </li>
       <li class="nav-item">
          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
             aria-selected="false">Comments</a>
       </li>
       <li class="nav-item">
-         <a class="nav-link active" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
+         <a class="nav-link" id="review-tab" data-toggle="tab" href="#review" role="tab" aria-controls="review"
             aria-selected="false">Reviews</a>
       </li>
    </ul>
    <div class="tab-content" id="myTabContent">
-      <div id="home" role="tabpanel" aria-labelledby="home-tab" style="display: none">
-         <p>
-            <%= @product.description %>
-         </p>
-         <p>
-      </div>
-      <div id="profile" role="tabpanel" aria-labelledby="profile-tab" style="display: none">
+      <div id="profile" role="tabpanel" aria-labelledby="profile-tab">
          <div class="table-responsive">
             <table class="table">
                <tbody>
@@ -326,14 +320,14 @@
                         <h5><%= @product.length %></h5>
                      </td>
                   </tr>
-                  <tr>
+               <!--    <tr>
                      <td>
                         <h5>Inventory</h5>
                      </td>
                      <td>
-                        <h5><%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></h5>
+                        <h5><%#= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %></h5>
                      </td>
-                  </tr>
+                  </tr> -->
 <!--                   <tr>
                      <td>
                         <h5>Warranty</h5>
@@ -353,6 +347,12 @@
                </tbody>
             </table>
          </div>
+      </div>
+      <div id="home" role="tabpanel" aria-labelledby="home-tab" style="display: none">
+         <p>
+            <%= @product.description %>
+         </p>
+         <p>
       </div>
       <div id="contact" role="tabpanel" aria-labelledby="contact-tab" style="display: none">
          <div class="row">
@@ -419,7 +419,7 @@
             </div>
          </div>
       </div>
-      <div class="" id="review" role="tabpanel" aria-labelledby="review-tab">
+      <div class="" id="review" role="tabpanel" aria-labelledby="review-tab" style="display: none">
          <div class="rate-box">
             <strong>Rate this Product</strong>
             <div id="rateYo"></div>
