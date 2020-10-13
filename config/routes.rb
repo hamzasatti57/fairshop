@@ -94,6 +94,7 @@ Rails.application.routes.draw do
   post '/peach_payment' => 'checkout#peach_payment_request'
   get '/product_detail' => 'products#product_detail'
   delete '/delete_cart_product/:id' => 'cart#delete_cart_product', :as => 'delete_cart_product'
+  get '/admin/banner_product/:id' => 'admin/products#banner_product', :as => 'admin_banner_product'
   devise_scope :user do
     get "admin" => "users/sessions#new"
   end
@@ -143,13 +144,13 @@ Rails.application.routes.draw do
       end
     end
     resources :products do
-      collection do
-        get :banner_form
-      end
       member do
         delete :delete_image_attachment
+        get :edit_banner_form
       end
       collection do
+        get :banner_form
+        get :home_banners
         get :bulk_upload
         post :bulk_upload_products
       end

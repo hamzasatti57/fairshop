@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-lg-10 mt-3 offset-1">
+    <div class="card">
+      <div class="card-header custom-card-header">
+        <strong>Product</strong>
+      </div>
+      <div class="card-body body-bgg">
+        <div class="product">
+          <div class="product--title">
+            <h2><%= @product.title %></h2>
+          </div>
+          <div class="product--body">
+            <div class="product--image">
+              <div class="icon-images">
+                <div class="center-sliderr">
+                  <% @product.images.each do |image| %>
+                    <img src= "<%= url_for(image)%>"/>
+                  <% end %>
+                </div>
+                <%# <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-front.jpg"/>
+      <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-detail.jpg"/>
+      <img src="http://stalkbuylove.com/media/catalog/product/cache/1/image/393x502/9df78eab33525d08d6e5fb8d27136e95/i/n/in1335avv-167-back.jpg"/> %>
+              </div>
+              <img src="<%=url_for(@product.images.first) %>" class="display-img" >
+            </div>
+            <div class="product--details">
+              <div class="product--price">
+                <span class="product--price_price">Rs. <%= @product.price%></span>
+                <span class="product--price_offer">new arrivel !</span>
+              </div>
+              <div class="product-desc"><p><%= @product.description%></p></div>
+              <div class="hero-info">
+                <h2>General Info</h2>
+                <ul>
+                  <li><span>Product Type</span><%#= @product.product_type.title%></li>
+                  <li><span>Product Category</span><%#= @product.product_type.title%></li>
+                  <li><span>Inventory</span><%= @product.inventory%></li>
+                  <li><span>Colors</span><% @product.colors.each do |color| %>
+                      <%= color.title %>
+                    <% end %></li>
+                  <li><span>Dimension: LxWxH</span>
+                    <% unless @product.length.nil? %>
+                      <%= @product.length%>
+                    <% end %>
+                    <% unless @product.width.nil? %>
+                      x <%= @product.width %>
+                    <% end %>
+                    <% unless @product.height.nil? %>
+                      x <%= @product.height %>
+                    <% end %></li>
+                  <!-- <li><span>Clean and Care </span><%#= @product.clean_and_care ? "Yes" : "No" %></li> -->
+                  <li><span>Warranty </span><%= @product.warranty ? "Yes" : "No" %></li>
+                </ul>
+              </div>
+              <div class="add-to-cart">
+                <%= link_to "BACK",  home_banners_admin_products_path, class: "btn btn--cart" %>
+                <%= link_to "EDIT",  edit_banner_form_admin_product_path(@product), class: "btn btn--cart" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
