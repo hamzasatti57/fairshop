@@ -19,6 +19,18 @@ class Admin::ProductsController < AdminController
     @product = Product.new
   end
 
+  def edit_banner_form
+    @product = Product.find(params[:id])
+  end
+
+  def banner_product
+    @product = Product.find(params[:id])
+  end
+
+  def home_banners
+    @products = Product.where(is_promotional_banner: true, product_type_id: 1)
+  end
+
   def create
     # @product = current_user.products.new(product_params)
     params[:status] = true if params[:images].present?
@@ -46,7 +58,11 @@ class Admin::ProductsController < AdminController
     if @product.update(product_params)
       @product.update_colors params[:product][:color_ids]
       flash[:success] = "Product Updated Succesfully"
-      render 'show'
+      if @product.is_promotional_banner
+        redirect_to admin_banner_product_path(@product)
+      else
+        render 'show'
+      end
     else
       render 'edit'
     end
@@ -64,7 +80,11 @@ class Admin::ProductsController < AdminController
     @image.attachments.destroy_all
 
     respond_to do |format|
-      format.html { redirect_to edit_admin_product_path(product)}
+      if params["banner_img"] == false
+        format.html { redirect_to edit_admin_product_path(product)}
+      else
+        format.html { redirect_to edit_banner_form_admin_product_path(product)}
+      end
       format.json { head :no_content }
       format.js
     end
