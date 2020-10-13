@@ -5,8 +5,18 @@
  .store-counter{
   display:block !important ; 
   margin-left: -7%;
+ }
 }
 
+.custom-google-search-box{
+  padding: 15px;
+  box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2); 
+  background-color: white; 
+  border: 0 solid #ddd;
+ /* height: 200px;*/
+  margin: 40px !important;
+
+}
 
 .subscribe_area .counting {
     font-weight: 700;
@@ -14,6 +24,31 @@
     line-height: 60px;
     margin: 10px 0 25px;
 }
+
+.custom-google-search-box .form-control-borderless {
+    border: none;
+}
+
+.custom-google-search-box .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+.custom-google-search-section{
+
+  margin: 40px;
+}
+.custom-search-btn-locator{
+
+  background-color: #8dc63f;
+  color:#ffffff;
+}
+
+
+
+
+
+
 
 </style>
 
@@ -105,7 +140,7 @@
 
   <section class="contact-section padding_top">
     <div class="container">
-      <div class="d-sm-block mb-5 pb-4">
+      <div class="d-sm-block mb-5">
         <div id="map" style="height: 480px;"></div>
         <script>
              var markers = [];
@@ -149,6 +184,43 @@
 
     </div>
   </section>
+
+  <div class="custom-google-search-section">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-12">
+
+          <div class="custom-google-search-box">
+
+    <form class="card card-sm">
+                                <div class="card-body row no-gutters align-items-center">
+                                   
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg custom-search-btn-locator" type="submit"> <i class="fas fa-search"></i></button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+            
+          </div>
+
+
+          
+        </div>
+        
+      </div>
+      
+    </div>
+
+
+    
+  </div>
 
 <!-----Counter Scripts------->
 <script type="text/javascript">
