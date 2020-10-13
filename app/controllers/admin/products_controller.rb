@@ -15,6 +15,10 @@ class Admin::ProductsController < AdminController
     # @product = current_user.products.new
   end
 
+  def banner_form
+    @product = Product.new
+  end
+
   def create
     # @product = current_user.products.new(product_params)
     params[:status] = true if params[:images].present?
