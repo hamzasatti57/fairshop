@@ -3140,10 +3140,22 @@ ul {
 
 /* line 11, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_subscribe_area.scss */
 .subscribe_area h2 {
-  font-weight: 700;
-  font-size: 48px;
+  font-weight: 300;
+  font-size: 30px;
+  color: #414141;
   line-height: 60px;
-  margin: 10px 0 25px;
+  margin: 10px 0 20px;
+}
+
+.subscribe_area h1 {
+  font-weight: 400;
+  font-size: 80px;
+  line-height: 60px;
+  margin: 10px 0 20px;
+  color: #8dc63f;
+}
+.subscribe_area p {
+  color: #797979;
 }
 
 @media (max-width: 991px) {

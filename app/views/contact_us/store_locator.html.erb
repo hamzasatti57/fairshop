@@ -6,6 +6,15 @@
   display:block !important ; 
   margin-left: -7%;
 }
+
+
+.subscribe_area .counting {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 60px;
+    margin: 10px 0 25px;
+}
+
 </style>
 
 
@@ -36,24 +45,54 @@
                     <div class="subscribe_area_text text-center">
                         <h3>SEARCH FOR A STORE NEAR YOU</h3>
                         <h5>See which stores are near your location or simply click the show all button to view all our stores</h5>
-                        <div class="row" style="display: contents;">
+                        <div class="row">
+
+                          <div class="col-md-4">
+                            <div style="padding: 20px">
+                                  <h1 class="counting" data-count="200">0</h1>
+                                  <h2>Stores</h2>
+                                  <p>and counting</p>
+                                </div>
+                            
+                          </div>
+
+                           <div class="col-md-4">
+                            <div style="padding: 20px">
+                                   <h1 class="counting" data-count="20000">0</h1>
+                                  <h2>Products</h2>
+                                  <p>and counting</p>
+                                </div>
+                            
+                          </div>
+
+                           <div class="col-md-4">
+                            <div style="padding: 20px">
+                                   <h1 class="counting" data-count="2000">0</h1>
+                                  <h2>Clients</h2>
+                                  <p>and counting</p>
+                                </div>
+                          </div>
+
+
+<!-- 
+
                             <div class="store-counter"style="display: inline-flex; margin-left: -7%;">
                                 <div style="padding: 20px">
-                                  <h1>100</h1>
+                                  <h1><div class="counting" data-count="800000">0</div></h1>
                                   <h2>Stores</h2>
                                   <p>and counting</p>
                                 </div>
                                 <div style="padding: 20px">
-                                  <h1>1000+</h1>
+                                  <h1><div class="counting" data-count="75">0</div></h1>
                                   <h2>Products</h2>
                                   <p>and counting</p>
                                 </div>
                                 <div style="padding: 20px">
-                                  <h1>10000+</h1>
+                                  <h1><div class="counting" data-count="10000">0</div></h1>
                                   <h2>Clients</h2>
                                   <p>and counting</p>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -110,3 +149,34 @@
 
     </div>
   </section>
+
+<!-----Counter Scripts------->
+<script type="text/javascript">
+  // number count for stats, using jQuery animate
+
+$('.counting').each(function() {
+  var $this = $(this),
+      countTo = $this.attr('data-count');
+  
+  $({ countNum: $this.text()}).animate({
+    countNum: countTo
+  },
+
+  {
+
+    duration: 3000,
+    easing:'linear',
+    step: function() {
+      $this.text(Math.floor(this.countNum));
+    },
+    complete: function() {
+      $this.text(this.countNum);
+      //alert('finished');
+    }
+
+  });  
+  
+
+});
+</script>
+<!-- counter script end -->
