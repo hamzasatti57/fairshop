@@ -143,6 +143,9 @@ Rails.application.routes.draw do
       end
     end
     resources :products do
+      collection do
+        get :banner_form
+      end
       member do
         delete :delete_image_attachment
       end

@@ -1,0 +1,56 @@
+<%= render 'shared/errors', obj: product %>
+<%= form_for  product, product_form_attributes(product) do |f| %>
+
+  <% @product.images.each do |image| %>
+    <div id="image_<%= image.signed_id %>">
+      <%= image_tag(url_for(image), style: "width: 100px") %>
+      <%= link_to 'Remove', delete_image_attachment_admin_product_path(@product, image_id: image.signed_id),
+                  method: :delete,
+
+                  data: { confirm: 'Are you sure?' } %>
+    </div>
+  <% end %><br>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Product_Category %>
+    <%= f.select(:product_category_id, options_for_select(product_category_options, selected: selected_product_category(product)), { prompt: "Please Select Category" }, { :required => true, class: 'form-control' }) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :Product_Type %>
+    <%= f.select(:product_type_id, options_for_select(product_type_options, selected: selected_product_type(product)), { prompt: "Please Select" }, { class: 'form-control' }) %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :is_active %>
+    <%= f.check_box :status %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :is_promotional_banner, "Sales Banner" %>
+    <%= f.check_box :is_promotional_banner %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :code %>
+    <%= f.text_field :code, class: "form-control", autocomplete: false, placeholder: "Code", autofocus: true %> <br/>
+  </div>
+
+  <%= f.file_field :images, multiple: true %><br><br>
+
+  <%= f.submit class: "btn btn-block btn-primary custom-table-edit-btn"%>
+<% end %>
+
+<script>
+    $(document).ready(function() {
+        var x = new SlimSelect({
+            select: '#demo'
+        });
+    });
+</script>

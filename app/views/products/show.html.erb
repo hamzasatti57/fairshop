@@ -78,17 +78,17 @@
 
    /*-----slider section start ----*/
 
-  .custom-image-slider-section .csSlideOuter {
+  .csSlideOuter {
    overflow: hidden;
 }
-.custom-image-slider-section .lightSlider:before, .lightSlider:after {
+.lightSlider:before, .lightSlider:after {
    content: " ";
    display: table;
 }
-.custom-image-slider-section .csSlideWrapper > .lightSlider:after {
+.csSlideWrapper > .lightSlider:after {
    clear: both;
 }
-.custom-image-slider-section .csSlideWrapper .csSlide {
+.csSlideWrapper .csSlide {
    -webkit-transform: translate(0px, 0px);
    -ms-transform: translate(0px, 0px);
    transform: translate(0px, 0px);
@@ -99,10 +99,10 @@
    -webkit-transition-timing-function: inherit;
    transition-timing-function: inherit;
 }
-.custom-image-slider-section .csSlideWrapper .csFade {
+.csSlideWrapper .csFade {
    position: relative;
 }
-.custom-image-slider-section .csSlideWrapper .csFade > * {
+.csSlideWrapper .csFade > * {
    position: absolute !important;
    top: 0;
    left: 0;
@@ -110,7 +110,7 @@
    margin-right: 0;
    width: 100%;
 }
-.custom-image-slider-section .csSlideWrapper.usingCss .csFade > * {
+.csSlideWrapper.usingCss .csFade > * {
    opacity: 0;
    -webkit-transition-delay: 0s;
    transition-delay: 0s;
@@ -121,27 +121,27 @@
    -webkit-transition-timing-function: inherit;
    transition-timing-function: inherit;
 }
-.custom-image-slider-section .csSlideWrapper .csFade > *.active {
+.csSlideWrapper .csFade > *.active {
    z-index: 10;
 }
-.custom-image-slider-section .csSlideWrapper.usingCss .csFade > *.active {
+.csSlideWrapper.usingCss .csFade > *.active {
    opacity: 1;
 }
 /** /!!! End of core css Should not edit !!!/**/
 
 /* Pager */
-.custom-image-slider-section .csSlideOuter .csPager.cSpg {
+.csSlideOuter .csPager.cSpg {
    margin: 10px 0 0;
    padding: 0; 
    text-align: center;
 }
-.custom-image-slider-section .csSlideOuter .csPager.cSpg > li {
+.csSlideOuter .csPager.cSpg > li {
    cursor: pointer;
    display: inline-block;
    padding: 0 5px;
   list-style-type: none;
 }
-.custom-image-slider-section .csSlideOuter .csPager.cSpg > li a {
+.csSlideOuter .csPager.cSpg > li a {
    background-color: #222222;
    border-radius: 30px;
    display: inline-block;
@@ -154,19 +154,19 @@
    -webkit-transition: all 0.5s linear 0s;
    transition: all 0.5s linear 0s;
 }
-.custom-image-slider-section .csSlideOuter .csPager.cSpg > li:hover a, .csSlideOuter .csPager.cSpg > li.active a {
+.csSlideOuter .csPager.cSpg > li:hover a, .csSlideOuter .csPager.cSpg > li.active a {
    background-color: #428bca;
 }
-.custom-image-slider-section .csSlideOuter .media {
+.csSlideOuter .media {
    opacity: 0.8;
 }
-.custom-image-slider-section .csSlideOuter .media.active {
+.csSlideOuter .media.active {
    opacity: 1;
 }
 /* End of pager */
 
 /** Gallery */
-.custom-image-slider-section .csSlideOuter .csPager.cSGallery {
+.csSlideOuter .csPager.cSGallery {
    list-style: none outside none;
    padding-left: 0;
    margin: 0;
@@ -177,30 +177,30 @@
    -ms-user-select: none;
    user-select: none;
 }
-.custom-image-slider-section .csSlideOuter .csPager.cSGallery li {
+.csSlideOuter .csPager.cSGallery li {
    opacity: 0.7;
    -webkit-transition: opacity 0.35s linear 0s;
    transition: opacity 0.35s linear 0s;
 }
-.custom-image-slider-section .csSlideOuter .csPager.cSGallery li.active, .csSlideOuter .csPager.cSGallery li:hover {
+.csSlideOuter .csPager.cSGallery li.active, .csSlideOuter .csPager.cSGallery li:hover {
    opacity: 1;
 }
-.custom-image-slider-section .csSlideOuter .csPager.cSGallery img {
+.csSlideOuter .csPager.cSGallery img {
    display: block;
    height: auto;
    max-width: 100%;
 }
-.custom-image-slider-section .csSlideOuter .csPager.cSGallery:before, .csSlideOuter .csPager.cSGallery:after {
+.csSlideOuter .csPager.cSGallery:before, .csSlideOuter .csPager.cSGallery:after {
    content: " ";
    display: table;
 }
-.custom-image-slider-section .csSlideOuter .csPager.cSGallery:after {
+.csSlideOuter .csPager.cSGallery:after {
    clear: both;
 }
 /* End of Gallery*/
 
 /* slider actions */
-.custom-image-slider-section .csAction > a {
+.csAction > a {
    width: 32px;
    display: block;
    top: 50%;
@@ -214,10 +214,10 @@
    -webkit-transition: opacity 0.35s linear 0s;
    transition: opacity 0.35s linear 0s;
 }
-.custom-image-slider-section .csAction > a:hover {
+.csAction > a:hover {
    opacity: 1;
 }
-.custom-image-slider-section .csAction > .csPrev {
+.csAction > .csPrev {
 left: 10px;
 font-size: 30px;
 color: #FFF;
@@ -225,33 +225,33 @@ background: #000;
 text-align: center;
 
 }
-.custom-image-slider-section .csAction > .csNext {
+.csAction > .csNext {
 font-size: 30px;
 color: #FFF;
 background: #000;
 text-align: center;
    right: 10px;
 }
-.custom-image-slider-section .cS-hidden {
+.cS-hidden {
    height: 1px;
    opacity: 0;
    filter: alpha(opacity=0); 
    overflow: hidden;
 }
 
-.custom-image-slider-section ul{
+ul{
   
   list-style-type: none;
 }
 
-.custom-image-slider-section .center {
+.center {
 max-width: 650px;
 width: 100%;
 margin: auto; 
 display: block;
 margin-top: 1rem;;
 } 
-.custom-image-slider-section h1 {color: #fff; font-size: 38px;
+h1 {color: #fff; font-size: 38px;
 font-family: raleway;
 text-transform: uppercase;
 font-weight: 800;
@@ -259,7 +259,7 @@ font-size: 29px;
 text-shadow: 3px 3px rgba(0, 0, 0, 0.25);
 } 
 
-.custom-image-slider-section #lightSlider {
+#lightSlider {
 padding: 0;
 margin: 0 0 9px 0;
 }
@@ -339,52 +339,61 @@ margin: 0 0 9px 0;
 
             <!-- slider section start -->
 
-            <div class="custom-image-slider-section">
-
                <div class="center">
 <ul id="lightSlider">
- 
-   <li data-thumb="http://images.asos.com/homepage/2010_02_12_H_HP_M/01.jpg">
-    <img src="http://images.asos.com/homepage/2010_02_12_H_HP_M/01.jpg" /> 
-  </li>  
-    <li data-thumb="https://fashfever.files.wordpress.com/2015/02/dolce-gabbana-ss10-adv-004.jpg"> 
-    <img src="https://fashfever.files.wordpress.com/2015/02/dolce-gabbana-ss10-adv-004.jpg" />
-  </li>
-     <li data-thumb="https://yinnyang.co.uk/wp-content/uploads/2011/03/410.jpg">
-    <img src="https://yinnyang.co.uk/wp-content/uploads/2011/03/410.jpg" /> 
-  </li>
-    <li data-thumb="http://www.brandingmagazine.com/wp-content/uploads/2012/02/dolce_gabbana7.jpg">
-    <img src="http://www.brandingmagazine.com/wp-content/uploads/2012/02/dolce_gabbana7.jpg" />
-  </li>
-     <li data-thumb="http://fuckingyoung.es/wp-content/uploads/2014/01/Dolce-Gabbana-Spring-Summer-2014-Campaign4.jpg">
-    <img src="http://fuckingyoung.es/wp-content/uploads/2014/01/Dolce-Gabbana-Spring-Summer-2014-Campaign4.jpg" /> 
-  </li>
-     <li data-thumb="https://i.telegraph.co.uk/multimedia/archive/02776/burberry_2776867k.jpg">
-    <img src="https://i.telegraph.co.uk/multimedia/archive/02776/burberry_2776867k.jpg" /> 
+  <% if @product.images.present? %>
+   <li data-thumb="<%= asset_path(url_for(@product.images.first)) %>"  class="zoom zoom-custom">
+    <%= image_tag(url_for(@product.images.first), id: "imageresource", title: "Click to expand") %>
   </li> 
+  <% else %>
     <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
-    <img src="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg" />
+    <%=image_tag("img/product/single-product/product_1.png")%>
+  <% end %>
+  <% if @product.images.present? && @product.images.second.present? %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.second)) %>"  class="zoom zoom-custom"> 
+    <%= image_tag(url_for(@product.images.second), id: "imageresource1", title: "Click to expand") %>
   </li>
+  <% else %>
+    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <%=image_tag("img/product/single-product/product_1.png")%>
+  <% end %>
+  <% if @product.images.present? && @product.images.third.present? %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.third)) %>"  class="zoom zoom-custom"> 
+    <%= image_tag(url_for(@product.images.third), id: "imageresource1", title: "Click to expand") %>
+  </li>
+  <% else %>
+    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <%=image_tag("img/product/single-product/product_1.png")%>
+  <% end %>
+  <% if @product.images.present? && @product.images.fourth.present? %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.fourth)) %>"  class="zoom zoom-custom"> 
+    <%= image_tag(url_for(@product.images.fourth), id: "imageresource1", title: "Click to expand") %>
+  </li>
+  <% else %>
+    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <%=image_tag("img/product/single-product/product_1.png")%>
+  <% end %>
+  <% if @product.images.present? && @product.images.fifth.present? %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.fifth)) %>"  class="zoom zoom-custom"> 
+    <%= image_tag(url_for(@product.images.fifth), id: "imageresource1", title: "Click to expand") %>
+  </li>
+  <% else %>
+    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <%=image_tag("img/product/single-product/product_1.png")%>
+  <% end %>
+  <% if @product.images.present? && @product.images.last.present? %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.second)) %>"  class="zoom zoom-custom"> 
+    <%= image_tag(url_for(@product.images.second), id: "imageresource1", title: "Click to expand") %>
+  </li>
+  <% else %>
+    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <%=image_tag("img/product/single-product/product_1.png")%>
+  <% end %>
 
    
 </ul>
   
   </div> 
-
-
-               
-            </div>
-
-
-            <!-- slider section end -->
-
-
-
-
-
-
-
-
          </div>
          <div class="col-lg-5 col-xl-4">
             <div class="s_product_text">
