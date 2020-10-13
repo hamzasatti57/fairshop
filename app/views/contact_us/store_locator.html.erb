@@ -41,7 +41,6 @@
 
   background-color: #8dc63f;
   color:#ffffff;
-
 }
 
 /*---cards style---*/
@@ -57,12 +56,11 @@
   color:#8dc63f;
   font-size: 22px;
   margin-bottom: 20px;
-      line-height: 1.7rem;
+  line-height: 1.7rem;
 
 }
 
 .custom-card-location-style p{
-
   
       line-height: 1.7rem;
       color:#8f8b89;
@@ -75,15 +73,12 @@
 }
 
  .custom-locator-cards-links{
-
-
   margin-top: 20px;
   width:100%;
 
     
    }
 </style>
-
 
   <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/store-locator-banner.png') %>');">
     <div class="container">
@@ -139,25 +134,6 @@
                                   <p>and counting</p>
                                 </div>
                           </div>
-<!-- 
-
-                            <div class="store-counter"style="display: inline-flex; margin-left: -7%;">
-                                <div style="padding: 20px">
-                                  <h1><div class="counting" data-count="800000">0</div></h1>
-                                  <h2>Stores</h2>
-                                  <p>and counting</p>
-                                </div>
-                                <div style="padding: 20px">
-                                  <h1><div class="counting" data-count="75">0</div></h1>
-                                  <h2>Products</h2>
-                                  <p>and counting</p>
-                                </div>
-                                <div style="padding: 20px">
-                                  <h1><div class="counting" data-count="10000">0</div></h1>
-                                  <h2>Clients</h2>
-                                  <p>and counting</p>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -248,6 +224,29 @@
 
   </div>
 
+<!-- location-cards  -->
+<div class="custom-location-cards-section">
+
+  <div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+      <div class="card custom-card-location-style">
+        <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
+        <div class="card-body">
+          <h4 class="card-title">Bologna</h4>
+          
+          <p class="card-text">132 Albertina Sisulu Road  Johannesburg,  Gauteng</p>
+
+          <div style="border:1px solid #deeff0"></div>
+          <a href="#" class="btn btn-success card-link custom-locator-cards-links">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+</div>
+
 <!-----Counter Scripts------->
 <script type="text/javascript">
   // number count for stats, using jQuery animate
@@ -277,234 +276,3 @@ $('.counting').each(function() {
 
 });
 </script>
-<!-- counter script end --><style type="text/css">
-   @media only screen and (max-width: 600px) {
-   .store-counter{
-   display:block !important ; 
-   margin-left: -7%;
-   }
-   }
-   .custom-google-search-box{
-   padding: 15px;
-   box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2); 
-   background-color: white; 
-   border: 0 solid #ddd;
-   /* height: 200px;*/
-   margin: 40px !important;
-   }
-   .subscribe_area .counting {
-   font-weight: 700;
-   font-size: 48px;
-   line-height: 60px;
-   margin: 10px 0 25px;
-   }
-   .custom-google-search-box .form-control-borderless {
-   border: none;
-   }
-   .custom-google-search-box .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-   border: none;
-   outline: none;
-   box-shadow: none;
-   }
-   .custom-google-search-section{
-   margin: 40px;
-   }
-   .custom-search-btn-locator{
-   background-color: #8dc63f;
-   color:#ffffff;
-   }
-
-</style>
-<section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/store-locator-banner.png') %>');">
-   <div class="container">
-      <div class="row">
-         <div class="col-lg-12">
-            <div class="breadcrumb_iner">
-               <div class="breadcrumb_iner_item">
-                  <h2 style="padding-right: 2%">Store Locator</h2>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-<!-- ========================  Contact ======================== -->
-<!-- ================ contact section start ================= -->
-<br>
-<br>
-<section class="subscribe_area section_padding">
-   <div class="container">
-      <div class="row ">
-         <div class="col-lg-12">
-            <div class="subscribe_area_text text-center">
-               <h3>SEARCH FOR A STORE NEAR YOU</h3>
-               <h5>See which stores are near your location or simply click the show all button to view all our stores</h5>
-               <div class="row">
-                  <div class="col-md-4">
-                     <div style="padding: 20px">
-                        <h1 class="counting" data-count="200">0</h1>
-                        <h2>Stores</h2>
-                        <p>and counting</p>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div style="padding: 20px">
-                        <h1 class="counting" data-count="20000">0</h1>
-                        <h2>Products</h2>
-                        <p>and counting</p>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div style="padding: 20px">
-                        <h1 class="counting" data-count="2000">0</h1>
-                        <h2>Clients</h2>
-                        <p>and counting</p>
-                     </div>
-                  </div>
-                  <!-- 
-                     <div class="store-counter"style="display: inline-flex; margin-left: -7%;">
-                         <div style="padding: 20px">
-                           <h1><div class="counting" data-count="800000">0</div></h1>
-                           <h2>Stores</h2>
-                           <p>and counting</p>
-                         </div>
-                         <div style="padding: 20px">
-                           <h1><div class="counting" data-count="75">0</div></h1>
-                           <h2>Products</h2>
-                           <p>and counting</p>
-                         </div>
-                         <div style="padding: 20px">
-                           <h1><div class="counting" data-count="10000">0</div></h1>
-                           <h2>Clients</h2>
-                           <p>and counting</p>
-                         </div>
-                     </div> -->
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</section>
-<div style="display: none">
-   <p id="lat_long"><%= @lat_long %>></p>
-</div>
-<section class="contact-section padding_top">
-   <div class="container">
-      <div class="d-sm-block mb-5">
-         <div id="map" style="height: 480px;"></div>
-         <script>
-            var markers = [];
-            
-            function initialize() {
-               var beaches = $('#lat_long').text();
-               beaches = eval(beaches.replace(">", ""))
-            
-               var map = new google.maps.Map(document.getElementById('map'), {
-                   zoom: 10,
-                   center: new google.maps.LatLng(-26.243046, 28.006550),
-                   mapTypeId: google.maps.MapTypeId.ROADMAP
-               });
-            
-               var infowindow = new google.maps.InfoWindow();
-            
-               for (var i = 0; i < beaches.length; i++) {
-            
-                   var newMarker = new google.maps.Marker({
-                       position: new google.maps.LatLng(beaches[i][1], beaches[i][2]),
-                       map: map,
-                       icon: 'https://i.imgur.com/SzGKHAk.png',
-                       title: beaches[i][0]
-                   });
-            
-                   google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
-                       return function () {
-                           infowindow.setContent(beaches[i][0]);
-                           infowindow.open(map, newMarker);
-                       }
-                   })(newMarker, i));
-            
-                   markers.push(newMarker);
-               }
-            }
-            
-            initialize();
-         </script>
-      </div>
-   </div>
-</section>
-<div class="custom-google-search-section">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="custom-google-search-box">
-               <form class="card card-sm">
-                  <div class="card-body row no-gutters align-items-center">
-                     <!--end of col-->
-                     <div class="col">
-                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
-                     </div>
-                     <!--end of col-->
-                     <div class="col-auto">
-                        <button class="btn btn-lg custom-search-btn-locator" type="submit"> <i class="fas fa-search"></i></button>
-                     </div>
-                     <!--end of col-->
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-
-<!-- location-cards  -->
-<div class="custom-location-cards-section">
-
-  <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-      <div class="card custom-card-location-style">
-        <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
-        <div class="card-body">
-          <h4 class="card-title">Bologna</h4>
-          
-          <p class="card-text">132 Albertina Sisulu Road  Johannesburg,  Gauteng</p>
-
-          <div style="border:1px solid #deeff0"></div>
-          <a href="#" class="btn btn-success card-link custom-locator-cards-links">Read More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  
-</div>
-<!-----Counter Scripts------->
-<script type="text/javascript">
-   // number count for stats, using jQuery animate
-   
-   $('.counting').each(function() {
-   var $this = $(this),
-       countTo = $this.attr('data-count');
-   
-   $({ countNum: $this.text()}).animate({
-     countNum: countTo
-   },
-   
-   {
-   
-     duration: 3000,
-     easing:'linear',
-     step: function() {
-       $this.text(Math.floor(this.countNum));
-     },
-     complete: function() {
-       $this.text(this.countNum);
-       //alert('finished');
-     }
-   
-   });  
-   
-   
-   });
-</script>
-<!-- counter script end -->
