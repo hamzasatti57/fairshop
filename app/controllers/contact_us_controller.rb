@@ -4,7 +4,12 @@ class ContactUsController < ApplicationController
   end
 
   def store_locator
-    @stores = Store.all
+    if params[:search].present?
+      @stores = Store.where("store_address ILIKE '%#{params[:search]}%'")
+      @store_cards = @stores
+    else
+      @stores = Store.all
+    end
     @lat_long = []
     @stores.each_with_index do |store, index|
       next if store.lat == nil or store.long == nil

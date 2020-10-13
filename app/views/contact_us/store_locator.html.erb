@@ -226,19 +226,21 @@
 
   <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-      <div class="card custom-card-location-style">
-        <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
-        <div class="card-body">
-          <h4 class="card-title">Bologna</h4>
-          
-          <p class="card-text">132 Albertina Sisulu Road  Johannesburg,  Gauteng</p>
+    <% @store_cards.to_a.each do |store| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="card custom-card-location-style">
+          <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
+          <div class="card-body">
+            <h4 class="card-title"><%= store.store_name %></h4>
+            
+            <p class="card-text"><%= store.store_address %></p>
 
-          <div style="border:1px solid #deeff0"></div>
-          <a href="#" class="btn btn-success card-link custom-locator-cards-links">Read More</a>
+            <div style="border:1px solid #deeff0"></div>
+            <a href="#" class="btn btn-success card-link custom-locator-cards-links">Read More</a>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
   
@@ -269,7 +271,13 @@ $('.counting').each(function() {
     }
 
   });  
-  
 
 });
+
+  $('.custom-search-btn-locator').click(function () {
+    debugger
+      window.location.href = '/store_locator?search=' + $('.form-control-borderless').val();
+      return false;
+      // window.location.href = '/'
+  });
 </script>
