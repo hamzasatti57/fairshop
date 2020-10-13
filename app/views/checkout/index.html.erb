@@ -1,10 +1,10 @@
 
 <style type="text/css">
   .current{
-         background-color: #fff !important; 
+    background-color: #fff !important; 
   }
   .current:hover{
-        background-color: #fff !important; 
+    background-color: #fff !important; 
   }
   input, textarea, select{
     -webkit-appearance: auto !important;
@@ -22,20 +22,20 @@
 .payment-btn {
   width: 100%;
   margin:20px 0px;
-    display: inline-block;
-    padding: 9px 42px;
-    border-radius: 50px;
-    background-color: #e9414f;
-    border: 1px solid #ecfdff;
-    font-size: 15px;
-    font-weight: 700;
-    color: #fff;
-    text-transform: uppercase;
-    font-weight: 400;
-    box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
-    border: 1px solid #e9414f;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
+  display: inline-block;
+  padding: 9px 42px;
+  border-radius: 50px;
+  background-color: #e9414f;
+  border: 1px solid #ecfdff;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 400;
+  box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
+  border: 1px solid #e9414f;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 .payment-btn:hover{
 color:#ffffff;
@@ -156,6 +156,29 @@ color:#ffffff;
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
                   </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @billing_address.present? ? @billing_address.landmark : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @billing_address.present? ? @billing_address.street : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @billing_address.present? ? @billing_address.unit_no : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @billing_address.present? ? @billing_address.house_no : "") %>                
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @billing_address.present? ? @billing_address.suburb : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @billing_address.present? ? @billing_address.complex : "") %>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.text_field(:secondary_number, :class => 'form-control', placeholder: "Alternative Number", value: @billing_address.present? ? @billing_address.secondary_number : "") %>
+                  </div>
+                </div>
                   <div class="col-md-12">
                     <div class="form-group">
                       <%= f.text_area(:instruction, size: '40x5', :class => 'form-control', placeholder: "Instructions", value: @billing_address.present? ? @billing_address.instruction : "") %>
@@ -172,10 +195,11 @@ color:#ffffff;
                 <div class="col-md-12 form-group">
                   <div class="creat_account">
                     <h3>Shipping Details</h3>
+                    <input type="checkbox" id="new-shippment">
 
                     <label for="f-option3">Ship to a different address?</label>
-                    <br>
-                    <input type="checkbox" id="new-shippment">
+                    
+                    
                   </div>
                   <div id="shippment-address" style="display: none">
                   <%= form_for BillingAddress.new, remote: true do |f| %>
@@ -208,6 +232,29 @@ color:#ffffff;
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
                   </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @shipping_address.present? ? @shipping_address.landmark : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @shipping_address.present? ? @shipping_address.street : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @shipping_address.present? ? @shipping_address.unit_no : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @shipping_address.present? ? @shipping_address.house_no : "") %>                
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @shipping_address.present? ? @shipping_address.suburb : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @shipping_address.present? ? @shipping_address.complex : "") %>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.text_field(:secondary_number, :class => 'form-control', placeholder: "Alternative Number", value: @shipping_address.present? ? @shipping_address.secondary_number : "") %>
+                  </div>
+                </div>
                   <div class="col-md-12 text-right" style="display: none">
                     <button type="submit" value="submit" class="btn_3 billing_address_2_submit">
                       Submit Now
@@ -373,7 +420,20 @@ color:#ffffff;
         });
 
         $('.proceed_to_checkout_1').on('click', function(e){
+            x = $('#autocomplete_address').val();
+            if (x == "") {
+              alert("Billing Address can't be blank");
+              return false;
+            }
+            if(document.getElementById('new-shippment').checked) {
+              y = $('#autocomplete_address_1').val();
+              if (y == "") {
+                alert("Shippment Address can't be blank");
+                return false;
+              }
+            }
           if(document.getElementById('new-shippment').checked) {
+
             $(".billing_address_2_submit").click();
               $.ajax({
                   headers: { 'X-CSRF-Token': Rails.csrfToken() },
@@ -382,7 +442,6 @@ color:#ffffff;
                   // dataType: 'json',
                   type:'post',
                   success:function (data) {
-                    debugger
                     console.log(data);
                   }
 
