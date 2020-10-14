@@ -346,7 +346,7 @@ margin: 0 0 9px 0;
     <%= image_tag(url_for(@product.images.first), id: "imageresource", title: "Click to expand") %>
   </li> 
   <% else %>
-    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
   <% end %>
   <% if @product.images.present? && @product.images.second.present? %>
@@ -354,7 +354,7 @@ margin: 0 0 9px 0;
     <%= image_tag(url_for(@product.images.second), id: "imageresource1", title: "Click to expand") %>
   </li>
   <% else %>
-    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
   <% end %>
   <% if @product.images.present? && @product.images.third.present? %>
@@ -362,7 +362,7 @@ margin: 0 0 9px 0;
     <%= image_tag(url_for(@product.images.third), id: "imageresource2", title: "Click to expand") %>
   </li>
   <% else %>
-    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
   <% end %>
   <% if @product.images.present? && @product.images.fourth.present? %>
@@ -370,7 +370,7 @@ margin: 0 0 9px 0;
     <%= image_tag(url_for(@product.images.fourth), id: "imageresource3", title: "Click to expand") %>
   </li>
   <% else %>
-    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
   <% end %>
   <% if @product.images.present? && @product.images.fifth.present? %>
@@ -378,7 +378,7 @@ margin: 0 0 9px 0;
     <%= image_tag(url_for(@product.images.fifth), id: "imageresource4", title: "Click to expand") %>
   </li>
   <% else %>
-    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
   <% end %>
   <% if @product.images.present? && @product.images.last.present? %>
@@ -386,7 +386,7 @@ margin: 0 0 9px 0;
     <%= image_tag(url_for(@product.images.second), id: "imageresource5", title: "Click to expand") %>
   </li>
   <% else %>
-    <li data-thumb="https://rachelmacgregor.files.wordpress.com/2010/10/burberry.jpg"> 
+    <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
   <% end %>
 
