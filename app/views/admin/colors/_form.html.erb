@@ -8,15 +8,15 @@
     </div><br>
 
   <div class="form-group">
-    <%= f.label :title %>
+    <%= f.label :title,"Color Title" %>
     <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Color Title", autofocus: true %> <br/>
   </div>
   <div class="form-group">
-    <%= f.label :code %>
+    <%= f.label :code,"Color Code" %>
     <%= f.text_field :code, class: "form-control", autocomplete: false, placeholder: "Color Code", autofocus: true %> <br/>
   </div>
   <div class="form-group">
-    <%= f.label :image %> <br>
+    <%= f.label :image,"Color Image"%> <br>
     <%= f.file_field :image %><br><br>
   </div>
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
