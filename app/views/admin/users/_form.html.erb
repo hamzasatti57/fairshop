@@ -3,11 +3,11 @@
 <%= form_for  user, user_form_attributes(user) do |f| %>
   <div class="row">
     <div class="col-md-6">
-      <%= f.label :first_name %>
+      <%= f.label :first_name, "First Name" %>
       <%= f.text_field :first_name, class: "form-control", autocomplete: false, placeholder: "First Name", autofocus: true,:required => true %> <br/>
     </div>
     <div class="col-md-6">
-      <%= f.label :last_name %>
+      <%= f.label :last_name, "Last Name" %>
       <%= f.text_field :last_name, class: "form-control", autocomplete: false, placeholder: "Last Name",:required => true %> <br/>
     </div>
   </div>
@@ -36,8 +36,8 @@
       <%= f.password_field :password, class: "form-control", autocomplete: false, placeholder: "Password" , :required => true%> <br/>
     </div>
     <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: false, placeholder: "Password" ,:required => true %> <br/>
+      <%= f.label :password_confirmation,"Password Confirmation" %>
+      <%= f.password_field :password_confirmation, class: "form-control", autocomplete: false, placeholder: "Password Confirmation" ,:required => true %> <br/>
     </div>
   <% end %>
   <div class="form-group">
