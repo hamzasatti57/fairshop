@@ -551,13 +551,13 @@ display: block;
 
                                       <% if color.image.present? %>
                                       <%= image_tag(url_for(color.image), width: '100%') %>
-                                      <div class="tooltip">I am a tooltip!</div>
+                                      <div class="tooltip"><%= color.title %></div>
 
                                        
                                       <% else %>
 
                                       <%=image_tag("img/trans-color.png", width: '100%') %>
-                                      <div class="tooltip">I am a tooltip!</div>
+                                      <div class="tooltip"><%= color.title %></div>
 
                                       <% end %>
 
