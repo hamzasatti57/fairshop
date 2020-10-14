@@ -262,9 +262,6 @@ text-shadow: 3px 3px rgba(0, 0, 0, 0.25);
 #lightSlider {
 padding: 0;
 margin: 0 0 9px 0;
-width: 100% !important;
-transform: none !important;
-height: 550px !important;
 }
 
    /*-----slider section end-----*/
@@ -409,13 +406,11 @@ height: 550px !important;
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 20px;">Availibility</span>    :    <%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
+                     <span style="padding-right: 20px;">Availibility</span> <%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
                   </li>
                   <li>
-                     <span style="padding-right: 20px;margin: 10px auto">Delivery Time</span><span id="stock-remaining"></span>
+                    <span style="padding-right: 20px;margin: 10px auto">Delivery Time </span><span id="stock-remaining"></span>
                   </li>
-
-                
               <!--     <li>
                      <span style="padding-right: 25px;">Warranty</span>    :    <%#= @product.warranty == true ? "Yes" : "No" %>
                   </li> -->
