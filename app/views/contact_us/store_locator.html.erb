@@ -108,7 +108,7 @@
 
                           <div class="col-md-4">
                             <div style="padding: 20px">
-                                  <h1 class="counting" data-count="100">0</h1>
+                                  <h1 class="counting" data-count="<%= Store.count %>">0</h1>
                                   <h2 style="text-transform: capitalize;">Stores</h2>
                                   <p>and counting</p>
                                 </div>
@@ -117,7 +117,7 @@
 
                            <div class="col-md-4">
                             <div style="padding: 20px">
-                                   <h1 class="counting" data-count="10000">0</h1>
+                                   <h1 class="counting" data-count="<%= Product.count %>">0</h1>
                                   <h2 style="text-transform: capitalize;">Products</h2>
                                   <p>and counting</p>
                                 </div>
@@ -126,7 +126,7 @@
 
                            <div class="col-md-4">
                             <div style="padding: 20px">
-                                   <h1 class="counting" data-count="1000">0</h1>
+                                   <h1 class="counting" data-count="<%= User.where.not(role: 'admin').count %>">0</h1>
                                   <h2 style="text-transform: capitalize;">Clients</h2>
                                   <p>and counting</p>
                                 </div>

@@ -546,18 +546,18 @@ display: block;
                               <% @product.colors.each do |color| %>
                                 <%# if color.image.present? %>
                                 <input id="<%= color.id %>" type="radio" class="form-check-input custom-radio-tab" name=" " checked="">
-                                <label for="<%= color.id %>" class="radio-inline" title="<%= color.title %>" id="radio-<%= color.id %>" value="<%= color.id %>">
+                                <label for="<%= color.id %>" class="radio-inline" id="radio-<%= color.id %>" value="<%= color.id %>">
                                    <div class="custom_img_picker custom-tooltip-wrapper">
 
                                       <% if color.image.present? %>
                                       <%= image_tag(url_for(color.image), width: '100%') %>
-                                      <div class="tooltip">I am a tooltip!</div>
+                                      <div class="tooltip"><%= color.title %></div>
 
                                        
                                       <% else %>
 
                                       <%=image_tag("img/trans-color.png", width: '100%') %>
-                                      <div class="tooltip">I am a tooltip!</div>
+                                      <div class="tooltip"><%= color.title %></div>
 
                                       <% end %>
 
