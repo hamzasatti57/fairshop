@@ -24,6 +24,7 @@ class Product < ApplicationRecord
     # filters[:price] = price_range.first..price_range.last
     where(filters)
   }
+  enum assembly_type: {assembled: 0, free_assembly: 1, diy: 2}
 
   def add_colors color_ids
     if color_ids.present?

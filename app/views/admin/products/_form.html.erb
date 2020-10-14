@@ -58,7 +58,14 @@
         <option data-code="<%= color.code %>" value="<%= color.id %>" <%= selected_color(@product, color)  %>><%= color.title%></option>
       <% end %>
     </select>
-    <%#= f.select(:color_id, options_for_select(color_options), { prompt: "Please Select" }, { class: 'form-control multiple-select', multiple: true }) %>
+  </div>
+
+  <div class="form-group"> 
+    <%= f.label :assembly_type %><br>
+    <%#= f.select(:assembly_type, [['assembled', 0], ['free_assembly', 1], ['diy', 2]], class: "form-control") %>
+    <%= f.select(:assembly_type , Product.assembly_types.keys.map {|role| [role.titleize,role]}, {}, { :class => 'form-control' }) %>
+
+    <%#= f.select(:assembly_type, options_for_select(product_category_options, selected: selected_product_category(product)), { prompt: "Please Select Category" }, { :required => true, class: 'form-control' }) %>
   </div>
 
   <div class="form-group">

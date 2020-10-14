@@ -1,5 +1,6 @@
 class Admin::ColorsController < AdminController
   before_action :get_color, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:inventory] 
 
   def index
     @colors = Color.all

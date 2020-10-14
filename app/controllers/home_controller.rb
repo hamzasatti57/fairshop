@@ -55,7 +55,7 @@ class HomeController < ApplicationController
 
   def subscribe_user
     @user = SubscriberEmail.create!(email: params["email"])
-    flash[:success] = "Email Subscribed sucessfully"
+    flash[:success] = "Email Subscribed sucessfully!"
     render :json => @user
   end
 end
