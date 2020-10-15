@@ -3948,7 +3948,7 @@ ul {
 
 /* line 648, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .s_product_text .list li a span {
-  width: 90px;
+ /* width: 0px !important;*/
   display: inline-block;
 }
 

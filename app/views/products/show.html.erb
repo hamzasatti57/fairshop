@@ -430,8 +430,8 @@ display: block;
 
 
             <!-- slider section start -->
-
-               <div class="center">
+<div class="custom-slider-main-section" style="width:100%; height: 530px;">
+<div class="center">
 <ul id="lightSlider">
   <% if @product.images.present? %>
    <li data-thumb="<%= asset_path(url_for(@product.images.first)) %>"  class="zoom zoom-custom">
@@ -440,6 +440,7 @@ display: block;
   <% else %>
     <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
+  </li>
   <% end %>
   <% if @product.images.present? && @product.images.second.present? %>
     <li data-thumb="<%= asset_path(url_for(@product.images.second)) %>"  class="zoom1 zoom-custom"> 
@@ -448,6 +449,7 @@ display: block;
   <% else %>
     <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
+  </li>
   <% end %>
   <% if @product.images.present? && @product.images.third.present? %>
     <li data-thumb="<%= asset_path(url_for(@product.images.third)) %>"  class="zoom2 zoom-custom"> 
@@ -456,6 +458,7 @@ display: block;
   <% else %>
     <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
+  </li>
   <% end %>
   <% if @product.images.present? && @product.images.fourth.present? %>
     <li data-thumb="<%= asset_path(url_for(@product.images.fourth)) %>"  class="zoom3 zoom-custom"> 
@@ -464,6 +467,7 @@ display: block;
   <% else %>
     <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
+  </li>
   <% end %>
   <% if @product.images.present? && @product.images.fifth.present? %>
     <li data-thumb="<%= asset_path(url_for(@product.images.fifth)) %>"  class="zoom4 zoom-custom"> 
@@ -472,6 +476,7 @@ display: block;
   <% else %>
     <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
+  </li>
   <% end %>
   <% if @product.images.present? && @product.images.last.present? %>
     <li data-thumb="<%= asset_path(url_for(@product.images.second)) %>"  class="zoom5 zoom-custom"> 
@@ -480,12 +485,15 @@ display: block;
   <% else %>
     <li data-thumb="<%= asset_path 'img/product/single-product/product_1.png' %>"> 
     <%=image_tag("img/product/single-product/product_1.png")%>
+  </li>
   <% end %>
 
    
 </ul>
   
   </div> 
+</div>
+
          </div>
          <div class="col-lg-5 col-xl-4">
             <div class="s_product_text">
@@ -494,44 +502,46 @@ display: block;
                <h2>R <%= @product.price.to_i %></h2>
                <ul class="list">
                   <li>
-                     <span>Category</span> <span  style="padding-left: 30px;"></span>
+                     <span>Category</span> <span  style="padding-left: 51px;"></span>
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 20px;">Availibility</span> <%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
+                     <span>Availibility</span> <span  style="padding-left: 45px;"></span><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
                   </li>
                   <li>
-                     <span style="padding-right: 20px;margin: 10px auto">Delivery Time </span><span id="stock-remaining"></span>
+                     <span style="margin: 10px auto"> Delivery Time </span><span  style="padding-left: 25px;"></span><span id="stock-remaining"></span>
                   </li>
               <!--     <li>
                      <span style="padding-right: 25px;">Warranty</span>    :    <%#= @product.warranty == true ? "Yes" : "No" %>
                   </li> -->
                   <li>
                      <div style="display:inline-flex; ">
+
                      <span>Share</span>
+                     <span  style="padding-left: 81px;">
                      <%= link_to "javascript:void(0);", class: 'share-on-facebook', data: { id: @product.id, type: 'facebook', attributes: product_attributes(@product) } do %>
-                     <span>
-                     <i class="fab fa-facebook-f" style="font-size: 21px;margin-left: 60px;color: #3b5998;"></i>
-                     </span>
+                     
+                     <i class="fab fa-facebook-f" style="font-size: 21px;color: #3b5998;"></i>
+                    
                      <% end %>
                      <a class="share-on-pinterest" data-id="139" data-type="pinterest" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://128.199.108.32/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
-                     <span>
+                     
                      <i class="fa fa-pinterest
-                        " style="font-size: 21px;margin-left: 3px;color: #ee1c21;"></i>
-                     </span>
+                        " style="font-size: 21px;color: #ee1c21;"></i>
+                     
                      </a>
                      <a class="share-on-twitter" data-id="139" data-type="twitter" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://128.199.108.32/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
-                     <span>
+                    
                      <i class="fa fa-twitter-square
-                        " style="font-size: 21px;margin-left: -57px;color: #1ea1f1;"></i>
-                     </span>
+                        " style="font-size: 21px;color: #1ea1f1;"></i>
+                     
                      </a>
 
                      <a style="cursor: pointer;">
-                     <span>
-                     <i class="fa fa-whatsapp" style="font-size: 21px;margin-left: -115px;color:#4FCE5D">
+                     
+                     <i class="fa fa-whatsapp" style="font-size: 21px;color:#4FCE5D">
                      </i>
-                     </span>
+                     
                      </a>
                   </div>
 
@@ -539,7 +549,7 @@ display: block;
                   </li>
                     
                   <li style="display: inline-flex; vertical-align: middle;">
-                     <span style="margin-top: 12px">Color</span>        <span  style="padding-left: 33px;"></span>
+                     <span style="margin-top: 12px">Color</span>        <span  style="padding-left: 57px;"></span>
                      <div class="custom_radio_btn_tab">
                         <div class="form-check">
                            <div class="custom-radio-tabs">
