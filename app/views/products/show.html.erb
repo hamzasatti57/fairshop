@@ -68,6 +68,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    cursor: pointer;
    }
 
    .modal-body{
@@ -430,7 +431,7 @@ display: block;
 
 
             <!-- slider section start -->
-<div class="custom-slider-main-section" style="width:100%; height: 530px;">
+<div class="custom-slider-main-section" style="width:100%;">
 <div class="center">
 <ul id="lightSlider">
   <% if @product.images.present? %>
@@ -506,10 +507,10 @@ display: block;
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 25px;">Availibility</span><span id="stock-status"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %></span> 
+                     <span style="padding-right: 46px;">Availibility</span><span id="stock-status"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %></span> 
                   </li>
                   <li>
-                     <span style="padding-right: 56px;margin: 10px auto">Time </span><span id="stock-remaining"></span>
+                     <span style="padding-right: 77px;margin: 10px auto">Time </span><span id="stock-remaining"></span>
                   </li>
               <!--     <li>
                      <span style="padding-right: 25px;">Warranty</span>    :    <%#= @product.warranty == true ? "Yes" : "No" %>
