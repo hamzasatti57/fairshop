@@ -685,7 +685,7 @@ display: block;
                         <h5>Assembly Type</h5>
                      </td>
                      <td>
-                        <h5><%= @product.assembly_type.humanize %></h5>
+                        <h5><%= @product.assembly_type.humanize if @product.assembly_type.present? %></h5>
                      </td>
                   </tr>
                <!--    <tr>
