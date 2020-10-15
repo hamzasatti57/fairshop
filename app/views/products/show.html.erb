@@ -498,10 +498,10 @@ display: block;
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 20px;">Availibility</span id="stock-status"> <%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
+                     <span style="padding-right: 25px;">Availibility</span><span id="stock-status"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %></span> 
                   </li>
                   <li>
-                     <span style="padding-right: 20px;margin: 10px auto">Time </span><span id="stock-remaining"></span>
+                     <span style="padding-right: 56px;margin: 10px auto">Time </span><span id="stock-remaining"></span>
                   </li>
               <!--     <li>
                      <span style="padding-right: 25px;">Warranty</span>    :    <%#= @product.warranty == true ? "Yes" : "No" %>
