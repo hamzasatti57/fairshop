@@ -5,7 +5,7 @@ class ContactUsController < ApplicationController
 
   def store_locator
     if params[:search].present?
-      @stores = Store.where("store_address ILIKE '%#{params[:search]}%'")
+      @stores = Store.where("store_address ILIKE '%#{params[:search].downcase}%' OR store_city ILIKE '%#{params[:search].downcase}%'")
       @store_cards = @stores
     else
       @stores = Store.all

@@ -61,10 +61,6 @@ class StoresController < ApplicationController
     end
   end
 
-  def search_store
-    @stores = Store.where("store_address ILIKE '%River%'")
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_store
