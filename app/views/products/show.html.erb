@@ -506,10 +506,10 @@ display: block;
                      <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span>Availibility</span> <span  style="padding-left: 45px;"></span><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %>
+                     <span style="padding-right: 25px;">Availibility</span><span id="stock-status"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %></span> 
                   </li>
                   <li>
-                     <span style="margin: 10px auto"> Delivery Time </span><span  style="padding-left: 25px;"></span><span id="stock-remaining"></span>
+                     <span style="padding-right: 56px;margin: 10px auto">Time </span><span id="stock-remaining"></span>
                   </li>
               <!--     <li>
                      <span style="padding-right: 25px;">Warranty</span>    :    <%#= @product.warranty == true ? "Yes" : "No" %>
@@ -584,7 +584,14 @@ display: block;
                                          url:'/admin/colors/' + id + '/inventory',
                                          type:'get',
                                            success:function (data) {
+                                            debugger
                                             $('#stock-remaining').text(data.message);
+                                            if (data.message == "Delivery 3 days") {
+                                              $('#stock-status').text("In Stock");
+                                            }
+                                            else{
+                                              $('#stock-status').text("Out of Stock");
+                                            }
                                            }
                                         });
                                     });
@@ -681,6 +688,14 @@ display: block;
                      </td>
                      <td>
                         <h5><%= @product.length %></h5>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td>
+                        <h5>Assembly Type</h5>
+                     </td>
+                     <td>
+                        <h5><%= @product.assembly_type.humanize if @product.assembly_type.present? %></h5>
                      </td>
                   </tr>
                <!--    <tr>

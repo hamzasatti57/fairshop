@@ -44,7 +44,7 @@ class Admin::ColorsController < AdminController
     if @color.inventory > 0
       render :json => {data: @color, message: "Delivery 3 days" }
     else
-      render :json => {date: @color, message: "Delivery 3 weeks" }
+      render :json => {date: @color, message: "Delivery 21 days" }
     end
   end
 
