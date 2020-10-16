@@ -42,9 +42,9 @@ class Admin::ColorsController < AdminController
   def inventory
     @color = Color.find(params[:id])
     if @color.inventory > 0
-      render :json => {data: @color, message: "Delivery 3 days" }
+      render :json => {data: @color, message: "3 days" }
     else
-      render :json => {date: @color, message: "Delivery 21 days" }
+      render :json => {date: @color, message: "21 days" }
     end
   end
 
