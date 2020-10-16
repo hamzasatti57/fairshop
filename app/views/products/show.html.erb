@@ -381,6 +381,21 @@ display: block;
 
 }
 
+.lSPager li{
+
+  height: 100px !important;
+  border-radius: 0px !important;
+}
+
+.lSPager li img{
+  
+  height: 100% !important;
+  width: 100% !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  object-fit: contain !important;
+}
+
 </style>
 <!-- breadcrumb start-->
 <% if @product.product_category.category.present? && @product.product_category.category.banner_image.present? %>
