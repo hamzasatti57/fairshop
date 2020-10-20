@@ -92,54 +92,9 @@
       </div>
     </div>
   </section>
+  <br>
 
 <!-- ========================  Contact ======================== -->
-
-  <!-- ================ contact section start ================= -->
-
-    <section class="subscribe_area custom-storelocator-section-padding">
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-12">
-                    <div class="subscribe_area_text text-center">
-                        <h3>SEARCH FOR A STORE NEAR YOU</h3>
-                        <h5>See which stores are near your location or simply click the show all button to view all our stores</h5>
-                        <div class="row">
-
-                          <div class="col-md-4">
-                            <div style="padding: 20px">
-                                  <h1 class="counting" data-count="<%= Store.count %>">0</h1>
-                                  <h2 style="text-transform: capitalize;">Stores</h2>
-                                  <p>and counting</p>
-                                </div>
-                            
-                          </div>
-
-                           <div class="col-md-4">
-                            <div style="padding: 20px">
-                                   <h1 class="counting" data-count="<%= Product.count %>">0</h1>
-                                  <h2 style="text-transform: capitalize;">Products</h2>
-                                  <p>and counting</p>
-                                </div>
-                            
-                          </div>
-
-                           <div class="col-md-4">
-                            <div style="padding: 20px">
-                                   <h1 class="counting" data-count="<%= User.where.not(role: 'admin').count %>">0</h1>
-                                  <h2 style="text-transform: capitalize;">Clients</h2>
-                                  <p>and counting</p>
-                                </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div style="display: none">
-      <p id="lat_long"><%= @lat_long %>></p>
-    </div>
 
   <div class="custom-google-search-section">
     <div class="container">
@@ -244,6 +199,52 @@
 </div>
   
 </div>
+
+  <!-- ================ contact section start ================= -->
+
+    <section class="subscribe_area custom-storelocator-section-padding">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-12">
+                    <div class="subscribe_area_text text-center">
+                        <h3>SEARCH FOR A STORE NEAR YOU</h3>
+                        <h5>See which stores are near your location or simply click the show all button to view all our stores</h5>
+                        <div class="row">
+
+                          <div class="col-md-4">
+                            <div style="padding: 20px">
+                                  <h1 class="counting" data-count="<%= Store.count %>">0</h1>
+                                  <h2 style="text-transform: capitalize;">Stores</h2>
+                                  <p>and counting</p>
+                                </div>
+                            
+                          </div>
+
+                           <div class="col-md-4">
+                            <div style="padding: 20px">
+                                   <h1 class="counting" data-count="<%= Product.count %>">0</h1>
+                                  <h2 style="text-transform: capitalize;">Products</h2>
+                                  <p>and counting</p>
+                                </div>
+                            
+                          </div>
+
+                           <div class="col-md-4">
+                            <div style="padding: 20px">
+                                   <h1 class="counting" data-count="<%= User.where.not(role: 'admin').count %>">0</h1>
+                                  <h2 style="text-transform: capitalize;">Clients</h2>
+                                  <p>and counting</p>
+                                </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div style="display: none">
+      <p id="lat_long"><%= @lat_long %>></p>
+    </div>
 
 <!-----Counter Scripts------->
 <script type="text/javascript">
