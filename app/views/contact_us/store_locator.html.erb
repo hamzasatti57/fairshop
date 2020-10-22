@@ -58,92 +58,107 @@
    .custom-storelocator-section-padding {
    padding: 70px 0px;
    }
+   /*--- final latest store selection card css---*/
+   .custom-store-locator-card{
+   padding: 10px;
+   background-color: #ecfdff;
+   box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2);
+   }
+   .custom-store-locator-card h4{
+   color:#8dc63f;
+   font-size: 18px;
+   /* margin-bottom: 20px;
+   line-height: 1.7rem;*/
+   }
+   .custom-store-locator-card p{
+   line-height: 1.2rem;
+   color:#8f8b89;
+   font-size: 16px;
+   margin-bottom: 15px;
+   }
+   .custom-store-locator-card-link{
+   margin-top: 20px;
+   width:100%; 
+   }
    .location_card {
    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
    padding: 16px;
    /*background-color: #d7d7d7;*/
    height: 170px;
-  ;
    }
-
    .location_card h3{
-    font-size: 18px;
-    margin-bottom: 15px;
+   font-size: 18px;
+   margin-bottom: 15px;
    }
-
    .location_card span{
-    font-weight: 300;
-    font-size: 16px;
+   font-weight: 300;
+   font-size: 16px;
    }
-.address-content-div .address-margin{
-
-  margin-bottom: 15px;
-}
-.address-margin p{
-
-  font-weight: 600;
-  font-size: 15px;
-}
-
-.address-content-div .address-margin span{
-
-  font-size: 16px;
-}
-
-/*------ cards select -----*/
-
-
-.custom-store-tab label {
-  width: 100%;
-  font-size: 1rem;
-}
-
-.custom-store-tab .card-input-element+.card {
- /* height: calc(36px + 2*1rem);*/
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border: 1px solid transparent;
-  border-radius: 0px;
-      padding: 0px;
-      height: 175px;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) !important;
-   
-   background-color: #d7d7d7 !important;
-}
-
-.custom-store-tab .card-input-element+.card:hover {
-  cursor: pointer;
-}
-
-.custom-store-tab .card-input-element:checked+.card {
-  border: 1px solid var(--primary);
-  -webkit-transition: border .3s;
-  -o-transition: border .3s;
-  transition: border .3s;
-  background-color: #19416a!important;
-  color:#ffffff;
-}
-.custom-store-tab .card-input-element:checked+.card h3 {
-
-  color:#ffffff;
-}
+   .address-content-div .address-margin{
+   margin-bottom: 15px;
+   }
+   .address-margin p{
+   font-weight: 600;
+   font-size: 15px;
+   }
+   .address-content-div .address-margin span{
+   font-size: 16px;
+   }
+   /*------ cards select -----*/
+   .custom-store-tab label {
+   width: 100%;
+   font-size: 1rem;
+   }
+   /*.custom-store-tab .card-input-element+.card {
+   padding:10px;
+   border: 1px solid transparent;
+   border-radius: 0px;
+   box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2);
+   background-color:  #ecfdff !important;
+   }*/
+   .custom-store-tab .card-input-element:checked+.card{
+   border: 1px solid var(--primary);
+   -webkit-transition: border .3s;
+   -o-transition: border .3s;
+   transition: border .3s;
+   background-color: #19416a!important;
+   color:#ffffff;
+   }
+   .custom-store-tab .card-input-element:checked+.card h4 {
+   color:#ffffff;
+   }
+   .custom-store-tab .card-input-element:checked+.card p {
+   color:#ffffff;
+   }
+   .custom-store-tab .card-input-element:checked+.card::after {
+   height: 175px;
+   -webkit-animation-name: fadeInCheckbox;
+   animation-name: fadeInCheckbox;
+   -webkit-animation-duration: .5s;
+   animation-duration: .5s;
+   -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   }
+   /*.custom-card-selection-body{
+   padding: 0px;
+   }*/
 
 
-.custom-store-tab .card-input-element:checked+.card::after {
- 
-  height: 175px;
-  -webkit-animation-name: fadeInCheckbox;
-  animation-name: fadeInCheckbox;
-  -webkit-animation-duration: .5s;
-  animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-.custom-card-selection-body{
 
-  padding: 0px;
-}
+   /*---dropdown--------*/
 
+   .option-list{
+
+    color:black !important;
+    background-color: #ffffff !important;
+    padding: 0px !important;
+   }
+
+
+   .contact-section{
+
+    margin: 80px 0px;
+   }
 </style>
 <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/store-locator-banner.png') %>');">
    <div class="container">
@@ -159,153 +174,114 @@
    </div>
 </section>
 <!-- ========================  Contact ======================== -->
-<!-- ================ contact section start ================= -->
-<section class="subscribe_area custom-storelocator-section-padding">
+<div style="display: none">
+   <p id="lat_long"><%= @lat_long %></p>
+</div>
+
+<section class="contact-section">
    <div class="container">
-      <div class="row ">
-         <div class="col-lg-12">
-            <div class="subscribe_area_text text-center">
-               <h3>SEARCH FOR A STORE NEAR YOU</h3>
-               <h5>See which stores are near your location or simply click the show all button to view all our stores</h5>
+      <div class="row mb-3">
+        <div class="col-md-6">
+                <div class="custom-select-location">
+        <select class="option-list" data-show-subtext="true" data-live-search="true">
+        <option class="option-list" data-subtext="Rep California" >Tom Foolery</option>
+        <option class="option-list" data-subtext="Sen California">Bill Gordon</option>
+        <option class="option-list" data-subtext="Sen Massacusetts">Elizabeth Warren</option>
+        <option class="option-list" data-subtext="Rep Alabama">Mario Flores</option>
+        <option class="option-list" data-subtext="Rep Alaska">Don Young</option>
+        <option class="option-list" data-subtext="Rep California" disabled="disabled">Marvin Martinez</option>
+      </select>
+            
+          </div>
+        </div>
+      </div>
+      <div class="row">
+
+
+         <div class="col-md-6">
+
+
+     
+
+            <div class="custom-store-tab ">
                <div class="row">
-                  <div class="col-md-4">
-                     <div style="padding: 20px">
-                        <h1 class="counting" data-count="<%= Store.count %>">0</h1>
-                        <h2 style="text-transform: capitalize;">Stores</h2>
-                        <p>and counting</p>
-                     </div>
+                  <div class="col">
+                     <label>
+                        <input type="radio" name="demo" class="card-input-element d-none" id="demo1">
+                        <!-- <div class="card card-body bg-light"> -->
+                        <!--  <div class="location_card">
+                           <h3>Card 1</h3>
+                           <span>Some text</span><br>
+                           <span>Some text</span>
+                           </div> -->
+                        <div class="card custom-store-locator-card">
+                           <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
+                           <div class="card-body">
+                              <h4 class="card-title">Card 1</h4>
+                              <p class="card-text">Some text</p>
+                              <div style="border:1px solid #deeff0"></div>
+                              <a href="#" class="btn btn-success card-link custom-store-locator-card-link">Read More</a>
+                           </div>
+                        </div>
+                        <!--  </div> -->
+                     </label>
                   </div>
-                  <div class="col-md-4">
-                     <div style="padding: 20px">
-                        <h1 class="counting" data-count="<%= Product.count %>">0</h1>
-                        <h2 style="text-transform: capitalize;">Products</h2>
-                        <p>and counting</p>
-                     </div>
-                  </div>
-                  <div class="col-md-4">
-                     <div style="padding: 20px">
-                        <h1 class="counting" data-count="<%= User.where.not(role: 'admin').count %>">0</h1>
-                        <h2 style="text-transform: capitalize;">Clients</h2>
-                        <p>and counting</p>
-                     </div>
+                  <div class="col">
+                     <label>
+                        <input type="radio" name="demo" class="card-input-element d-none" id="demo1">
+                        <!-- <div class="card card-body bg-light"> -->
+                        <!--  <div class="location_card">
+                           <h3>Card 2</h3>
+                           <span>Some text</span><br>
+                           <span>Some text</span>
+                           </div> -->
+                        <div class="card custom-store-locator-card">
+                           <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
+                           <div class="card-body">
+                              <h4 class="card-title">card 1</h4>
+                              <p class="card-text">some text</p>
+                              <div style="border:1px solid #deeff0"></div>
+                              <a href="#" class="btn btn-success card-link custom-store-locator-card-link">Read More</a>
+                           </div>
+                        </div>
+                        <!-- </div> -->
+                     </label>
                   </div>
                </div>
             </div>
          </div>
-      </div>
-   </div>
-</section>
-<div style="display: none">
-   <p id="lat_long"><%= @lat_long %>></p>
-</div>
-<div class="custom-google-search-section">
-   <div class="container">
-      <div class="row">
-         <div class="col-md-12">
-            <div class="custom-google-search-box">
-               <form class="card card-sm">
-                  <div class="card-body row no-gutters align-items-center">
-                     <!--end of col-->
-                     <div class="col">
-                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
-                     </div>
-                     <!--end of col-->
-                     <div class="col-auto">
-                        <button class="btn btn-lg custom-search-btn-locator" type="submit"> <i class="fas fa-search"></i></button>
-                     </div>
-                     <!--end of col-->
-                  </div>
-               </form>
-            </div>
-         </div>
-      </div>
-   </div>
-</div>
-<section class="contact-section">
-   <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="custom-store-tab ">   
-             <div class="row">
-
-               <div class="col">
-                     <label>
-                      <input type="radio" name="demo" class="card-input-element d-none" id="demo1">
-                         <div class="card card-body bg-light location_card">
-                            <div class="location_card">
-                                 <h3>Card 1</h3>
-                                <span>Some text</span><br>
-                                <span>Some text</span>
-                              </div>
-                            </div>
-                           </label>
-                          </div>
-                  
-                   <div class="col">
-                     <label>
-                      <input type="radio" name="demo" class="card-input-element d-none" id="demo1">
-                         <div class="card card-body bg-light custom-card-selection-body">
-                            <div class="location_card">
-                                 <h3>Card 2</h3>
-                                <span>Some text</span><br>
-                                <span>Some text</span>
-                              </div>
-                            </div>
-                           </label>
-                          </div>
-
-       
-
-              </div>
-            </div>
-          </div>
          <div class="col-md-6">
-         <div class="location-cards">
-
-          <div class="address-content-div">
-
-            <div><h3>abcd</h3></div>
-
-            <div class="trading address-margin">
-             <p>TRADING HOURS:</p>
-             <span>NOW OPEN DURING LOCKDOWN</span>
+            <div class="location-cards">
+               <div class="address-content-div">
+                  <div>
+                     <h3>abcd</h3>
+                  </div>
+                  <div class="trading address-margin">
+                     <p>TRADING HOURS:</p>
+                     <span>NOW OPEN DURING LOCKDOWN</span>
+                  </div>
+                  <div class="mon-fri address-margin">
+                     <p>Monday - Friday:</p>
+                     <span>9am-5pm</span>
+                  </div>
+                  <div class="saturday address-margin">
+                     <p>Saturday</p>
+                     <span>9am-3pm</span>
+                  </div>
+                  <div class="sunday address-margin">
+                     <p>Sunday</p>
+                     <span>9am-1pm</span>
+                  </div>
+                  <div class="public-holydays address-margin">
+                     <p>Public Holidays:</p>
+                     <span>9am-2pm</span>
+                  </div>
+                  <div class="public-holydays address-margin">
+                     <p>Close Christmas,Boxing and News</p>
+                     <span>9am-2pm</span>
+                  </div>
+               </div>
             </div>
-
-            <div class="mon-fri address-margin">
-             <p>Monday - Friday:</p>
-             <span>9am-5pm</span>
-            </div>
-
-             <div class="saturday address-margin">
-             <p>Saturday</p>
-             <span>9am-3pm</span>
-            </div>
-
-             <div class="sunday address-margin">
-             <p>Sunday</p>
-             <span>9am-1pm</span>
-            </div>
-
-             <div class="public-holydays address-margin">
-             <p>Public Holidays:</p>
-             <span>9am-2pm</span>
-            </div>
-
-             <div class="public-holydays address-margin">
-             <p>Close Christmas,Boxing and News</p>
-             <span>9am-2pm</span>
-            </div>
-
-
-            
-          </div>
-
-
-            
-          </div>
-
-
-
             <div class="d-sm-block mb-5">
                <div id="map" style="height: 480px;"></div>
                <script>
@@ -370,54 +346,46 @@
       </div>
    </div>
 </div>
-  
 </div>
-
-  <!-- ================ contact section start ================= -->
-
-    <section class="subscribe_area custom-storelocator-section-padding">
-        <div class="container">
-            <div class="row ">
-                <div class="col-lg-12">
-                    <div class="subscribe_area_text text-center">
-                        <h3>SEARCH FOR A STORE NEAR YOU</h3>
-                        <h5>See which stores are near your location or simply click the show all button to view all our stores</h5>
-                        <div class="row">
-
-                          <div class="col-md-4">
-                            <div style="padding: 20px">
-                                  <h1 class="counting" data-count="<%= Store.count %>">0</h1>
-                                  <h2 style="text-transform: capitalize;">Stores</h2>
-                                  <p>and counting</p>
-                                </div>
-                            
-                          </div>
-
-                           <div class="col-md-4">
-                            <div style="padding: 20px">
-                                   <h1 class="counting" data-count="<%= Product.count %>">0</h1>
-                                  <h2 style="text-transform: capitalize;">Products</h2>
-                                  <p>and counting</p>
-                                </div>
-                            
-                          </div>
-
-                           <div class="col-md-4">
-                            <div style="padding: 20px">
-                                   <h1 class="counting" data-count="<%= User.where.not(role: 'admin').count %>">0</h1>
-                                  <h2 style="text-transform: capitalize;">Clients</h2>
-                                  <p>and counting</p>
-                                </div>
-                          </div>
-                        </div>
-                    </div>
-                </div>
+<!-- ================ contact section start ================= -->
+<section class="subscribe_area custom-storelocator-section-padding">
+   <div class="container">
+      <div class="row ">
+         <div class="col-lg-12">
+            <div class="subscribe_area_text text-center">
+               <h3>SEARCH FOR A STORE NEAR YOU</h3>
+               <h5>See which stores are near your location or simply click the show all button to view all our stores</h5>
+               <div class="row">
+                  <div class="col-md-4">
+                     <div style="padding: 20px">
+                        <h1 class="counting" data-count="<%= Store.count %>">0</h1>
+                        <h2 style="text-transform: capitalize;">Stores</h2>
+                        <p>and counting</p>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div style="padding: 20px">
+                        <h1 class="counting" data-count="<%= Product.count %>">0</h1>
+                        <h2 style="text-transform: capitalize;">Products</h2>
+                        <p>and counting</p>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div style="padding: 20px">
+                        <h1 class="counting" data-count="<%= User.where.not(role: 'admin').count %>">0</h1>
+                        <h2 style="text-transform: capitalize;">Clients</h2>
+                        <p>and counting</p>
+                     </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </section>
-    <div style="display: none">
-      <p id="lat_long"><%= @lat_long %>></p>
-    </div>
+         </div>
+      </div>
+   </div>
+</section>
+<div style="display: none">
+   <p id="lat_long"><%= @lat_long %>></p>
+</div>
 <!-----Counter Scripts------->
 <script type="text/javascript">
    // number count for stats, using jQuery animate
@@ -451,5 +419,10 @@
        window.location.href = '/store_locator?search=' + $('.form-control-borderless').val();
        return false;
        // window.location.href = '/'
+   });
+</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+   $('.mdb-select').materialSelect();
    });
 </script>
