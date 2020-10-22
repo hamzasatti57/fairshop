@@ -26,6 +26,10 @@
     padding-bottom: 30px;
     margin: auto;
   }
+
+.irs-from, .irs-to, .irs-single{
+  display: none;
+}
 </style>
 
 <%# @products = @products.paginate(page: params[:page], per_page: 6) %>
@@ -232,6 +236,7 @@
     $(".js-irs-3").remove()
     $(".js-irs-4").remove()
     $(".js-irs-5").remove()
+    $(".irs-single").hide()
 
     $(".checkout_btn_2").on('click', function (e) {
       $('#add_to_cart_modal').modal('hide');
@@ -312,6 +317,7 @@
 
             $inputFrom.prop("value", from);
             $inputTo.prop("value", to);
+            $(".irs-single").hide()
         }
 
         $inputFrom.on("input", function () {
@@ -327,6 +333,7 @@
             instance.update({
                 from: val
             });
+            $(".irs-single").hide()
         });
 
         $inputTo.on("input", function () {
@@ -343,6 +350,7 @@
                 to: val
             });
         });
+        $(".irs-single").hide()
     });
 
     // $('#price-filter').click(function(){
