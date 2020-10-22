@@ -1,7 +1,9 @@
 <style type="text/css">
    @media only screen and (max-width: 600px) {
    .store-counter{
+
    display:block !important ; 
+
    margin-left: -7%;
    }
    }
@@ -53,11 +55,14 @@
    }
    .custom-locator-cards-links{
    margin-top: 20px;
+
    width:100%; 
+
    }
    .custom-storelocator-section-padding {
    padding: 70px 0px;
    }
+
    /*--- final latest store selection card css---*/
    .custom-store-locator-card{
    padding: 10px;
@@ -80,6 +85,7 @@
    margin-top: 20px;
    width:100%; 
    }
+
    .location_card {
    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
    padding: 16px;
@@ -159,6 +165,7 @@
 
     margin: 80px 0px;
    }
+
 </style>
 <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/store-locator-banner.png') %>');">
    <div class="container">
@@ -307,7 +314,6 @@
                              icon: 'https://i.imgur.com/SzGKHAk.png',
                              title: beaches[i][0]
                          });
-                  
                          google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
                              return function () {
                                  infowindow.setContent(beaches[i][0]);
@@ -386,6 +392,7 @@
 <div style="display: none">
    <p id="lat_long"><%= @lat_long %>></p>
 </div>
+
 <!-----Counter Scripts------->
 <script type="text/javascript">
    // number count for stats, using jQuery animate
