@@ -1,203 +1,337 @@
 <style type="text/css">
-  
-  @media only screen and (max-width: 600px) {
- .store-counter{
-  display:block !important ; 
-  margin-left: -7%;
- }
+   @media only screen and (max-width: 600px) {
+   .store-counter{
+   display:block !important ;
+   margin-left: -7%;
+   }
+   }
+   .custom-google-search-box{
+   padding: 15px;
+   box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2);
+   background-color: white;
+   border: 0 solid #ddd;
+   /* height: 200px;*/
+   margin: 0px 0px 80px 0px !important;
+   }
+   .subscribe_area .counting {
+   font-weight: 700;
+   font-size: 48px;
+   line-height: 60px;
+   margin: 10px 0 25px;
+   }
+   .custom-google-search-box .form-control-borderless {
+   border: none;
+   }
+   .custom-google-search-box .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+   border: none;
+   outline: none;
+   box-shadow: none;
+   }
+   .custom-search-btn-locator{
+   background-color: #8dc63f;
+   color:#ffffff;
+   }
+   /*---cards style---*/
+   .custom-card-location-style{
+   padding: 10px;
+   background-color: #ecfdff;
+   box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2);
+   }
+   .custom-card-location-style h4{
+   color:#8dc63f;
+   font-size: 22px;
+   margin-bottom: 20px;
+   line-height: 1.7rem;
+   }
+   .custom-card-location-style p{
+   line-height: 1.7rem;
+   color:#8f8b89;
+   margin-bottom: 25px;
+   }
+   .custom-location-cards-section{
+   margin: 0px 0px 20px 0px;
+   }
+   .custom-locator-cards-links{
+   margin-top: 20px;
+   width:100%;
+   }
+   .custom-storelocator-section-padding {
+   padding: 70px 0px;
+   }
+   .location_card {
+   /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+   padding: 16px;
+   /*background-color: #d7d7d7;*/
+   height: 170px;
+  ;
+   }
+
+   .location_card h3{
+    font-size: 18px;
+    margin-bottom: 15px;
+   }
+
+   .location_card span{
+    font-weight: 300;
+    font-size: 16px;
+   }
+.address-content-div .address-margin{
+
+  margin-bottom: 15px;
+}
+.address-margin p{
+
+  font-weight: 600;
+  font-size: 15px;
 }
 
-.custom-google-search-box{
-  padding: 15px;
-  box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2);
-  background-color: white;
-  border: 0 solid #ddd;
- /* height: 200px;*/
-  margin: 0px 0px 80px 0px !important;
+.address-content-div .address-margin span{
 
+  font-size: 16px;
 }
 
-.subscribe_area .counting {
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 60px;
-    margin: 10px 0 25px;
+/*------ cards select -----*/
+
+
+.custom-store-tab label {
+  width: 100%;
+  font-size: 1rem;
 }
 
-.custom-google-search-box .form-control-borderless {
-    border: none;
+.custom-store-tab .card-input-element+.card {
+ /* height: calc(36px + 2*1rem);*/
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid transparent;
+  border-radius: 0px;
+      padding: 0px;
+      height: 175px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) !important;
+   
+   background-color: #d7d7d7 !important;
 }
 
-.custom-google-search-box .form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
-    border: none;
-    outline: none;
-    box-shadow: none;
+.custom-store-tab .card-input-element+.card:hover {
+  cursor: pointer;
 }
 
-.custom-search-btn-locator{
+.custom-store-tab .card-input-element:checked+.card {
+  border: 1px solid var(--primary);
+  -webkit-transition: border .3s;
+  -o-transition: border .3s;
+  transition: border .3s;
+  background-color: #19416a!important;
+  color:#ffffff;
+}
+.custom-store-tab .card-input-element:checked+.card h3 {
 
-  background-color: #8dc63f;
   color:#ffffff;
 }
 
-/*---cards style---*/
 
-.custom-card-location-style{
-
-  padding: 10px;
-  background-color: #ecfdff;
-   box-shadow: 0 2px 6px 2px rgba(0,0,0,0.2);
+.custom-store-tab .card-input-element:checked+.card::after {
+ 
+  height: 175px;
+  -webkit-animation-name: fadeInCheckbox;
+  animation-name: fadeInCheckbox;
+  -webkit-animation-duration: .5s;
+  animation-duration: .5s;
+  -webkit-animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.custom-card-location-style h4{
+.custom-card-selection-body{
 
-  color:#8dc63f;
-  font-size: 22px;
-  margin-bottom: 20px;
-  line-height: 1.7rem;
-
-}
-
-.custom-card-location-style p{
-  
-      line-height: 1.7rem;
-      color:#8f8b89;
-       margin-bottom: 25px;
-
-}
-.custom-location-cards-section{
-
-  margin: 0px 0px 20px 0px;
+  padding: 0px;
 }
 
- .custom-locator-cards-links{
-  margin-top: 20px;
-  width:100%; 
-}
-
-.custom-storelocator-section-padding {
-    padding: 70px 0px;
-}
 </style>
-
-  <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/store-locator-banner.png') %>');">
-    <div class="container">
+<section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/store-locator-banner.png') %>');">
+   <div class="container">
       <div class="row">
-        <div class="col-lg-12">
-          <div class="breadcrumb_iner">
-            <div class="breadcrumb_iner_item">
-              <h2 style="padding-right: 2%">Visit Us</h2>
+         <div class="col-lg-12">
+            <div class="breadcrumb_iner">
+               <div class="breadcrumb_iner_item">
+                  <h2 style="padding-right: 2%">Visit Us</h2>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div>
-  </section>
-  <br>
-
+   </div>
+</section>
 <!-- ========================  Contact ======================== -->
 
-  <div class="custom-google-search-section">
-    <div class="container">
+<div style="display: none">
+   <p id="lat_long"><%= @lat_long %>></p>
+</div>
+<div class="custom-google-search-section">
+   <div class="container">
       <div class="row">
-
-        <div class="col-md-12">
-
-          <div class="custom-google-search-box">
-
-            <form class="card card-sm">
-                <div class="card-body row no-gutters align-items-center">
-                   
-                    <!--end of col-->
-                    <div class="col">
+         <div class="col-md-12">
+            <div class="custom-google-search-box">
+               <form class="card card-sm">
+                  <div class="card-body row no-gutters align-items-center">
+                     <!--end of col-->
+                     <div class="col">
                         <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Search topics or keywords">
-                    </div>
-                    <!--end of col-->
-                    <div class="col-auto">
+                     </div>
+                     <!--end of col-->
+                     <div class="col-auto">
                         <button class="btn btn-lg custom-search-btn-locator" type="submit"> <i class="fas fa-search"></i></button>
-                    </div>
-                    <!--end of col-->
-                </div>
-            </form>
-            
+                     </div>
+                     <!--end of col-->
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<section class="contact-section">
+   <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="custom-store-tab ">  
+             <div class="row">
+               <div class="col">
+                     <label>
+                      <input type="radio" name="demo" class="card-input-element d-none" id="demo1">
+                         <div class="card card-body bg-light location_card">
+                            <div class="location_card">
+                                 <h3>Card 1</h3>
+                                <span>Some text</span><br>
+                                <span>Some text</span>
+                              </div>
+                            </div>
+                           </label>
+                          </div>
+                 
+                   <div class="col">
+                     <label>
+                      <input type="radio" name="demo" class="card-input-element d-none" id="demo1">
+                         <div class="card card-body bg-light custom-card-selection-body">
+                            <div class="location_card">
+                                 <h3>Card 2</h3>
+                                <span>Some text</span><br>
+                                <span>Some text</span>
+                              </div>
+                            </div>
+                           </label>
+                          </div>
+              </div>
+            </div>
+          </div>
+         <div class="col-md-6">
+         <div class="location-cards">
+
+          <div class="address-content-div">
+
+            <div><h3>abcd</h3></div>
+
+            <div class="trading address-margin">
+             <p>TRADING HOURS:</p>
+             <span>NOW OPEN DURING LOCKDOWN</span>
+            </div>
+
+            <div class="mon-fri address-margin">
+             <p>Monday - Friday:</p>
+             <span>9am-5pm</span>
+            </div>
+
+             <div class="saturday address-margin">
+             <p>Saturday</p>
+             <span>9am-3pm</span>
+            </div>
+
+             <div class="sunday address-margin">
+             <p>Sunday</p>
+             <span>9am-1pm</span>
+            </div>
+
+             <div class="public-holydays address-margin">
+             <p>Public Holidays:</p>
+             <span>9am-2pm</span>
+            </div>
+
+             <div class="public-holydays address-margin">
+             <p>Close Christmas,Boxing and News</p>
+             <span>9am-2pm</span>
+            </div>
+
+
+           
           </div>
 
-        </div>
-        
+
+           
+          </div>
+
+
+
+            <div class="d-sm-block mb-5">
+               <div id="map" style="height: 480px;"></div>
+               <script>
+                  var markers = [];
+                 
+                  function initialize() {
+                     var beaches = $('#lat_long').text();
+                     beaches = eval(beaches.replace(">", ""))
+                 
+                     var map = new google.maps.Map(document.getElementById('map'), {
+                         zoom: 12,
+                         center: new google.maps.LatLng(-26.243046, 28.006550),
+                         mapTypeId: google.maps.MapTypeId.ROADMAP
+                     });
+                 
+                     var infowindow = new google.maps.InfoWindow();
+                 
+                     for (var i = 0; i < beaches.length; i++) {
+                 
+                         var newMarker = new google.maps.Marker({
+                             position: new google.maps.LatLng(beaches[i][1], beaches[i][2]),
+                             map: map,
+                             icon: 'https://i.imgur.com/SzGKHAk.png',
+                             title: beaches[i][0]
+                         });
+                 
+                         google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
+                             return function () {
+                                 infowindow.setContent(beaches[i][0]);
+                                 infowindow.open(map, newMarker);
+                             }
+                         })(newMarker, i));
+                 
+                         markers.push(newMarker);
+                     }
+                  }
+                 
+                  initialize();
+               </script>
+            </div>
+         </div>
       </div>
-      
-    </div>
-
-  </div>
-  <section class="contact-section">
-    <div class="container">
-      <div class="d-sm-block mb-5">
-        <div id="map" style="height: 480px;"></div>
-        <script>
-             var markers = [];
-
-            function initialize() {
-                var beaches = $('#lat_long').text();
-                beaches = eval(beaches.replace(">", ""))
-            
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 12,
-                    center: new google.maps.LatLng(-26.243046, 28.006550),
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                });
-            
-                var infowindow = new google.maps.InfoWindow();
-             
-                for (var i = 0; i < beaches.length; i++) {
-            
-                    var newMarker = new google.maps.Marker({
-                        position: new google.maps.LatLng(beaches[i][1], beaches[i][2]),
-                        map: map,
-                        icon: 'https://i.imgur.com/SzGKHAk.png',
-                        title: beaches[i][0]
-                    });
-            
-                    google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
-                        return function () {
-                            infowindow.setContent(beaches[i][0]);
-                            infowindow.open(map, newMarker);
-                        }
-                    })(newMarker, i));
-            
-                    markers.push(newMarker);
-                }
-            }
-            
-            initialize();
-        </script>
-
-      </div>
-
-    </div>
-  </section>
-
+   </div>
+</section>
 <!-- location-cards  -->
 <div class="custom-location-cards-section">
-
-  <div class="container">
-  <div class="row">
-    <% @store_cards.to_a.each do |store| %>
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <div class="card custom-card-location-style">
-          <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
-          <div class="card-body">
-            <h4 class="card-title"><%= store.store_name %></h4>
-            
-            <p class="card-text"><%= store.store_address %></p>
-
-            <div style="border:1px solid #deeff0"></div>
-            <a href="#" class="btn btn-success card-link custom-locator-cards-links">Read More</a>
-          </div>
-        </div>
+   <div class="container">
+      <div class="row">
+         <% @store_cards.to_a.each do |store| %>
+         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+            <div class="card custom-card-location-style">
+               <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
+               <div class="card-body">
+                  <h4 class="card-title"><%= store.store_name %></h4>
+                  <p class="card-text"><%= store.store_address %></p>
+                  <div style="border:1px solid #deeff0"></div>
+                  <a href="#" class="btn btn-success card-link custom-locator-cards-links">Read More</a>
+               </div>
+            </div>
+         </div>
+         <% end %>
       </div>
-    <% end %>
-  </div>
+   </div>
 </div>
-  
+ 
 </div>
 
   <!-- ================ contact section start ================= -->
@@ -217,7 +351,7 @@
                                   <h2 style="text-transform: capitalize;">Stores</h2>
                                   <p>and counting</p>
                                 </div>
-                            
+                           
                           </div>
 
                            <div class="col-md-4">
@@ -226,7 +360,7 @@
                                   <h2 style="text-transform: capitalize;">Products</h2>
                                   <p>and counting</p>
                                 </div>
-                            
+                           
                           </div>
 
                            <div class="col-md-4">
@@ -245,39 +379,38 @@
     <div style="display: none">
       <p id="lat_long"><%= @lat_long %>></p>
     </div>
-
 <!-----Counter Scripts------->
 <script type="text/javascript">
-  // number count for stats, using jQuery animate
-
-$('.counting').each(function() {
-  var $this = $(this),
-      countTo = $this.attr('data-count');
-  
-  $({ countNum: $this.text()}).animate({
-    countNum: countTo
-  },
-
-  {
-
-    duration: 3000,
-    easing:'linear',
-    step: function() {
-      $this.text(Math.floor(this.countNum));
-    },
-    complete: function() {
-      $this.text(this.countNum);
-      //alert('finished');
-    }
-
-  });  
-
-});
-
-  $('.custom-search-btn-locator').click(function () {
-    debugger
-      window.location.href = '/store_locator?search=' + $('.form-control-borderless').val();
-      return false;
-      // window.location.href = '/'
-  });
+   // number count for stats, using jQuery animate
+   
+   $('.counting').each(function() {
+   var $this = $(this),
+       countTo = $this.attr('data-count');
+   
+   $({ countNum: $this.text()}).animate({
+     countNum: countTo
+   },
+   
+   {
+   
+     duration: 3000,
+     easing:'linear',
+     step: function() {
+       $this.text(Math.floor(this.countNum));
+     },
+     complete: function() {
+       $this.text(this.countNum);
+       //alert('finished');
+     }
+   
+   });  
+   
+   });
+   
+   $('.custom-search-btn-locator').click(function () {
+     debugger
+       window.location.href = '/store_locator?search=' + $('.form-control-borderless').val();
+       return false;
+       // window.location.href = '/'
+   });
 </script>
