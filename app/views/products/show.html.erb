@@ -548,7 +548,7 @@ display: block;
                      <span style="padding-right: 58px;margin: 10px auto">Delivery </span><span id="stock-remaining"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "3 days" : "21 days" %></span>
                   </li>
                   <li>
-                     <span style="padding-right: 50px;">Assembly</span> <%= @product.assembly_type.humanize if @product.assembly_type.present? %>
+                     <span style="padding-right: 50px;">Assembly</span> <%= @product.assembly_type.humanize.upcase if @product.assembly_type.present? %>
                   </li>
                   <li>
                      <div style="display:inline-flex; ">
