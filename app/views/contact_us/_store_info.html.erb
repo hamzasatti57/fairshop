@@ -1,0 +1,132 @@
+         <div class="col-md-6" id="card-info" style="display: none">
+            <div class="location-cards">
+
+              <div class="row">
+                <div class="col-md-12">
+                    <div>
+                     <h3>abcds</h3>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="address-content-div">
+                
+                  <div class="trading address-margin">
+                     <p>TRADING HOURS:</p>
+                     <span>NOW OPEN DURING LOCKDOWN</span>
+                  </div>
+                  <div class="mon-fri address-margin">
+                     <p>Monday - Friday:</p>
+                     <span>9am-5pm</span>
+                  </div>
+                  <div class="saturday address-margin">
+                     <p>Saturday</p>
+                     <span>9am-3pm</span>
+                  </div>
+                  <div class="sunday address-margin">
+                     <p>Sunday</p>
+                     <span>9am-1pm</span>
+                  </div>
+                  <div class="public-holydays address-margin">
+                     <p>Public Holidays:</p>
+                     <span>9am-2pm</span>
+                  </div>
+                  <div class="public-holydays address-margin">
+                     <p>Close Christmas,Boxing and News</p>
+                     <span>9am-2pm</span>
+                  </div>
+               </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="address-content-div">
+                
+                  <div class="trading address-margin">
+                     <p>TEL:</p>
+                     <span>021 5369 5464</span>
+                  </div>
+                  
+               </div>
+                  
+                </div>
+
+
+              </div>
+             <!--   <div class="address-content-div">
+                  <div>
+                     <h3>abcd</h3>
+                  </div>
+                  <div class="trading address-margin">
+                     <p>TRADING HOURS:</p>
+                     <span>NOW OPEN DURING LOCKDOWN</span>
+                  </div>
+                  <div class="mon-fri address-margin">
+                     <p>Monday - Friday:</p>
+                     <span>9am-5pm</span>
+                  </div>
+                  <div class="saturday address-margin">
+                     <p>Saturday</p>
+                     <span>9am-3pm</span>
+                  </div>
+                  <div class="sunday address-margin">
+                     <p>Sunday</p>
+                     <span>9am-1pm</span>
+                  </div>
+                  <div class="public-holydays address-margin">
+                     <p>Public Holidays:</p>
+                     <span>9am-2pm</span>
+                  </div>
+                  <div class="public-holydays address-margin">
+                     <p>Close Christmas,Boxing and News</p>
+                     <span>9am-2pm</span>
+                  </div>
+               </div> -->
+            </div>
+            <div class="d-sm-block mb-5">
+               <div id="map" style="height: 480px;"></div>
+               <script>
+                  var markers = [];
+                  
+                  function initialize() {
+                     var beaches = $('#lat_long').text();
+                     beaches = eval(beaches.replace(">", ""))
+                  
+                     var map = new google.maps.Map(document.getElementById('map'), {
+                         zoom: 12,
+                         center: new google.maps.LatLng(-26.243046, 28.006550),
+                         mapTypeId: google.maps.MapTypeId.ROADMAP
+                     });
+                  
+                     var infowindow = new google.maps.InfoWindow();
+                  
+                     for (var i = 0; i < beaches.length; i++) {
+                  
+                         var newMarker = new google.maps.Marker({
+                             position: new google.maps.LatLng(beaches[i][1], beaches[i][2]),
+                             map: map,
+                             icon: 'https://i.imgur.com/SzGKHAk.png',
+                             title: beaches[i][0]
+                         });
+                         google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
+                             return function () {
+                                 infowindow.setContent(beaches[i][0]);
+                                 infowindow.open(map, newMarker);
+                             }
+                         })(newMarker, i));
+                  
+                         markers.push(newMarker);
+                     }
+                  }
+                  
+                  initialize();
+               </script>
+            </div>
+         </div>
+
+        <script type="text/javascript">
+                   
+           $('.store-info').click(function () {
+            debugger
+               $('#card-info').css("display", "initial")
+               // window.location.href = '/'
+           });
+        </script>

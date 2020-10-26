@@ -8,10 +8,12 @@ class ContactUsController < ApplicationController
       @stores = Store.where("store_address ILIKE '%#{params[:search].downcase}%' OR store_city ILIKE '%#{params[:search].downcase}%'")
       @store_cards = @stores
     else
-      @stores = Store.all
+      # @stores = Store.all
     end
+
+    # @store_info = @stores.last
     @lat_long = []
-    @stores.each_with_index do |store, index|
+    @stores.to_a.each_with_index do |store, index|
       next if store.lat == nil or store.long == nil
       @lat_long[index] = []
       @lat_long[index] << store.store_name.to_s
