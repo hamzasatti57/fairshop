@@ -218,7 +218,11 @@
                            <span>Some text</span>
                            </div> -->
                         <div class="card custom-store-locator-card">
-                           <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
+                          <% if store.images.present? %>
+                            <%=image_tag(url_for(store.images.first), class: "card-img-top")%>
+                          <% else %>
+                            <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
+                           <% end %>
                            <div class="card-body">
                               <h4 class="card-title"><%= store.store_name %></h4>
                               <p class="card-text"><%= store.store_address %></p>
@@ -238,25 +242,6 @@
    </div>
 </section>
 <!-- location-cards  -->
-<div class="custom-location-cards-section">
-   <div class="container">
-      <div class="row">
-         <% @store_cards.to_a.each do |store| %>
-         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-            <div class="card custom-card-location-style">
-               <img class="card-img-top" src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/bologna-1.jpg" alt="Bologna">
-               <div class="card-body">
-                  <h4 class="card-title"><%= store.store_name %></h4>
-                  <p class="card-text"><%= store.store_address %></p>
-                  <div style="border:1px solid #deeff0"></div>
-                  <a href="#" class="btn btn-success card-link custom-locator-cards-links">Read More</a>
-               </div>
-            </div>
-         </div>
-         <% end %>
-      </div>
-   </div>
-</div>
 </div>
 <!-- ================ contact section start ================= -->
 <section class="subscribe_area custom-storelocator-section-padding">
