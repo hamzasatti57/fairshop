@@ -194,9 +194,10 @@
       <div class="row mb-3">
         <div class="col-md-6">
           <div class="custom-select-location">
-            <select class="option-list" data-show-subtext="true" data-live-search="true">
-              <% Store.all.pluck(:store_city).uniq.each do |store| %>
-                <option class="option-list" data-subtext="<%= store %>" ><%= store %></option>
+            <select class="option-list" id="city-select" data-show-subtext="true" data-live-search="true">
+              <option class="option-list" id="default-city">Please Select City</option>
+              <% Store.all.pluck(:store_city).sort.uniq.each do |store| %>
+                <option class="option-list" data-subtext="<%= store %>" value="<%= store %>"><%= store %></option>
               <% end %>
             </select>
           </div>
