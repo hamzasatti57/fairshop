@@ -195,8 +195,8 @@
         <div class="col-md-6">
           <div class="custom-select-location">
             <select class="option-list" data-show-subtext="true" data-live-search="true">
-              <% Store.all.each do |store| %>
-                <option class="option-list" data-subtext="<%= store.store_city %>" ><%= store.store_city %></option>
+              <% Store.all.pluck(:store_city).uniq.each do |store| %>
+                <option class="option-list" data-subtext="<%= store %>" ><%= store %></option>
               <% end %>
             </select>
           </div>
