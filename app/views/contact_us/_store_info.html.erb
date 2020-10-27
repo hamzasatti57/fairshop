@@ -1,3 +1,9 @@
+         <div id="sample-div">
+           
+         </div>
+         <div style="display: none">
+           <p id="lat_long"><%= @lat_long %></p>
+        </div>
          <div class="col-md-6" id="card-info" style="display: none">
             <div class="location-cards">
 
@@ -84,49 +90,98 @@
             <div class="d-sm-block mb-5">
                <div id="map" style="height: 480px;"></div>
                <script>
-                  var markers = [];
+                  // var markers = [];
+                  // function initialize() {
+                     // var beaches = $('#lat_long').text();
+                      // debugger
+                     // beaches = eval(beaches.replace(">", ""))
                   
-                  function initialize() {
-                     var beaches = $('#lat_long').text();
-                     beaches = eval(beaches.replace(">", ""))
+                     // var map = new google.maps.Map(document.getElementById('map'), {
+                         // zoom: 12,
+                         // center: new google.maps.LatLng(-26.243046, 28.006550),
+                         // mapTypeId: google.maps.MapTypeId.ROADMAP
+                     // });
                   
-                     var map = new google.maps.Map(document.getElementById('map'), {
-                         zoom: 12,
-                         center: new google.maps.LatLng(-26.243046, 28.006550),
-                         mapTypeId: google.maps.MapTypeId.ROADMAP
-                     });
+                     // var infowindow = new google.maps.InfoWindow();
                   
-                     var infowindow = new google.maps.InfoWindow();
+                     // for (var i = 0; i < beaches.length; i++) {
                   
-                     for (var i = 0; i < beaches.length; i++) {
+                         // var newMarker = new google.maps.Marker({
+                             // position: new google.maps.LatLng(beaches[i][1], beaches[i][2]),
+                             // map: map,
+                             // icon: 'https://i.imgur.com/SzGKHAk.png',
+                             // title: beaches[i][0]
+                         // });
+                         // google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
+                             // return function () {
+                                 // infowindow.setContent(beaches[i][0]);
+                                 // infowindow.open(map, newMarker);
+                             // }
+                         // })(newMarker, i));
                   
-                         var newMarker = new google.maps.Marker({
-                             position: new google.maps.LatLng(beaches[i][1], beaches[i][2]),
-                             map: map,
-                             icon: 'https://i.imgur.com/SzGKHAk.png',
-                             title: beaches[i][0]
-                         });
-                         google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
-                             return function () {
-                                 infowindow.setContent(beaches[i][0]);
-                                 infowindow.open(map, newMarker);
-                             }
-                         })(newMarker, i));
+                         // markers.push(newMarker);
+                     // }
+                  // }
                   
-                         markers.push(newMarker);
-                     }
-                  }
-                  
-                  initialize();
+                  // initialize();
+                            let map;
+
+          function initialize() {
+            const mapOptions = {
+              zoom: 12,
+              center: { lat: -26.243046, lng: 28.006550 },
+            };
+            beach = $('#lat_long').text();
+            beach = eval(beach)
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
+              debugger
+            const marker = new google.maps.Marker({
+              // The below line is equivalent to writing:
+              icon: 'https://i.imgur.com/SzGKHAk.png',
+              // position: new google.maps.LatLng(-34.397, 150.644)
+              position: { lat: -26.243046, lng: 28.006550 },
+              map: map,
+            });
+            // You can use a LatLng literal in place of a google.maps.LatLng object when
+            // creating the Marker object. Once the Marker object is instantiated, its
+            // position will be available as a google.maps.LatLng object. In this case,
+            // we retrieve the marker's position using the
+            // google.maps.LatLng.getPosition() method.
+            const infowindow = new google.maps.InfoWindow({
+              content: "<p>Johannesburg South, 2091, South Africa</p>",
+            });
+            google.maps.event.addListener(marker, "click", () => {
+              infowindow.open(map, marker);
+            });
+          }
+          initialize();
                </script>
             </div>
          </div>
 
-        <script type="text/javascript">
-                   
-           $('.store-info').click(function () {
-            debugger
-               $('#card-info').css("display", "initial")
-               // window.location.href = '/'
-           });
-        </script>
+
+         <script type="text/javascript">
+           
+        $(".custom-store-locator-card").click(function (){
+          store = $(this).children().children()[0].innerHTML
+
+          $.ajax({
+          url: '/store_locator?search=<%= params[:search] %>&store_item=' + store,
+          type: "GET",
+          processData: false,
+          // beforeSend: function(xhr, settings) {
+          //   xhr.setRequestHeader('accept', '*/*;q=0.5, ' + settings.accepts.script);
+          // }
+          success: function (data) {
+            $('#card-info').css("display", "initial")
+            $('#sample-div').html(data)
+          },
+          error: function (data) {
+
+              alert('Error');
+          }
+
+      });
+
+   });
+         </script>
