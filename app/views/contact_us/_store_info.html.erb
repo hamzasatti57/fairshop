@@ -10,7 +10,7 @@
               <div class="row">
                 <div class="col-md-12">
                     <div>
-                     <h3>abcds</h3>
+                     <h3 id="store-name"><%= @store.present? ? @store.store_name : "" %></h3>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -48,7 +48,7 @@
                 
                   <div class="trading address-margin">
                      <p>TEL:</p>
-                     <span>021 5369 5464</span>
+                     <span id="store-num">021 5369 5464</span>
                   </div>
                   
                </div>
@@ -128,13 +128,12 @@
 
           function initialize() {
             const mapOptions = {
-              zoom: 12,
+              zoom: 4,
               center: { lat: -26.243046, lng: 28.006550 },
             };
             beach = $('#lat_long').text();
             beach = eval(beach)
             map = new google.maps.Map(document.getElementById("map"), mapOptions);
-              debugger
             const marker = new google.maps.Marker({
               // The below line is equivalent to writing:
               icon: 'https://i.imgur.com/SzGKHAk.png',
@@ -148,7 +147,7 @@
             // we retrieve the marker's position using the
             // google.maps.LatLng.getPosition() method.
             const infowindow = new google.maps.InfoWindow({
-              content: "<p>Johannesburg South, 2091, South Africa</p>",
+              content: "<p>South Africa</p>",
             });
             google.maps.event.addListener(marker, "click", () => {
               infowindow.open(map, marker);
@@ -174,7 +173,8 @@
           // }
           success: function (data) {
             $('#card-info').css("display", "initial")
-            $('#sample-div').html(data)
+            $('#store-name').text(data.store_name);
+            $('#store-num').text(data.store_phone);
           },
           error: function (data) {
 

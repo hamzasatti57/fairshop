@@ -21,7 +21,7 @@ class ContactUsController < ApplicationController
       # end
       @lat_long = @lat_long.compact
       if request.xhr? == 0
-        render partial: "store_info"
+         render json: @store
       end
     end
   end
