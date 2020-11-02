@@ -8,8 +8,8 @@ class ContactUsController < ApplicationController
       @stores = Store.where("store_address ILIKE '%#{params[:search].downcase}%' OR store_city ILIKE '%#{params[:search].downcase}%'")
       @store_cards = @stores
     end
-    if params["store_item"].present?
-      @store = Store.find_by_store_name(params["store_item"])
+    if params["store"].present?
+      @store = Store.find_by_store_name(params["store"])
       @lat_long = []
       # @stores.to_a.each_with_index do |store, index|
         # next if store.lat == nil or store.long == nil
@@ -20,9 +20,6 @@ class ContactUsController < ApplicationController
         # @lat_long << @lat_long_1
       # end
       @lat_long = @lat_long.compact
-      if request.xhr? == 0
-         render json: @store
-      end
     end
   end
 end

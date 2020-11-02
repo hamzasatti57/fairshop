@@ -1,10 +1,8 @@
-         <div id="sample-div">
-           
-         </div>
+    <% if @store.present? %>
          <div style="display: none">
            <p id="lat_long"><%= @lat_long %></p>
         </div>
-         <div class="col-md-6" id="card-info" style="display: none">
+         <div class="col-md-6" id="card-info">
             <div class="location-cards">
 
               <div class="row">
@@ -48,7 +46,7 @@
                 
                   <div class="trading address-margin">
                      <p>TEL:</p>
-                     <span id="store-num">021 5369 5464</span>
+                     <span id="store-num"><%= @store.present? ? @store.store_phone : "" %></span>
                   </div>
                   
                </div>
@@ -124,21 +122,22 @@
                   // }
                   
                   // initialize();
-                            let map;
+          let map;
 
           function initialize() {
-            const mapOptions = {
-              zoom: 4,
-              center: { lat: -26.243046, lng: 28.006550 },
-            };
             beach = $('#lat_long').text();
             beach = eval(beach)
+            const mapOptions = {
+              zoom: 12,
+              center: { lat: beach[1], lng: beach[2] },
+            };
+            debugger
             map = new google.maps.Map(document.getElementById("map"), mapOptions);
             const marker = new google.maps.Marker({
               // The below line is equivalent to writing:
               icon: 'https://i.imgur.com/SzGKHAk.png',
               // position: new google.maps.LatLng(-34.397, 150.644)
-              position: { lat: -26.243046, lng: 28.006550 },
+              position: { lat: beach[1], lng: beach[2] },
               map: map,
             });
             // You can use a LatLng literal in place of a google.maps.LatLng object when
@@ -157,31 +156,33 @@
                </script>
             </div>
          </div>
-
+         <% end %>
 
          <script type="text/javascript">
            
         $(".custom-store-locator-card").click(function (){
           store = $(this).children().children()[0].innerHTML
+          window.location.href = '/store_locator?search=<%= params[:search] %>' + '&store=' + store;
+          return false;
 
-          $.ajax({
-          url: '/store_locator?search=<%= params[:search] %>&store_item=' + store,
-          type: "GET",
-          processData: false,
-          // beforeSend: function(xhr, settings) {
-          //   xhr.setRequestHeader('accept', '*/*;q=0.5, ' + settings.accepts.script);
-          // }
-          success: function (data) {
-            $('#card-info').css("display", "initial")
-            $('#store-name').text(data.store_name);
-            $('#store-num').text(data.store_phone);
-          },
-          error: function (data) {
+      //     $.ajax({
+      //     url: '/store_locator?search=<%= params[:search] %>&store_item=' + store,
+      //     type: "GET",
+      //     processData: false,
+      //     // beforeSend: function(xhr, settings) {
+      //     //   xhr.setRequestHeader('accept', '*/*;q=0.5, ' + settings.accepts.script);
+      //     // }
+      //     success: function (data) {
+      //       $('#card-info').css("display", "initial")
+      //       $('#store-name').text(data.store_name);
+      //       $('#store-num').text(data.store_phone);
+      //     },
+      //     error: function (data) {
 
-              alert('Error');
-          }
+      //         alert('Error');
+      //     }
 
-      });
+      // });
 
    });
          </script>
