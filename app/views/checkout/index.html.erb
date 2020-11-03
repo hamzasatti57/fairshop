@@ -286,18 +286,18 @@ color:#ffffff;
               </ul>
               <ul class="list list_2">
                 <li>
+                  <a href="#">Shipping
+                    <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
+                  </a>
+                </li>
+                <li>
                   <a href="#">Subtotal
                     <span style="color: red">R<%= @sum.to_i %></span>
                   </a>
                 </li>
-                <!-- <li>
-                  <a href="#">Shipping
-                    <span>Flat rate: R0</span>
-                  </a>
-                </li> -->
                 <li>
-                  <a href="#">Total
-                    <span style="color: red">R<%= @sum.to_i %></span>
+                  <a href="#">Grand Total
+                    <span style="color: red">R<%= @sum.to_i + @shipping_price.to_i %></span>
                   </a>
                 </li>
               </ul>
@@ -435,6 +435,7 @@ color:#ffffff;
           if(document.getElementById('new-shippment').checked) {
 
             $(".billing_address_2_submit").click();
+            debugger
               $.ajax({
                   headers: { 'X-CSRF-Token': Rails.csrfToken() },
                   url:'/billing_addresses/save_address?billing_address[address]=' + $('#autocomplete_address').val() + '&billing_address[instruction]=' + $('#billing_address_instruction').val(),
