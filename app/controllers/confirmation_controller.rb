@@ -9,7 +9,11 @@ class ConfirmationController < ApplicationController
     @checkout = Checkout.last if Checkout.count > 0
     @billing_address = current_user.billing_addresses.where(is_primary: true).last
     @cart = current_user.user_carts.last.user_cart_products if current_user.user_carts.present?
-    @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+    @initial_sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+    @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
+    @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
+    @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).sum { |e| e.to_i }
+    @sum = @initial_sum.to_i + @shipping_price.to_i
     UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum).deliver
   end
 
@@ -22,7 +26,11 @@ class ConfirmationController < ApplicationController
         current_user.user_carts.last.checkout.billing_address.update(province_id: province_id, city_id: city_id)
       end
       random_number = rand(6**6)
-      @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+      @initial_sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+      @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
+      @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
+      @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).sum { |e| e.to_i }
+      @sum = @initial_sum.to_i + @shipping_price.to_i
       current_user.user_carts.last.update!(status: 2, otp_code: random_number.to_s)
       UserPayment.create!(user_id: current_user.present? ? current_user.id : current_user.id, amount: @sum)
       xml = File.open(Rails.root.join('public', 'Sales.xml'))
@@ -30,7 +38,7 @@ class ConfirmationController < ApplicationController
       logger.info "=========#{data}=========="
       _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
       data["Transaction"]["SalesHeader"]["InvoiceNumber"] = (current_user.user_carts.last.id + 1000).to_s
-      data["Transaction"]["SalesHeader"]["DeliveryCharge"] = (@sum.to_i * 0.10).to_s
+      data["Transaction"]["SalesHeader"]["DeliveryCharge"] = @shipping_price.to_s
       data["Transaction"]["SalesHeader"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = @sum.to_s
       data["Transaction"]["SalesHeader"]["CustomerPin"] = random_number.to_s
