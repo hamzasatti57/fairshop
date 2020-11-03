@@ -536,13 +536,13 @@ display: block;
                <ul class="list">
                   <li>
                      <span>Category</span> <span  style="padding-left: 51px;"></span>
-                     <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
+                     <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 46px;">Availibility</span><span id="stock-status"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %></span> 
+                     <span style="padding-right: 46px;">Availibility</span><span id="stock-status" style="color: #e9414f"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %></span> 
                   </li>
                   <li>
-                     <span style="padding-right: 58px;margin: 10px auto">Delivery </span><span id="stock-remaining"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "3 days" : "21 days" %></span>
+                     <span style="padding-right: 58px;margin: 10px auto">Delivery </span><span id="stock-remaining" style="color: #e9414f"><%= @product.colors.pluck(:inventory).sum.to_i > 0 ? "3 days" : "21 days" %></span>
                   </li>
                   <li>
                      <span style="padding-right: 45px;">Assembly</span> <%= @product.assembly_type.humanize.upcase if @product.assembly_type.present? %>
@@ -617,7 +617,6 @@ display: block;
                                          url:'/admin/colors/' + id + '/inventory',
                                          type:'get',
                                            success:function (data) {
-                                            debugger
                                             $('#stock-remaining').text(data.message);
                                             if (data.message == "3 days") {
                                               $('#stock-status').text("In Stock");
