@@ -286,7 +286,7 @@ color:#ffffff;
               </ul>
               <ul class="list list_2">
                 <li>
-                  <a href="#">Shipping
+                  <a href="#">Delivery Fee
                     <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
                   </a>
                 </li>
@@ -351,9 +351,6 @@ color:#ffffff;
                   <%=image_tag("img/product/single-product/card.jpg")%>
                   <div class="check"></div>
                 </div>
-                <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.</p>
                  
                   <%= link_to "Proceed to Payment", peach_payment_path, method: :post  , class: "payment-btn proceed_to_checkout_1" %>
                   <!-- <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button> -->
