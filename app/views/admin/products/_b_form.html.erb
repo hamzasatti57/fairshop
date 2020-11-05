@@ -4,7 +4,7 @@
   <% @product.images.each do |image| %>
     <div id="image_<%= image.signed_id %>">
       <%= image_tag(url_for(image), style: "width: 100px") %>
-      <%= link_to 'Remove', delete_image_attachment_admin_product_path(@product, image_id: image.signed_id, banner_img: true),
+      <%#= link_to 'Remove', delete_image_attachment_admin_product_path(@product, image_id: image.signed_id, banner_img: true),
                   method: :delete,
 
                   data: { confirm: 'Are you sure?' } %>
