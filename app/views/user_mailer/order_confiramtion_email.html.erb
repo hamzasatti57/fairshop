@@ -118,17 +118,19 @@
             <tbody>
               <% @cart.each do |cart| %>
               <tr>
-                <th colspan="2" style="text-align: left;"><span><%= cart.product.title %></span></th>
+                <th style="text-align: left;"><span><%= cart.product.title %></span></th>
                 <th>x<%= cart.quantity %></th>
                 <th> <span style="color: red">R<%= cart.sub_total.to_i %></span></th>
               </tr>
               <% end %>
               <tr>
-                <th colspan="3">Delivery Fee</th>
+                <th style="text-align: left;">Delivery Fee</th>
+                <th></th>
                 <th> <span style="color: red">R<%= @shipping_price.to_i %></span></th>
               </tr>
               <tr>
-                <th colspan="3">Subtotal</th>
+                <th style="text-align: left;">Subtotal</th>
+                <th></th>
                 <th> <span style="color: red">R<%= @sum.to_i %></span></th>
               </tr>
             </tbody>
