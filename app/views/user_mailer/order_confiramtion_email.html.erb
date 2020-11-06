@@ -119,19 +119,19 @@
               <% @cart.each do |cart| %>
               <tr>
                 <th style="text-align: left;"><span><%= cart.product.title %></span></th>
-                <th>x<%= cart.quantity %></th>
-                <th> <span style="color: red">R<%= cart.sub_total.to_i %></span></th>
+                <th style="text-align: left;">x<%= cart.quantity %></th>
+                <th> <span style="color: red; text-align: left;">R<%= cart.sub_total.to_i %></span></th>
               </tr>
               <% end %>
               <tr>
                 <th style="text-align: left;">Delivery Fee</th>
                 <th></th>
-                <th> <span style="color: red">R<%= @shipping_price.to_i %></span></th>
+                <th> <span style="color: red; text-align: left;">R<%= @shipping_price.to_i %></span></th>
               </tr>
               <tr>
                 <th style="text-align: left;">Subtotal</th>
                 <th></th>
-                <th> <span style="color: red">R<%= @sum.to_i %></span></th>
+                <th> <span style="color: red; text-align: left;">R<%= @sum.to_i %></span></th>
               </tr>
             </tbody>
         </table>
