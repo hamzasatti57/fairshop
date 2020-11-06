@@ -104,13 +104,13 @@
 
         </table>
 
+          <h1 style="font-size: 28px;text-decoration: underline;font-weight: 600;color: #3c3b3b;margin: 45px 0px 20px 0px">ORDER DETAILS</h1>
            <table style="background-color:#b7dee6;width: 100%;margin: 10px auto;">
          
-          <h1 style="font-size: 28px;text-decoration: underline;font-weight: 600;color: #3c3b3b;margin: 45px 0px 20px 0px">ORDER DETAILS</h1>
 
             <thead>
               <tr>
-                <td><p style="font-size: 16px;font-weight: 600;margin:10px 0px 5px 0px">Product  </p></td>
+                <td><p style="font-size: 16px;font-weight: 600;margin:10px 0px 5px 0px"> Product  </p></td>
                 <td><p style="font-size: 16px;font-weight: 600;margin:10px 0px 5px 0px "> Quantity</p></td>
                 <td><p style="font-size: 16px;font-weight: 600;margin:10px 0px 5px 0px "> Total</p></td>
               </tr>
@@ -118,7 +118,7 @@
             <tbody>
               <% @cart.each do |cart| %>
               <tr>
-                <th colspan="2"><span><%= cart.product.title %></span></th>
+                <th colspan="2" style="text-align: left;"><span><%= cart.product.title %></span></th>
                 <th>x<%= cart.quantity %></th>
                 <th> <span style="color: red">R<%= cart.sub_total.to_i %></span></th>
               </tr>
