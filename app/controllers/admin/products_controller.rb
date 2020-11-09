@@ -76,8 +76,7 @@ class Admin::ProductsController < AdminController
 
   def delete_image_attachment
     product = Product.find(params[:id])
-    @image = ActiveStorage::Blob.find_signed(params[:image_id])
-    @image.attachments.destroy_all
+    product.images.where(id: params["image_id"]).destroy_all
 
     respond_to do |format|
       if params["banner_img"] == false
