@@ -111,7 +111,7 @@ class ConfirmationController < ApplicationController
         sftp.session.shutdown!
       # end
       rescue Exception
-        puts "=========file not uploaded============="
+        Rails.logger.info("=========file not uploaded=============")
       end
 
     end
