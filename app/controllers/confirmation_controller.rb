@@ -104,6 +104,7 @@ class ConfirmationController < ApplicationController
       sftp.connect!
       # Net::SFTP.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22) do |sftp|
       Rails.logger.info("SFTP Connection created, uploading files.")
+      file.write(data)
       sftp.upload!(file, sftp_path)
       Rails.logger.info("Sales file uploaded.")
       sftp.close(sftp)
