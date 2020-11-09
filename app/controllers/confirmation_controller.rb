@@ -100,6 +100,7 @@ class ConfirmationController < ApplicationController
       object = s3.bucket(bucket).object(path)
       object.put(acl: "public-read", bucket: bucket, body: data, content_type: 'application/xml')
       # session = Net::SSH.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
+      sftp.session.shutdown! if sftp.present? && sftp.session.present?
       begin
         sftp = Net::SFTP.start('41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
         sftp.connect!
