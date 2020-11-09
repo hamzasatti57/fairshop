@@ -99,11 +99,15 @@ class ConfirmationController < ApplicationController
       logger.info "=========#{path}=========="
       object = s3.bucket(bucket).object(path)
       object.put(acl: "public-read", bucket: bucket, body: data, content_type: 'application/xml')
-      Net::SFTP.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22) do |sftp|
-        Rails.logger.info("SFTP Connection created, uploading files.")
-        sftp.upload!(data, sftp_path)
-        Rails.logger.info("Sales file uploaded.")
-      end
+      # session = Net::SSH.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
+      sftp = Net::SFTP.start('41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
+      sftp.connect!
+      # Net::SFTP.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22) do |sftp|
+      Rails.logger.info("SFTP Connection created, uploading files.")
+      sftp.upload!(data, sftp_path)
+      Rails.logger.info("Sales file uploaded.")
+      sftp.close(sftp)
+      # end
     end
   end
 end
