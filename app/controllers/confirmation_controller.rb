@@ -100,16 +100,20 @@ class ConfirmationController < ApplicationController
       object = s3.bucket(bucket).object(path)
       object.put(acl: "public-read", bucket: bucket, body: data, content_type: 'application/xml')
       # session = Net::SSH.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
-      
-      sftp = Net::SFTP.start('41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
-      sftp.connect!
-      # Net::SFTP.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22) do |sftp|
-      Rails.logger.info("SFTP Connection created, uploading files.")
-      io = StringIO.new(data)
-      sftp.upload!(io, sftp_path)
-      Rails.logger.info("Sales file uploaded.")
-      sftp.session.shutdown!
+      begin
+        sftp = Net::SFTP.start('41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
+        sftp.connect!
+        # Net::SFTP.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22) do |sftp|
+        Rails.logger.info("SFTP Connection created, uploading files.")
+        io = StringIO.new(data)
+        sftp.upload!(io, sftp_path)
+        Rails.logger.info("Sales file uploaded.")
+        sftp.session.shutdown!
       # end
+      rescue Exception
+        puts "=========file not uploaded============="
+      end
+
     end
   end
 end
