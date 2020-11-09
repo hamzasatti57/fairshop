@@ -1,4 +1,6 @@
 require 'aws-sdk-s3' 
+require 'net/ssh'
+require 'net/sftp'
 
 class ConfirmationController < ApplicationController
   before_action :generate_xml
@@ -93,10 +95,15 @@ class ConfirmationController < ApplicationController
       # Get just the file name
       name = File.basename(file)
       path = 'Sales/' + name
+      sftp_path = 'SalesFiles/' + name
       logger.info "=========#{path}=========="
       object = s3.bucket(bucket).object(path)
       object.put(acl: "public-read", bucket: bucket, body: data, content_type: 'application/xml')
-
+      Net::SFTP.start('41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22) do |sftp|
+        Rails.logger.info("SFTP Connection created, uploading files.")
+        sftp.upload!(data, sftp_path)
+        Rails.logger.info("Sales file uploaded.")
+      end
     end
   end
 end
