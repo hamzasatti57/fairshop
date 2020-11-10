@@ -286,13 +286,13 @@ color:#ffffff;
               </ul>
               <ul class="list list_2">
                 <li>
-                  <a href="#">Delivery Fee
-                    <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
+                  <a href="#">Subtotal
+                    <span style="color: red">R<%= @sum.to_i %></span>
                   </a>
                 </li>
                 <li>
-                  <a href="#">Subtotal
-                    <span style="color: red">R<%= @sum.to_i %></span>
+                  <a href="#">Delivery Fee
+                    <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
                   </a>
                 </li>
                 <li>
