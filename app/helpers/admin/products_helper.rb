@@ -16,7 +16,7 @@ module Admin::ProductsHelper
   end
 
   def product_category_options
-    ProductCategory.all.map{|product_category| [product_category.title, product_category.id]}
+    ProductCategory.all.map{|product_category| [product_category.title + ' / ' + product_category.category.title, product_category.id]}
   end
 
   def selected_product_category product
