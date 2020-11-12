@@ -418,8 +418,48 @@ color:#ffffff;
 
         $('.proceed_to_checkout_1').on('click', function(e){
             x = $('#autocomplete_address').val();
+            landmark = $('#billing_address_landmark').val();
+            street = $('#billing_address_street').val();
+            unit = $('#billing_address_unit_no').val();
+            house = $('#billing_address_house_no').val();
+            subrub = $('#billing_address_suburb').val();
+            complex = $('#billing_address_complex').val();
+            secondary_number = $('#billing_address_secondary_number').val();
+            instruction = $('#billing_address_instruction').val();
             if (x == "") {
               alert("Billing Address can't be blank");
+              return false;
+            }
+            if (landmark == "") {
+              alert("Billing Details landmark can't be blank");
+              return false;
+            }
+            if (street == "") {
+              alert("Billing Details Street can't be blank");
+              return false;
+            }
+            if (unit == "") {
+              alert("Billing Details Unit No can't be blank");
+              return false;
+            }
+            if (house == "") {
+              alert("Billing Details House No can't be blank");
+              return false;
+            }
+            if (subrub == "") {
+              alert("Billing Details Subrub can't be blank");
+              return false;
+            }
+            if (complex == "") {
+              alert("Billing Details Complex can't be blank");
+              return false;
+            }
+            if (secondary_number == "") {
+              alert("Billing Details Secondary Number can't be blank");
+              return false;
+            }
+            if (instruction == "") {
+              alert("Billing Details Instruction can't be blank");
               return false;
             }
             if(document.getElementById('new-shippment').checked) {

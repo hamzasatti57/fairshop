@@ -85,7 +85,7 @@
                         </a>
                         <br>
                         <br>
-                        <%= link_to add_to_cart_product_path(product.id), class: "btn_2", method: :post do %>
+                        <%= link_to product_path(product.id), class: "btn_2", method: :get do %>
                           buy now
                         <% end %>
                        <!--  <a href="#" class="btn_2 btn_custom_1">Lay-bye</a> -->
@@ -339,7 +339,7 @@
                   <h4><%= product.title %></h4>
                 <% end %>
                 <h3><span style="color: #e9414f; font-weight: 500">R <%= product.price.to_i %></span></h3>
-                <%= link_to add_to_cart_product_path(product.id), class: "add_cart", method: :post do %>
+                <%= link_to product_path(product.id), class: "add_cart", method: :get do %>
                   + add to cart
                   <!-- <i class="fa fa-heart-o"></i> -->
                 <% end %>
