@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
         redirect_back(fallback_location: root_path)
       end
     else
+      session[:last_url] = request.referrer
       flash[:error] = "Need to login first"
       redirect_to new_user_session_path
     end
