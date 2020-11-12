@@ -4,14 +4,19 @@
     <div class="col-xs-8 col-xs-offset-2">
       <div class="panel panel-danger">
         <div class="panel-heading">
-          <h3 class="panel-title">
-            <%= pluralize(obj.errors.count,"error") %>
-            prohibited this <%= obj.class %> from being saved:
-          </h3>
+          <!-- <h3 class="panel-title">
+            <%#= pluralize(obj.errors.count,"error") %>
+            prohibited this <%#= obj.class %> from being saved:
+          </h3> -->
           <div class="panel-body">
             <ul>
-              <% obj.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
+              <% obj.errors.full_messages.each_with_index do |msg, index| %>
+                <!-- <li><%#= msg %></li> -->
+                <p style="display: none" id="msg-<%= index %>"><%= msg %></p>
+                <script type="text/javascript">
+                  msg = $('#msg-<%= index %>').text();
+                  toastr.error(msg)
+                </script>
               <% end %>
             </ul>
           </div>

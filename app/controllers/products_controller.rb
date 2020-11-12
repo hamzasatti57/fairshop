@@ -65,10 +65,10 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     # @product.punch(request)
-    @vendor = @product.user
+    # @vendor = @product.user
     @best_seller_products = Product.where( status: true).limit(5)
     # @vendor.punch(request)
-    @products = @vendor.products.where(visibility: true)
+    # @products = @vendor.products.where(visibility: true)
     @likes = @product.likes
     @comments = @product.comments.order("created_at DESC")
     @avg_rating = @product.ratings.average(:value)

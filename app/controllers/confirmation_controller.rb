@@ -1,4 +1,6 @@
 require 'aws-sdk-s3' 
+require 'net/ssh'
+require 'net/sftp'
 
 class ConfirmationController < ApplicationController
   before_action :generate_xml
@@ -9,20 +11,28 @@ class ConfirmationController < ApplicationController
     @checkout = Checkout.last if Checkout.count > 0
     @billing_address = current_user.billing_addresses.where(is_primary: true).last
     @cart = current_user.user_carts.last.user_cart_products if current_user.user_carts.present?
-    @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
-    UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum).deliver
+    @initial_sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+    @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
+    @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
+    @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
+    @sum = @initial_sum.to_i + @shipping_price.to_i
+    UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum, @shipping_price).deliver
   end
 
   def generate_xml
     if PeachPayment.last.checkout_id == params["id"]
-      if current_user.user_carts.last.checkout.billing_address.province.blank?
+      if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.province.blank?
         results = Geocoder.search(current_user.user_carts.last.checkout.billing_address.address)
         province_id = Province.find_or_create_by(title: results.first.state).id
         city_id = City.find_or_create_by(title: results.first.city, province_id: province_id).id
         current_user.user_carts.last.checkout.billing_address.update(province_id: province_id, city_id: city_id)
       end
       random_number = rand(6**6)
-      @sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+      @initial_sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+      @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
+      @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
+      @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
+      @sum = @initial_sum.to_i + @shipping_price.to_i
       current_user.user_carts.last.update!(status: 2, otp_code: random_number.to_s)
       UserPayment.create!(user_id: current_user.present? ? current_user.id : current_user.id, amount: @sum)
       xml = File.open(Rails.root.join('public', 'Sales.xml'))
@@ -30,7 +40,7 @@ class ConfirmationController < ApplicationController
       logger.info "=========#{data}=========="
       _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
       data["Transaction"]["SalesHeader"]["InvoiceNumber"] = (current_user.user_carts.last.id + 1000).to_s
-      data["Transaction"]["SalesHeader"]["DeliveryCharge"] = (@sum.to_i * 0.10).to_s
+      data["Transaction"]["SalesHeader"]["DeliveryCharge"] = @shipping_price.to_s
       data["Transaction"]["SalesHeader"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = @sum.to_s
       data["Transaction"]["SalesHeader"]["CustomerPin"] = random_number.to_s
@@ -85,9 +95,28 @@ class ConfirmationController < ApplicationController
       # Get just the file name
       name = File.basename(file)
       path = 'Sales/' + name
+      sftp_path = 'SalesFiles/' + name
       logger.info "=========#{path}=========="
       object = s3.bucket(bucket).object(path)
       object.put(acl: "public-read", bucket: bucket, body: data, content_type: 'application/xml')
+      # session = Net::SSH.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
+      begin
+        Net::SFTP.start('41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22) do |ftp|
+          ftp.upload(StringIO.new(data), sftp_path)
+          Rails.logger.info("Sales file uploaded.")
+        end
+        # sftp = Net::SFTP.start('41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22)
+        # sftp.connect!
+        # # Net::SFTP.start('sftp://41.181.180.234', 'thoughtinc', password: 'P@ss@word1', port: 22) do |sftp|
+        # Rails.logger.info("SFTP Connection created, uploading files.")
+        # io = StringIO.new(data)
+        # sftp.upload!(io, sftp_path)
+        # sftp.session.shutdown!
+      # end
+      rescue Exception => e
+        Rails.logger.info("=========file not uploaded=============")
+        Rails.logger.info(e)
+      end
 
     end
   end

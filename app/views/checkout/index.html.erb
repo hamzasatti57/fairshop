@@ -194,10 +194,10 @@ color:#ffffff;
 
                 <div class="col-md-12 form-group">
                   <div class="creat_account">
-                    <h3>Shipping Details</h3>
+                    <h3>Delivery Details</h3>
                     <input type="checkbox" id="new-shippment">
 
-                    <label for="f-option3">Ship to a different address?</label>
+                    <label for="f-option3">Deliver to a different address?</label>
                     
                     
                   </div>
@@ -290,14 +290,14 @@ color:#ffffff;
                     <span style="color: red">R<%= @sum.to_i %></span>
                   </a>
                 </li>
-                <!-- <li>
-                  <a href="#">Shipping
-                    <span>Flat rate: R0</span>
-                  </a>
-                </li> -->
                 <li>
-                  <a href="#">Total
-                    <span style="color: red">R<%= @sum.to_i %></span>
+                  <a href="#">Delivery Fee
+                    <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#">Grand Total
+                    <span style="color: red">R<%= @sum.to_i + @shipping_price.to_i %></span>
                   </a>
                 </li>
               </ul>
@@ -351,9 +351,6 @@ color:#ffffff;
                   <%=image_tag("img/product/single-product/card.jpg")%>
                   <div class="check"></div>
                 </div>
-                <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.</p>
                  
                   <%= link_to "Proceed to Payment", peach_payment_path, method: :post  , class: "payment-btn proceed_to_checkout_1" %>
                   <!-- <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button> -->
@@ -421,8 +418,48 @@ color:#ffffff;
 
         $('.proceed_to_checkout_1').on('click', function(e){
             x = $('#autocomplete_address').val();
+            landmark = $('#billing_address_landmark').val();
+            street = $('#billing_address_street').val();
+            unit = $('#billing_address_unit_no').val();
+            house = $('#billing_address_house_no').val();
+            subrub = $('#billing_address_suburb').val();
+            complex = $('#billing_address_complex').val();
+            secondary_number = $('#billing_address_secondary_number').val();
+            instruction = $('#billing_address_instruction').val();
             if (x == "") {
               alert("Billing Address can't be blank");
+              return false;
+            }
+            if (landmark == "") {
+              alert("Billing Details landmark can't be blank");
+              return false;
+            }
+            if (street == "") {
+              alert("Billing Details Street can't be blank");
+              return false;
+            }
+            if (unit == "") {
+              alert("Billing Details Unit No can't be blank");
+              return false;
+            }
+            if (house == "") {
+              alert("Billing Details House No can't be blank");
+              return false;
+            }
+            if (subrub == "") {
+              alert("Billing Details Subrub can't be blank");
+              return false;
+            }
+            if (complex == "") {
+              alert("Billing Details Complex can't be blank");
+              return false;
+            }
+            if (secondary_number == "") {
+              alert("Billing Details Secondary Number can't be blank");
+              return false;
+            }
+            if (instruction == "") {
+              alert("Billing Details Instruction can't be blank");
               return false;
             }
             if(document.getElementById('new-shippment').checked) {
@@ -435,6 +472,7 @@ color:#ffffff;
           if(document.getElementById('new-shippment').checked) {
 
             $(".billing_address_2_submit").click();
+            debugger
               $.ajax({
                   headers: { 'X-CSRF-Token': Rails.csrfToken() },
                   url:'/billing_addresses/save_address?billing_address[address]=' + $('#autocomplete_address').val() + '&billing_address[instruction]=' + $('#billing_address_instruction').val(),

@@ -81,7 +81,7 @@
 
         <div class="col-lg-6 col-lx-4">
           <div class="single_confirmation_details">
-            <h4>shipping Address</h4>
+            <h4>Delivery Address</h4>
             <ul>
               <li>
                 <p>Address</p><span><%= @checkout.billing_address.address %></span>
@@ -134,12 +134,12 @@
                 <% end %>
                 <tr>
                   <th colspan="3">Subtotal</th>
-                  <th> <span style="color: red">R<%= @sum.to_i %></span></th>
+                  <th> <span style="color: red">R<%= @initial_sum.to_i %></span></th>
                 </tr>
-                <!-- <tr>
-                  <th colspan="3">shipping</th>
-                  <th><span>flat rate: R0</span></th>
-                </tr> -->
+                <tr>
+                  <th colspan="3">Delivery Fee</th>
+                  <th><span style="color: red">R<%= @shipping_price.to_i %></span></th>
+                </tr>
               </tbody>
               <tfoot>
                 <tr>

@@ -76,15 +76,10 @@ class Admin::ProductsController < AdminController
 
   def delete_image_attachment
     product = Product.find(params[:id])
-    @image = ActiveStorage::Blob.find_signed(params[:image_id])
-    @image.attachments.destroy_all
+    product.images.where(id: params["image_id"]).destroy_all
 
     respond_to do |format|
-      if params["banner_img"] == false
-        format.html { redirect_to edit_admin_product_path(product)}
-      else
-        format.html { redirect_to edit_banner_form_admin_product_path(product)}
-      end
+      format.html { redirect_to edit_admin_product_path(product)}
       format.json { head :no_content }
       format.js
     end
