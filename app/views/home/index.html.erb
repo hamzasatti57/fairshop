@@ -11,12 +11,63 @@
   }
 
 
-/*  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 600px) {
 
   
+.category_img1{
+  width: 100%;
+  /*height:300px;*/
+  float: right
+}
 
+.category_img2{
+  width: 100%;
+  /*height:300px;*/ 
+  float: right;
+}
 
-}*/
+.category_img3{
+  width: 100%;
+  /*height:300px; */
+  float: right;
+}
+.category_img4 {
+     width: 100%; 
+  /*  height: 260px;*/
+    float: right;
+}
+.category_img5 img{
+
+width: 100%;
+height: auto;
+margin-top: -40px;
+
+}
+
+.category_img6 {
+    width: 220px ;
+    /*height: 220px;*/
+    float: right;
+}
+
+.category_img7{
+
+  width: 100%;
+ /* height:275px; */
+  float: right;
+
+}
+
+.category_img8
+{
+  width: 100%;
+/*height:220px; */
+  float: right;
+}
+
+}
+
+/*------- media querry end--------*/
 
 
 .category_img1{
@@ -367,8 +418,8 @@ height:220px;
             <a href="/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @seventh_category.image.present? %>
-             <div class="category_img7" style="width: 260px;height:275px; float: right;">
-              <img src="<%= url_for(@seventh_category.image) %>" style='height: auto;width: 100%;margin-top: -50px;'>
+             <div class="category_img7" >
+              <img src="<%= url_for(@seventh_category.image) %>" >
             </div>
             <% end %>
           </a>
