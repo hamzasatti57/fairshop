@@ -11,6 +11,120 @@
   }
 
 
+/*  @media only screen and (max-width: 600px) {
+
+  
+
+
+}*/
+
+
+.category_img1{
+  width: 300px;
+  height:300px;
+  float: right
+}
+.category_img1 img{
+  width:100%;
+  height: auto;
+  margin-top: -100px;
+}
+
+.category_img2{
+  width: 300px;
+  height:300px; 
+  float: right;
+}
+
+.category_img2 img{
+ height: auto;
+ width: 100%;
+ margin-top: -20px;
+}
+
+
+.category_img3{
+  width: 300px;
+  height:300px; 
+  float: right;
+}
+
+.category_img3 img{
+  height: auto;
+  width: 100%;
+  margin-top: -14px;
+}
+
+.category_img4{
+
+  width: 260px;
+  height:260px;
+  float: right;
+}
+
+.category_img4 img{
+
+height: auto;
+width: 100%;
+margin-top: -60px;
+}
+
+.category_img5{
+
+width: 250px;
+height:250px; 
+float: right;
+
+} 
+.category_img5 img{
+
+width: 100%;
+height: auto;
+margin-top: -40px;
+
+}
+
+.category_img6{
+
+width: 220px;
+height:220px; 
+float: right;
+} 
+
+.category_img6 img{
+
+height: auto;
+width: 100%;
+margin-top: -59px;
+}
+
+.category_img7{
+
+  width: 260px;
+  height:275px; 
+  float: right;
+
+}
+.category_img7 img{
+height: auto;
+width: 100%;
+margin-top: -50px;
+
+}
+
+.category_img8
+{
+  width: 300px;
+height:220px; 
+  float: right;
+}
+.category_img8 img{
+  height: auto;
+  width: 100%;
+  margin: 15px;
+}
+
+
 
 /*  @media only screen and (max-width: 600px) {
  
@@ -51,7 +165,7 @@
   margin-top: -60px !important;
  }
 }
-*/
+
 
 
 
@@ -148,8 +262,8 @@
             <a href="/product_category?type=<%= @first_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @first_category.image.present? %>
-              <div class="category_img1" style="width: 300px;height:300px;float: right">
-                <img src="<%= url_for(@first_category.image) %>" style="width:100%;height: auto;margin-top: -100px;">
+              <div class="category_img1" >
+                <img src="<%= url_for(@first_category.image) %>">
               </div>
               
             <% end %>
@@ -167,8 +281,8 @@
             <a href="/product_category?type=<%= @second_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE
               NOW <i class="fa fa-play"></i></a>
             <% if @second_category.image.present? %>
-             <div class="category_img2" style="width: 300px;height:300px; float: right;">
-             <img src="<%= url_for(@second_category.image) %>" style='height: auto;width: 100%;;margin-top: -20px;'>
+             <div class="category_img2" >
+             <img src="<%= url_for(@second_category.image) %>">
            </div>
             <% end %>
             </a>
@@ -184,8 +298,8 @@
             <a href="/product_category?type=<%= @third_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @third_category.image.present? %>
-             <div class="category_img3" style="width: 300px;height:300px; float: right;">
-              <img src="<%= url_for(@third_category.image) %>" style='height: auto;width: 100%;;margin-top: -14px;'> 
+             <div class="category_img3" >
+              <img src="<%= url_for(@third_category.image) %>"> 
             </div>
             <% end %>
             </a>
@@ -201,8 +315,8 @@
             <a href="/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE
               NOW <i class="fa fa-play"></i></a>
             <% if @fourth_category.image.present? %>
-             <div class="category_img4" style="width: 260px;height:260px; float: right;">
-              <img src="<%= url_for(@fourth_category.image) %>" style='height: auto;width: 100%;;margin-top: -60px;'>
+             <div class="category_img4">
+              <img src="<%= url_for(@fourth_category.image) %>" >
              </div>
             <% end %>
             </a>
@@ -218,8 +332,8 @@
             <a href="/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @fifth_category.image.present? %>
-             <div class="category_img5" style="width: 250px;height:250px; float: right;">
-              <img src="<%= url_for(@fifth_category.image) %>" style='width: 100%;height: auto; margin-top: -40px'>
+             <div class="category_img5">
+              <img src="<%= url_for(@fifth_category.image) %>">
             </div>
             <% end %>
             </a>
@@ -235,8 +349,8 @@
             <a href="/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @sixth_category.image.present? %>
-             <div class="category_img6" style="width: 220px;height:220px; float: right;">
-              <img src="<%= url_for(@sixth_category.image) %>" style='height: auto;width: 100%;margin-top: -59px;'>
+             <div class="category_img6">
+              <img src="<%= url_for(@sixth_category.image) %>" >
             </div>
             <% end %>
           </a>
@@ -271,8 +385,8 @@
             <a href="/product_category?type=<%= @last_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
             <% if @last_category.image.present? %>
-             <div class="category_img8" style="width: 300px;height:220px; float: right;">
-              <img src="<%= url_for(@last_category.image) %>" style='height: auto;width: 100%;margin: 15px;'>
+             <div class="category_img8" >
+              <img src="<%= url_for(@last_category.image) %>">
             </div>
             <% end %>
             </a>
@@ -582,29 +696,7 @@ add_chatinline(); </script>
         });
       });
 
-      $("#feature-1").on('click', function (e) {
-       window.location.href = '/product_category?type=<%= @first_category.title.gsub(" ", "_") %>'
-     });
-     $("#feature-2").on('click', function (e) {
-       window.location.href = '/product_category?type=<%= @second_category.title.gsub(" ", "_") %>'
-     });
-     $("#feature-3").on('click', function (e) {
-       window.location.href = '/product_category?type=<%= @third_category.title.gsub(" ", "_") %>'
-     });
-     $("#feature-4").on('click', function (e) {
-       window.location.href = '/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>'
-     });
-     $("#feature-5").on('click', function (e) {
-       window.location.href = '/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>'
-     });
-     $("#feature-6").on('click', function (e) {
-       window.location.href = '/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>'
-     });
-     $("#feature-7").on('click', function (e) {
-       window.location.href = '/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>'
-     });
-     $("#feature-8").on('click', function (e) {
-       window.location.href = '/product_category?type=<%= @last_category.title.gsub(" ", "_") %>'
-     });
+
+      // addd js code
 
 </script>
