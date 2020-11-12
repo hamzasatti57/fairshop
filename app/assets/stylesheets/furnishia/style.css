@@ -7878,7 +7878,7 @@ h6 {
 
 /*-----------main page category img style-------------*/
 
-.category_img1{
+/*.category_img1{
   width: 300px;
   height:300px;
   float: right
@@ -7891,7 +7891,7 @@ h6 {
 
 .category_img2{
   width: 300px;
-/*  height:300px; */
+  height:300px; 
   float: right;
 }
 
@@ -7982,7 +7982,7 @@ height:220px;
   width: 100%;
   margin: 15px;
 }
-
+*/
 
 /*----------------------------*/
 /*----custom media querry-----*/
