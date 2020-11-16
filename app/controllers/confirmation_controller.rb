@@ -16,7 +16,7 @@ class ConfirmationController < ApplicationController
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
     @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
     @sum = @initial_sum.to_i + @shipping_price.to_i
-    # UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum, @shipping_price).deliver
+    UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum, @shipping_price).deliver
   end
 
   def generate_xml
