@@ -123,7 +123,7 @@
                   <% if category.products.where(status: true, is_promotional_banner: false).count > 0 %>
                     <li>
                       <a href="/product_category?type=<%= params[:type] %>&category=<%= category.title.gsub(" ", "_") %>"><%= category.title %></a>
-                      <span><%= category.products.where(status: true, is_promotional_banner: false).count %></span>
+                      <span><%= Product.where(product_category_id: ProductCategory.where(title: category.title).pluck(:id), status: true, is_promotional_banner: false) %></span>
                     </li>
                   <% end %>
                 <% end %>
