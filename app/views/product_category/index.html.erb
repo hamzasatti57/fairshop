@@ -119,12 +119,11 @@
             </div>
             <div class="widgets_inner">
               <ul class="list">
-                <% @product_categories.select('distinct on (title) *').order(title: :asc).each do |category| %>
+                <% @product_categories.order(title: :asc).each do |category| %>
                   <% if category.products.where(status: true, is_promotional_banner: false).count > 0 %>
                     <li>
                       <a href="/product_category?type=<%= params[:type] %>&category=<%= category.title.gsub(" ", "_") %>"><%= category.title %></a>
-                      <% @categoriez = Product.where(product_category_id: ProductCategory.where(title: @product_categories.first.title).pluck(:id), status: true, is_promotional_banner: false) %>
-                      <span><%= @categoriez.count %></span>
+                      <span><%= category.products.where(status: true, is_promotional_banner: false).count %></span>
                     </li>
                   <% end %>
                 <% end %>
