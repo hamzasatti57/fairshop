@@ -9,7 +9,9 @@ class Product < ApplicationRecord
   has_many :users, through: :user_cart_products
   # belongs_to :user, through: :company
   # has_many :user, through: :company
-  has_and_belongs_to_many :colors
+  # has_and_belongs_to_many :colors
+  has_many :product_colors, dependent: :destroy
+  has_many :colors, through: :product_colors
   has_many :comments, class_name: "Comment", foreign_key: "parent_id"
   has_many :ratings, class_name: "Rating", foreign_key: "parent_id"
   has_many :likes, class_name: "Like", foreign_key: "parent_id"
@@ -29,7 +31,9 @@ class Product < ApplicationRecord
   def add_colors color_ids
     if color_ids.present?
       colors = Color.where(id: color_ids)
-      self.colors << colors
+      colors.to_a.each do |color|
+        ProductColor.create!(color_id: color.id, product_id: self.id, inventory: self.inventory)
+      end
     end
   end
 
@@ -37,7 +41,14 @@ class Product < ApplicationRecord
     self.colors.destroy_all
     if color_ids.present?
       colors = Color.where(id: color_ids)
-      self.colors << colors
+      colors.to_a.each do |color|
+        @product_color = ProductColor.where(color_id: color.id, product_id: self.id)
+        if @product_color.present?
+          @product_color.update!(inventory: self.inventory)
+        else
+          ProductColor.create!(color_id: color.id, product_id: self.id, inventory: self.inventory)
+        end
+      end
     end
   end
 

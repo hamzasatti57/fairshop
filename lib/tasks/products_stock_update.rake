@@ -13,21 +13,21 @@ namespace :products_stock_update do
     data["DocumentElement"]["StockOnHand"].each do |stock|
       @product = Product.find_by_code(stock["StockItemCode"])
       @product_category = ProductCategory.find_by_title("Other")
-      color = Color.where("title = ? OR stock_item_id = ?", stock["StockProfile"], stock["StockItemID"]).last
+      color = Color.where("title = ?", stock["StockProfile"]).last
       if color.present?
-        color.update!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
+        # color.update!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
         @color = color
       else
         puts "=========color add=========="
-        @color = Color.create!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
+        @color = Color.create!(title: stock["StockProfile"])
       end
       if @product.present?
-        @color.products << @product unless @color.products.include?(@product)
-        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"])
+        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"])
+        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], is_discounted: stock["bDiscountedItem"])
       else
         puts "=========product add=========="
-        product = Product.create!(stock_item_id: stock["StockItemID"], title: stock["StockItemDescription"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], code: stock["StockItemCode"], product_category_id: @product_category.present? ? @product_category.id : nil)
-        @color.products << product
+        @product = Product.create!(stock_item_id: stock["StockItemID"], title: stock["StockItemDescription"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], code: stock["StockItemCode"], product_category_id: @product_category.present? ? @product_category.id : nil, is_discounted: stock["bDiscountedItem"])
+        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"])
       end
     end
   end
@@ -43,7 +43,7 @@ namespace :products_stock_update do
     xml = File.open(Rails.root.join('public', 'GP_StockFile.xml'))
     data = Hash.from_xml(xml)
     data["DocumentElement"]["StockOnHand"].each do |stock|
-      @color = Color.find_by_stock_item_id(stock["StockItemID"])
+      @color = ProductColor.find_by_stock_item_id(stock["StockItemID"])
       puts "=========inventory updated=========="
       @color.update!(inventory: stock["OnHand"].to_i) if @color.present?
     end
