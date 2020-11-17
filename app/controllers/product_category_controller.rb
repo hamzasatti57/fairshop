@@ -9,8 +9,12 @@ class ProductCategoryController < ApplicationController
       @category = Category.where("title ILIKE ?", query_1).first
       @product_categories = @category.product_categories
       query = "%#{params[:category].gsub("_", " ")}%"
-      @product_category = ProductCategory.where("title ILIKE ?", query).first
-      @products = Product.where(product_category_id: @product_category.id, status: true)
+      @product_category = ProductCategory.where("title ILIKE ?", query)
+      if @product_category.count == 1
+        @products = Product.where(product_category_id: @product_category.last.id, status: true)
+      else
+        @products = Product.where(product_category_id: @product_category.pluck(:id), status: true)
+      end
       @brand_products = @products
       @companies = Company.where(id: @products.pluck(:company_id))
       if params[:brand].present?
