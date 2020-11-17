@@ -40,7 +40,7 @@ class Admin::ColorsController < AdminController
   end
   
   def inventory
-    @color = Color.find(params[:id])
+    @color = ProductColor.where(color_id: params[:id], product_id: params[:product_id]).last
     if @color.inventory > 0
       render :json => {data: @color, message: "3 days" }
     else

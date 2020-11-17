@@ -75,8 +75,8 @@
           <input type="text" class="form-control" id="search-product" placeholder="search"
                  aria-describedby="inputGroupPrepend">
           <div class="input-group-prepend">
-                                            <span class="input-group-text" id="inputGroupPrepend" style="cursor: pointer;"><i
-                                              class="fa fa-search" style="color: #fff"></i></span>
+            <span class="input-group-text" id="inputGroupPrepend" style="cursor: pointer;">
+              <i class="fa fa-search" style="color: #fff"></i></span>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@
           <% end %>
           <h3 style="color: #e9414f; font-weight: 500">R<%= product.price.to_i %></h3>
           <div style="display: inline-flex;">
-            <%= link_to add_to_cart_product_path(product.id), class: "add_cart", method: :post do %>
+            <%= link_to product_path(product.id), class: "add_cart", method: :get do %>
               + add to cart
               <!-- <i class="fa fa-heart-o"></i> -->
             <% end %>
