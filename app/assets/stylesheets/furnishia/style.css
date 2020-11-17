@@ -2755,10 +2755,11 @@ ul {
 @media (max-width: 576px) {
   /* line 68, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_feature_part.scss */
   .feature_part .single_feature_post_text img {
-    max-height: 247px;
+    /*max-height: 247px;
     right: 0;
-    left: 0;
+    left: 0;*/
     margin: 0 auto;
+    object-fit: cover;
   }
 }
 
@@ -3686,7 +3687,7 @@ ul {
 @media (max-width: 576px) {
   /* line 382, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
   .product_top_bar .single_product_menu {
-    width: 50%;
+    width: 100%;
     float: left;
     margin-bottom: 20px;
   }
@@ -3704,6 +3705,9 @@ ul {
     font-size: 13px;
     line-height: 33px;
   }
+  .product_top_bar .single_product_menu .input-group {
+  width:100% !important;
+}
 }
 
 /* line 413, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -3758,7 +3762,7 @@ ul {
 
 /* line 454, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .product_top_bar .single_product_menu .input-group {
-  width: 150px;
+  width:150px;
 }
 
 /* line 457, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
@@ -7529,6 +7533,12 @@ h6 {
   .breadcrumb .breadcrumb_iner .breadcrumb_iner_item h2 {
     font-size: 25px;
   }
+
+  .breadcrumb .breadcrumb_iner .breadcrumb_iner_item p {
+  font-size: 12px !important;
+  color: #777777;
+}
+
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
@@ -7765,7 +7775,7 @@ h6 {
   /* line 137, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_footer.scss */
   .footer_part .footer_icon li a {
     margin-left: 0px;
-    margin-right: 25px;
+    margin-right: 0px;
   }
 }
 
