@@ -7798,6 +7798,22 @@ h6 {
     float: left;
     margin-top: 15px;
   }
+
+  .btn_1{
+
+  display: inline-block;
+    padding: 9px 42px;
+    border-radius: 50px;
+    background-color: #ecfdff;
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 10px 0px !important;
+}
 }
 
 /* line 187, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_footer.scss */
