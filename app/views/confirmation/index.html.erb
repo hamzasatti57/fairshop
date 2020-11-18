@@ -127,7 +127,7 @@
               <tbody>
                 <% @cart.each do |cart| %>
                 <tr>
-                  <th colspan="2"><span><%= cart.product.title %></span><br><span>RED</span></th>
+                  <th colspan="2"><span><%= cart.product.title %></span><br><span><%= cart.color.title %></span></th>
                   <th>x<%= cart.quantity %></th>
                   <th> <span style="color: red">R<%= cart.sub_total.to_i %></span></th>
                 </tr>

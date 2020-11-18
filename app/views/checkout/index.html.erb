@@ -283,7 +283,7 @@ color:#ffffff;
                     <span class="middle">x <%= cart.quantity %></span>
                     <span class="last" style="color: red">R<%= cart.sub_total.to_i %></span>
                   </a>
-                  <span class="">color option</span>
+                  <span class=""><%= cart.color.title %></span>
                 </li>
                 <% end %>
               </ul>
