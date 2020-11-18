@@ -22,7 +22,8 @@ namespace :products_stock_update do
         @color = Color.create!(title: stock["StockProfile"])
       end
       if @product.present?
-        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"])
+        puts "=========ProductColor add=========="
+        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless ProductColor.where(product_id: @product.id, color_id: @color.id).present?
         @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], status: stock["bDiscontinued"] == "true" ? false : true)
       else
         puts "=========product add=========="
