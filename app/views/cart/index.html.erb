@@ -15,11 +15,19 @@
     background-color: #25435d;
     border-color: #25435d;
   }
+ 
   .product-color{
+ font-size: 15px;
+    font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  
+}
+.product-color-slecion{
 
-    font-size: 14px;
-  }
-
+color:red;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
 </style>
 
   <!--================Home Banner Area =================-->
@@ -67,7 +75,7 @@
                     </div>
                     <div class="media-body">
                       <p><%= cart.product.title %></p>
-                      <span class="product-color"><%= cart.color.present? ? cart.color.title : "" %></span>
+                      <span><%= cart.product.title %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span>
                     </div>
                   </div>
                 </td>

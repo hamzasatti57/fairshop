@@ -40,6 +40,18 @@
 .payment-btn:hover{
 color:#ffffff;
 }
+  .product-color{
+ font-size: 15px;
+    font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  
+}
+.product-color-slecion{
+
+color:red;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
 
 
 </style>
@@ -295,7 +307,7 @@ color:#ffffff;
                 </li>
                 <li>
                   <a href="#">Delivery Fee
-                    <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
+                    <span><%= cart.product.title %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span>
                   </a>
                 </li>
                 <li>

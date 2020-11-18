@@ -1,3 +1,19 @@
+<style type="text/css">
+    
+    .product-color{
+ font-size: 15px;
+    font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  
+}
+.product-color-slecion{
+
+color:red;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+}
+  </style>
   <!--================Home Banner Area =================-->
   <!-- breadcrumb start-->
   <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/confirmation-page-banner.png') %>');">
@@ -127,7 +143,7 @@
               <tbody>
                 <% @cart.each do |cart| %>
                 <tr>
-                  <th colspan="2"><span><%= cart.product.title %></span><br><span><%= cart.color.present? ? cart.color.title : "" %></span></th>
+                  <th colspan="2"><span><%= cart.product.title %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></th>
                   <th>x<%= cart.quantity %></th>
                   <th> <span style="color: red">R<%= cart.sub_total.to_i %></span></th>
                 </tr>
