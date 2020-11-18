@@ -47,7 +47,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["SalesHeader"]["DateOfSale"] = Time.now.to_s.gsub(" +0000", "")
       data["Transaction"]["SalesHeader"]["TotalVAT"] = (@sum.to_i * 0.15).to_s
       data["Transaction"]["Details"]["SalesDetails"] = []
-      sale_details = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "StockProfile"="White", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
+      sale_details = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "StockProfile"=>"White", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
       current_user.user_carts.last.user_cart_products.each_with_index do |product, index|
         sale = []
         sale[index] = {}
