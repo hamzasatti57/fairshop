@@ -592,10 +592,10 @@ label::before {
                      <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
                   </li>
                   <li>
-                     <span style="padding-right: 46px;">Availibility</span><span id="stock-status" style="color: #e9414f"><%#= @product.product_colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %></span> 
+                     <span style="padding-right: 46px;">Availibility</span><span id="stock-status" style="color: #e9414f"><%= @product.product_colors.pluck(:inventory).sum.to_i > 0 ? "In Stock" : "Out of Stock" %></span> 
                   </li>
                   <li>
-                     <span style="padding-right: 58px;margin: 10px auto">Delivery </span><span id="stock-remaining" style="color: #e9414f"><%#= @product.product_colors.pluck(:inventory).sum.to_i > 0 ? "3 days" : "21 days" %></span>
+                     <span style="padding-right: 58px;margin: 10px auto">Delivery </span><span id="stock-remaining" style="color: #e9414f"><%= @product.product_colors.pluck(:inventory).sum.to_i > 0 ? "3 days" : "21 days" %></span>
                   </li>
                   <li>
                      <span style="padding-right: 45px;">Assembly</span> <%= @product.assembly_type.humanize.upcase if @product.assembly_type.present? %>
