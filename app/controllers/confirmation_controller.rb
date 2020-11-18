@@ -54,7 +54,7 @@ class ConfirmationController < ApplicationController
         sale[index]["Quantity"] = product.quantity.to_s
         sale[index]["UnitSellingPrice"] = product.product.price.to_s
         sale[index]["StockItemId"] = product.product.stock_item_id.to_s
-        sale[index]["StockProfile"] = product.color.title.to_s
+        sale[index]["StockProfile"] = product.color.title.to_s if product.color.present?
         sale[index]["DiscountPerUnit"] = "0.0".to_s
         sale[index]["UnitPriceAfterDiscount"] = product.product.price.to_s
         sale[index]["TotalPriceAfterDiscount"] = product.product.price.to_s
