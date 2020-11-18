@@ -278,9 +278,12 @@ color:#ffffff;
                 <% @cart.each do |cart| %>
                 <li>
                   <a href="#"><%= cart.product.title %>
+
+
                     <span class="middle">x <%= cart.quantity %></span>
                     <span class="last" style="color: red">R<%= cart.sub_total.to_i %></span>
                   </a>
+                  <span class="">color option</span>
                 </li>
                 <% end %>
               </ul>
