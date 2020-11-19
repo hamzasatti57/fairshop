@@ -17,6 +17,9 @@ color:red !important;
   font-weight: 300;
   font-family: "Poppins", sans-serif;
 }
+.custom-confirmation-section-style .single_confirmation_details ul li{
+  display: inline;
+}
   </style>
 
 
@@ -40,7 +43,7 @@ color:red !important;
   <% random_number = rand(6**6).to_s %>
 
   <!--================ confirmation part start =================-->
-  <section class="confirmation_part padding_top" style="padding-top: 20px;">
+  <section class="confirmation_part padding_top custom-confirmation-section-style" style="padding-top: 20px;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
