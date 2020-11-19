@@ -293,12 +293,11 @@ font-weight: normal;
               <h2>Your Order</h2>
               <ul class="list">
                 <li>
-                  <a href="#">Product
+                  <a href="">Product
                     <span>Total</span>
                   </a>
                 </li>
                 <% @cart.each do |cart| %>
-               
 
                 <li>
                   <div class="d-flex justify-content-between" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
@@ -308,24 +307,23 @@ font-weight: normal;
                     <span class="last custom-checkout-product-style" style="font-size: 14px;font-weight: 500;color: red">R<%= cart.sub_total.to_i %></span>
                      
                   </div>
-                  
                 </li>
                
                 <% end %>
               </ul>
               <ul class="list list_2">
                 <li>
-                  <a href="#">Subtotal
+                  <a href="">Subtotal
                     <span style="color: red">R<%= @sum.to_i %></span>
                   </a>
                 </li>
                 <li>
-                  <a href="#">Delivery Fee
+                  <a href="">Delivery Fee
                     <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
                   </a>
                 </li>
                 <li>
-                  <a href="#">Grand Total
+                  <a href="">Grand Total
                     <span style="color: red">R<%= @sum.to_i + @shipping_price.to_i %></span>
                   </a>
                 </li>
