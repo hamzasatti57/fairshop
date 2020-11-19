@@ -2385,6 +2385,7 @@ ul {
     border-color: transparent;
     position: absolute;
     left: 0;
+    top: -30px;
   }
   /* line 262, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
   .menu_icon i {
@@ -5643,6 +5644,7 @@ ul {
 /* line 41, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
 .confirmation_part .single_confirmation_details ul li span {
   color: #222222;
+  text-transform: lowercase;
 }
 
 /* line 47, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
