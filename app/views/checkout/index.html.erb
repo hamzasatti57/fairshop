@@ -42,6 +42,28 @@ color:#ffffff;
 }
 
 
+.product-color-slecion{
+
+color:red;
+font-size: 14px;
+font-weight: normal;
+text-transform: capitalize;
+}
+
+.product-color{
+
+font-size: 14px;
+font-weight: normal;
+ color: #797979;
+}
+
+.price-product-style-chackout{
+  font-size: 14px;
+  font-weight: 500;
+  color:red;
+}
+
+
 </style>
 
   <!--================Home Banner Area =================-->
@@ -276,15 +298,19 @@ color:#ffffff;
                   </a>
                 </li>
                 <% @cart.each do |cart| %>
+               
+
                 <li>
-                  <a href="#"><%= cart.product.title %>
-
-
+                  <div class="d-flex justify-content-between" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
+                    
+                    <span><%= cart.product.title %><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></span>
                     <span class="middle">x <%= cart.quantity %></span>
-                    <span class="last" style="color: red">R<%= cart.sub_total.to_i %></span>
-                  </a>
-                  <span class=""><%= cart.color.present? ? cart.color.title : "" %></span>
+                    <span class="last custom-checkout-product-style" style="font-size: 14px;font-weight: 500;color: red">R<%= cart.sub_total.to_i %></span>
+                     
+                  </div>
+                  
                 </li>
+               
                 <% end %>
               </ul>
               <ul class="list list_2">
