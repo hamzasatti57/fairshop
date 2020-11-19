@@ -271,35 +271,35 @@ color:#ffffff;
               <h2>Your Order</h2>
               <ul class="list">
                 <li>
-                  <a href="#">Product
+                  <a href="">Product
                     <span>Total</span>
                   </a>
                 </li>
                 <% @cart.each do |cart| %>
                 <li>
-                  <a href="#"><%= cart.product.title %>
+                  <a href=""><%= cart.product.title %>
 
 
                     <span class="middle">x <%= cart.quantity %></span>
-                    <span class="last" style="color: red">R<%= cart.sub_total.to_i %></span>
+                    <span class="last" style="color: red">R<%= cart.sub_total.to_i %></span><br>
+                    <%= cart.color.present? ? cart.color.title : "" %>
                   </a>
-                  <span class=""><%= cart.color.present? ? cart.color.title : "" %></span>
                 </li>
                 <% end %>
               </ul>
               <ul class="list list_2">
                 <li>
-                  <a href="#">Subtotal
+                  <a href="">Subtotal
                     <span style="color: red">R<%= @sum.to_i %></span>
                   </a>
                 </li>
                 <li>
-                  <a href="#">Delivery Fee
+                  <a href="">Delivery Fee
                     <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
                   </a>
                 </li>
                 <li>
-                  <a href="#">Grand Total
+                  <a href="">Grand Total
                     <span style="color: red">R<%= @sum.to_i + @shipping_price.to_i %></span>
                   </a>
                 </li>
