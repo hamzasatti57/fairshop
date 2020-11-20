@@ -5644,7 +5644,7 @@ ul {
 /* line 41, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
 .confirmation_part .single_confirmation_details ul li span {
   color: #222222;
-  text-transform: lowercase;
+  /*text-transform: lowercase;*/
 }
 
 /* line 47, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_confirmation_part.scss */
