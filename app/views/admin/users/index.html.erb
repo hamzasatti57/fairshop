@@ -20,7 +20,7 @@
             <!-- <th>City</th> -->
             <!-- <th>Category</th> -->
             <th>Cellphone Number</th>
-            <th>Status</th>
+            <!-- <th>Status</th> -->
             <!-- <th>AAA</th> -->
             <th>Actions</th>
           </tr>
@@ -37,7 +37,7 @@
               <!-- <td><%#= user.city.title %></td> -->
               <!-- <td><%#= user.category_title %></td> -->
               <td><%= user.contact_details %></td>
-              <td><%= user.active ? 'Active' : 'Inacitve' %></td>
+              <!-- <td><%#= user.active ? 'Active' : 'Inacitve' %></td> -->
               <!-- <td><%#= user.AAA ? 'Yes' : 'No' %></td> -->
               <td style="display: flex;"><%= link_to "Edit",  edit_admin_user_path(user), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
                 <%= link_to "Delete", admin_user_path(user), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn del-btn" %></td>

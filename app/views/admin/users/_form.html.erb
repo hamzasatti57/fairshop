@@ -40,20 +40,18 @@
       <%= f.password_field :password_confirmation, class: "form-control", autocomplete: false, placeholder: "Password Confirmation" ,:required => true %> <br/>
     </div>
   <% end %>
-  <div class="form-group">
-    <%= f.label :Category %>
-    <%= f.select(:category_id, options_for_select(category_options, selected: selected_category(user)), { prompt: "Please Select Category" }, { :required => true, class: 'form-control' }) %>
+    <div class="form-group">
+    <%= f.label :contact_details %>
+    <%= f.text_field :contact_details, class: "form-control", autocomplete: false, placeholder: "Cellphone" %> <br/>
   </div>
-  <div class="form-group">
-    <%= f.label "Active" %>
-    <%= f.check_box :active  %> <br />
-  </div>
-  <% if current_user.is_admin? %>
-  <div class="form-group">
-    <%= f.label :AAA, "AAA".upcase + " Category" %>
-    <%= f.check_box :AAA  %> <br />
-  </div>
-    <%end %>
+<!--   <div class="form-group">
+    <%#= f.label :Category %>
+    <%#= f.select(:category_id, options_for_select(category_options, selected: selected_category(user)), { prompt: "Please Select Category" }, { :required => true, class: 'form-control' }) %>
+  </div> -->
+<!--   <div class="form-group">
+    <%#= f.label "Active" %>
+    <%#= f.check_box :active  %> <br />
+  </div> -->
 
   <%= f.submit class: "btn btn-block custom-table-edit-btn btn-primary"%>
 <% end %>

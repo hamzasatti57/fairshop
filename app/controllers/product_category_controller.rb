@@ -46,7 +46,14 @@ class ProductCategoryController < ApplicationController
       query = "%#{params[:type].gsub("_", " ")}%"
       @category = Category.where("title ILIKE ?", query).first
       @product_categories = @category.product_categories
-      @products = Product.where(product_category_id: @category.product_categories.pluck(:id), status: true)
+      product_category_ids = []
+      @product_categories.each do |product_category|
+        @product_cats = ProductCategory.where(title: product_category.title)
+        @product_cats.each do |product_cat|
+          product_category_ids << product_cat.id
+        end
+      end
+      @products = Product.where(product_category_id: product_category_ids, status: true)
       @brand_products = @products
       @companies = Company.where(id: @products.pluck(:company_id))
       if params[:brand].present?
