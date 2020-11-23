@@ -2924,6 +2924,10 @@ ul {
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 14px;
+
+      text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 /* line 77, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product_list.scss */
