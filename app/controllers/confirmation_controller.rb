@@ -30,12 +30,12 @@ class ConfirmationController < ApplicationController
         current_user.user_carts.last.checkout.billing_address.update(province_id: province_id, city_id: city_id)
       end
       random_number = rand(6**6)
-      @initial_sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
+      @initial_sum = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
       @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
       @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
       @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
       @sum = @initial_sum.to_i + @shipping_price.to_i
-      current_user.user_carts.last.update!(status: 2, otp_code: random_number.to_s)
+      Checkout.where(user_id: current_user.id).last.user_cart.update!(status: 2, otp_code: random_number.to_s)
       UserPayment.create!(user_id: current_user.present? ? current_user.id : current_user.id, amount: @sum)
       xml = File.open(Rails.root.join('public', 'Sales.xml'))
       data = Hash.from_xml(xml)
