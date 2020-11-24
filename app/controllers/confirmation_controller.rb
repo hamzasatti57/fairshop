@@ -10,12 +10,14 @@ class ConfirmationController < ApplicationController
     # @checkout = Checkout.where(user_id: current_user.id).last if Checkout.where(user_id: current_user.id).present?
     @checkout = Checkout.last if Checkout.count > 0
     @billing_address = current_user.billing_addresses.where(is_primary: true).last
+    sleep 1
     @cart = current_user.user_carts.last.user_cart_products if current_user.user_carts.present?
     @initial_sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
     @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
     @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
     @sum = @initial_sum.to_i + @shipping_price.to_i
+    current_user.user_carts.update_all!(status: 2)
     UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum, @shipping_price).deliver
   end
 
