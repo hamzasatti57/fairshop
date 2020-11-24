@@ -8,10 +8,10 @@ class ConfirmationController < ApplicationController
   def index
     # sleep 1
     # @checkout = Checkout.where(user_id: current_user.id).last if Checkout.where(user_id: current_user.id).present?
-    @checkout = Checkout.last if Checkout.count > 0
+    @checkout = Checkout.where(user_id: current_user.id).last if Checkout.count > 0
     @billing_address = current_user.billing_addresses.where(is_primary: true).last
     sleep 1
-    @cart = current_user.user_carts.last.user_cart_products if current_user.user_carts.present?
+    @cart = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products if Checkout.where(user_id: current_user.id).present?
     @initial_sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
     @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
