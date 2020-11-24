@@ -12,8 +12,8 @@ class ConfirmationController < ApplicationController
     @billing_address = current_user.billing_addresses.where(is_primary: true).last
     sleep 1
     @cart = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products if Checkout.where(user_id: current_user.id).present?
-    @initial_sum = current_user.user_carts.last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
-    @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
+    @initial_sum = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.present?
+    @product_ids = Product.where(id: Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
     @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
     @sum = @initial_sum.to_i + @shipping_price.to_i
@@ -30,8 +30,8 @@ class ConfirmationController < ApplicationController
         current_user.user_carts.last.checkout.billing_address.update(province_id: province_id, city_id: city_id)
       end
       random_number = rand(6**6)
-      @initial_sum = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && current_user.user_carts.last.user_cart_products.present?
-      @product_ids = Product.where(id: current_user.user_carts.last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
+      @initial_sum = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.present?
+      @product_ids = Product.where(id: Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
       @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
       @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
       @sum = @initial_sum.to_i + @shipping_price.to_i
