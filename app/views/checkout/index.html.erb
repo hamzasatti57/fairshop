@@ -185,6 +185,9 @@ font-weight: normal;
                   <%= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @billing_address.present? ? @billing_address.street : "") %>
                 </div>
                 <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @billing_address.present? ? @billing_address.complex : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
                   <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @billing_address.present? ? @billing_address.unit_no : "") %>
                 </div>
                 <div class="col-md-6 form-group p_star">
@@ -192,9 +195,6 @@ font-weight: normal;
                 </div>
                 <div class="col-md-6 form-group p_star">
                   <%= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @billing_address.present? ? @billing_address.suburb : "") %>
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @billing_address.present? ? @billing_address.complex : "") %>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
@@ -261,6 +261,9 @@ font-weight: normal;
                   <%= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @shipping_address.present? ? @shipping_address.street : "") %>
                 </div>
                 <div class="col-md-6 form-group p_star">
+                  <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @shipping_address.present? ? @shipping_address.complex : "") %>
+                </div>
+                <div class="col-md-6 form-group p_star">
                   <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @shipping_address.present? ? @shipping_address.unit_no : "") %>
                 </div>
                 <div class="col-md-6 form-group p_star">
@@ -268,9 +271,6 @@ font-weight: normal;
                 </div>
                 <div class="col-md-6 form-group p_star">
                   <%= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @shipping_address.present? ? @shipping_address.suburb : "") %>
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @shipping_address.present? ? @shipping_address.complex : "") %>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
@@ -445,6 +445,7 @@ font-weight: normal;
 
         $('.proceed_to_checkout_1').on('click', function(e){
             x = $('#autocomplete_address').val();
+            number = $('#number').val();
             landmark = $('#billing_address_landmark').val();
             street = $('#billing_address_street').val();
             unit = $('#billing_address_unit_no').val();
@@ -457,15 +458,15 @@ font-weight: normal;
               alert("Billing Address can't be blank");
               return false;
             }
-            if (landmark == "") {
-              alert("Billing Details landmark can't be blank");
+            if (number == "") {
+              alert("Phone Number can't be blank");
               return false;
             }
             if (street == "") {
               alert("Billing Details Street can't be blank");
               return false;
             }
-            if (unit == "") {
+            if (unit == "" && complex != "") {
               alert("Billing Details Unit No can't be blank");
               return false;
             }
@@ -473,22 +474,22 @@ font-weight: normal;
               alert("Billing Details House No can't be blank");
               return false;
             }
-            if (subrub == "") {
-              alert("Billing Details Subrub can't be blank");
-              return false;
-            }
+            // if (subrub == "") {
+            //   alert("Billing Details Subrub can't be blank");
+            //   return false;
+            // }
             // if (complex == "") {
             //   alert("Billing Details Complex can't be blank");
             //   return false;
             // }
-            if (secondary_number == "" && complex != "") {
+            if (secondary_number == "") {
               alert("Billing Details Alternative Number can't be blank");
               return false;
             }
-            if (instruction == "") {
-              alert("Billing Details Instruction can't be blank");
-              return false;
-            }
+            // if (instruction == "") {
+            //   alert("Billing Details Instruction can't be blank");
+            //   return false;
+            // }
             if(document.getElementById('new-shippment').checked) {
               y = $('#autocomplete_address_1').val();
               if (y == "") {
