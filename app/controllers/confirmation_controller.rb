@@ -22,7 +22,7 @@ class ConfirmationController < ApplicationController
 
   def generate_xml
     if PeachPayment.last.checkout_id == params["id"]
-      if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.province.blank?
+      if Checkout.where(user_id: current_user.id).last.present? && Checkout.where(user_id: current_user.id).last.billing_address.province.blank?
         results = Geocoder.search(current_user.user_carts.last.checkout.billing_address.address)
         province_id = Province.find_or_create_by(title: results.first.state).id
         city_id = City.find_or_create_by(title: results.first.city, province_id: province_id).id
@@ -63,22 +63,22 @@ class ConfirmationController < ApplicationController
         data["Transaction"]["Details"]["SalesDetails"] << sale[index]
       end
       # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
-      data["Transaction"]["DeliveryDetails"]["Province"] = current_user.user_carts.last.checkout.billing_address.province.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.province.present?
-      data["Transaction"]["DeliveryDetails"]["City"] = current_user.user_carts.last.checkout.billing_address.city.title if current_user.user_carts.last.checkout.present? && current_user.user_carts.last.checkout.billing_address.city.present?
-      data["Transaction"]["DeliveryDetails"]["Address"] = current_user.user_carts.last.checkout.billing_address.address if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["PostalCode"] = current_user.user_carts.last.checkout.billing_address.postal_code if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Suburb"] = current_user.user_carts.last.checkout.billing_address.suburb if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Landmark"] = current_user.user_carts.last.checkout.billing_address.landmark if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Street"] = current_user.user_carts.last.checkout.billing_address.street if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["UnitNo"] = current_user.user_carts.last.checkout.billing_address.unit_no if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["HouseNo"] = current_user.user_carts.last.checkout.billing_address.house_no if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Complex"] = current_user.user_carts.last.checkout.billing_address.complex if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["PhoneNoAlternate"] = current_user.user_carts.last.checkout.billing_address.secondary_number if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Province"] = Checkout.where(user_id: current_user.id).last.billing_address.province.title if Checkout.where(user_id: current_user.id).last.present? && Checkout.where(user_id: current_user.id).last.billing_address.province.present?
+      data["Transaction"]["DeliveryDetails"]["City"] = Checkout.where(user_id: current_user.id).last.billing_address.city.title if Checkout.where(user_id: current_user.id).last.present? && Checkout.where(user_id: current_user.id).last.billing_address.city.present?
+      data["Transaction"]["DeliveryDetails"]["Address"] = Checkout.where(user_id: current_user.id).last.billing_address.address if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["PostalCode"] = Checkout.where(user_id: current_user.id).last.billing_address.postal_code if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Suburb"] = Checkout.where(user_id: current_user.id).last.billing_address.suburb if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Landmark"] = Checkout.where(user_id: current_user.id).last.billing_address.landmark if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Street"] = Checkout.where(user_id: current_user.id).last.billing_address.street if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["UnitNo"] = Checkout.where(user_id: current_user.id).last.billing_address.unit_no if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["HouseNo"] = Checkout.where(user_id: current_user.id).last.billing_address.house_no if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Complex"] = Checkout.where(user_id: current_user.id).last.billing_address.complex if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["PhoneNoAlternate"] = Checkout.where(user_id: current_user.id).last.billing_address.secondary_number if Checkout.where(user_id: current_user.id).last.present?
       data["Transaction"]["DeliveryDetails"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["DeliveryDetails"]["DeliveryPrice"] = (@sum.to_i * 0.10).to_s
       data["Transaction"]["DeliveryDetails"]["Instructions"] = BillingAddress.where(is_primary: true, user_id: current_user.id).last.instruction if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
-      data["Transaction"]["DeliveryDetails"]["Latitude"] = current_user.user_carts.last.checkout.billing_address.latitude if current_user.user_carts.last.checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Longitude"] = current_user.user_carts.last.checkout.billing_address.longitude if current_user.user_carts.last.checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Latitude"] = Checkout.where(user_id: current_user.id).last.billing_address.latitude if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Longitude"] = Checkout.where(user_id: current_user.id).last.billing_address.longitude if Checkout.where(user_id: current_user.id).last.present?
       data["Transaction"]["DeliveryDetails"]["PhoneNo"] = current_user.contact_details.to_s
       data["Transaction"]["DeliveryDetails"]["DeliveryDate"] = Time.now.to_s.gsub(" +0000", "")
       # data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
