@@ -10,9 +10,9 @@ class ConfirmationController < ApplicationController
     # @checkout = Checkout.where(user_id: current_user.id).last if Checkout.where(user_id: current_user.id).present?
     @checkout = Checkout.where(user_id: current_user.id).last if Checkout.count > 0
     @billing_address = current_user.billing_addresses.where(is_primary: true).last
-    @cart = @checkout.user_cart.user_cart_products if Checkout.where(user_id: current_user.id).present?
-    @initial_sum = @checkout.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && @checkout.user_cart.user_cart_products.present?
-    @product_ids = Product.where(id: @checkout.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
+    @cart = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products if Checkout.where(user_id: current_user.id).present?
+    @initial_sum = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.present?
+    @product_ids = Product.where(id: Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
     @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
     @sum = @initial_sum.to_i + @shipping_price.to_i
@@ -22,19 +22,19 @@ class ConfirmationController < ApplicationController
 
   def generate_xml
     if PeachPayment.last.checkout_id == params["id"]
-      if @checkout.present? && @checkout.billing_address.province.blank?
-        results = Geocoder.search(@checkout.billing_address.address)
+      if Checkout.where(user_id: current_user.id).last.present? && Checkout.where(user_id: current_user.id).last.billing_address.province.blank?
+        results = Geocoder.search(Checkout.where(user_id: current_user.id).last.billing_address.address)
         province_id = Province.find_or_create_by(title: results.first.state).id
         city_id = City.find_or_create_by(title: results.first.city, province_id: province_id).id
-        @checkout.billing_address.update(province_id: province_id, city_id: city_id)
+        Checkout.where(user_id: current_user.id).last.billing_address.update(province_id: province_id, city_id: city_id)
       end
       random_number = rand(6**6)
-      @initial_sum = @checkout.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && @checkout.user_cart.user_cart_products.present?
-      @product_ids = Product.where(id: @checkout.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
+      @initial_sum = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.present?
+      @product_ids = Product.where(id: Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
       @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
       @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
       @sum = @initial_sum.to_i + @shipping_price.to_i
-      @checkout.user_cart.update!(status: 2, otp_code: random_number.to_s)
+      Checkout.where(user_id: current_user.id).last.user_cart.update!(status: 2, otp_code: random_number.to_s)
       UserPayment.create!(user_id: current_user.present? ? current_user.id : current_user.id, amount: @sum)
       xml = File.open(Rails.root.join('public', 'Sales.xml'))
       data = Hash.from_xml(xml)
@@ -49,7 +49,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["SalesHeader"]["TotalVAT"] = (@sum.to_i * 0.15).to_s
       data["Transaction"]["Details"]["SalesDetails"] = []
       sale_details = {"StockItemId"=>"14CB7ADA-295E-43FD-AECD-243106D55445", "StockProfile"=>"White", "Quantity"=>"1", "UnitSellingPrice"=>"999.9900", "DiscountPerUnit"=>"0.0000", "UnitPriceAfterDiscount"=>"999.9900", "TotalPriceAfterDiscount"=>"999.9900", "UnitVAT"=>"130.4335"}
-      @checkout.user_cart.user_cart_products.each_with_index do |product, index|
+      Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.each_with_index do |product, index|
         sale = []
         sale[index] = {}
         sale[index]["Quantity"] = product.quantity.to_s
@@ -63,22 +63,22 @@ class ConfirmationController < ApplicationController
         data["Transaction"]["Details"]["SalesDetails"] << sale[index]
       end
       # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
-      data["Transaction"]["DeliveryDetails"]["Province"] = @checkout.billing_address.province.title if @checkout.present? && @checkout.billing_address.province.present?
-      data["Transaction"]["DeliveryDetails"]["City"] = @checkout.billing_address.city.title if @checkout.present? && @checkout.billing_address.city.present?
-      data["Transaction"]["DeliveryDetails"]["Address"] = @checkout.billing_address.address if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["PostalCode"] = @checkout.billing_address.postal_code if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Suburb"] = @checkout.billing_address.suburb if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Landmark"] = @checkout.billing_address.landmark if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Street"] = @checkout.billing_address.street if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["UnitNo"] = @checkout.billing_address.unit_no if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["HouseNo"] = @checkout.billing_address.house_no if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Complex"] = @checkout.billing_address.complex if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["PhoneNoAlternate"] = @checkout.billing_address.secondary_number if @checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Province"] = Checkout.where(user_id: current_user.id).last.billing_address.province.title if Checkout.where(user_id: current_user.id).last.present? && Checkout.where(user_id: current_user.id).last.billing_address.province.present?
+      data["Transaction"]["DeliveryDetails"]["City"] = Checkout.where(user_id: current_user.id).last.billing_address.city.title if Checkout.where(user_id: current_user.id).last.present? && Checkout.where(user_id: current_user.id).last.billing_address.city.present?
+      data["Transaction"]["DeliveryDetails"]["Address"] = Checkout.where(user_id: current_user.id).last.billing_address.address if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["PostalCode"] = Checkout.where(user_id: current_user.id).last.billing_address.postal_code if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Suburb"] = Checkout.where(user_id: current_user.id).last.billing_address.suburb if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Landmark"] = Checkout.where(user_id: current_user.id).last.billing_address.landmark if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Street"] = Checkout.where(user_id: current_user.id).last.billing_address.street if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["UnitNo"] = Checkout.where(user_id: current_user.id).last.billing_address.unit_no if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["HouseNo"] = Checkout.where(user_id: current_user.id).last.billing_address.house_no if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Complex"] = Checkout.where(user_id: current_user.id).last.billing_address.complex if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["PhoneNoAlternate"] = Checkout.where(user_id: current_user.id).last.billing_address.secondary_number if Checkout.where(user_id: current_user.id).last.present?
       data["Transaction"]["DeliveryDetails"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["DeliveryDetails"]["DeliveryPrice"] = (@sum.to_i * 0.10).to_s
       data["Transaction"]["DeliveryDetails"]["Instructions"] = BillingAddress.where(is_primary: true, user_id: current_user.id).last.instruction if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
-      data["Transaction"]["DeliveryDetails"]["Latitude"] = @checkout.billing_address.latitude if @checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Longitude"] = @checkout.billing_address.longitude if @checkout.present?
+      data["Transaction"]["DeliveryDetails"]["Latitude"] = Checkout.where(user_id: current_user.id).last.billing_address.latitude if Checkout.where(user_id: current_user.id).last.present?
+      data["Transaction"]["DeliveryDetails"]["Longitude"] = Checkout.where(user_id: current_user.id).last.billing_address.longitude if Checkout.where(user_id: current_user.id).last.present?
       data["Transaction"]["DeliveryDetails"]["PhoneNo"] = current_user.contact_details.to_s
       data["Transaction"]["DeliveryDetails"]["DeliveryDate"] = Time.now.to_s.gsub(" +0000", "")
       # data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
