@@ -12,6 +12,12 @@
             <th>Title</th>
             <th>Description</th>
             <th>Price</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Stock on Hand</th>
+            <th>Contains Image</th>
+            <th>Delivery Price</th>
+            <th>Contains Warranty</th>
             <th>Code</th>
             <th>Inventory</th>
             <th>Is Active</th>
@@ -25,6 +31,12 @@
               <td><%= product.title %></td>
               <td><%= truncate(product.description, length: 15) %></td>
               <td><%= product.price %></td>
+              <td><%= product.product_category.present? ? product.product_category.title : "" %></td>
+              <td><%= product.product_category.present? && product.product_category.category.present? ? product.product_category.category.title : "" %></td>
+              <td><%= product.product_colors.pluck(:inventory).sum(&:to_i) > 0 ? "In Stock" : "Out of Stock" %></td>
+              <td><%= product.images.present? ? "Yes" : "No" %></td>
+              <td><%= product.product_category.present? && product.product_category.category.present? && product.product_category.category.shipping_price.to_i > 0 ? "Yes" : "No" %></td>
+              <td><%= product.warranty %></td>
               <td><%= product.code %></td>
               <td><%= product.inventory %></td>
               <td><%= product.status ? 'Active' : 'Inactive'%></td>

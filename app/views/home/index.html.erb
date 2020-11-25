@@ -315,7 +315,7 @@ height:220px;
       </div>
     </div>
     <div class="row align-items-center justify-content-between">
-      <% @first_category = Category.where(category_type: "Feature").first if Category.where(category_type: "Feature").present? %>
+      <% @first_category = Category.where(category_type: "Home Page").first if Category.where(category_type: "Home Page").present? %>
       <% if @first_category.present? %>
         <div class="col-lg-7 col-sm-6" id="feature-1" style="cursor: pointer">
           <div class="single_feature_post_text">
@@ -334,7 +334,7 @@ height:220px;
           </div>
         </div>
       <% end %>
-      <% @second_category = Category.where(category_type: "Feature").second if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").second %>
+      <% @second_category = Category.where(category_type: "Home Page").second if Category.where(category_type: "Home Page").present? && Category.where(category_type: "Home Page").second %>
       <% if @second_category.present? %>
         <div class="col-lg-5 col-sm-6" id="feature-2" style="cursor: pointer">
           <div class="single_feature_post_text">
@@ -351,7 +351,7 @@ height:220px;
           </div>
         </div>
       <% end %>
-      <% @third_category = Category.where(category_type: "Feature").third if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").third %>
+      <% @third_category = Category.where(category_type: "Home Page").third if Category.where(category_type: "Home Page").present? && Category.where(category_type: "Home Page").third %>
       <% if @third_category.present? %>
         <div class="col-lg-5 col-sm-6" id="feature-3" style="cursor: pointer">
           <div class="single_feature_post_text">
@@ -368,7 +368,7 @@ height:220px;
           </div>
         </div>
       <% end %>
-      <% @fourth_category = Category.where(category_type: "Feature").fourth if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").fourth %>
+      <% @fourth_category = Category.where(category_type: "Home Page").fourth if Category.where(category_type: "Home Page").present? && Category.where(category_type: "Home Page").fourth %>
       <% if @fourth_category.present? %>
         <div class="col-lg-7 col-sm-6" id="feature-4" style="cursor: pointer">
           <div class="single_feature_post_text">
@@ -385,7 +385,7 @@ height:220px;
           </div>
         </div>
       <% end %>
-      <% @fifth_category = Category.where(category_type: "Feature").fifth if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").fifth %>
+      <% @fifth_category = Category.where(category_type: "Home Page").fifth if Category.where(category_type: "Home Page").present? && Category.where(category_type: "Home Page").fifth %>
       <% if @fifth_category.present? %>
         <div class="col-lg-7 col-sm-6" id="feature-5" style="cursor: pointer">
           <div class="single_feature_post_text">
@@ -402,7 +402,7 @@ height:220px;
           </div>
         </div>
       <% end %>
-      <% @sixth_category = Category.where(category_type: "Feature").last(3).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
+      <% @sixth_category = Category.where(category_type: "Home Page").last(3).first if Category.where(category_type: "Home Page").present? && Category.where(category_type: "Home Page").last %>
       <% if @sixth_category.present? %>
         <div class="col-lg-5 col-sm-6" id="feature-6" style="cursor: pointer">
           <div class="single_feature_post_text">
@@ -420,7 +420,7 @@ height:220px;
         </div>
       <% end %>
 
-      <% @seventh_category = Category.where(category_type: "Feature").last(2).first if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
+      <% @seventh_category = Category.where(category_type: "Home Page").last(2).first if Category.where(category_type: "Home Page").present? && Category.where(category_type: "Home Page").last %>
       <% if @seventh_category.present? %>
         <div class="col-lg-5 col-sm-6" id="feature-7" style="cursor: pointer">
           <div class="single_feature_post_text">
@@ -438,7 +438,7 @@ height:220px;
         </div>
       <% end %>
 
-      <% @last_category = Category.where(category_type: "Feature").last if Category.where(category_type: "Feature").present? && Category.where(category_type: "Feature").last %>
+      <% @last_category = Category.where(category_type: "Home Page").last if Category.where(category_type: "Home Page").present? && Category.where(category_type: "Home Page").last %>
       <% if @last_category.present? %>
         <div class="col-lg-7 col-sm-6" id="feature-8" style="cursor: pointer">
           <div class="single_feature_post_text">

@@ -10,7 +10,7 @@ class Category < ApplicationRecord
 
   enum category_type: {
     "General" => 1,
-    "Feature" => 2
+    "Home Page" => 2
   }  
 
   def self.product_categories

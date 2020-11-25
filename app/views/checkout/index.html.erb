@@ -477,11 +477,11 @@ font-weight: normal;
               alert("Billing Details Subrub can't be blank");
               return false;
             }
-            if (complex == "") {
-              alert("Billing Details Complex can't be blank");
-              return false;
-            }
-            if (secondary_number == "") {
+            // if (complex == "") {
+            //   alert("Billing Details Complex can't be blank");
+            //   return false;
+            // }
+            if (secondary_number == "" && complex != "") {
               alert("Billing Details Alternative Number can't be blank");
               return false;
             }

@@ -7,7 +7,7 @@ class Admin::CategoriesController < AdminController
     @category = Category.new
   end
   def create
-    params[:category][:category_type] = params[:category][:category_type] == "1" ? "General" : "Feature"
+    params[:category][:category_type] = params[:category][:category_type] == "1" ? "General" : "Home Page"
     @category = Category.new(category_params)
     if @category.save
       flash[:success] = "Category successfully added"
@@ -20,7 +20,7 @@ class Admin::CategoriesController < AdminController
   end
   def update
     puts params
-    params[:category][:category_type] = params[:category][:category_type] == "1" ? "General" : "Feature"
+    params[:category][:category_type] = params[:category][:category_type] == "1" ? "General" : "Home Page"
     if @category.update(category_params)
       flash[:success] = "Category Successfully Edited"
       redirect_to admin_categories_path
