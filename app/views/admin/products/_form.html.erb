@@ -98,15 +98,15 @@
     <%#= f.label :visibility %>
     <!-- <%#= f.check_box :visibility %> <br/> -->
   <!-- </div> -->
+  
+  <div class="form-group">
+    <%= f.label :is_discounted %>
+    <%= f.check_box :is_discounted %> <br/>
+  </div>
 
   <div class="form-group">
     <%= f.label :clean_and_care %>
     <%= f.text_field :clean_and_care, class: "form-control", autocomplete: false, placeholder: "Clean and Care", autofocus: true %> <br/>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :is_discounted %>
-    <%= f.check_box :is_discounted %> <br/>
   </div>
 
   <div class="form-group">
