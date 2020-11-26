@@ -48,7 +48,7 @@
               <td><%= product.product_category.present? && product.product_category.category.present? && product.product_category.category.shipping_price.to_i > 0 ? "Yes" : "No" %></td>
               <td><%= product.warranty %></td>
               <td><%= product.code %></td>
-              <td><%= product.inventory %></td>
+              <td><%= product.product_colors.pluck(:inventory).sum(&:to_i) %></td>
               <td><%= product.status ? 'Active' : 'Inactive'%></td>
               <td><%= link_to "Edit",  edit_admin_product_path(product), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
                 <%= link_to "Show",  admin_product_path(product), class: "btn btn-xs btn-success custom-table-show-btn" %>
