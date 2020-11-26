@@ -133,7 +133,7 @@ font-weight: normal;
       <div class="billing_details">
         <div class="row">
           <div class="col-lg-7">
-            <h3>Billing Details</h3>
+            <h3>My Details</h3>
                 <%= form_for BillingAddress.new, remote: true do |f| %>
                 <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
                   novalidate="novalidate"> -->
@@ -178,24 +178,24 @@ font-weight: normal;
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
                   </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @billing_address.present? ? @billing_address.landmark : "") %>
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @billing_address.present? ? @billing_address.street : "") %>
-                </div>
+               <!--  <div class="col-md-6 form-group p_star">
+                  <%#= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @billing_address.present? ? @billing_address.landmark : "") %>
+                </div> -->
+                <!-- <div class="col-md-6 form-group p_star">
+                  <%#= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @billing_address.present? ? @billing_address.street : "") %>
+                </div> -->
                 <div class="col-md-6 form-group p_star">
                   <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @billing_address.present? ? @billing_address.complex : "") %>
                 </div>
                 <div class="col-md-6 form-group p_star">
                   <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @billing_address.present? ? @billing_address.unit_no : "") %>
                 </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @billing_address.present? ? @billing_address.house_no : "") %>                
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @billing_address.present? ? @billing_address.suburb : "") %>
-                </div>
+                <!-- <div class="col-md-6 form-group p_star">
+                  <%#= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @billing_address.present? ? @billing_address.house_no : "") %>                
+                </div> -->
+                <!-- <div class="col-md-6 form-group p_star">
+                  <%#= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @billing_address.present? ? @billing_address.suburb : "") %>
+                </div> -->
                 <div class="col-md-12">
                   <div class="form-group">
                     <%= f.text_field(:secondary_number, :class => 'form-control', placeholder: "Alternative Number", value: @billing_address.present? ? @billing_address.secondary_number : "") %>
@@ -254,24 +254,24 @@ font-weight: normal;
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
                   </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @shipping_address.present? ? @shipping_address.landmark : "") %>
+               <!--  <div class="col-md-6 form-group p_star">
+                  <%#= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @shipping_address.present? ? @shipping_address.landmark : "") %>
                 </div>
                 <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @shipping_address.present? ? @shipping_address.street : "") %>
-                </div>
+                  <%#= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @shipping_address.present? ? @shipping_address.street : "") %>
+                </div> -->
                 <div class="col-md-6 form-group p_star">
                   <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @shipping_address.present? ? @shipping_address.complex : "") %>
                 </div>
                 <div class="col-md-6 form-group p_star">
                   <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @shipping_address.present? ? @shipping_address.unit_no : "") %>
                 </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @shipping_address.present? ? @shipping_address.house_no : "") %>                
+                <!-- <div class="col-md-6 form-group p_star">
+                  <%#= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @shipping_address.present? ? @shipping_address.house_no : "") %>                
                 </div>
                 <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @shipping_address.present? ? @shipping_address.suburb : "") %>
-                </div>
+                  <%#= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @shipping_address.present? ? @shipping_address.suburb : "") %>
+                </div> -->
                 <div class="col-md-12">
                   <div class="form-group">
                     <%= f.text_field(:secondary_number, :class => 'form-control', placeholder: "Alternative Number", value: @shipping_address.present? ? @shipping_address.secondary_number : "") %>
@@ -446,11 +446,11 @@ font-weight: normal;
         $('.proceed_to_checkout_1').on('click', function(e){
             x = $('#autocomplete_address').val();
             number = $('#number').val();
-            landmark = $('#billing_address_landmark').val();
-            street = $('#billing_address_street').val();
+            // landmark = $('#billing_address_landmark').val();
+            // street = $('#billing_address_street').val();
             unit = $('#billing_address_unit_no').val();
-            house = $('#billing_address_house_no').val();
-            subrub = $('#billing_address_suburb').val();
+            // house = $('#billing_address_house_no').val();
+            // subrub = $('#billing_address_suburb').val();
             complex = $('#billing_address_complex').val();
             secondary_number = $('#billing_address_secondary_number').val();
             instruction = $('#billing_address_instruction').val();
@@ -462,18 +462,18 @@ font-weight: normal;
               alert("Phone Number can't be blank");
               return false;
             }
-            if (street == "") {
-              alert("Billing Details Street can't be blank");
-              return false;
-            }
+            // if (street == "") {
+            //   alert("Billing Details Street can't be blank");
+            //   return false;
+            // }
             if (unit == "" && complex != "") {
               alert("Billing Details Unit No can't be blank");
               return false;
             }
-            if (house == "") {
-              alert("Billing Details House No can't be blank");
-              return false;
-            }
+            // if (house == "") {
+            //   alert("Billing Details House No can't be blank");
+            //   return false;
+            // }
             // if (subrub == "") {
             //   alert("Billing Details Subrub can't be blank");
             //   return false;
