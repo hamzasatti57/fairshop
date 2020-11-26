@@ -40,7 +40,7 @@ class ConfirmationController < ApplicationController
       data = Hash.from_xml(xml)
       logger.info "=========#{data}=========="
       _file_name = "Sale_Invoice_#{Time.now.strftime("%Y_%d_%m_%H_%M").to_s}"
-      data["Transaction"]["SalesHeader"]["InvoiceNumber"] = (current_user.user_carts.last.id + 1000).to_s
+      data["Transaction"]["SalesHeader"]["InvoiceNumber"] = (Checkout.where(user_id: current_user.id).last.user_cart.id + 1000).to_s
       data["Transaction"]["SalesHeader"]["DeliveryCharge"] = @shipping_price.to_s
       data["Transaction"]["SalesHeader"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
       data["Transaction"]["SalesHeader"]["TotalSalePriceAfterDiscount"] = @sum.to_s
@@ -82,7 +82,7 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["Longitude"] = @last_checkout.billing_address.longitude if @last_checkout.present?
       data["Transaction"]["DeliveryDetails"]["PhoneNo"] = current_user.contact_details.to_s
       data["Transaction"]["DeliveryDetails"]["DeliveryDate"] = Time.now.to_s.gsub(" +0000", "")
-      # data["Transaction"]["SalesHeader"]["UnitNo"] = (current_user.user_carts.last.id + 1000).to_s
+      # data["Transaction"]["SalesHeader"]["UnitNo"] = (Checkout.where(user_id: current_user.id).last.user_cart.id + 1000).to_s
       data["Transaction"]["Details"] = data["Transaction"]["Details"]["SalesDetails"]
       data = data.to_xml.to_s.gsub("Detail>", "SalesDetails>").gsub(" type=\"array\"", "").gsub("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<hash>\n  ", "").gsub("\n</hash>\n", "").to_yaml.gsub("--- |-\n", '')
       logger.info "=========#{data}=========="
