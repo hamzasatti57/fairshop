@@ -455,7 +455,7 @@ font-weight: normal;
             secondary_number = $('#billing_address_secondary_number').val();
             instruction = $('#billing_address_instruction').val();
             if (x == "") {
-              alert("Billing Address can't be blank");
+              alert("Address can't be blank");
               return false;
             }
             if (number == "") {
@@ -467,27 +467,27 @@ font-weight: normal;
             //   return false;
             // }
             if (unit == "" && complex != "") {
-              alert("Billing Details Unit No can't be blank");
+              alert("Unit No can't be blank");
               return false;
             }
             // if (house == "") {
-            //   alert("Billing Details House No can't be blank");
+            //   alert("House No can't be blank");
             //   return false;
             // }
             // if (subrub == "") {
-            //   alert("Billing Details Subrub can't be blank");
+            //   alert("Subrub can't be blank");
             //   return false;
             // }
             // if (complex == "") {
-            //   alert("Billing Details Complex can't be blank");
+            //   alert("Complex can't be blank");
             //   return false;
             // }
             if (secondary_number == "") {
-              alert("Billing Details Alternative Number can't be blank");
+              alert("Alternative Number can't be blank");
               return false;
             }
             // if (instruction == "") {
-            //   alert("Billing Details Instruction can't be blank");
+            //   alert("Instruction can't be blank");
             //   return false;
             // }
             if(document.getElementById('new-shippment').checked) {
@@ -500,7 +500,6 @@ font-weight: normal;
           if(document.getElementById('new-shippment').checked) {
 
             $(".billing_address_2_submit").click();
-            debugger
               $.ajax({
                   headers: { 'X-CSRF-Token': Rails.csrfToken() },
                   url:'/billing_addresses/save_address?billing_address[address]=' + $('#autocomplete_address').val() + '&billing_address[instruction]=' + $('#billing_address_instruction').val(),
