@@ -28,6 +28,13 @@ color:red;
   font-size: 15px;
   font-weight: 300;
   font-family: "Poppins", sans-serif;
+}
+.custom-cart-img-div img{
+
+  object-fit: contain !important;
+
+
+}
 </style>
 
   <!--================Home Banner Area =================-->
@@ -67,7 +74,7 @@ color:red;
               <tr>
                 <td>
                   <div class="media">
-                    <div class="d-flex">
+                    <div class="d-flex custom-cart-img-div">
                       <% if cart.product.images.present? %>
                       <img src="<%=url_for(cart.product.images.first) %>">
                       <%#=image_tag("img/product/single-product/cart-1.jpg")%>
