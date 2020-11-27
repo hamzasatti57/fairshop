@@ -10,26 +10,27 @@ namespace :products_stock_update do
     xml = File.open(Rails.root.join('public', 'StockFile.xml'))
     data = Hash.from_xml(xml)
     puts "=========#{data}=========="
+    ProductColor.destroy_all
     data["DocumentElement"]["StockOnHand"].each do |stock|
       @product = Product.find_by_code(stock["StockItemCode"])
       @product_category = ProductCategory.find_by_title("Other")
       color = Color.where("title = ?", stock["StockProfile"]).last
       if color.present?
         # color.update!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
-        @color = color
+        @color = color if stock["bDiscontinued"] != "true"
       else
         puts "=========color add=========="
-        @color = Color.create!(title: stock["StockProfile"])
+        @color = Color.create!(title: stock["StockProfile"]) if stock["bDiscontinued"] != "true" && stock["StockProfile"] != nil
       end
       if @product.present?
         puts "=========ProductColor add=========="
-        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless ProductColor.where(product_id: @product.id, color_id: @color.id).present?
-        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"])
+        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless (@color.present? && ProductColor.where(product_id: @product.id, color_id: @color.id).present?) || @color.blank? || stock["bDiscontinued"] == "true" || stock["StockProfile"] == nil
+        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], print_description: stock["PrintDescription"])
       else
         puts "=========product add=========="
         # status: stock["bDiscontinued"] == "true" ? false : true
-        @product = Product.create!(stock_item_id: stock["StockItemID"], title: stock["StockItemDescription"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], code: stock["StockItemCode"], product_category_id: @product_category.present? ? @product_category.id : nil)
-        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"])
+        @product = Product.create!(stock_item_id: stock["StockItemID"], title: stock["StockItemDescription"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], code: stock["StockItemCode"], product_category_id: @product_category.present? ? @product_category.id : nil, print_description: stock["PrintDescription"])
+        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless (@color.present? && ProductColor.where(product_id: @product.id, color_id: @color.id).present?) || @color.blank? || stock["bDiscontinued"] == "true" || stock["StockProfile"] == nil
       end
     end
   end

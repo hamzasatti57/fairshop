@@ -17,8 +17,13 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+    <%= f.label :title, "Product Name" %>
+    <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Product Name", autofocus: true %> <br/>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :code %>
+    <%= f.text_field :code, class: "form-control", autocomplete: false, placeholder: "Code", disabled: true %> <br/>
   </div>
 
   <div class="form-group">
@@ -26,30 +31,30 @@
     <%= f.select(:product_category_id, options_for_select(product_category_options, selected: selected_product_category(product)), { prompt: "Please Select Category" }, { :required => true, class: 'form-control' }) %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :Product_Type %>
-    <%= f.select(:product_type_id, options_for_select(product_type_options, selected: selected_product_type(product)), { prompt: "Please Select" }, { class: 'form-control' }) %>
-  </div>
+<!--   <div class="form-group">
+    <%#= f.label :Product_Type %>
+    <%#= f.select(:product_type_id, options_for_select(product_type_options, selected: selected_product_type(product)), { prompt: "Please Select" }, { class: 'form-control' }) %>
+  </div> -->
 
   <div class="form-group">
     <%= f.label :description %>
     <%= f.text_area :description, class: "form-control", :required => true, autocomplete: false, placeholder: "Description", autofocus: true %> <br/>
   </div>
-
+<!-- 
   <div class="form-group">
-    <%= f.label :inventory %>
-    <%= f.text_field :inventory, class: "form-control", autocomplete: false, placeholder: "Inventory", autofocus: true %> <br/>
-  </div>
+    <%#= f.label :inventory %>
+    <%#= f.text_field :inventory, class: "form-control", autocomplete: false, placeholder: "Inventory", autofocus: true %> <br/>
+  </div> -->
 
   <div class="form-group">
     <%= f.label :price %>
-    <%= f.text_field :price, :required => true, class: "form-control", autocomplete: false, placeholder: "Price", autofocus: true %> <br/>
+    <%= f.text_field :price, :value => number_with_precisions(f.object.price), :required => true, class: "form-control", autocomplete: false, placeholder: "Price", disabled: true %> <br/>
   </div>
 
-  <div class="form-group">
-    <%= f.label :sub_category_material %>
-    <%= f.text_field :sub_category_material, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
-  </div>
+<!--   <div class="form-group">
+    <%#= f.label :sub_category_material %>
+    <%#= f.text_field :sub_category_material, class: "form-control", autocomplete: false, placeholder: "Sub Category Material", autofocus: true %> <br/>
+  </div> -->
 
   <div class="form-group">
     <%= f.label :Colors %>
@@ -80,7 +85,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :is_active %>
+    <%= f.label :is_active, "Make Active" %>
     <%= f.check_box :status %> <br/>
   </div>
 <!-- 
@@ -93,25 +98,20 @@
     <%#= f.label :visibility %>
     <!-- <%#= f.check_box :visibility %> <br/> -->
   <!-- </div> -->
-
-  <div class="form-group">
-    <%= f.label :clean_and_care %>
-    <%= f.check_box :clean_and_care %> <br/>
-  </div>
-
+  
   <div class="form-group">
     <%= f.label :is_discounted %>
     <%= f.check_box :is_discounted %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :warranty %>
-    <%= f.check_box :warranty %> <br/>
+    <%= f.label :clean_and_care %>
+    <%= f.text_field :clean_and_care, class: "form-control", autocomplete: false, placeholder: "Clean and Care", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">
-    <%= f.label :code %>
-    <%= f.text_field :code, class: "form-control", autocomplete: false, placeholder: "Code", autofocus: true %> <br/>
+    <%= f.label :warranty %>
+    <%= f.text_field :warranty, class: "form-control", autocomplete: false, placeholder: "Warranty", autofocus: true %> <br/>
   </div>
 
   <%= f.file_field :images, multiple: true %><br><br>
