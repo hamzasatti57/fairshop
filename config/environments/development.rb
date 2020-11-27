@@ -93,12 +93,12 @@ Rails.application.configure do
       # :authentication       => :login,
       # :openssl_verify_mode  => 'none'
       #:enable_starttls_auto => true
-        :user_name => 'n.mohamed@fairprice.co.za',
-        :password => 'Fairprice786',
-        :domain => 'https://app.sendgrid.com/login',
         :address => 'smtp.sendgrid.net',
         :port => 587,
         :authentication => :plain,
+        :user_name      => ENV['SENDGRID_USERNAME'],
+        :password       => ENV['SENDGRID_PASSWORD'],
+        :domain => 'http://128.199.108.32/',
         :enable_starttls_auto => true
   }
 end
