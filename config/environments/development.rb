@@ -78,14 +78,14 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
 
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.default_url_options = { :host => 'http://128.199.108.32/' }
 
   config.action_mailer.asset_host = { :host => 'http://128.199.108.32/' }
 
   # SMTP settings for gmail
-  config.action_mailer.smtp_settings = {
+  ActionMailer::Base.smtp_settings = {
       # :address              => 'mail.fairprice.co.za',
       # :port                 => 25,
       # :user_name            => 'onlineorders',
