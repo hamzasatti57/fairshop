@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'onlineorders@fairprice.co.za'
+  default from: 'n.mohamed@fairprice.co.za'
   layout 'mailer'
 
 end

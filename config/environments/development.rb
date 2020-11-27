@@ -85,7 +85,7 @@ Rails.application.configure do
   config.action_mailer.asset_host = { :host => 'http://128.199.108.32/' }
 
   # SMTP settings for gmail
-  ActionMailer::Base.smtp_settings = {
+  config.action_mailer.smtp_settings = {
       # :address              => 'mail.fairprice.co.za',
       # :port                 => 25,
       # :user_name            => 'onlineorders',
@@ -96,8 +96,8 @@ Rails.application.configure do
         :address => 'smtp.sendgrid.net',
         :port => 587,
         :authentication => :plain,
-        :user_name      => ENV['SENDGRID_USERNAME'],
-        :password       => ENV['SENDGRID_PASSWORD'],
+        :user_name      => "apikey",
+        :password       => "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",
         :domain => 'http://128.199.108.32/',
         :enable_starttls_auto => true
   }
