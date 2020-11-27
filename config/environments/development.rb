@@ -96,8 +96,8 @@ Rails.application.configure do
         :address => 'smtp.sendgrid.net',
         :port => 587,
         :authentication => :plain,
-        :user_name      => ENV['SENDGRID_USERNAME'],
-        :password       => ENV['SENDGRID_PASSWORD'],
+        :user_name      => "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",
+        :password       => "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",
         :domain => 'http://128.199.108.32/',
         :enable_starttls_auto => true
   }
