@@ -300,13 +300,28 @@ font-weight: normal;
                 <% @cart.each do |cart| %>
 
                 <li>
-                  <div class="d-flex justify-content-between" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
+                  <div class="" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
+
+                  <div class="row">
+                    <div class="col-md-8">
+                    <span><%= cart.product.title %><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></span>
+                    </div>
+                    <div class="col-md-2">
+                       <span class="middle">x <%= cart.quantity %></span>
+                    </div>
+                    <div class="col-md-2">
+                       <span class="last custom-checkout-product-style" style="font-size: 14px;font-weight: 500;color: red">R<%= cart.sub_total.to_i %></span>
+                    </div>
+                    
+                  </div>
+                </div>
+                <!--   <div class="d-flex justify-content-between" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
                     
                     <span><%= cart.product.title %><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></span>
                     <span class="middle">x <%= cart.quantity %></span>
                     <span class="last custom-checkout-product-style" style="font-size: 14px;font-weight: 500;color: red">R<%= cart.sub_total.to_i %></span>
                      
-                  </div>
+                  </div> -->
                 </li>
                
                 <% end %>
