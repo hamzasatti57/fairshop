@@ -91,9 +91,13 @@ color:red;
                 <td>
                   <div class="product_count">
                     <p style="display: none"><%= cart.id %></p>
-                    <span class="input-number-decrement" style="cursor: pointer;"> <i class="fa fa-angle-down"></i></span>
+                     <span class="input-number-decrement" style="cursor: pointer;"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                     
+                   
                     <input class="input-number" type="text" value="<%= cart.quantity %>" min="0" max="200"  readonly="readonly">
-                    <span class="input-number-increment" style="cursor: pointer;"> <i class="fa fa-angle-up"></i></span>
+                   
+                   <span class="input-number-increment" style="cursor: pointer;"> <i class="fa fa-plus"></i></span>
+                   
                   </div>
                 </td>
                 <td id="sub-total-parent">
