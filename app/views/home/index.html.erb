@@ -637,7 +637,30 @@ add_chatinline(); </script>
 <script>
 
   // code here place
-
+     $("#feature-1").on('click', function (e) {
+       window.location.href = '/product_category?type=<%= @first_category.title.gsub(" ", "_") %>'
+     });
+     $("#feature-2").on('click', function (e) {
+       window.location.href = '/product_category?type=<%= @second_category.title.gsub(" ", "_") %>'
+     });
+     $("#feature-3").on('click', function (e) {
+       window.location.href = '/product_category?type=<%= @third_category.title.gsub(" ", "_") %>'
+     });
+     $("#feature-4").on('click', function (e) {
+       window.location.href = '/product_category?type=<%= @fourth_category.title.gsub(" ", "_") %>'
+     });
+     $("#feature-5").on('click', function (e) {
+       window.location.href = '/product_category?type=<%= @fifth_category.title.gsub(" ", "_") %>'
+     });
+     $("#feature-6").on('click', function (e) {
+       window.location.href = '/product_category?type=<%= @sixth_category.title.gsub(" ", "_") %>'
+     });
+     $("#feature-7").on('click', function (e) {
+       window.location.href = '/product_category?type=<%= @seventh_category.title.gsub(" ", "_") %>'
+     });
+     $("#feature-8").on('click', function (e) {
+       window.location.href = '/product_category?type=<%= @last_category.title.gsub(" ", "_") %>'
+     });
 
   // code here end
     $(document).ready(function () {
