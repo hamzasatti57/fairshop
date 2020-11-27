@@ -86,13 +86,20 @@ Rails.application.configure do
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :address              => 'mail.fairprice.co.za',
-      :port                 => 25,
-      :user_name            => 'onlineorders',
-      :password             => 'Password001',
-      :authentication       => :login,
-      :openssl_verify_mode  => 'none'
+      # :address              => 'mail.fairprice.co.za',
+      # :port                 => 25,
+      # :user_name            => 'onlineorders',
+      # :password             => 'Password001',
+      # :authentication       => :login,
+      # :openssl_verify_mode  => 'none'
       #:enable_starttls_auto => true
+        :user_name => 'n.mohamed@fairprice.co.za',
+        :password => 'Fairprice786',
+        :domain => 'https://app.sendgrid.com/login',
+        :address => 'smtp.sendgrid.net',
+        :port => 587,
+        :authentication => :plain,
+        :enable_starttls_auto => true
   }
 end
 
