@@ -68,11 +68,11 @@ class ConfirmationController < ApplicationController
       data["Transaction"]["DeliveryDetails"]["City"] = @last_checkout.billing_address.city.title if @last_checkout.present? && @last_checkout.billing_address.city.present?
       data["Transaction"]["DeliveryDetails"]["Address"] = @last_checkout.billing_address.address if @last_checkout.present?
       data["Transaction"]["DeliveryDetails"]["PostalCode"] = @last_checkout.billing_address.postal_code if @last_checkout.present?
-      data["Transaction"]["DeliveryDetails"]["Suburb"] = @last_checkout.present? ? @last_checkout.billing_address.suburb : " "
-      data["Transaction"]["DeliveryDetails"]["Landmark"] = @last_checkout.present? ? @last_checkout.billing_address.landmark : " "
-      data["Transaction"]["DeliveryDetails"]["Street"] = @last_checkout.present? ? @last_checkout.billing_address.street : " "
+      data["Transaction"]["DeliveryDetails"]["Suburb"] = @last_checkout.present? ? @last_checkout.billing_address.suburb.to_s : " "
+      data["Transaction"]["DeliveryDetails"]["Landmark"] = @last_checkout.present? ? @last_checkout.billing_address.landmark.to_s : " "
+      data["Transaction"]["DeliveryDetails"]["Street"] = @last_checkout.present? ? @last_checkout.billing_address.street.to_s : " "
       data["Transaction"]["DeliveryDetails"]["UnitNo"] = @last_checkout.billing_address.unit_no if @last_checkout.present?
-      data["Transaction"]["DeliveryDetails"]["HouseNo"] = @last_checkout.present? ? @last_checkout.billing_address.house_no : " "
+      data["Transaction"]["DeliveryDetails"]["HouseNo"] = @last_checkout.present? ? @last_checkout.billing_address.house_no.to_s : " "
       data["Transaction"]["DeliveryDetails"]["Complex"] = @last_checkout.billing_address.complex if @last_checkout.present?
       data["Transaction"]["DeliveryDetails"]["PhoneNoAlternate"] = @last_checkout.billing_address.secondary_number if @last_checkout.present?
       data["Transaction"]["DeliveryDetails"]["CustomerName"] = current_user.first_name + " " + current_user.last_name
