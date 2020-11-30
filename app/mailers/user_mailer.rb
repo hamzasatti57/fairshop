@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  include Devise::Controllers::UrlHelpers
   default from: 'onlineorders@fairprice.co.za'
 
   def order_confiramtion_email(user, checkout, billing_address, cart, sum, shipping_price)
@@ -11,4 +12,8 @@ class UserMailer < ApplicationMailer
     mail(to: @user.email, subject: "Thank you for shopping here")
   end
 
+  def welcome_reset_password_instructions(user)
+    @user = user
+    mail(to: user.email, subject: 'Password Reset Link')
+  end
 end

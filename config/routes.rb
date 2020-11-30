@@ -70,6 +70,8 @@ Rails.application.routes.draw do
       post :search
       get :search
       post :subscribe_user
+      put :update_user
+      put :send_email_user
     end
   end
 
@@ -82,6 +84,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get '/brand_products' => 'product_category#brand_products'
   get '/store_locator' => 'contact_us#store_locator'
+  get '/reset_password' => 'contact_us#reset_password'
+  get '/reset_user_password' => 'contact_us#reset_user_password'
   get '/privacy_policy' => 'about#privacy_policy'
   get '/disclaimer' => 'about#disclaimer'
   get '/employee_bursaries' => 'about#employee_bursaries'
