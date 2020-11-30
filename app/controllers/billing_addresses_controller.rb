@@ -14,6 +14,7 @@ class BillingAddressesController < ApplicationController
     params["billing_address"]["latitude"] = results.first.coordinates[0]
     params["billing_address"]["longitude"] = results.first.coordinates[1]
     params["billing_address"]["postal_code"] = Geocoder.search(results.first.coordinates).first.postal_code.to_s
+    params["billing_address"]["street"] = results.first.street_address if results.first.present?
     @billing_address = BillingAddress.where(is_primary: true, user_id: current_user.id).last if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
     if @billing_address.blank? || params["billing_address"]["is_primary"] == "false"
       @shipping_address = BillingAddress.where(is_primary: false, user_id: current_user.id).last if BillingAddress.where(is_primary: false, user_id: current_user.id).present?
@@ -43,6 +44,7 @@ class BillingAddressesController < ApplicationController
     params["billing_address"]["latitude"] = results.first.coordinates[0]
     params["billing_address"]["longitude"] = results.first.coordinates[1]
     params["billing_address"]["postal_code"] = Geocoder.search(results.first.coordinates).first.postal_code.to_s
+    params["billing_address"]["street"] = results.first.street_address if results.first.present?
     @billing_address = BillingAddress.where(is_primary: true, user_id: current_user.id).last if BillingAddress.where(is_primary: true, user_id: current_user.id).present?
     if @billing_address.present?
       @billing_address.update!(billing_address_params)
