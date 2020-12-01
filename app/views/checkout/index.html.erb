@@ -293,9 +293,11 @@ font-weight: normal;
               <h2>Your Order</h2>
               <ul class="list">
                 <li>
-                  <a href="">Product
-                    <span>Total</span>
-                  </a>
+                  <div class="row">
+                    <div class="col-md-10 col-9"><a href="">Product</a></div>
+                    <div class="col-md-2 col-3"><a href="">Total</a></div>
+                  </div>
+   
                 </li>
                 <% @cart.each do |cart| %>
 
@@ -303,13 +305,13 @@ font-weight: normal;
                   <div class="" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
 
                   <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-8 col-7">
                     <span><%= cart.product.title %><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></span>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-2">
                        <span class="middle">x <%= cart.quantity %></span>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 col-3">
                        <span class="last custom-checkout-product-style" style="font-size: 14px;font-weight: 500;color: red">R<%= cart.sub_total.to_i %></span>
                     </div>
                     
