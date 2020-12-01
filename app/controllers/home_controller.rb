@@ -58,4 +58,24 @@ class HomeController < ApplicationController
     flash[:success] = "Email Subscribed sucessfully!"
     render :json => @user
   end
+
+  def update_user
+    @user = User.find_by_id(params[:format])
+    if params[:user][:password] != params[:user][:password_confirmation]
+      flash[:error] = "Password not matched!"
+      redirect_back(fallback_location: root_path)
+    else
+      @user.update(password: params[:user][:password])
+      flash[:success] = "Password Changed sucessfully!"
+      redirect_to new_user_session_path
+    end
+  end
+
+  def send_email_user
+    @user = User.find_by_email(params[:user][:email])
+    UserMailer.welcome_reset_password_instructions(@user).deliver
+    flash[:success] = "Please check your email you will recieve the password reset link."
+    redirect_back(fallback_location: root_path)
+  end
+
 end
