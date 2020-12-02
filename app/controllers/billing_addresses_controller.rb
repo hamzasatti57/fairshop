@@ -32,7 +32,8 @@ class BillingAddressesController < ApplicationController
     end
     @product_ids = Product.where(id: current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
-    @shipping_price = Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i
+    sum = current_user.user_carts.where(status: 0).last.present? ? current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:sub_total).sum.to_i : 0
+    @shipping_price = sum < 5000 ? Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i : 0
     @checkout = Checkout.create!(billing_address_id: @billing_address.id, user_id: current_user.id, user_cart_id: current_user.user_carts.where(status: 0).last.present? ? current_user.user_carts.where(status: 0).last.id : nil, amount: (current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.present?) ? current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:sub_total).sum.to_i + @shipping_price.to_i : 0)
   end
 
