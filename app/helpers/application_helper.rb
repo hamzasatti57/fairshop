@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def product_attributes product
-    { id: product.id, title: product.title, file_name: rails_blob_url(product.images.first) }.to_json
+    { id: product.id, title: product.print_description, file_name: rails_blob_url(product.images.first) }.to_json
   end
 
   def number_with_precisions number

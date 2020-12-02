@@ -458,8 +458,8 @@ label::before {
          <div class="col-lg-6">
             <div class="breadcrumb_iner">
                <div class="breadcrumb_iner_item">
-               <!--  <h2><%= @product.title %></h2> -->
-                  <p class="custom-link" style="background-color: #ecfdff;padding: 5px"><a href="/product_category?type=<%= @product.product_category.category.title %>"><%= @product.product_category.category.title %></a> <span>-</span> <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a> <span>-</span><span class="custom-reload"> <%= @product.title %></span></p>
+               <!--  <h2><%= @product.print_description %></h2> -->
+                  <p class="custom-link" style="background-color: #ecfdff;padding: 5px"><a href="/product_category?type=<%= @product.product_category.category.title %>"><%= @product.product_category.category.title %></a> <span>-</span> <a href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a> <span>-</span><span class="custom-reload"> <%= @product.print_description %></span></p>
                </div>
             </div>
          </div>
@@ -583,7 +583,7 @@ label::before {
          </div>
          <div class="col-lg-5 col-xl-4">
             <div class="s_product_text">
-               <h3><%= @product.title %></h3>
+               <h3><%= @product.print_description %></h3>
                <span><%= @product.code %></span>
                <h2>R <%= @product.price.to_i %></h2>
                <ul class="list">
@@ -1102,7 +1102,7 @@ label::before {
                   </div>
                   <div class="single_product_text">
                      <%= link_to "/products/#{product.id}" do %>
-                     <h4><%= product.title %></h4>
+                     <h4><%= product.print_description %></h4>
                      <% end %>
                      <h3><span style="color: #e9414f; font-weight: 500">R<%= product.price.to_i %></span></h3>
                      <%= link_to product_path(product.id), class: "add_cart", method: :get do %>

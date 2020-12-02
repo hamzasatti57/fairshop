@@ -18,7 +18,7 @@
           <% @products.each_with_index do |product, index| %>
             <tr>
               <td><%= index + 1 %></td>
-              <td><%= product.title %></td>
+              <td><%= product.print_description %></td>
               <td><%= product.status ? 'Active' : 'Inactive'%></td>
               <td><%= link_to "Edit",  edit_banner_form_admin_product_path(product), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
                 <%= link_to "Delete", admin_product_path(product), method: :delete , data: {confirm: "Are you sure?"} , class: "btn btn-xs btn-danger custom-table-delt-btn" %></td>

@@ -251,7 +251,7 @@ height:220px;
                 <div class="col-lg-5 col-md-8">
                   <div class="banner_text">
                     <div class="banner_text_iner custom-slider-margin">
-                      <h1><%= product.title %></h1>
+                      <h1><%= product.print_description %></h1>
                       <% if product.is_promotional_banner.blank? %>
                         <p><%= product.description %></p>
                         
@@ -517,7 +517,7 @@ height:220px;
               </div>
               <div class="single_product_text">
                 <%= link_to "/products/#{product.id}" do %>
-                  <h4><%= product.title %></h4>
+                  <h4><%= product.print_description %></h4>
                 <% end %>
                 <h3><span style="color: #e9414f; font-weight: 500">R <%= product.price.to_i %></span></h3>
                 <%= link_to product_path(product.id), class: "add_cart", method: :get do %>
