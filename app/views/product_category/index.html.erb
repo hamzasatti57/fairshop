@@ -23,13 +23,12 @@
   }
 
   .js-input-from {
-    max-width: 46px !important;
+    max-width: 55px !important;
   }
 
   .sidebar-sticky-custom{
 
   /*width: 25%;*/
-    height: auto; // experiment with this value, try changing to 110vh
     /*min-height: 200px;*/
     /*overflow: auto;*/
     position: -webkit-sticky;
@@ -66,6 +65,17 @@
   display: none;
 }
 
+
+
+  .custom-sidebar-fix{
+    height: 500px;
+    overflow: auto;
+  }
+
+  .custom-sidebar-fix::-webkit-scrollbar {
+    display: none;
+}
+
   @media only screen and (max-width: 600px) {
 
   
@@ -79,18 +89,10 @@
     top: 5%;
     margin-bottom: 60px;
   }
-
-
-  .custom-sidebar-fix{
-
-    height: 570px;
-    overflow: auto;
-
-  }
-
-  .custom-sidebar-fix::-webkit-scrollbar {
-    display: none;
 }
+
+
+
 
 
 </style>
@@ -123,13 +125,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-3">
-        <div class="sidebar-sticky-custom">
+        <div class="sidebar-sticky-custom custom-sidebar-fix">
         <div class="left_sidebar_area">
-          <aside class="left_widgets p_filter_widgets custom-sidebar-fix">
+          <aside class="left_widgets p_filter_widgets">
             <div class="l_w_title">
               <h3>SubCategories</h3>
             </div>
-            <div class="widgets_inner">
+            <div class="widgets_inner ">
               <ul class="list">
                 <% title = [] %>
                 <% ProductCategory.where(id: @products.pluck(:product_category_id)).order(title: :asc).each do |category| %>
