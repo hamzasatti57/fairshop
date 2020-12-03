@@ -75,7 +75,7 @@
                 <label>Select Product:</label>
                 <select id="product_project">
                   <% @products.each do |product| %>
-                    <option value="<%= product.id %>"><%= product.title %></option>
+                    <option value="<%= product.id %>"><%= product.print_description %></option>
                   <% end %>
                 </select>
               </div>
@@ -137,7 +137,7 @@
                       <% @products.each_with_index  do |product, index| %>
                         <tr>
                           <td><%= index + 1 %></td>
-                          <td><%= product.title %></td>
+                          <td><%= product.print_description %></td>
                           <td><%= product.hits %></td>
                           <td><%= product.likes.count %></td>
                           <td><%= product.ratings.average(:value).nil? ? "0" : product.ratings.average(:value)%></td>

@@ -12,8 +12,8 @@
   <% end %><br>
 
   <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control", autocomplete: false, placeholder: "Title", autofocus: true %> <br/>
+    <%= f.label :print_description, "Product Print Description" %>
+    <%= f.text_field :print_description, class: "form-control", :required => true, autocomplete: false, placeholder: "Product Print Description", autofocus: true %> <br/>
   </div>
 
   <div class="form-group">

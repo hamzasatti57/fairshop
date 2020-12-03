@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="UTF-8">
+      <title>Welcome Email</title>
+      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   </head>
+   <body bgcolor="#FFFFFF" style="margin: 0px; padding: 0px; font-family: Helvetica;" >
+      <div style="width: 600px; margin: 0 auto;">
+         <!---- Header ---------->
+         <div style="">
+            <div style="">
+               <div style="padding: 20px 10px;">
+                  <table style=";width: 100%">
+                     <tr>
+                        <td>
+                          <div>
+                            <p style="font-size: 18px; font-weight: 600;color: #3c3b3b;line-height: 1.5;display: inline;">From: </p>
+                           <span>FAIR PRICE (onlineorders@fairprice.co.za)
+                           </span> 
+                            
+                          </div>
+                           
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                          <div style="margin-bottom: 20px;">
+                             <p style="font-size: 18px; font-weight: 600;color: #3c3b3b;line-height: 1.5;display: inline;">Subject: </p>
+                           <span>FAIR PRICE | Welcome Email</span>
+                          </div>
+                          
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <div style="width: 300px;height: 60px;display:block;float: right;">
+                              <span style="float: left;"> <img src="https://i.ibb.co/bvwkvPK/Logo.png" width="100%" height="auto%"></span>
+                           </div>
+                        </td>
+                     </tr>
+
+                       <tr>
+                        <td>
+                           <div style="width: auto;height: 60px;display:block;float: right;margin-top:20px;margin-bottom: 80px">
+                              <span style="float: left;"> <img src="https://i.ibb.co/1KQX8vS/fair-1.jpg" width="100%" height="auto%"></span>
+                           </div>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td> 
+                           <span style="font-size: 18px; font-weight: 400;color: #3c3b3b;">Hi <%= @user.first_name + " " + @user.last_name %>!</span>
+                        </td>
+                     </tr>
+
+                     <tr>
+                        <td>
+                           <p style="font-size: 16px; font-weight: 520;line-height: 1.5">Your account with fairprice.co.za has been successfully created. Your Sign in email address is <span style="color:red"> <%= @user.email %></span> .</p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <p style="font-size: 15px; line-height: 1.5">If you encounter any problems don’t be afraid to email us at <a href="#">onlineorders@fairprice.co.za</a></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <p style="font-size: 15px; line-height: 1.5">4 awesome reasons to shop with us</p>
+                        </td>
+                     </tr>
+
+                       <tr>
+                        <td>
+                           <div style="width: auto;height: 60px;display:block">
+                              <span style="float: left;"> <img src="https://i.ibb.co/7V11QDQ/fair-2.jpg" width="100%" height="auto%"></span>
+
+                              <div style="margin-left: 100px;">
+                                <p style="text-transform:uppercase; margin: 10px auto;"><span style="font-size: 22px;letter-spacing: 0.2rem;font-weight: 600;">free delivery</span><br>
+                               <span style="font-size: 13px;font-weight: 500;">Spend R5000 or more to qualify </span></p>
+                              </div>
+                           </div>
+                        </td>
+                     </tr>
+
+
+                       <tr>
+                        <td>
+                           <div style="width: auto;height: 60px;display:block;">
+                              <span style="float: left;"> <img src="https://i.ibb.co/7V11QDQ/fair-2.jpg" width="100%" height="auto%"></span>
+
+                            <div style="margin-left: 100px;">
+                              <p style="text-transform:uppercase; margin: 10px auto;"><span style="font-size: 22px;letter-spacing: 0.2rem;font-weight: 600;">affordable</span><br>
+                             <span style="font-size: 13px;font-weight: 500;">quality products at prices that is fair. </span></p>
+                            </div>
+                           </div>
+                        </td>
+                     </tr>
+
+
+                       <tr>
+                        <td>
+                           <div style="width: auto;height: 60px;display:block;">
+                              <span style="float: left;"> <img src="https://i.ibb.co/7V11QDQ/fair-2.jpg" width="100%" height="auto%"></span>
+
+                            <div style="margin-left: 100px;">
+                              <p style="text-transform:uppercase; margin: 10px auto;"><span style="font-size: 22px;letter-spacing: 0.2rem;font-weight: 600;">Safe payment options</span><br>
+                             <span style="font-size: 13px;font-weight: 500;">Debit/credit card,eft </span></p>
+                            </div>
+                           </div>
+                        </td>
+                     </tr>
+
+
+                       <tr>
+                        <td>
+                           <div style="width: auto;height: 60px;display:block;">
+                              <span style="float: left;"> <img src="https://i.ibb.co/7V11QDQ/fair-2.jpg" width="100%" height="auto%"></span>
+                              
+                            <div style="margin-left: 100px;">
+                              <p style="text-transform:uppercase; margin: 10px auto;"><span style="font-size: 22px;letter-spacing: 0.2rem;font-weight: 600;">lay-bye (coming soon)</span><br>
+                             <span style="font-size: 13px;font-weight: 500;">12 month guaranteed prices,no hidden costs, interest or storage fees.</span></p>
+                            </div>
+                           </div>
+                        </td>
+                     </tr>
+
+
+                     <tr>
+                       <td>
+                         <p style="font-size: 15px; line-height: 1.5;margin: 35px 0px">Happy Shopping</p>
+
+          <p style="font-size: 15px; line-height: 1.5;margin-top:50px;margin-bottom: 0px">Regards</p>
+
+          <p style="font-size: 15px; line-height: 1.5;margin: 0px">The FAIR PRICE Team</p>
+                       </td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>

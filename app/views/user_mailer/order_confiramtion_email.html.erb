@@ -1,3 +1,18 @@
+<style type="text/css">
+.product-color{
+ font-size: 15px;
+    font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  
+}
+.product-color-slecion{
+  color:red !important;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+}
+</style>
+
 <div bgcolor="#FFFFFF" style="margin: 0px; padding: 0px; font-family: Helvetica;" >
 <div style="width: 600px; margin: 0 auto;"> 
   
@@ -118,7 +133,7 @@
             <tbody>
               <% @cart.each do |cart| %>
               <tr>
-                <th style="text-align: left;"><span><%= cart.product.title %></span></th>
+                <th style="text-align: left;padding-left: 3%;"><span><%= cart.product.print_description %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion" style="color: red;"><%= cart.color.present? ? cart.color.title : "" %></span></th>
                 <th style="text-align: left;padding-left: 3%;">x<%= cart.quantity %></th>
                 <th> <span style="color: red; text-align: left;">R<%= cart.sub_total.to_i %></span></th>
               </tr>
