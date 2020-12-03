@@ -19,7 +19,7 @@
   }
 
   .js-input-to {
-    max-width: 46px !important;
+    max-width: 55px !important;
   }
 
   .js-input-from {
@@ -81,6 +81,18 @@
   }
 
 
+  .custom-sidebar-fix{
+
+    height: 570px;
+    overflow: auto;
+
+  }
+
+  .custom-sidebar-fix::-webkit-scrollbar {
+    display: none;
+}
+
+
 </style>
 
 <%# @products = @products.paginate(page: params[:page], per_page: 6) %>
@@ -113,7 +125,7 @@
       <div class="col-lg-3">
         <div class="sidebar-sticky-custom">
         <div class="left_sidebar_area">
-          <aside class="left_widgets p_filter_widgets">
+          <aside class="left_widgets p_filter_widgets custom-sidebar-fix">
             <div class="l_w_title">
               <h3>SubCategories</h3>
             </div>
