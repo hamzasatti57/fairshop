@@ -15,7 +15,7 @@ class ConfirmationController < ApplicationController
     @product_ids = Product.where(id: Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
     @delivery_fee = ProductCategory.where(id: @product_ids).pluck(:delivery_fee).compact.max.to_i if @product_ids.present? && ProductCategory.where(id: @product_ids).pluck(:delivery_fee).present?
-    @shipping_price = @initial_sum.to_i < 5000 ? delivery_fee : 0
+    @shipping_price = @initial_sum.to_i < 5000 ? @delivery_fee : 0
     @sum = @initial_sum.to_i + @shipping_price.to_i
     current_user.user_carts.update_all(status: 2)
     UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum, @shipping_price).deliver
