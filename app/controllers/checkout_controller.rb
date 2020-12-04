@@ -31,7 +31,8 @@ class CheckoutController < ApplicationController
     @sum = current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.present?
     @product_ids = Product.where(id: current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
-    @shipping_price = @sum.to_i < 5000 ? Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i : 0
+    @delivery_fee = ProductCategory.where(id: @product_ids).pluck(:delivery_fee).compact.max.to_i if ProductCategory.where(id: @product_ids).pluck(:delivery_fee).present?
+    @shipping_price = @sum.to_i < 5000 ? @delivery_fee : 0
   end
 
   def notify
@@ -76,7 +77,8 @@ class CheckoutController < ApplicationController
     @sum = current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.present?
     @product_ids = Product.where(id: current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
-    @shipping_price = @sum.to_i < 5000 ? Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i : 0
+    @delivery_fee = ProductCategory.where(id: @product_ids).pluck(:delivery_fee).compact.max.to_i if @product_ids.present? && ProductCategory.where(id: @product_ids).pluck(:delivery_fee).present?
+    @shipping_price = @sum.to_i < 5000 ? @delivery_fee : 0
     @sum = @sum.to_i + @shipping_price.to_i
     logger.info "===========#{@sum.to_i.round(2)}==========="
     results = `/usr/bin/curl https://test.oppwa.com/v1/checkouts \
