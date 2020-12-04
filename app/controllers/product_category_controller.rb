@@ -23,7 +23,7 @@ class ProductCategoryController < ApplicationController
         @products = @products.where(company_id: @brand.id)
       end
       if params[:search].present?
-        @products = @products.where("title ILIKE '%#{params[:search]}%'")
+        @products = @products.where("print_description ILIKE '%#{params[:search]}%'")
       end
       if params[:min_val].present? && params[:max_val].present?
         @products = @products.where(:price => (params[:min_val].to_f..params[:max_val].to_f))
@@ -62,7 +62,7 @@ class ProductCategoryController < ApplicationController
         @products = @products.where(company_id: @brand.id)
       end
       if params[:search].present?
-        @products = @products.where("title ILIKE '%#{params[:search]}%'")
+        @products = @products.where("print_description ILIKE '%#{params[:search]}%'")
       end
       if params[:min_val].present? && params[:max_val].present?
         @products = @products.where(:price => (params[:min_val].to_f..params[:max_val].to_f))
@@ -84,7 +84,7 @@ class ProductCategoryController < ApplicationController
       end
     else
       if params[:search_query].present?
-        @products = Product.where("title ILIKE '%#{params[:search_query]}%' AND status = true")
+        @products = Product.where("print_description ILIKE '%#{params[:search_query]}%' AND status = true")
       else
         @products = Product.where(status: true)
       end
@@ -115,7 +115,7 @@ class ProductCategoryController < ApplicationController
         @products = @products.where(product_category_id: @product_category.id)
       end
       if params[:search].present?
-        @products = @products.where("title ILIKE '%#{params[:search]}%'")
+        @products = @products.where("print_description ILIKE '%#{params[:search]}%'")
       end
       if params[:sort_by].present?
         if params[:sort_by] == "Price(low to high)"
