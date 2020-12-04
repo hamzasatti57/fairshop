@@ -111,9 +111,9 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { :host => 'http://128.199.108.32/' }
+  config.action_mailer.default_url_options = { :host => 'http://13.244.178.144/' }
 
-  config.action_mailer.asset_host = { :host => 'http://128.199.108.32/' }
+  config.action_mailer.asset_host = { :host => 'http://13.244.178.144/' }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {

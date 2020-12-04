@@ -863,7 +863,7 @@ $('.input-number').on('keydown keyup', function(e){
  function createFBShareLink(id, type, blog, fbAppId) {
     var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `https://${window.location.hostname}`
     debugger
-    var root_url = "<%= 'http://128.199.108.32/' %>"
+    var root_url = "<%= 'http://13.244.178.144/' %>"
     var url = `http://www.facebook.com/dialog/feed?app_id=${fbAppId}
       &link=${root_url}/product_detail?id=${id}
       &picture=${encodeURIComponent(`${blog.file_name}`)}
