@@ -73,7 +73,7 @@ color:red !important;
                 <p>Phone Number</p><span><%= current_user.contact_details %></span>
               </li>
               <li>
-                <p>date</p><span><%= @checkout.created_at.strftime("%b %d, %Y %I:%M %P") %></span>
+                <p>date</p><span style="text-transform: uppercase;"><%= @checkout.created_at.strftime("%b %d, %Y %I:%M %P") %></span>
               </li>
               <li>
                 <p>total</p><span style="color: red">R<%= @checkout.amount.to_i %></span>
