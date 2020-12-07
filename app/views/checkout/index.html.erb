@@ -19,6 +19,9 @@
     text-align: center;
 }
 
+.proceed_to_checkout_1{
+  display: none !important;
+}
 .payment-btn {
   width: 100%;
   margin:20px 0px;
@@ -395,7 +398,7 @@ font-weight: normal;
                   <%=image_tag("img/product/single-product/card.jpg")%>
                   <div class="check"></div>
                 </div>
-                 
+                  <button type="submit" class="payment-btn" id="proceed-to-checkout">Proceed to Payment</button>
                   <%= link_to "Proceed to Payment", peach_payment_path, method: :post  , class: "payment-btn proceed_to_checkout_1" %>
                   <!-- <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button> -->
                 
@@ -434,6 +437,26 @@ font-weight: normal;
             } else {
                 $("#shippment-address").css("display", "none");
             }
+        });
+
+        $('#proceed-to-checkout').on('click', function(e){
+          debugger
+          $.ajax({
+              headers: { 'X-CSRF-Token': Rails.csrfToken() },
+              url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address').val(),
+              // data: { cart_object: jsonObject },
+              // dataType: 'json',
+              type:'post',
+              success:function (data) {
+                debugger
+                if (data.message == "We only deliver in Gauteng.") {
+                  toastr.success(data.message)
+                } else {
+                  $('.proceed_to_checkout_1').click();
+                }
+              }
+
+          });
         });
 
         $('#new-shippment').on('click', function(e){
@@ -538,7 +561,7 @@ font-weight: normal;
             //   $(".checkout_submit").click();
             // },100);
           }
-
+          window.location.href = '/peach_payment';
         });
 
           function initializeAutocomplete(id) {     

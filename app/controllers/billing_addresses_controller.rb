@@ -58,6 +58,15 @@ class BillingAddressesController < ApplicationController
     
   end
 
+  def check_address
+    results = Geocoder.search(params["billing_address"]["address"])
+    if results.first.state != "Gauteng"
+      render json: { message: "We only deliver in Gauteng." }, status: :ok
+    else
+      render json: { message: "success" }, status: :ok
+    end
+  end
+
   private
 
   def billing_address_params
