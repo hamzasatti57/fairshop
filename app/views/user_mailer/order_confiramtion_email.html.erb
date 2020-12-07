@@ -133,7 +133,7 @@
             <tbody>
               <% @cart.each do |cart| %>
               <tr>
-                <th style="text-align: left;padding-left: 3%;"><span><%= cart.product.print_description %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion" style="color: red;"><%= cart.color.present? ? cart.color.title : "" %></span><br><span class="product-color">Assembly Type: </span><span class="product-color-slecion"><%= cart.product.present? && cart.product.assembly_type.present? ? cart.product.assembly_type.humanize.upcase : "" %></span></th>
+                <th style="text-align: left;padding-left: 3%;"><span><%= cart.product.print_description %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion" style="color: red;"><%= cart.color.present? ? cart.color.title : "" %></span><br><span class="product-color">Assembly Type: </span><span class="product-color-slecion" style="color: red;"><%= cart.product.present? && cart.product.assembly_type.present? ? cart.product.assembly_type.humanize.upcase : "" %></span></th>
                 <th style="text-align: left;padding-left: 3%;">x<%= cart.quantity %></th>
                 <th> <span style="color: red; text-align: left;">R<%= cart.sub_total.to_i %></span></th>
               </tr>
