@@ -376,9 +376,9 @@ font-weight: normal;
               <form action="https://sandbox.payfast.co.za/eng/process" method="POST">
                 <input type="hidden" name="merchant_id" value="10019032">
                 <input type="hidden" name="merchant_key" value="90c5p2upcc2f1">
-                <input type="hidden" name="return_url" value="http://13.244.178.144/confirmation">
-                <input type="hidden" name="cancel_url" value="http://13.244.178.144/cancel">
-                <input type="hidden" name="notify_url" value="http://13.244.178.144/notify">
+                <input type="hidden" name="return_url" value="http://test.fairprice.co.za/confirmation">
+                <input type="hidden" name="cancel_url" value="http://test.fairprice.co.za/cancel">
+                <input type="hidden" name="notify_url" value="http://test.fairprice.co.za/notify">
                 <input type="hidden" name="name_first" value=<%#= current_user.first_name + " " + current_user.last_name %>>
                 <input type="hidden" name="email_address" value=<%= current_user.email %>>
                 <input type="hidden" name="amount" value=<%= @sum %>>
