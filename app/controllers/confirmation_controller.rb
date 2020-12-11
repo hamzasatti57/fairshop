@@ -119,6 +119,7 @@ class ConfirmationController < ApplicationController
         # sftp.session.shutdown!
       # end
       rescue Exception => e
+        UserMailer.order_confiramtion_email(current_user, @last_checkout, @last_checkout.billing_address, @sum, @shipping_price).deliver
         Rails.logger.info("=========file not uploaded=============")
         Rails.logger.info(e)
       end
