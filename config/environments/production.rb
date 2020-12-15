@@ -111,19 +111,26 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { :host => 'http://128.199.108.32/' }
+  config.action_mailer.default_url_options = { :host => 'http://test.fairprice.co.za/' }
 
-  config.action_mailer.asset_host = { :host => 'http://128.199.108.32/' }
+  config.action_mailer.asset_host = { :host => 'http://test.fairprice.co.za/' }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
-      :address              => 'mail.fairprice.co.za',
-      :port                 => 25,
-      :user_name            => 'onlineorders',
-      :password             => 'Password001',
+      :address              => 'in-v3.mailjet.com',
+      :port                 => 587,
+      :user_name            => 'e1fa1059fc14a3856a0bc40b7e5a5af4',
+      :password             => '439d7287dac6d81a029ef1e2d337312f',
       :authentication       => :login,
-      :openssl_verify_mode  => 'none'
-      #:enable_starttls_auto => true
+      :openssl_verify_mode  => 'none',
+      :enable_starttls_auto => true
+        # :address => 'smtp.sendgrid.net',
+        # :port => 587,
+        # :authentication => :plain,
+        # :user_name      => "apikey",
+        # :password       => "SG.asynchronouslySlkkR7RfyqllpCUVlKLw.zNUOcjv8CfhPilwxdJ3tcHGhMEty5Ar-sM37DWzN94A",
+        # :domain => 'http://test.fairprice.co.za/',
+        # :enable_starttls_auto => true
   }
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
