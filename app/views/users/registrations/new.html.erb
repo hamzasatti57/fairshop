@@ -4,6 +4,11 @@
     text-align: center;
      margin-left: 26%;
   }
+
+  .custom-envalop{
+
+    font-size:12px;
+  }
        @media (max-width: 576px) {
 
         .custom-login-part-style{
@@ -16,8 +21,7 @@
     font-size: 28px;
   }
 
-
-       }
+}
 
    </style>
 
@@ -63,12 +67,12 @@
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
-                          <i class="fa fa-envelope-o"></i>
+                          <i class="fa fa-envelope custom-envalop" aria-hidden="true"></i>
                         </span>
                     </div>
                     <%= f.email_field :email,  class: "form-control", placeholder: "Email", autofocus: true, :required => true %>
                   </div>
-                  <div class="input-group mb-4">
+                  <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
                           <i class="fa fa-lock"></i>
@@ -76,7 +80,7 @@
                     </div>
                     <%= f.password_field :password,  class: "form-control", placeholder: "Password", autofocus: true,  :required => true %>
                   </div>
-                  <div class="input-group mb-4">
+                  <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">
                           <i class="fa fa-lock"></i>
@@ -84,10 +88,10 @@
                     </div>
                     <%= f.password_field :password_confirmation,  class: "form-control", placeholder: "Confirm Password", autofocus: true, :required => true %>
                   </div>
-                  <div class="input-group mb-4">
+                  <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">
-                          <i class="fa fa-phone"></i>
+                        <span class="input-group-text" style="padding-right: 11px;">
+                          <i class="fa fa-phone " ></i>
                         </span>
                     </div>
                     <%= f.text_field :contact_details,  class: "form-control", placeholder: "Contact Number", autofocus: true,  :required => true %>

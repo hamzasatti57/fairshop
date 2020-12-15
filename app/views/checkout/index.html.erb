@@ -62,7 +62,19 @@ font-weight: normal;
   font-weight: 500;
   color:red;
 }
+.c-bold{
 
+  font-weight: 700 !important;
+  text-transform: uppercase;
+      color: #3a3d45 !important;
+}
+.custom-text-right{
+  text-align: right;
+}
+
+.custom-margin-style{
+  margin-left: -12px;
+}
 
 </style>
 
@@ -215,7 +227,7 @@ font-weight: normal;
                 <% end %>
 
                 <div class="col-md-12 form-group">
-                  <div class="creat_account">
+                  <div class="creat_account custom-margin-style">
                     <h3>Delivery Details</h3>
                     <input type="checkbox" id="new-shippment">
 
@@ -294,8 +306,8 @@ font-weight: normal;
               <ul class="list">
                 <li>
                   <div class="row">
-                    <div class="col-md-10 col-9"><a href="">Product</a></div>
-                    <div class="col-md-2 col-3"><a href="">Total</a></div>
+                    <div class="col-md-10 col-9"><a href="" class="c-bold">Product</a></div>
+                    <div class="col-md-2 col-3"><a href="" class="c-bold">Total</a></div>
                   </div>
    
                 </li>
@@ -305,14 +317,17 @@ font-weight: normal;
                   <div class="" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
 
                   <div class="row">
-                    <div class="col-md-8 col-7">
+                    <div class="col-md-7 col-7">
                     <span><%= cart.product.print_description %><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></span>
                     </div>
                     <div class="col-md-2 col-2">
                        <span class="middle">x <%= cart.quantity %></span>
                     </div>
-                    <div class="col-md-2 col-3">
-                       <span class="last custom-checkout-product-style" style="font-size: 14px;font-weight: 500;color: red">R<%= cart.sub_total.to_i %></span>
+                    <div class="col-md-3 col-3">
+                      <div class="custom-text-right">
+                          <span class="last custom-checkout-product-style " style="font-size: 14px;font-weight: 500;color: red">R <%= cart.sub_total.to_i %></span>
+                      </div>
+                     
                     </div>
                     
                   </div>
@@ -331,17 +346,17 @@ font-weight: normal;
               <ul class="list list_2">
                 <li>
                   <a href="">Subtotal
-                    <span style="color: red">R<%= @sum.to_i %></span>
+                    <span style="color: red">R <%= @sum.to_i %></span>
                   </a>
                 </li>
                 <li>
                   <a href="">Delivery Fee
-                    <span style="color: red">R<%= @shipping_price.present? ? @shipping_price : "" %></span>
+                    <span style="color: red">R <%= @shipping_price.present? ? @shipping_price : "" %></span>
                   </a>
                 </li>
                 <li>
                   <a href="">Grand Total
-                    <span style="color: red">R<%= @sum.to_i + @shipping_price.to_i %></span>
+                    <span style="color: red">R <%= @sum.to_i + @shipping_price.to_i %></span>
                   </a>
                 </li>
               </ul>
@@ -484,7 +499,7 @@ font-weight: normal;
             //   return false;
             // }
             if (unit == "" && complex != "") {
-              alert("Unit No can't be blank");
+              alert("Unit Number cannot be blank");
               return false;
             }
             // if (house == "") {
