@@ -13,7 +13,8 @@ namespace :products_stock_update do
     ProductColor.destroy_all
     data["DocumentElement"]["StockOnHand"].each do |stock|
       @product = Product.find_by_code(stock["StockItemCode"])
-      @product_category = ProductCategory.find_by_title(stock["StockCategoryName"])
+      @product.product_category.update(stock_category_id: stock["StockCategoryID"]) if @product.product_category.present?
+      @product_category = ProductCategory.find_by_stock_category_id(stock["StockCategoryID"])
       @product_category.update(delivery_fee: stock["OnlineDeliveryCharge"].to_f) if @product_category.present? && stock["OnlineDeliveryCharge"].present?
       color = Color.where("title = ?", stock["StockProfile"]).last
       if color.present?
