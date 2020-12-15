@@ -12,6 +12,16 @@
   <% end %><br>
 
   <div class="form-group">
+    <%= f.label :Product %>
+    <select name="product_id" id="demo" >
+      <option value="">Please Select</option>
+      <% Product.all.each_with_index  do |product,index| %>
+        <option  data-code="<%= product.id %>" value="<%= product.id %>" <%=   @product.present? ? @product.id == product.id ? "selected" : nil : nil  %>><%= product.title %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-group">
     <%= f.label :print_description, "Product Print Description" %>
     <%= f.text_field :print_description, class: "form-control", :required => true, autocomplete: false, placeholder: "Product Print Description", autofocus: true %> <br/>
   </div>
@@ -29,7 +39,8 @@
 <script>
     $(document).ready(function() {
         var x = new SlimSelect({
-            select: '#demo'
+            select: '#demo',
+            placeholder: 'Please Select'
         });
     });
 </script>

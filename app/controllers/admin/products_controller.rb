@@ -33,9 +33,14 @@ class Admin::ProductsController < AdminController
 
   def create
     # @product = current_user.products.new(product_params)
-    params[:status] = true if params[:images].present?
-    @product = current_user.products.new(product_params.merge(company_id: current_user.companies.first.id))
-    if @product.save
+    if params["product_id"] != ""
+      @product = Product.find_by_id(params["product_id"])
+      @product.update(is_promotional_banner: true, product_type_id: 1)
+    else
+      params[:status] = true if params[:images].present?
+      @product = current_user.products.create!(product_params.merge(company_id: current_user.companies.first.id))
+    end
+    if @product.present?
       @product.add_colors params[:product][:color_ids]
       # if @product.images.attached?
       #   @product.images.attach(params[:product][:images])
