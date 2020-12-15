@@ -91,7 +91,7 @@ Rails.application.configure do
       :user_name            => 'e1fa1059fc14a3856a0bc40b7e5a5af4',
       :password             => '439d7287dac6d81a029ef1e2d337312f',
       :authentication       => :login,
-      :openssl_verify_mode  => 'none'
+      :openssl_verify_mode  => 'none',
       :enable_starttls_auto => true
         # :address => 'smtp.sendgrid.net',
         # :port => 587,
