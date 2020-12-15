@@ -606,13 +606,13 @@ label::before {
                      <i class="fab fa-facebook-f" style="font-size: 21px;color: #3b5998;"></i>
                     
                      <% end %>
-                     <a class="share-on-pinterest" data-id="139" data-type="pinterest" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://128.199.108.32/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
+                     <a class="share-on-pinterest" data-id="139" data-type="pinterest" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://test.fairprice.co.za/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
                      
                      <i class="fa fa-pinterest
                         " style="font-size: 21px;color: #ee1c21;"></i>
                      
                      </a>
-                     <a class="share-on-twitter" data-id="139" data-type="twitter" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://128.199.108.32/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
+                     <a class="share-on-twitter" data-id="139" data-type="twitter" data-attributes="{&quot;id&quot;:139,&quot;title&quot;:&quot;Stella&quot;,&quot;file_name&quot;:&quot;http://test.fairprice.co.za/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYTA9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--27992457c8d0b4049dd272005110caab475d1ac8/banner_img.png&quot;}" href="javascript:void(0);">
                     
                      <i class="fa fa-twitter-square
                         " style="font-size: 21px;color: #1ea1f1;"></i>
@@ -2686,7 +2686,7 @@ $(document).ready(function() {
    
    function createFBShareLink(id, type, blog, fbAppId) {
    var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `https://${window.location.hostname}`
-   var root_url = "<%= 'http://128.199.108.32/' %>"
+   var root_url = "<%= 'http://test.fairprice.co.za/' %>"
    var url = `http://www.facebook.com/dialog/feed?app_id=${fbAppId}
    &link=${root_url}/product_detail?id=${id}
    &picture=${encodeURIComponent(`${blog.file_name}`)}

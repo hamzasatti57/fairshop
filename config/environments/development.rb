@@ -80,9 +80,9 @@ Rails.application.configure do
 
   config.action_mailer.raise_delivery_errors = true
 
-  config.action_mailer.default_url_options = { :host => 'http://128.199.108.32/' }
+  config.action_mailer.default_url_options = { :host => 'http://test.fairprice.co.za/' }
 
-  config.action_mailer.asset_host = { :host => 'http://128.199.108.32/' }
+  config.action_mailer.asset_host = { :host => 'http://test.fairprice.co.za/' }
 
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
@@ -98,7 +98,7 @@ Rails.application.configure do
         :authentication => :plain,
         :user_name      => "apikey",
         :password       => "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",
-        :domain => 'http://128.199.108.32/',
+        :domain => 'http://test.fairprice.co.za/',
         :enable_starttls_auto => true
   }
 end
