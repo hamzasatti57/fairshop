@@ -38,6 +38,8 @@ class Admin::ProductsController < AdminController
       @product.update(is_promotional_banner: true, product_type_id: 1)
     else
       params[:status] = true if params[:images].present?
+      params["product"]["is_promotional_banner"] = true
+      params["product"]["product_type_id"] = 1
       @product = current_user.products.new(product_params)
       @product.save(validate: false)
     end
