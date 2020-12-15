@@ -14,7 +14,8 @@ class ConfirmationController < ApplicationController
     @initial_sum = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.present?
     @product_ids = Product.where(id: Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
-    @shipping_price = @initial_sum.to_i < 5000 ? Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i : 0
+    @delivery_fee = ProductCategory.where(id: @product_ids).pluck(:delivery_fee).compact.max.to_i if @product_ids.present? && ProductCategory.where(id: @product_ids).pluck(:delivery_fee).present?
+    @shipping_price = @initial_sum.to_i < 5000 ? @delivery_fee : 0
     @sum = @initial_sum.to_i + @shipping_price.to_i
     current_user.user_carts.update_all(status: 2)
     UserMailer.order_confiramtion_email(current_user, @checkout, @billing_address, @cart, @sum, @shipping_price).deliver
@@ -32,7 +33,8 @@ class ConfirmationController < ApplicationController
       @initial_sum = Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.present? && Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.present?
       @product_ids = Product.where(id: Checkout.where(user_id: current_user.id).last.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
       @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
-      @shipping_price = @initial_sum.to_i < 5000 ? Category.where(id: @category_ids).pluck(:shipping_price).compact.max.to_i : 0
+      @delivery_fee = ProductCategory.where(id: @product_ids).pluck(:delivery_fee).compact.max.to_i if @product_ids.present? && ProductCategory.where(id: @product_ids).pluck(:delivery_fee).present?
+      @shipping_price = @initial_sum.to_i < 5000 ? @delivery_fee : 0
       @sum = @initial_sum.to_i + @shipping_price.to_i
       Checkout.where(user_id: current_user.id).last.user_cart.update!(status: 2, otp_code: random_number.to_s)
       UserPayment.create!(user_id: current_user.present? ? current_user.id : current_user.id, amount: @sum)
@@ -117,6 +119,7 @@ class ConfirmationController < ApplicationController
         # sftp.session.shutdown!
       # end
       rescue Exception => e
+        UserMailer.order_confiramtion_email(current_user, @last_checkout, @last_checkout.billing_address, @sum, @shipping_price).deliver
         Rails.logger.info("=========file not uploaded=============")
         Rails.logger.info(e)
       end

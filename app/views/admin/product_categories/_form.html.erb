@@ -10,6 +10,10 @@
     <%= f.label :title, "Enter Sub-category Name" %>
     <%= f.text_field :title, class: "form-control", :required => true, autocomplete: false, placeholder: "Enter Sub-category Name", autofocus: true %> <br/>
   </div>
+  <div class="form-group">
+    <%= f.label :delivery_fee, "Delivery Fee" %>
+    <%= f.text_field :delivery_fee, class: "form-control", :required => true, autocomplete: false, placeholder: "Shipping Price", autofocus: true %> <br/>
+  </div>
   <div id="image_<%= product_category.image %>">
     <% if product_category.image.present? %>
       <%= image_tag(url_for(product_category.image), style: "width: 100px") %>

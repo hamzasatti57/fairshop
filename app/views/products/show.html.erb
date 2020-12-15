@@ -537,9 +537,45 @@ label::before {
     <%#=image_tag("img/product/single-product/product_1.png")%> -->
   <!-- </li> -->
   <% end %>
-  <% if @product.images.present? && @product.images.last.present? %>
-    <li data-thumb="<%= asset_path(url_for(@product.images.second)) %>"  class="zoom5 zoom-custom"> 
-    <%= image_tag(url_for(@product.images.second), id: "imageresource5", title: "Click to expand") %>
+  <% if @product.images.count >= 6 %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.first(6).last)) %>"  class="zoom5 zoom-custom"> 
+    <%= image_tag(url_for(@product.images.first(6).last), id: "imageresource5", title: "Click to expand") %>
+  </li>
+  <% else %>
+    <!-- <li data-thumb="<%#= asset_path 'img/product/single-product/product_1.png' %>"> 
+    <%#=image_tag("img/product/single-product/product_1.png")%> -->
+  <!-- </li> -->
+  <% end %>
+  <% if @product.images.count >= 7 %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.first(7).last)) %>"  class="zoom6 zoom-custom"> 
+    <%= image_tag(url_for(@product.images.first(7).last), id: "imageresource6", title: "Click to expand") %>
+  </li>
+  <% else %>
+    <!-- <li data-thumb="<%#= asset_path 'img/product/single-product/product_1.png' %>"> 
+    <%#=image_tag("img/product/single-product/product_1.png")%> -->
+  <!-- </li> -->
+  <% end %>
+  <% if @product.images.count >= 8 %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.first(8).last)) %>"  class="zoom7 zoom-custom"> 
+    <%= image_tag(url_for(@product.images.first(8).last), id: "imageresource7", title: "Click to expand") %>
+  </li>
+  <% else %>
+    <!-- <li data-thumb="<%#= asset_path 'img/product/single-product/product_1.png' %>"> 
+    <%#=image_tag("img/product/single-product/product_1.png")%> -->
+  <!-- </li> -->
+  <% end %>
+  <% if @product.images.count >= 9 %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.first(9).last)) %>"  class="zoom8 zoom-custom"> 
+    <%= image_tag(url_for(@product.images.first(9).last), id: "imageresource8", title: "Click to expand") %>
+  </li>
+  <% else %>
+    <!-- <li data-thumb="<%#= asset_path 'img/product/single-product/product_1.png' %>"> 
+    <%#=image_tag("img/product/single-product/product_1.png")%> -->
+  <!-- </li> -->
+  <% end %>
+  <% if @product.images.count >= 10 %>
+    <li data-thumb="<%= asset_path(url_for(@product.images.first(10).last)) %>"  class="zoom9 zoom-custom"> 
+    <%= image_tag(url_for(@product.images.first(10).last), id: "imageresource9", title: "Click to expand") %>
   </li>
   <% else %>
     <!-- <li data-thumb="<%#= asset_path 'img/product/single-product/product_1.png' %>"> 
@@ -2343,6 +2379,26 @@ $(document).ready(function() {
 
    $(".zoom5").on("click", function() {
       $('#imagepreview').attr('src', $('#imageresource5').attr('src')); // here asign the image to the modal when the user click the enlarge link
+      $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+   });
+
+  $(".zoom6").on("click", function() {
+      $('#imagepreview').attr('src', $('#imageresource6').attr('src')); // here asign the image to the modal when the user click the enlarge link
+      $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+   });
+
+  $(".zoom7").on("click", function() {
+      $('#imagepreview').attr('src', $('#imageresource7').attr('src')); // here asign the image to the modal when the user click the enlarge link
+      $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+   });
+
+  $(".zoom8").on("click", function() {
+      $('#imagepreview').attr('src', $('#imageresource8').attr('src')); // here asign the image to the modal when the user click the enlarge link
+      $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
+   });
+
+  $(".zoom9").on("click", function() {
+      $('#imagepreview').attr('src', $('#imageresource9').attr('src')); // here asign the image to the modal when the user click the enlarge link
       $('#imagemodal').modal('show'); // imagemodal is the id attribute assigned to the bootstrap modal, then i use the show function
    });
    
