@@ -87,7 +87,7 @@ Rails.application.configure do
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
       :address              => 'in-v3.mailjet.com',
-      :port                 => 25,
+      :port                 => 587,
       :user_name            => 'e1fa1059fc14a3856a0bc40b7e5a5af4',
       :password             => '439d7287dac6d81a029ef1e2d337312f',
       :authentication       => :login,
@@ -97,7 +97,7 @@ Rails.application.configure do
         # :port => 587,
         # :authentication => :plain,
         # :user_name      => "apikey",
-        # :password       => "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",
+        # :password       => "SG.asynchronouslySlkkR7RfyqllpCUVlKLw.zNUOcjv8CfhPilwxdJ3tcHGhMEty5Ar-sM37DWzN94A",
         # :domain => 'http://test.fairprice.co.za/',
         # :enable_starttls_auto => true
   }
