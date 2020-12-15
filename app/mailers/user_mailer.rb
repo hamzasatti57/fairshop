@@ -21,4 +21,14 @@ class UserMailer < ApplicationMailer
     @user = user
     mail(to: user.email, subject: 'Welcome Email')
   end
+
+  def order_notification_email(user, checkout, billing_address, sum, shipping_price)
+    @user = user
+    @checkout = checkout
+    @billing_address = billing_address
+    # @cart = cart
+    @sum = sum
+    @shipping_price = shipping_price
+    mail(to: "dev5@thoughtinc.co.za", subject: "Thank you for shopping here")
+  end
 end
