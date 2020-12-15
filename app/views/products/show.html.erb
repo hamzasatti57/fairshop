@@ -596,6 +596,9 @@ label::before {
                   <li>
                      <span style="padding-right: 45px;">Assembly</span> <%= @product.assembly_type.humanize.upcase if @product.assembly_type.present? %>
                   </li>
+                  <% if @product.assembly_type == "free_assembly" %>
+                    <li style="margin-left: 33%;"><span style="color: red;">within 7 working  days from delivery</span></li>
+                  <% end %>
                   <li>
                      <div style="display:inline-flex; ">
 
@@ -699,9 +702,9 @@ label::before {
                   <!-- <a href="/cart" class="btn_3">add to cart</a> -->
                   <% if current_user.present? %>
                     <% if @product.likes.where(user_id: current_user.id).present? %>
-                      <a class="like_us_2"> <i class="fa fa-heart" id="product-like" style="font-size: 21px;"></i> </a>
+                      <a class="like_us_2"> <i class="fa fa-heart" id="product-like" style="font-size: 21px;" title="favourite"></i> </a>
                     <% else %>
-                      <a class="like_us_1"> <i class="fa fa-heart-o" id="product-like"></i> </a>
+                      <a class="like_us_1"> <i class="fa fa-heart-o" id="product-like" title="favourite"></i> </a>
                     <% end %>
                   <% end %>
                </div>

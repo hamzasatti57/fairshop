@@ -13,9 +13,10 @@ namespace :products_stock_update do
     ProductColor.destroy_all
     data["DocumentElement"]["StockOnHand"].each do |stock|
       @product = Product.find_by_code(stock["StockItemCode"])
-      @product_category = ProductCategory.find_by_title(stock["StockCategoryName"])
+      # @product.product_category.update(stock_category_id: stock["StockCategoryID"]) if @product.product_category.present?
+      @product_category = ProductCategory.find_by_stock_category_id(stock["StockCategoryID"])
       @product_category.update(delivery_fee: stock["OnlineDeliveryCharge"].to_f) if @product_category.present? && stock["OnlineDeliveryCharge"].present?
-      color = Color.where("title = ?", stock["StockProfile"]).last
+      color = stock["StockProfile"].present? ? Color.where("title = ?", stock["StockProfile"]).last : Color.find_by_title("Default")
       if color.present?
         # color.update!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
         @color = color if stock["bDiscontinued"] != "true"
@@ -25,13 +26,13 @@ namespace :products_stock_update do
       end
       if @product.present?
         puts "=========ProductColor add=========="
-        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless (@color.present? && ProductColor.where(product_id: @product.id, color_id: @color.id).present?) || @color.blank? || stock["bDiscontinued"] == "true" || stock["StockProfile"] == nil
-        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], print_description: stock["PrintDescription"])
+        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless (@color.present? && ProductColor.where(product_id: @product.id, color_id: @color.id).present?) || @color.blank? || stock["bDiscontinued"] == "true"
+        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], print_description: stock["PrintDescription"], free_home_assembly: stock["bFreeHomeAssembly"])
       else
         puts "=========product add=========="
         # status: stock["bDiscontinued"] == "true" ? false : true
-        @product = Product.create!(stock_item_id: stock["StockItemID"], title: stock["StockItemDescription"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], code: stock["StockItemCode"], product_category_id: @product_category.present? ? @product_category.id : nil, print_description: stock["PrintDescription"])
-        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless (@color.present? && ProductColor.where(product_id: @product.id, color_id: @color.id).present?) || @color.blank? || stock["bDiscontinued"] == "true" || stock["StockProfile"] == nil
+        @product = Product.create!(stock_item_id: stock["StockItemID"], title: stock["StockItemDescription"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], code: stock["StockItemCode"], product_category_id: @product_category.present? ? @product_category.id : nil, print_description: stock["PrintDescription"], free_home_assembly: stock["bFreeHomeAssembly"])
+        ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless (@color.present? && ProductColor.where(product_id: @product.id, color_id: @color.id).present?) || @color.blank? || stock["bDiscontinued"] == "true"
       end
     end
   end

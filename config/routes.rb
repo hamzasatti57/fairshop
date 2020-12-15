@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :billing_addresses do 
     collection do
       post :save_address
+      post :check_address
     end
   end
   resources :profiles do
