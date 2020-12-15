@@ -38,7 +38,7 @@ class Admin::ProductsController < AdminController
       @product.update(is_promotional_banner: true, product_type_id: 1)
     else
       params[:status] = true if params[:images].present?
-      params][:product][:code] = rand(5 ** 5)
+      params[:product][:code] = rand(5 ** 5)
       @product = current_user.products.create!(product_params.merge(company_id: current_user.companies.first.id))
     end
     if @product.present?
