@@ -4037,7 +4037,7 @@ ul {
 /* line 712, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .cart_area .product_count input {
   width: 76px;
-  border: 1px solid #eeeeee;
+  border: 1px solid #dfdfdf;
   border-radius: 3px;
   padding-left: 10px;
 }
@@ -4997,27 +4997,27 @@ ul {
 /* line 1548, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */
 .billing_details .contact_form .form-group input {
   border-radius: 3px;
-  color: #797979;
+  color: #9b9b9b;
 }
 
 /* line 65, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .billing_details .contact_form .form-group input.placeholder {
-  color: #797979;
+  color: #9b9b9b;
 }
 
 /* line 68, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .billing_details .contact_form .form-group input:-moz-placeholder {
-  color: #797979;
+  color: #9b9b9b;
 }
 
 /* line 71, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .billing_details .contact_form .form-group input::-moz-placeholder {
-  color: #797979;
+  color: #9b9b9b;
 }
 
 /* line 74, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_mixins.scss */
 .billing_details .contact_form .form-group input::-webkit-input-placeholder {
-  color: #797979;
+  color: #9b9b9b;
 }
 
 /* line 1557, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product.scss */

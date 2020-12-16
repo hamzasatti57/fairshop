@@ -449,6 +449,19 @@ label::before {
   box-shadow: 0 0 5px #333;
   z-index: -1;
 }*/
+
+
+.inumber-decrement:hover{
+  color: red;
+}
+.number-increment:hover{
+  color: red;
+}
+
+.custom-comment-class{
+
+  width: 100px !important;
+}
 </style>
 
 <section class=" "  style="padding: 174px 0 0;">
@@ -730,7 +743,7 @@ label::before {
    <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
          <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-            aria-selected="false">Specification</a>
+            aria-selected="false">Specifications</a>
       </li>
       <li class="nav-item">
          <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
@@ -828,7 +841,7 @@ label::before {
                   <div class="review_item" id="pre-comment">
                      <div class="media">
                         <div class="d-flex">
-                           <%=image_tag("img/product/single-product/review-1.png")%>
+                           <%=image_tag "img/product/single-product/dummy.png", class: 'custom-comment-class'%>
                         </div>
                         <div class="media-body">
                            <h4><%= comment.commentor_full_name %></h4>
@@ -851,7 +864,7 @@ label::before {
                      novalidate="novalidate"> -->
                   <div class="col-md-12">
                      <div class="form-group">
-                        <%= f.text_field(:commentor_full_name, :class => 'form-control', placeholder: "Your Full name") %>
+                        <%= f.text_field(:commentor_full_name, :class => 'form-control', placeholder: "Full Name") %>
                      </div>
                   </div>
                   <div class="col-md-12">
@@ -1117,7 +1130,7 @@ label::before {
    </div>
 </section>
 <!-- product_list part end-->
-<% image = 'img/product/single-product/review-1.png' %>
+<% image = "img/product/single-product/dummy.png" %>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js" integrity="sha512-m5kAjE5cCBN5pwlVFi4ABsZgnLuKPEx0fOnzaH5v64Zi3wKnhesNUYq4yKmHQyTa3gmkR6YeSKW1S+siMvgWtQ==" crossorigin="anonymous"></script> -->
 <!-- Creates the bootstrap modal where the image will appear -->
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -2616,7 +2629,7 @@ $(document).ready(function() {
        processData:false,
        success:function (data) {
          console.log(data);
-         html = "<div class='review_item'><div class='media'><div class='d-flex'>" + "<img src='<%= image_path image %>'>"
+         html = "<div class='review_item'><div class='media'><div class='d-flex'>" + "<img src='<%= image_path image %>' style='width:100px'>"
    + "</div><div class='media-body'><h4>" + data.commentor_full_name + "</h4><h5>" + data.date + "</h5><!-- <a class='reply_btn' href='#'>Reply</a> --></div></div><p>" + data.statement + "</p></div>";
          $("#pre-comment").prepend(html);
        },
