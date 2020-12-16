@@ -113,6 +113,10 @@ class Admin::ProductsController < AdminController
     @product = Product.new
   end
 
+  def stock_updates
+    @stock_update = StockUpdate.last
+  end
+
   private
   def load_user_product
     # if action_name == 'new'
