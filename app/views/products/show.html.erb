@@ -460,7 +460,7 @@ label::before {
 
 .custom-comment-class{
 
-  width: 100px !important;
+  width: 60px !important;
 }
 </style>
 
@@ -704,9 +704,9 @@ label::before {
                </p>
                <div class="card_area d-flex justify-content-between align-items-center">
                   <div class="product_count">
-                     <span class="inumber-decrement"> <i class="fa fa-minus"></i></span>
+                     <span class="inumber-decrement" title="decrement"> <i class="fa fa-minus"></i></span>
                      <input class="input-number" type="text" value="1" min="1" max="200" onkeypress='validate(event)' >
-                     <span class="number-increment"> <i class="fa fa-plus"></i></span>
+                     <span class="number-increment" title="increment"> <i class="fa fa-plus"></i></span>
                   </div>
                   <%#= link_to add_to_cart_product_path(@product.id), class: "btn_3", method: :post do %>
                   <!-- add to cart -->
