@@ -1,4 +1,4 @@
 <br>
 <br>
-<p>Stock Update:<span><%= @stock_update.stock_file.strftime("%b %d, %Y %I:%M %P") if @stock_update.present? && @stock_update.stock_file.present? %></span></p>
-<p>Inventory Update:<span><%= @stock_update.gp_stock_file.strftime("%b %d, %Y %I:%M %P") if @stock_update.present? && @stock_update.gp_stock_file.present? %></span></p>
+<p>Stock Update:<span>  <%= @stock_update.stock_file.strftime("%b %d, %Y %I:%M %P") if @stock_update.present? && @stock_update.stock_file.present? %></span></p>
+<p>Inventory Update:<span>  <%= @stock_update.gp_stock_file.strftime("%b %d, %Y %I:%M %P") if @stock_update.present? && @stock_update.gp_stock_file.present? %></span></p>
