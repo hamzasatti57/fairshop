@@ -119,10 +119,15 @@
     <%= f.text_field :warranty, class: "form-control", autocomplete: false, placeholder: "Warranty", autofocus: true %> <br/>
   </div>
 
-  <%= f.file_field :images, multiple: true %><br><br>
+  <div class="form-group">
+    <%= f.label :default_image %>
+    <%= f.file_field :default_image %><br><br>
+  </div>
 
-  <%= f.file_field :default_image %><br><br>
-
+  <div class="form-group">
+    <%= f.label :Images %>
+    <%= f.file_field :images, multiple: true %><br><br>
+  </div>
 
   <%= f.submit class: "btn btn-block btn-primary custom-table-edit-btn"%>
 <% end %>
