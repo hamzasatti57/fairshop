@@ -91,7 +91,7 @@
         <div class="cutome-img-size">
           <%= link_to "/products/#{product.id}" do %>
           <% if product.images.present? %>
-            <img src="<%= url_for(product.images.first.variant(resize: '300x300')) %>">
+            <img src="<%= url_for(product.images.first.variant(resize: '200x200')) %>">
           <% else %>
             <img src="<%= url_for(product.images.first) %>">
           <% end %>
