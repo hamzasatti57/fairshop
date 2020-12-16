@@ -443,6 +443,27 @@ font-weight: normal;
 
       <script type="text/javascript">
         
+        $('#autocomplete_address').focusout(function() {
+          
+          setTimeout(function(){
+            $.ajax({
+                  headers: { 'X-CSRF-Token': Rails.csrfToken() },
+                  url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address').val(),
+                  // data: { cart_object: jsonObject },
+                  // dataType: 'json',
+                  type:'post',
+                  success:function (data) {
+                    if (data.message == "We only deliver in Gauteng."){
+                      toastr.error(data.message);
+                      $('#autocomplete_address').val("");
+                    }
+                  }
+
+              });
+          }, 500);
+            
+        });
+
         $('#new-shippment').on('click', function(e){
           if(document.getElementById('new-shippment').checked) {
                 $("#shippment-address").css("display", "block");
