@@ -29,6 +29,6 @@ class UserMailer < ApplicationMailer
     # @cart = cart
     @sum = sum
     @shipping_price = shipping_price
-    mail(to: "dev5@thoughtinc.co.za", subject: "Thank you for shopping here")
+    mail(to: "dev5@thoughtinc.co.za", subject: "Order Creation failed on FTP!")
   end
 end
