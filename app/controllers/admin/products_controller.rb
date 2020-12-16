@@ -129,7 +129,7 @@ class Admin::ProductsController < AdminController
 
   def product_params
     params.required(:product).permit(:user_id , :title, :description, :inventory, :price, :length, :status, :product_type_id, :code, :assembly_type,
-                                     :width, :height, :status, :visibility, :company_id, :product_category_id, :clean_and_care, :warranty, :is_discounted, :is_promotional_banner, :print_description, :color_id, images: [])
+                                     :width, :height, :status, :visibility, :company_id, :product_category_id, :clean_and_care, :warranty, :is_discounted, :is_promotional_banner, :print_description, :color_id, :default_image, images: [])
 
   end
 
