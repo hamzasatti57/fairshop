@@ -469,7 +469,7 @@ font-weight: normal;
           setTimeout(function(){
             $.ajax({
                   headers: { 'X-CSRF-Token': Rails.csrfToken() },
-                  url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address').val(),
+                  url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address_1').val(),
                   // data: { cart_object: jsonObject },
                   // dataType: 'json',
                   type:'post',
