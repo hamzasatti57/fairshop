@@ -100,6 +100,7 @@ Rails.application.routes.draw do
   delete '/delete_cart_product/:id' => 'cart#delete_cart_product', :as => 'delete_cart_product'
   get '/admin/banner_product/:id' => 'admin/products#banner_product', :as => 'admin_banner_product'
   get '/admin/stock_updates' => 'admin/products#stock_updates', :as => 'stock_updates'
+  get '/admin/order_checkouts' => 'admin/products#order_checkouts', :as => 'order_checkouts'
   devise_scope :user do
     get "admin" => "users/sessions#new"
   end

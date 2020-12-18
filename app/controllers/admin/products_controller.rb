@@ -117,6 +117,10 @@ class Admin::ProductsController < AdminController
     @stock_update = StockUpdate.last
   end
 
+  def order_checkouts
+    @checkouts = Checkout.all
+  end
+
   private
   def load_user_product
     # if action_name == 'new'
