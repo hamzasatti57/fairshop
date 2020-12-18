@@ -18,7 +18,7 @@
             <tr>
               <td><%= index+1 %></td>
               <td><%= (checkout.user_cart.id + 1000) if checkout.user_cart.present? %></td>
-              <td><%= (checkout.user.first_name + " " + checkout.user.last_name.present? ? checkout.user.last_name : " " ) if checkout.user.present? %></td>
+              <td><%= (checkout.user.first_name + " " + checkout.user.last_name ) if checkout.user.present? %></td>
               <td><%= checkout.amount %></td>
             </tr>
           <% end %>
