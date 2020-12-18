@@ -118,7 +118,7 @@ class Admin::ProductsController < AdminController
   end
 
   def order_checkouts
-    @checkouts = Checkout.all
+    @checkouts = Checkout.all.order("created_at desc")
   end
 
   private
