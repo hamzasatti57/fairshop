@@ -9,6 +9,7 @@
           <tr>
             <th>Sr#</th>
             <th>Invoice Number</th>
+            <th>Customer Pin</th>
             <th>User</th>
             <th>Amount</th>
           </tr>
@@ -18,6 +19,7 @@
             <tr>
               <td><%= index+1 %></td>
               <td><%= (checkout.user_cart.id + 1000) if checkout.user_cart.present? %></td>
+              <td><%= (checkout.user_cart.otp_code) if checkout.user_cart.present? %></td>              
               <td><%= (checkout.user.first_name + " " + checkout.user.last_name ) if checkout.user.present? %></td>
               <td><%= checkout.amount %></td>
             </tr>
