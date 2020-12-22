@@ -12,6 +12,7 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Color</th>
+            <th>Availability</th>
             <th>Sub Total</th>
           </tr>
           </thead>
@@ -23,6 +24,7 @@
               <td>R<%= product.product.price %></td>
               <td><%= product.quantity %></td>
               <td><%= product.color.present? ? product.color.title : "--" %></td>
+              <td><%= product.color.present? && product.product.present? ? ProductColor.where(color_id: product.color_id, product_id: product.product_id).last.inventory > 0 ? "In Stock" : "Out of Stock" : "--" %></td>
               <td>R<%= product.sub_total %></td>
           <% end %>
           </tbody>
