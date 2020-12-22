@@ -121,6 +121,11 @@ class Admin::ProductsController < AdminController
     @checkouts = Checkout.all.order("created_at desc")
   end
 
+  def order_checkout
+    checkout = Checkout.find_by_id(params[:id])
+    @products = checkout.user_cart.user_cart_products if checkout.user_cart.present?
+  end
+
   private
   def load_user_product
     # if action_name == 'new'

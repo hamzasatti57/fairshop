@@ -101,6 +101,7 @@ Rails.application.routes.draw do
   get '/admin/banner_product/:id' => 'admin/products#banner_product', :as => 'admin_banner_product'
   get '/admin/stock_updates' => 'admin/products#stock_updates', :as => 'stock_updates'
   get '/admin/order_checkouts' => 'admin/products#order_checkouts', :as => 'order_checkouts'
+  get '/admin/order_checkout/:id' => 'admin/products#order_checkout', :as => 'order_checkout'
   devise_scope :user do
     get "admin" => "users/sessions#new"
   end
