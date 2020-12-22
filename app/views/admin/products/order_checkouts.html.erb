@@ -26,7 +26,7 @@
               <td><%= (checkout.user.first_name + " " + checkout.user.last_name ) if checkout.user.present? %></td>
               <td>R<%= checkout.amount %></td>
               <td><%= checkout.billing_address.present? ? checkout.billing_address.address : "--" %></td>
-              <% product_ids = Product.where(id: checkout.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id) %>
+              <% product_ids = checkout.user_cart.present? ? Product.where(id: checkout.user_cart.user_cart_products.pluck(:product_id)).pluck(:product_category_id) : nil %>
               <td><%= ProductCategory.where(id: product_ids).pluck(:delivery_fee).compact.max.to_i if ProductCategory.where(id: product_ids).pluck(:delivery_fee).present? %></td>
               <td><%= checkout.created_at.strftime("%b %d, %Y %I:%M %P") %></td>
             </tr>
