@@ -11,6 +11,7 @@
             <th>Product</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Color</th>
             <th>Sub Total</th>
           </tr>
           </thead>
@@ -21,6 +22,7 @@
               <td><%= product.product.title %></td>
               <td>R<%= product.product.price %></td>
               <td><%= product.quantity %></td>
+              <td><%= product.color.present? ? product.color.title : "--" %></td>
               <td>R<%= product.sub_total %></td>
           <% end %>
           </tbody>
