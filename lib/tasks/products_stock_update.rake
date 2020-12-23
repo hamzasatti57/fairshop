@@ -35,6 +35,7 @@ namespace :products_stock_update do
         ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless (@color.present? && ProductColor.where(product_id: @product.id, color_id: @color.id).present?) || @color.blank? || stock["bDiscontinued"] == "true"
       end
     end
+    StockUpdate.count < 1 ? StockUpdate.create(stock_file: Time.now) : StockUpdate.last.update(stock_file: Time.now)
   end
 
   desc "TODO"
@@ -52,5 +53,6 @@ namespace :products_stock_update do
       puts "=========inventory updated=========="
       @color.update!(inventory: stock["OnHand"].to_i) if @color.present?
     end
+    StockUpdate.count < 1 ? StockUpdate.create(gp_stock_file: Time.now) : StockUpdate.last.update(gp_stock_file: Time.now)
   end
 end

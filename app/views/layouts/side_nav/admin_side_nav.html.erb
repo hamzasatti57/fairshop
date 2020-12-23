@@ -217,6 +217,12 @@
                 </li>
               </ul>
             </li>
+            <li class="nav-item">
+              <%= link_to '<i class="nav-icon icon-cursor"></i> Order Checkout'.html_safe, order_checkouts_path,class:"nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to '<i class="nav-icon icon-cursor"></i> Stock Update'.html_safe, stock_updates_path,class:"nav-link" %>
+            </li>
           <% end %>
         <% end %>
         <% if current_user.is_vendor? %>
