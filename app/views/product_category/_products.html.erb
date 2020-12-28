@@ -54,6 +54,7 @@
         <div class="single_product_menu d-flex custom-sorter-parent">
           <h5>sort by : </h5>
           <select class="sorter">
+            <!-- <option>sort</option> -->
             <option id="sort-by-price" value="1">Price (low to high)</option>
             <option id="sort-by-price" value="2">Price (high to low)</option>
             <option id="sort-by-name" value="3">Newest</option>
@@ -132,6 +133,21 @@
         </div>
       <% end %>
     </div>
+
+    <% if params[:sort_by].present? && params[:sort_by] == "Price (low to high)" %>
+      <script type="text/javascript">
+        $('select option[value="1"]').attr("selected",true);
+      </script>
+    <% elsif params[:sort_by].present? && params[:sort_by] == "Price (high to low)" %>
+      <script type="text/javascript">
+        $('select option[value="2"]').attr("selected",true);
+      </script>
+    <% elsif params[:sort_by].present? && params[:sort_by] == "Newest" %>
+      <script type="text/javascript">
+        $('select option[value="3"]').attr("selected",true);
+      </script>
+    <% end %>
+
 
     <script type="text/javascript">
         $(".heart-<%= product.id%>").click(function () {

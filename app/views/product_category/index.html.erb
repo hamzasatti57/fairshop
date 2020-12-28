@@ -189,7 +189,7 @@
                                           </ul>
                                       </div>
                                   </aside> -->
-          <% if @products.count > 1 %>
+          <% if @products.count > 1 && params[:search_query].blank? %>
             <aside class="left_widgets p_filter_widgets price_rangs_aside">
               <div class="l_w_title">
                 <h3>Price Range</h3>
