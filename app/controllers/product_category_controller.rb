@@ -88,6 +88,17 @@ class ProductCategoryController < ApplicationController
       else
         @products = Product.where(status: true)
       end
+      if params[:sort_by].present?
+        if params[:sort_by] == "Price (low to high)"
+          @products = @products.order("price ASC")
+        elsif params[:sort_by] == "Price (high to low)"
+          @products = @products.order("price DESC")
+        elsif params[:sort_by] == "Newest"
+          @products = @products.order("created_at DESC")
+        end
+      else
+        @products = @products.order("price ASC")
+      end
       if request.xhr?
         render partial: "products"
       end
