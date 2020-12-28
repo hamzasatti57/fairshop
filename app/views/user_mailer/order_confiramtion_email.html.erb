@@ -50,24 +50,24 @@
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Order Number <span style="font-weight: 700;font-size: 16px;margin-left: 31px;">:</span> <%= @checkout.id.to_s + @checkout.created_at.strftime("%Y%M").to_s %> </p> </td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Order Number <span style="font-weight: 700;font-size: 16px;">:</span> <span style="margin-left: 31px;"></span><%= @checkout.id.to_s + @checkout.created_at.strftime("%Y%M").to_s %> </p> </td>
           </tr>
 
             <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Customer Pin <span style="font-weight: 700;font-size: 16px;margin-left: 36px;">:</span> <%= @checkout.user_cart.otp_code.present? ? @checkout.user_cart.otp_code : rand(6**6).to_s %> </p> </td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Customer Pin <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 36px;"></span> <%= @checkout.user_cart.otp_code.present? ? @checkout.user_cart.otp_code : rand(6**6).to_s %> </p> </td>
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px ">Total <span style="font-weight: 700;font-size: 16px;margin-left: 100px">:</span> <span style="color: red">R<%= @checkout.amount.to_i %></span> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px ">Total <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 100px"></span> <span style="color: red">R<%= @checkout.amount.to_i %></span> </p></td>
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Date <span style="font-weight: 700;font-size: 16px;margin-left: 100px">:</span> <%= @checkout.created_at.strftime("%b %d, %Y %I:%M %P") %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Date <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 100px"></span> <%= @checkout.created_at.strftime("%b %d, %Y %I:%M %P") %> </p></td>
 
           </tr>
 
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Payment Method <span style="font-weight: 700;font-size: 16px;margin-left: 13px">:</span> Payments </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Payment Method <span style="font-weight: 700;font-size: 16px;">:</span><span style="font-weight: 700;font-size: 16px;"></span> Payments </p></td>
           </tr>
 
         </table>
@@ -77,19 +77,19 @@
           <h1 style="font-size: 17px;text-decoration: underline;font-weight: 600;color: #3c3b3b;margin: 45px 0px 20px 0px">BILLING ADDRESS</h1>
 
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Address <span style="font-weight: 700;font-size: 16px;margin-left: 73px">:</span> <%= @billing_address.address %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Address <span style="font-weight: 700;font-size: 16px;">:</span><span style="font-weight: 700;font-size: 16px;margin-left: 73px"></span> <%= @billing_address.address %> </p></td>
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px ">City <span style="font-weight: 700;font-size: 16px;margin-left: 105px">:</span> <%= @billing_address.city.present? ? @billing_address.city.title : "" %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px ">City <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 105px"></span> <%= @billing_address.city.present? ? @billing_address.city.title : "" %> </p></td>
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Province <span style="font-weight: 700;font-size: 16px;margin-left: 70px">:</span> <%= @billing_address.province.present? ? @billing_address.province.title : "" %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Province <span style="font-weight: 700;font-size: 16px;">:</span> <span style="margin-left: 70px"></span> <%= @billing_address.province.present? ? @billing_address.province.title : "" %> </p></td>
           </tr>
 
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Postal Code <span style="font-weight: 700;font-size: 16px;margin-left: 45px">:</span> <%= @billing_address.postal_code %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Postal Code <span style="font-weight: 700;font-size: 16px;">:</span> <span style="margin-left: 45px"></span><%= @billing_address.postal_code %> </p></td>
           </tr>
 
 
@@ -101,19 +101,19 @@
 
 
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Address <span style="font-weight: 700;font-size: 16px;margin-left: 75px">:</span> <%= @checkout.billing_address.address %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Address <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 75px"></span> <%= @checkout.billing_address.address %> </p></td>
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px ">City <span style="font-weight: 700;font-size: 16px;margin-left: 106px">:</span> <%= @checkout.billing_address.city.present? ? @checkout.billing_address.city.title : "" %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px ">City <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 106px"></span> <%= @checkout.billing_address.city.present? ? @checkout.billing_address.city.title : "" %> </p></td>
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Province <span style="font-weight: 700;font-size: 16px;margin-left: 71px">:</span> <%= @checkout.billing_address.province.present? ? @checkout.billing_address.province.title : "" %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Province <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 71px"></span> <%= @checkout.billing_address.province.present? ? @checkout.billing_address.province.title : "" %> </p></td>
           </tr>
 
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Postal Code <span style="font-weight: 700;font-size: 16px;margin-left:47px">:</span> <%= @checkout.billing_address.postal_code %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Postal Code <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left:47px">:</span> <%= @checkout.billing_address.postal_code %> </p></td>
           </tr>
 
         </table>
@@ -132,8 +132,8 @@
             <tbody>
               <% @cart.each do |cart| %>
               <tr>
-                <th style="text-align: left;padding-left: 3%;"><span><%= cart.product.print_description %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion" style="color: red;"><%= cart.color.present? ? cart.color.title : "" %></span><br><span class="product-color">Assembly Type: </span><span class="product-color-slecion" style="color: red;"><%= cart.product.present? && cart.product.assembly_type.present? ? cart.product.assembly_type.humanize.upcase : "" %></span></th>
-                <th style="text-align: left;padding-left: 3%;">x<%= cart.quantity %></th>
+                <th style="text-align: left;"><span><%= cart.product.print_description %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion" style="color: red;"><%= cart.color.present? ? cart.color.title : "" %></span><br><span class="product-color">Assembly Type: </span><span class="product-color-slecion" style="color: red;"><%= cart.product.present? && cart.product.assembly_type.present? ? cart.product.assembly_type.humanize.upcase : "" %></span></th>
+                <th style="text-align: left;">x<%= cart.quantity %></th>
                 <th> <span style="color: red; text-align: left;">R<%= cart.sub_total.to_i %></span></th>
               </tr>
               <% end %>
