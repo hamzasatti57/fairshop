@@ -113,7 +113,7 @@
           </tr>
 
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Postal Code <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left:47px">:</span> <%= @checkout.billing_address.postal_code %> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Postal Code <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left:47px"></span> <%= @checkout.billing_address.postal_code %> </p></td>
           </tr>
 
         </table>
@@ -140,12 +140,12 @@
               <tr>
                 <th style="text-align: left;">Delivery Fee</th>
                 <th></th>
-                <th> <span style="color: red; text-align: left;">R<%= @shipping_price.to_i %></span></th>
+                <th> <span style="color: red; text-align: left;">R <%= @shipping_price.to_i %></span></th>
               </tr>
               <tr>
                 <th style="text-align: left;">Subtotal</th>
                 <th></th>
-                <th> <span style="color: red; text-align: left;">R<%= @sum.to_i %></span></th>
+                <th> <span style="color: red; text-align: left;">R <%= @sum.to_i %></span></th>
               </tr>
             </tbody>
         </table>
