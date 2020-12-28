@@ -864,22 +864,22 @@ label::before {
                      novalidate="novalidate"> -->
                   <div class="col-md-12">
                      <div class="form-group">
-                        <%= f.text_field(:commentor_full_name, :class => 'form-control', placeholder: "Full Name") %>
+                        <%= f.text_field(:commentor_full_name, :class => 'form-control', placeholder: "Full Name", :required => true) %>
                      </div>
                   </div>
                   <div class="col-md-12">
                      <div class="form-group">
-                        <%= f.text_field(:commentor_email_address, :class => 'form-control', placeholder: "Email Address") %>
+                        <%= f.text_field(:commentor_email_address, :class => 'form-control', placeholder: "Email Address", :required => true) %>
                      </div>
                   </div>
                   <div class="col-md-12">
                      <div class="form-group">
-                        <%= f.text_field(:commentor_phone_number, :class => 'form-control', placeholder: "Phone Number") %>
+                        <%= f.text_field(:commentor_phone_number, :class => 'form-control', placeholder: "Phone Number", :required => true) %>
                      </div>
                   </div>
                   <div class="col-md-12">
                      <div class="form-group">
-                        <%= f.text_area(:statement, size: '70x10', :class => 'form-control', placeholder: "Message") %>
+                        <%= f.text_area(:statement, size: '70x10', :class => 'form-control', placeholder: "Message", :required => true) %>
                         <%= f.hidden_field(:parent_id, value: @product.id , :id => "comment_area") %>
                         <%= f.hidden_field(:parent_type, value: Comment.parent_type_product ) %>
                      </div>
