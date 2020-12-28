@@ -85,7 +85,7 @@
                 <a class="active" href="/product_category?type=<%= @product.product_category.category.title %>&category=<%= @product.product_category.title %>"><%= @product.product_category.title %></a>
               </li>
               <li>
-                <span style="padding-right: 20px;">Availibility</span>    :    <%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %>
+                <span style="padding-right: 20px;">Availability</span>    :    <%= @product.inventory.to_i > 0 ? "In Stock" : "Out of Stock" %>
               </li>
               <li>
                 <span style="padding-right: 25px;">Warranty</span>    :    <%= @product.warranty == true ? "Yes" : "No" %>
