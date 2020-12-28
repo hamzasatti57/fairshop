@@ -745,19 +745,34 @@ add_chatinline(); </script>
             }
         });
     }
+    
+    function validateEmail($email) {
+      var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+      return emailReg.test( $email );
+    }
 
       $("#basic-addon2").click(function () {
         email = $('#newsletter-form-email-1').val()
-            $.ajax({
-              headers: { 'X-CSRF-Token': Rails.csrfToken() },
-              url: '/home/subscribe_user?email=' + email,
-              type: "POST",
-              processData: false,
-              success: function (data) {
-                window.location.href = '/';
-                // toastr.success('Email Subscribe sucessfully')
-              }
-        });
+        if (email == ""){
+          toastr.error('Email is required!');
+          return false;
+        }
+        else if( !validateEmail(email)){
+          toastr.error('Email is not correct!');
+          return false;
+        }
+        else{
+          $.ajax({
+            headers: { 'X-CSRF-Token': Rails.csrfToken() },
+            url: '/home/subscribe_user?email=' + email,
+            type: "POST",
+            processData: false,
+            success: function (data) {
+              window.location.href = '/';
+              // toastr.success('Email Subscribe sucessfully')
+            }
+          });
+        }
       });
 
 
