@@ -82,12 +82,16 @@ color:red;
                   <div class="media">
                     <div class="d-flex custom-cart-img-div">
                       <% if cart.product.images.present? %>
-                      <img src="<%=url_for(cart.product.images.first) %>">
-                      <%#=image_tag("img/product/single-product/cart-1.jpg")%>
+                        <%= link_to "/products/#{cart.product.id}" do %>
+                          <img src="<%=url_for(cart.product.images.first) %>">
+                        <% end %>
                       <% end %>
                     </div>
                     <div class="media-body">
-                      <span><%= cart.product.print_description %></span><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span>
+                      <%= link_to "/products/#{cart.product.id}" do %>
+                        <span><%= cart.product.print_description %></span>
+                      <% end %>
+                      <br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span>
                     </div>
                   </div>
                 </td>
