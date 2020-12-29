@@ -190,11 +190,11 @@
                   <div class="hearer_icon custom-header-icon" >
                     <ul class="navbar-nav" style="display: contents;">
                       <% if current_user.present? %>
-                        <li class="nav-item" style="padding-bottom: 3px;">
-                          <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item custom-dropdown" do %>
+                        <!-- <li class="nav-item" style="padding-bottom: 3px;">
+                          <%#= link_to destroy_user_session_path, method: :delete, class: "dropdown-item custom-dropdown" do %>
                             <i class="fa fa-sign-out" aria-hidden="true" style="font-size: 25px;" title="Logout"></i>
-                          <% end %>
-                        </li>
+                          <%# end %>
+                        </li> -->
                       <% else %>
                       <div style="display: inline-flex;">
                         <li class="nav-item" style="margin-right: 16px;">
@@ -274,6 +274,11 @@
                               <ul class="drop-menu-style dropdown-menu">
                                  <li><a class="dropdown-item" href="#">Returns/Exchanges</a></li>
                                  <li><a class="dropdown-item" href="/tracking">track my order</a></li>
+                                 <li>
+                                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item custom-dropdown" do %>
+                                    Logout
+                                  <% end %>
+                                 </li>
                               </ul>
                            </li>
                         </ul>
