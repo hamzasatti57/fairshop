@@ -27,7 +27,8 @@ class ProductsController < ApplicationController
   def add_to_cart
     if current_user.present?
       @product = Product.find(params[:id])
-      unless current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:product_id).include?(@product.id)
+      # unless current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:product_id).include?(@product.id)
+      unless current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:product_id, :color_id).include?([params[:id].to_i, params[:color].to_i])
         @user_cart = current_user.user_carts.where(status: 0).blank? ? UserCart.create!(user_id: current_user.id) : current_user.user_carts.where(status: 0).last
         current_user.user_cart_products.create!(product_id: @product.id, quantity: params[:quantity].present? ? params[:quantity].to_i : 1, color_id: params[:color].present? ? params[:color].to_i : 1, sub_total: @product.price * (params[:quantity].present? ? params[:quantity].to_i : 1), user_cart_id: @user_cart.id)
         # flash[:success] = "Product added to cart"
