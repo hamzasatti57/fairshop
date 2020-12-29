@@ -189,7 +189,7 @@
                                           </ul>
                                       </div>
                                   </aside> -->
-          <% if @products.count > 1 && params[:search_query].blank? %>
+          <% if @products.count > 1 %>
             <aside class="left_widgets p_filter_widgets price_rangs_aside">
               <div class="l_w_title">
                 <h3>Price Range</h3>
@@ -454,7 +454,7 @@
         // e.preventDefault(); // don't submit multiple times
         // this.submit(); // use the native submit method of the form element
         $.ajax({
-            url: '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&min_val=' + min_val + '&max_val=' + max_val,
+            url: '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&search_query=<%= params[:search_query] %>&category=<%= params[:category] %>&min_val=' + min_val + '&max_val=' + max_val,
             type: "GET",
             processData: false,
             // beforeSend: function(xhr, settings) {

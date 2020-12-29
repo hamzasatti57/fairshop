@@ -82,6 +82,34 @@ class ProductCategoryController < ApplicationController
       if request.format.html? == nil
         render partial: "products"
       end
+      # //////////for sorting//////////// 
+    elsif (params[:sort_by].present? || params[:search_query].present? || params[:search_query].present?) && params[:category].blank? && params[:type].blank?
+      if params[:search_query].present?
+        @products = Product.where("print_description ILIKE '%#{params[:search_query]}%' AND status = true")
+      else
+        @products = Product.where(status: true)
+      end
+      if params[:sort_by].present?
+        if params[:sort_by] == "Price (low to high)"
+          @products = @products.order("price ASC")
+        elsif params[:sort_by] == "Price (high to low)"
+          @products = @products.order("price DESC")
+        elsif params[:sort_by] == "Newest"
+          @products = @products.order("created_at DESC")
+        end
+      else
+        @products = @products.order("price ASC")
+      end
+      if params[:search].present?
+        @products = @products.where("print_description ILIKE '%#{params[:search]}%'")
+      end
+      if params[:min_val].present? && params[:max_val].present?
+        @products = @products.where(:price => (params[:min_val].to_f..params[:max_val].to_f))
+      end
+      if request.xhr?
+        render partial: "products"
+      end
+      #////////end/////////
     else
       if params[:search_query].present?
         @products = Product.where("print_description ILIKE '%#{params[:search_query]}%' AND status = true")

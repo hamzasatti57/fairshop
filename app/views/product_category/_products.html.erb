@@ -210,12 +210,12 @@
             selectedText = "created_at";
         }
         // jQuery
-        window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&category=<%= params[:category] %>&sort_by=' + selectedText
+        window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&search_query=<%= params[:search_query] %>&category=<%= params[:category] %>&sort_by=' + selectedText
     });
 
 
     $('#inputGroupPrepend').click(function () {
-        window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
+        window.location.href = '/product_category?type=<%= params[:type] %>&brand=<%= params[:brand] %>&search=<%= params[:search] %>&search_query=<%= params[:search_query] %>&category=<%= params[:category] %>&search=' + $('#search-product').val()
         // window.location.href = '/'
     });
 </script>
