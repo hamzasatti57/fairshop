@@ -38,9 +38,9 @@
           <p style="font-size: 14px; line-height: 1.5">Yipee!! We’ve received your order. Get ready we’re coming!!</p>
           
           <p style="font-size: 14px; line-height: 1.5">Click on the blue link thingy below to track us.</p>
-          <p style="font-size: 14px; line-height: 1.5"><a href="#">http://test.fairprice.co.za/tracking</a> </p>
+          <p style="font-size: 14px; line-height: 1.5"><a href="http://test.fairprice.co.za/tracking">http://test.fairprice.co.za/tracking</a> </p>
           
-          <p style="font-size: 14px; line-height: 1.5">If you’re not winning drop us an email at <a href="#">onlineorders@fairprice.co.za</a>
+          <p style="font-size: 14px; line-height: 1.5">If you’re not winning drop us an email at <a href="mailto:onlineorders@fairprice.co.za">onlineorders@fairprice.co.za</a>
           </p>
 
           <h1 style="font-size: 20px;text-decoration: underline; font-weight: 600;color: #3c3b3b;margin: 30px 0px 10px 0px">ORDER INFO</h1>
@@ -50,7 +50,7 @@
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Order Number <span style="font-weight: 700;font-size: 16px;">:</span> <span style="margin-left: 31px;"></span><%= @checkout.id.to_s + @checkout.created_at.strftime("%Y%M").to_s %> </p> </td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px">Invoice Number <span style="font-weight: 700;font-size: 16px;">:</span> <span style="margin-left: 31px;"></span><%= (@checkout.user_cart.id + 1000).to_s %> </p> </td>
           </tr>
 
             <tr>
@@ -58,7 +58,7 @@
           </tr>
           
           <tr>
-            <td><p style="font-size: 16px;margin:10px 0px 5px 0px ">Total <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 100px"></span> <span style="color: red">R<%= @checkout.amount.to_i %></span> </p></td>
+            <td><p style="font-size: 16px;margin:10px 0px 5px 0px ">Total <span style="font-weight: 700;font-size: 16px;">:</span><span style="margin-left: 100px"></span> <span style="color: red">R <%= @checkout.amount.to_i %></span> </p></td>
           </tr>
           
           <tr>
