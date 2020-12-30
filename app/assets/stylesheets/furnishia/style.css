@@ -5652,7 +5652,7 @@ ul {
 .confirmation_part .single_confirmation_details ul li {
   position: relative;
   text-transform: capitalize;
-  padding-left: 55%;
+  padding-left: 50%;
   margin-bottom: 3px;
 }
 
@@ -7999,6 +7999,11 @@ h6 {
 
 .custom-fair-logo-div {
     width: 160px !important;
+}
+
+.confirmation_part .single_confirmation_details {
+    background-color: #ecfdff;
+    padding: 35px 15px !important;
 }
  
 }
