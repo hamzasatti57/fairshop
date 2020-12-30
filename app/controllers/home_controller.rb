@@ -73,9 +73,14 @@ class HomeController < ApplicationController
 
   def send_email_user
     @user = User.find_by_email(params[:user][:email])
-    UserMailer.welcome_reset_password_instructions(@user).deliver
-    flash[:success] = "Please check your email you will recieve the password reset link."
-    redirect_back(fallback_location: root_path)
+    if @user.present?
+      UserMailer.welcome_reset_password_instructions(@user).deliver
+      flash[:success] = "Please check your email you will recieve the password reset link."
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:success] = "Please check your email you will recieve the password reset link."
+      redirect_back(fallback_location: root_path)
+    end
   end
 
 end
