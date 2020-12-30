@@ -274,11 +274,13 @@
                               <ul class="drop-menu-style dropdown-menu">
                                  <li><a class="dropdown-item" href="#">Returns/Exchanges</a></li>
                                  <li><a class="dropdown-item" href="/tracking">track my order</a></li>
-                                 <li>
-                                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item custom-dropdown" do %>
-                                    Logout
-                                  <% end %>
-                                 </li>
+                                 <% if current_user.present? %>
+                                   <li>
+                                    <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item custom-dropdown" do %>
+                                      Logout
+                                    <% end %>
+                                   </li>
+                                 <% end %>
                               </ul>
                            </li>
                         </ul>
