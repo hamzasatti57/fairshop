@@ -193,27 +193,12 @@ display: inline-flex;
 
   <script type="text/javascript">
     $(document).ready(function($) {
-      window.onpopstate = function() {
-         window.location = '/';
-      }; history.pushState({}, '');
       setTimeout(
         function() 
         {
-            $(window).on('popstate', function(event) {
+          window.onpopstate = function() {
              window.location = '/';
-            });
-          });
-
-      }, 200);
-      window.onpopstate = function() {
-         window.location = '/';
-      }; history.pushState({}, '');
-      
-      setTimeout(
-        function() 
-        {
-        $(window).on('popstate', function(event) {
-         window.location = '/';
-        });
-      }, 200);
+          }; history.pushState({}, '');
+        }, 200);
+    });
   </script>
