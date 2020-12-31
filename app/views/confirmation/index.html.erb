@@ -190,3 +190,11 @@ display: inline-flex;
     </div>
   </section>
   <!--================ confirmation part end =================-->
+
+  <script type="text/javascript">    
+    $(document).ready(function($) {
+      window.onpopstate = function() {
+         window.location = '/';
+      }; history.pushState({}, '');
+    });
+  </script>
