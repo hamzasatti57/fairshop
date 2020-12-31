@@ -196,16 +196,24 @@ display: inline-flex;
       window.onpopstate = function() {
          window.location = '/';
       }; history.pushState({}, '');
+      setTimeout(
+        function() 
+        {
+            $(window).on('popstate', function(event) {
+             window.location = '/';
+            });
+          });
 
-      $(window).on('popstate', function(event) {
-       window.location = '/';
-      });
-    });
+      }, 200);
       window.onpopstate = function() {
          window.location = '/';
       }; history.pushState({}, '');
-
-      $(window).on('popstate', function(event) {
-       window.location = '/';
-      });
+      
+      setTimeout(
+        function() 
+        {
+        $(window).on('popstate', function(event) {
+         window.location = '/';
+        });
+      }, 200);
   </script>
