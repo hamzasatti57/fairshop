@@ -191,13 +191,21 @@ display: inline-flex;
   </section>
   <!--================ confirmation part end =================-->
 
-  <script type="text/javascript">    
+  <script type="text/javascript">
     $(document).ready(function($) {
       window.onpopstate = function() {
          window.location = '/';
       }; history.pushState({}, '');
+
+      $(window).on('popstate', function(event) {
+       window.location = '/';
+      });
     });
       window.onpopstate = function() {
          window.location = '/';
       }; history.pushState({}, '');
+
+      $(window).on('popstate', function(event) {
+       window.location = '/';
+      });
   </script>
