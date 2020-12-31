@@ -192,7 +192,19 @@ display: inline-flex;
   <!--================ confirmation part end =================-->
 
   <script type="text/javascript">
-    window.onpopstate = function() {
-       window.location = '/tracking';
-    }; history.pushState({}, '');
+    $(document).ready(function($) {
+          window.onpopstate = function() {
+             window.location = '/';
+          }; history.pushState({}, '');
+    });
+          window.onpopstate = function() {
+             window.location = '/';
+          }; history.pushState({}, '');
+      setTimeout(
+        function() 
+        {
+          window.onpopstate = function() {
+             window.location = '/';
+          }; history.pushState({}, '');
+        }, 200);
   </script>
