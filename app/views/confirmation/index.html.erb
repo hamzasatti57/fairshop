@@ -197,4 +197,7 @@ display: inline-flex;
          window.location = '/';
       }; history.pushState({}, '');
     });
+      window.onpopstate = function() {
+         window.location = '/';
+      }; history.pushState({}, '');
   </script>
