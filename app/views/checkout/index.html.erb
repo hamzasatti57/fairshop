@@ -454,7 +454,7 @@ font-weight: normal;
                   type:'post',
                   success:function (data) {
                     if (data.message == "We only deliver in Gauteng."){
-                      toastr.error(data.message);
+                      alert(data.message);
                       $('#autocomplete_address').val("");
                     }
                   }
@@ -475,7 +475,7 @@ font-weight: normal;
                   type:'post',
                   success:function (data) {
                     if (data.message == "We only deliver in Gauteng."){
-                      toastr.error(data.message);
+                      alert(data.message);
                       $('#autocomplete_address_1').val("");
                     }
                   }
@@ -567,7 +567,7 @@ font-weight: normal;
             if(document.getElementById('new-shippment').checked) {
               y = $('#autocomplete_address_1').val();
               if (y == "") {
-                alert("Shippment Address can't be blank");
+                alert("Delivery Address can't be blank");
                 return false;
               }
             }
