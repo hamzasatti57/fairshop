@@ -228,7 +228,7 @@
                 <div id="pre-comment">
                 </div>
                 <% end %>
-                <% @product.comments.order(id: :desc).each do |comment| %>
+                <% @product.comments.order(id: :desc).to_a.each do |comment| %>
                   <div class="review_item" id="pre-comment">
                     <div class="media">
                       <div class="d-flex">
@@ -499,7 +499,7 @@
     <div class="row align-items-center justify-content-between">
       <div class="col-lg-12">
         <div class="best_product_slider owl-carousel">
-          <% @best_seller_products.each do |product| %>
+          <% @best_seller_products.to_a.each do |product| %>
             <div class="single_product_item">
               <div class="cutome-img-size">
                 <%= link_to "/products/#{product.id}" do %>
