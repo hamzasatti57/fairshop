@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :product, optional: true,    class_name: "Product", foreign_key: "parent_id"
   belongs_to :project, optional: true, class_name: "Project", foreign_key: "parent_id"
   belongs_to :user, optional: true,    class_name: "User", foreign_key: "parent_id"
-  belongs_to :commenter, class_name: 'User', foreign_key: 'user_id'
+  belongs_to :commenter, optional: true, class_name: 'User', foreign_key: 'user_id'
 
 
   enum parent_type: {

@@ -2,7 +2,7 @@
   <div class="comment-user">
     <div>
       <h5>
-        <span><%= comment.commenter.full_name %></span>
+        <span><%= comment.commenter.present? ? comment.commenter.full_name : comment.commentor_full_name %></span>
         <small><%= comment.updated_at.strftime('%d %b %y')%></small>
       </h5>
     </div>

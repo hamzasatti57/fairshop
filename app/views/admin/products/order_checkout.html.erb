@@ -9,6 +9,7 @@
           <tr>
             <th>#</th>
             <th>Product</th>
+            <th>Code</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Color</th>
@@ -21,6 +22,7 @@
             <tr>
               <td><%= index+1 %></td>
               <td><%= product.product.title %></td>
+              <td><%= product.product.code %></td>
               <td>R<%= product.product.price %></td>
               <td><%= product.quantity %></td>
               <td><%= product.color.present? ? product.color.title : "--" %></td>

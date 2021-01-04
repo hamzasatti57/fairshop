@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
     if user_signed_in?
       @comment = current_user.customer_comments.create(comment_params)
       @comments_count = @comment.parent.comments.count
+    else
+      @comment = Comment.create!(comment_params)
+      @comments_count = @comment.parent.comments.count
     end
   end
 
