@@ -2706,7 +2706,8 @@ $(document).ready(function() {
    });
    
    function createFBShareLink(id, type, blog, fbAppId) {
-   var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `https://${window.location.hostname}`
+   // var link = window.location.hostname == 'localhost' ? 'http://localhost:3000' : `https://${window.location.hostname}`
+   link = "http://test.fairprice.co.za/"
    var root_url = "<%= 'http://test.fairprice.co.za/' %>"
    var url = `http://www.facebook.com/dialog/feed?app_id=${fbAppId}
    &link=${root_url}/product_detail?id=${id}
