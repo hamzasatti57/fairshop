@@ -12,11 +12,12 @@ namespace :products_stock_update do
     puts "=========#{data}=========="
     ProductColor.destroy_all
     data["DocumentElement"]["StockOnHand"].each do |stock|
+
       @product = Product.find_by_code(stock["StockItemCode"])
       # @product.product_category.update(stock_category_id: stock["StockCategoryID"]) if @product.product_category.present?
       @product_category = ProductCategory.find_by_stock_category_id(stock["StockCategoryID"])
       @product_category.update(delivery_fee: stock["OnlineDeliveryCharge"].to_f) if @product_category.present? && stock["OnlineDeliveryCharge"].present?
-      color = stock["StockProfile"].present? ? Color.where("title = ?", stock["StockProfile"]).last : Color.find_by_title("Default")
+      color = stock["StockProfile"].present? ? Color.where("title = ?", stock["StockProfile"]).last : Color.find_by_title("DEFAULT")
       if color.present?
         # color.update!(stock_item_id: stock["StockItemID"], title: stock["StockProfile"])
         @color = color if stock["bDiscontinued"] != "true"
