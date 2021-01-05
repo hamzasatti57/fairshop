@@ -212,14 +212,3 @@ display: inline-flex;
       });
     }, 1000);
   </script>
-
-  <script>
-     jQuery.noConflict();
-     // Use jQuery via jQuery() instead of via $()
-     jQuery(document).ready(function(){
-        history.pushState(null, null, document.URL);
-        window.addEventListener('popstate', function () {
-            history.pushState(null, null, document.URL);
-        });
-     });  
-</script>
