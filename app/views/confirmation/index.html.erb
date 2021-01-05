@@ -193,7 +193,13 @@ display: inline-flex;
 
   <script type="text/javascript">
     window.onpopstate = function() {
-      debugger
        window.location = 'http://test.fairprice.co.za/';
     }; history.pushState({}, '');
+
+    $(document).ready(function() {
+        window.history.pushState(null, "", window.location.href);        
+        window.onpopstate = function() {
+            window.history.pushState(null, "", window.location.href);
+        };
+    });
   </script>
