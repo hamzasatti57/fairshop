@@ -22,6 +22,10 @@ class ConfirmationController < ApplicationController
   end
 
   def generate_xml
+    if current_user.user_carts.where(status: "pending").blank?
+      flash[:info] = "Your Payment is already paid!"
+      return redirect_to root_path
+    end
     if PeachPayment.last.checkout_id == params["id"]
       if Checkout.where(user_id: current_user.id).last.present? && Checkout.where(user_id: current_user.id).last.billing_address.province.blank?
         results = Geocoder.search(Checkout.where(user_id: current_user.id).last.billing_address.address)
