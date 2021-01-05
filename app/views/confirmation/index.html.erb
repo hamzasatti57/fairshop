@@ -190,56 +190,9 @@ display: inline-flex;
     </div>
   </section>
   <!--================ confirmation part end =================-->
-
-  <script type="text/javascript">
-    // window.onpopstate = function() {
-    //    window.location = 'http://test.fairprice.co.za/';
-    // }; history.pushState({}, '');
-   $(document).ready(function(e) {
-
-      history.pushState(null, null, document.URL);
-      window.addEventListener('popstate', function () {
-          history.pushState(null, null, document.URL);
-      });
-    });
-   $(document).on('pageinit', function(){
-      history.pushState(null, null, document.URL);
-      window.addEventListener('popstate', function () {
-          history.pushState(null, null, document.URL);
-      });
-    });
-
-    $( document ).live( 'pageload', function() {
-      history.pushState(null, null, document.URL);
-      window.addEventListener('popstate', function () {
-          history.pushState(null, null, document.URL);
-      });
-    });
-
-
-    if (document.readyState == 'complete'){
-      history.pushState(null, null, document.URL);
-      window.addEventListener('popstate', function () {
-          history.pushState(null, null, document.URL);
-      });
-    }
-
-   setTimeout(
-    function() 
-    {
-      history.pushState(null, null, document.URL);
-      window.addEventListener('popstate', function () {
-          history.pushState(null, null, document.URL);
-      });
-    }, 1000);
-
-    $(document).ready(function() { //<<====== wont work without this
-      $(window).scroll(function() {
-        debugger
-        history.pushState(null, null, document.URL);
-        window.addEventListener('popstate', function () {
-            history.pushState(null, null, document.URL);
-        });
-      });
-  });
+  <script type="text/javascript" >
+   function preventBack(){window.history.forward();}
+    setTimeout("preventBack()", 0);
+    window.onunload=function(){null};
   </script>
+
