@@ -194,10 +194,13 @@ display: inline-flex;
   <script type="text/javascript">
     // window.parent.location.replace("http://test.fairprice.co.za/");
 
-
-    window.onbeforeunload = function() { 
-      debugger
-      window.location.href = 'http://test.fairprice.co.za/';
-      return;
-      };
+    history.pushState(null, null, document.URL);
+    window.addEventListener('popstate', function () {
+        history.pushState(null, null, document.URL);
+    });
+    // window.onbeforeunload = function() { 
+    //   debugger
+    //   window.location.href = 'http://test.fairprice.co.za/';
+    //   return;
+    //   };
   </script>
