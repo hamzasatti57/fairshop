@@ -195,6 +195,8 @@ display: inline-flex;
     // window.onpopstate = function() {
     //    window.location = 'http://test.fairprice.co.za/';
     // }; history.pushState({}, '');
+    $( document ).on('turbolinks:load', function() {
+
 
     (function (global) {
 
@@ -232,4 +234,5 @@ display: inline-flex;
         };
     }
 })(window);
+    });
   </script>
