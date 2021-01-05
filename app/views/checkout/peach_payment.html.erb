@@ -31,9 +31,8 @@
         </div>
       </div>
   </section>
-
-<%# if current_user.user_carts.where.not(status: "paid").present? %>
-  <!-- <script type="text/javascript"> -->
-    <!-- window.parent.location.replace("http://test.fairprice.co.za/"); -->
-  <!-- </script> -->
-<%# end%>
+<% if current_user.user_carts.where(status: "pending").blank? %>
+  <script type="text/javascript">
+    window.parent.location.replace("http://test.fairprice.co.za/");
+  </script>
+<% end%>
