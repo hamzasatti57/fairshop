@@ -32,7 +32,7 @@
       </div>
   </section>
 
-<% if current_user.user_cart.user_cart_products.blank? %>
+<% if current_user.user_carts.last.user_cart_products.blank? %>
   <script type="text/javascript">
     window.parent.location.replace("http://test.fairprice.co.za/");
   </script>
