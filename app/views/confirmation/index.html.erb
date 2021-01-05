@@ -202,6 +202,27 @@ display: inline-flex;
           history.pushState(null, null, document.URL);
       });
     });
+   $(document).on('pageinit', function(){
+      history.pushState(null, null, document.URL);
+      window.addEventListener('popstate', function () {
+          history.pushState(null, null, document.URL);
+      });
+    });
+
+    $( document ).live( 'pageload', function() {
+      history.pushState(null, null, document.URL);
+      window.addEventListener('popstate', function () {
+          history.pushState(null, null, document.URL);
+      });
+    });
+
+
+    if (document.readyState == 'complete'){
+      history.pushState(null, null, document.URL);
+      window.addEventListener('popstate', function () {
+          history.pushState(null, null, document.URL);
+      });
+    }
 
    setTimeout(
     function() 
