@@ -237,4 +237,14 @@ display: inline-flex;
           history.pushState(null, null, document.URL);
       });
     }, 1000);
+
+    $(document).ready(function() { //<<====== wont work without this
+      $(window).scroll(function() {
+        debugger
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+      });
+  });
   </script>
