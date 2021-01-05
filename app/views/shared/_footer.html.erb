@@ -139,6 +139,8 @@
           }
         });
 
+    $( document ).ready(function() {
+
       if (location.pathname == '/confirmation') {
           debugger
         history.pushState(null, null, document.URL);
@@ -146,5 +148,6 @@
             history.pushState(null, null, document.URL);
         });
       }
+        });
 
     </script>
