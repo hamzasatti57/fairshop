@@ -23,7 +23,7 @@ class ConfirmationController < ApplicationController
 
   def generate_xml
     if current_user.user_carts.where(status: "pending").blank?
-      flash[:info] = "Your Payment is already paid!"
+      flash[:info] = "Your order is  already processed."
       return redirect_to root_path
     end
     if PeachPayment.last.checkout_id == params["id"]

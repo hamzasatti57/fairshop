@@ -74,6 +74,10 @@ class CheckoutController < ApplicationController
   end
 
   def peach_payment_request
+    if current_user.user_carts.where(status: "pending").blank?
+      flash[:info] = "Your order is  already processed."
+      return redirect_to root_path
+    end
     @sum = current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:sub_total).sum if current_user.user_carts.where(status: 0).present? && current_user.user_carts.where(status: 0).last.user_cart_products.present?
     @product_ids = Product.where(id: current_user.user_carts.where(status: 0).last.user_cart_products.pluck(:product_id)).pluck(:product_category_id)
     @category_ids = ProductCategory.where(id: @product_ids).pluck(:category_id) if @product_ids.present?
