@@ -190,3 +190,13 @@ display: inline-flex;
     </div>
   </section>
   <!--================ confirmation part end =================-->
+
+  <script type="text/javascript">
+    $( document ).ready(function() {
+      debugger
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+    });
+  </script>
