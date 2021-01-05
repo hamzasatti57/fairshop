@@ -141,9 +141,10 @@
 
       if (location.pathname == '/confirmation') {
           debugger
-        window.onpopstate = function() {
-           window.location = 'http://test.fairprice.co.za/';
-        }; history.pushState({}, '');
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
       }
 
     </script>
