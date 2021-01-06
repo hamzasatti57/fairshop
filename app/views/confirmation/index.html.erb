@@ -51,7 +51,7 @@ display: inline-flex;
     </div>
   </section>
   <!-- breadcrumb start-->
-  <% random_number = rand(6**6).to_s %>
+  <% random_number = (SecureRandom.random_number(9e4) + 1e4).to_i.to_s %>
 
   <!--================ confirmation part start =================-->
   <section class="confirmation_part padding_top custom-confirmation-section-style" style="padding-top: 20px;">
