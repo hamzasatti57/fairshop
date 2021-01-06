@@ -118,7 +118,8 @@ class Admin::ProductsController < AdminController
   end
 
   def order_checkouts
-    @checkouts = Checkout.all.order("created_at desc")
+    @user_cart_ids = UserCart.where(status: "paid").pluck(:id)
+    @checkouts = Checkout.where(user_cart_id: @user_cart_ids).order("created_at desc")
   end
 
   def order_checkout
