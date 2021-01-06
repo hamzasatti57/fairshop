@@ -61,7 +61,7 @@ class BillingAddressesController < ApplicationController
   def check_address
     results = Geocoder.search(params["billing_address"]["address"])
     if results.first.state != "Gauteng"
-      render json: { message: "We only deliver in Gauteng." }, status: :ok
+      render json: { message: "Kindly check your address, We only deliver in Gauteng." }, status: :ok
     else
       render json: { message: "success" }, status: :ok
     end
