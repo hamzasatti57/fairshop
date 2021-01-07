@@ -5,8 +5,8 @@
     <div class="row">
       <div class="col-lg-12">
         <br>
-        <p>Stock Update:<span>  <%= (@stock_update.stock_file + 2.hours).strftime("%b %d, %Y %I:%M %P") if @stock_update.present? && @stock_update.stock_file.present? %></span></p>
-        <p>Inventory Update:<span>  <%= (@stock_update.gp_stock_file + 2.hours).strftime("%b %d, %Y %I:%M %P") if @stock_update.present? && @stock_update.gp_stock_file.present? %></span></p>  
+        <p>Stock Update:<span>  <%= @stock_update.stock_file.strftime("%b %d, %Y %I:%M %P") if @stock_update.present? && @stock_update.stock_file.present? %></span></p>
+        <p>Inventory Update:<span>  <%= @stock_update.gp_stock_file.strftime("%b %d, %Y %I:%M %P") if @stock_update.present? && @stock_update.gp_stock_file.present? %></span></p>  
       </div>
     </div>
   </div>

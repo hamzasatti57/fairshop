@@ -445,7 +445,6 @@ font-weight: normal;
         
         $('#autocomplete_address').focusout(function() {
           
-          setTimeout(function(){
             $.ajax({
                   headers: { 'X-CSRF-Token': Rails.csrfToken() },
                   url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address').val(),
@@ -460,13 +459,11 @@ font-weight: normal;
                   }
 
               });
-          }, 50);
             
         });
 
         $('#autocomplete_address_1').focusout(function() {
           
-          setTimeout(function(){
             $.ajax({
                   headers: { 'X-CSRF-Token': Rails.csrfToken() },
                   url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address_1').val(),
@@ -481,7 +478,6 @@ font-weight: normal;
                   }
 
               });
-          }, 50);
             
         });
 
