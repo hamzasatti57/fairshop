@@ -69,7 +69,6 @@ class ConfirmationController < ApplicationController
         data["Transaction"]["Details"]["SalesDetails"] << sale[index]
       end
       @last_checkout = Checkout.where(user_id: current_user.id).last
-      @last_checkout.update!(address: @last_checkout.billing_address.address)
       # data["Transaction"]["Details"]["SalesDetails"] = data["Transaction"]["Details"]["SalesDetails"].flatten
       data["Transaction"]["DeliveryDetails"]["Province"] = @last_checkout.billing_address.province.title if @last_checkout.present? && @last_checkout.billing_address.province.present?
       data["Transaction"]["DeliveryDetails"]["City"] = @last_checkout.billing_address.city.title if @last_checkout.present? && @last_checkout.billing_address.city.present?
