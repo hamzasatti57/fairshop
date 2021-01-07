@@ -318,8 +318,9 @@ height:220px;
       <% @first_category = Category.where(category_type: "Home Page").first if Category.where(category_type: "Home Page").present? %>
       <% if @first_category.present? %>
         <div class="col-lg-7 col-sm-6" id="feature-1" style="cursor: pointer">
+           <a href="/product_category?type=<%= @first_category.title.gsub(" ", "_") %>">
           <div class="single_feature_post_text">
-            <a href="/product_category?type=<%= @first_category.title.gsub(" ", "_") %>">
+           
             <h3><%= @first_category.title %></h3>
             <a href="/product_category?type=<%= @first_category.title.gsub(" ", "_") %>" class="feature_btn">EXPLORE NOW
               <i class="fa fa-play"></i></a>
@@ -330,8 +331,9 @@ height:220px;
               
             <% end %>
             <%#=image_tag("img/feature/feature_1.png")%>
-            </a>
+            
           </div>
+          </a>
         </div>
       <% end %>
       <% @second_category = Category.where(category_type: "Home Page").second if Category.where(category_type: "Home Page").present? && Category.where(category_type: "Home Page").second %>
