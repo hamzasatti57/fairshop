@@ -83,7 +83,7 @@ Rails.application.routes.draw do
   }
 
   root 'home#index'
-  get '/resend_invoice' => 'confirmation#resend_invoice'
+  get '/resend_invoice/:id' => 'confirmation#resend_invoice', :as => 'resend_invoice'
   get '/brand_products' => 'product_category#brand_products'
   get '/store_locator' => 'contact_us#store_locator'
   get '/reset_password' => 'contact_us#reset_password'
