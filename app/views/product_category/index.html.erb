@@ -233,7 +233,7 @@
 <!--================End Category Product Area =================-->
 
 <!-- product_list part start-->
-<section class="product_list best_seller" style="margin-top: 140px;">
+<section class="product_list best_seller">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-12">
@@ -260,7 +260,7 @@
                 <%= link_to "/products/#{product.id}" do %>
                   <h4><%= product.print_description %></h4>
                 <% end %>
-                <h3><span style="color: #e9414f; font-weight: 500;"><span style="margin-right:5px"> R </span>  <span > <%= product.price.to_i %> </span> </span></h3>
+                <h3><span style="color: #e9414f; font-weight: 500;"><span style="margin-right:5px"> R </span>   <span > <%= product.price.to_i %> </span> </span></h3>
                 <%= link_to product_path(product.id), class: "add_cart", method: :get do %>
                   + add to cart
                   <!-- <i class="fa fa-heart-o"></i> -->
