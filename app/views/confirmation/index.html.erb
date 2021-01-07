@@ -51,7 +51,7 @@ display: inline-flex;
     </div>
   </section>
   <!-- breadcrumb start-->
-  <% random_number = rand(6**6).to_s %>
+  <% random_number = (SecureRandom.random_number(9e4) + 1e4).to_i.to_s %>
 
   <!--================ confirmation part start =================-->
   <section class="confirmation_part padding_top custom-confirmation-section-style" style="padding-top: 20px;">
@@ -120,16 +120,16 @@ display: inline-flex;
             <h4>Delivery Address</h4>
             <ul>
               <li>
-                <p>Address</p><span><%= @checkout.billing_address.address %></span>
+                <p>Address</p><span class="custom-address-style"><%= @checkout.billing_address.address %></span>
               </li>
               <li>
-                <p>city</p><span><%= @checkout.billing_address.city.present? ? @checkout.billing_address.city.title : "" %></span>
+                <p>city</p><span class="custom-address-style"><%= @checkout.billing_address.city.present? ? @checkout.billing_address.city.title : "" %></span>
               </li>
               <li>
-                <p>Province</p><span><%= @checkout.billing_address.province.present? ? @checkout.billing_address.province.title : "" %></span>
+                <p>Province</p><span class="custom-address-style"><%= @checkout.billing_address.province.present? ? @checkout.billing_address.province.title : "" %></span>
               </li>
               <li>
-                <p>postcode</p><span><%= @checkout.billing_address.postal_code %></span>
+                <p>postcode</p><span class="custom-address-style"><%= @checkout.billing_address.postal_code %></span>
               </li>
             </ul>
           </div>

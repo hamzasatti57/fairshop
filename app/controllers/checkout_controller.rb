@@ -38,7 +38,7 @@ class CheckoutController < ApplicationController
   def notify
     # Parameters: {"m_payment_id"=>"", "pf_payment_id"=>"1115681", "payment_status"=>"COMPLETE", "item_name"=>"Sample Product", "item_description"=>"", "amount_gross"=>"4600.00", "amount_fee"=>"-105.80", "amount_net"=>"4494.20", "custom_str1"=>"", "custom_str2"=>"", "custom_str3"=>"", "custom_str4"=>"", "custom_str5"=>"", "custom_int1"=>"", "custom_int2"=>"", "custom_int3"=>"", "custom_int4"=>"", "custom_int5"=>"", "name_first"=>"HamzaSatti", "name_last"=>"", "email_address"=>"hamza@gmail.com", "merchant_id"=>"10019032", "signature"=>"fa590d44ff9c8f2a4774a7d60c7ad3fb"}
     @user = User.find_by_email(params["email_address"])
-    random_number = rand(6**6)
+    random_number = (SecureRandom.random_number(9e4) + 1e4).to_i
     @user.user_carts.last.update(status: 2, otp_code: random_number.to_s)
     UserPayment.create!(user_id: @user.present? ? @user.id : current_user.id, amount: params["amount_gross"])
     xml = File.open(Rails.root.join('public', 'Sales.xml'))
