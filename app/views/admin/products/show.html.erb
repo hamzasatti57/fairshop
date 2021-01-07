@@ -26,15 +26,16 @@
             <div class="product--details">
               <div class="product--price">
                 <span class="product--price_price">R. <%= @product.price%></span>
-                <span class="product--price_offer">new arrivel !</span>
+                <span class="product--price_offer">new arrival !</span>
               </div>
               <div class="product-desc"><p><%= @product.description%></p></div>
               <div class="hero-info">
                 <h2>General Info</h2>
                 <ul>
-                  <li><span>Product Type</span><%#= @product.product_type.title%></li>
-                  <li><span>Product Category</span><%#= @product.product_type.title%></li>
-                  <li><span>Inventory</span><%= @product.inventory%></li>
+                  <li><span>Category</span><%= @product.product_category.category.title if @product.product_category && @product.product_category.category.present? %></li>
+                  <li><span>Sub Category</span><%= @product.product_category.title if @product.product_category.present? %></li>
+                  <li><span>Delivery Charges</span><%= @product.product_category.delivery_fee if @product.product_category.present? %></li>
+                  <li><span>Inventory</span><%= @product.product_colors.pluck(:inventory).sum(&:to_i) if @product.product_colors.present? %></li>
                   <li><span>Colors</span><% @product.colors.each do |color| %>
                       <%= color.title %>
                     <% end %></li>

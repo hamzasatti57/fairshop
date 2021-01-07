@@ -28,7 +28,7 @@ namespace :products_stock_update do
       if @product.present?
         puts "=========ProductColor add=========="
         ProductColor.create!(product_id: @product.id, color_id: @color.id, stock_item_id: stock["StockItemID"]) unless (@color.present? && ProductColor.where(product_id: @product.id, color_id: @color.id).present?) || @color.blank? || stock["bDiscontinued"] == "true"
-        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], print_description: stock["PrintDescription"], free_home_assembly: stock["bFreeHomeAssembly"])
+        @product.update!(stock_item_id: stock["StockItemID"], stock_category_id: stock["StockCategoryID"], description: stock["StockItemDescription"], stock_profile: stock["StockProfile"], website_item: stock["bWebsiteItem"], website_listing_date: stock["WebsiteListingDate"], website_expiry_date: stock["WebsiteExpiryDate"], price: stock["SellingPrice"], print_description: stock["PrintDescription"], free_home_assembly: stock["bFreeHomeAssembly"], product_category_id: @product_category.present? ? @product_category.id : nil)
       else
         puts "=========product add=========="
         # status: stock["bDiscontinued"] == "true" ? false : true
