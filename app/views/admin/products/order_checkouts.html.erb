@@ -45,7 +45,7 @@
                 <% else %>
                   <td>R0</td>
                 <% end %>
-                <td><%= checkout.billing_address.present? ? checkout.billing_address.address : "--" %></td>
+                <td><%= checkout.address %></td>
                 <td><%= checkout.created_at.strftime("%b %d, %Y %I:%M %P") %></td>
                 <td><%= link_to "Detail",  order_checkout_path(checkout), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
                   <%#= link_to "Resend Invoice",  resend_invoice_path(checkout), class: "btn btn-xs btn-primary custom-table-edit-btn" %>
