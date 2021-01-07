@@ -41,6 +41,7 @@ class ConfirmationController < ApplicationController
       @shipping_price = @initial_sum.to_i < 5000 ? @delivery_fee : 0
       @sum = @initial_sum.to_i + @shipping_price.to_i
       Checkout.where(user_id: current_user.id).last.user_cart.update!(status: 2, otp_code: random_number.to_s)
+      Checkout.where(user_id: current_user.id).last.update!(address: Checkout.where(user_id: current_user.id).last.billing_address.address)
       UserPayment.create!(user_id: current_user.present? ? current_user.id : current_user.id, amount: @sum)
       xml = File.open(Rails.root.join('public', 'Sales.xml'))
       data = Hash.from_xml(xml)
