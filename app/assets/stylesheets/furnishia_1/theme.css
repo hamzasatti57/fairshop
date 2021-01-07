@@ -5998,7 +5998,7 @@ footer .footer-social li a {
 
 @media (max-width: 991px) {
     footer .row > div {
-        margin-bottom: 30px;
+       /* margin-bottom: 30px;*/
     }
     footer .row > div:last-child {
         margin-bottom: 0;
