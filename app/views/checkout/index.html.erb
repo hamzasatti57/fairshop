@@ -1,171 +1,171 @@
 
 <style type="text/css">
-  .current{
-    background-color: #fff !important; 
-  }
-  .current:hover{
-    background-color: #fff !important; 
-  }
-  input, textarea, select{
-    -webkit-appearance: auto !important;
-  }
-  .billing_details .contact_form .form-group textarea {
-    height: 70px;
-  }
-  .order_box .payment-btn{
-    /* display: block; */
-    /*line-height: 38px;*/
-    text-transform: uppercase;
-    text-align: center;
-}
+    .current{
+        background-color: #fff !important;
+    }
+    .current:hover{
+        background-color: #fff !important;
+    }
+    input, textarea, select{
+        -webkit-appearance: auto !important;
+    }
+    .billing_details .contact_form .form-group textarea {
+        height: 70px;
+    }
+    .order_box .payment-btn{
+        /* display: block; */
+        /*line-height: 38px;*/
+        text-transform: uppercase;
+        text-align: center;
+    }
 
-.payment-btn {
-  width: 100%;
-  margin:20px 0px;
-  display: inline-block;
-  padding: 9px 42px;
-  border-radius: 50px;
-  background-color: #e9414f;
-  border: 1px solid #ecfdff;
-  font-size: 15px;
-  font-weight: 700;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 400;
-  box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
-  border: 1px solid #e9414f;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-.payment-btn:hover{
-color:#ffffff;
-}
+    .payment-btn {
+        width: 100%;
+        margin:20px 0px;
+        display: inline-block;
+        padding: 9px 42px;
+        border-radius: 50px;
+        background-color: #e9414f;
+        border: 1px solid #ecfdff;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 400;
+        box-shadow: -1.717px 8.835px 29.76px 2.24px rgba(255, 51, 104, 0.18);
+        border: 1px solid #e9414f;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+    }
+    .payment-btn:hover{
+        color:#ffffff;
+    }
 
 
-.product-color-slecion{
+    .product-color-slecion{
 
-color:red;
-font-size: 14px;
-font-weight: normal;
-text-transform: capitalize;
-}
+        color:red;
+        font-size: 14px;
+        font-weight: normal;
+        text-transform: capitalize;
+    }
 
-.product-color{
+    .product-color{
 
-font-size: 14px;
-font-weight: normal;
- color: #797979;
-}
+        font-size: 14px;
+        font-weight: normal;
+        color: #797979;
+    }
 
-.price-product-style-chackout{
-  font-size: 14px;
-  font-weight: 500;
-  color:red;
-}
-.c-bold{
+    .price-product-style-chackout{
+        font-size: 14px;
+        font-weight: 500;
+        color:red;
+    }
+    .c-bold{
 
-  font-weight: 700 !important;
-  text-transform: uppercase;
-      color: #3a3d45 !important;
-}
-.custom-text-right{
-  text-align: right;
-}
+        font-weight: 700 !important;
+        text-transform: uppercase;
+        color: #3a3d45 !important;
+    }
+    .custom-text-right{
+        text-align: right;
+    }
 
-.custom-margin-style{
-  margin-left: -12px;
-}
+    .custom-margin-style{
+        margin-left: -12px;
+    }
 
 </style>
 
-  <!--================Home Banner Area =================-->
-  <!-- breadcrumb start-->
-  <section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/checkout-banner.png') %>');">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <div class="breadcrumb_iner">
-            <div class="breadcrumb_iner_item">
-              <h2>Checkout</h2>
-              <p>Home <span>-</span>Checkout</p>
-            </div>
+<!--================Home Banner Area =================-->
+<!-- breadcrumb start-->
+<section class="breadcrumb breadcrumb_bg" style="background-image:url('<%= asset_path('/assets/img/checkout-banner.png') %>');">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="breadcrumb_iner">
+          <div class="breadcrumb_iner_item">
+            <h2>Checkout</h2>
+            <p>Home <span>-</span>Checkout</p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!-- breadcrumb start-->
+  </div>
+</section>
+<!-- breadcrumb start-->
 
-  <!--================Checkout Area =================-->
-  <section class="checkout_area padding_top" id="projectLoadComplete">
-    <div class="container">
-<!--       <div class="returning_customer">
-        <div class="check_title">
-          <h2>
-            Returning Customer?
-            <a href="#">Click here to login</a>
-          </h2>
-        </div>
-        <p>
-          If you have shopped with us before, please enter your details in the
-          boxes below. If you are a new customer, please proceed to the
-          Billing & Shipping section.
-        </p>
-        <form class="row contact_form" action="#" method="post" novalidate="novalidate">
-          <div class="col-md-6 form-group p_star">
-            <input type="text" class="form-control" id="name" name="name" value=" " />
-            <span class="placeholder" data-placeholder="Username or Email"></span>
-          </div>
-          <div class="col-md-6 form-group p_star">
-            <input type="password" class="form-control" id="password" name="password" value="" />
-            <span class="placeholder" data-placeholder="Password"></span>
-          </div>
-          <div class="col-md-12 form-group">
-            <button type="submit" value="submit" class="btn_3">
-              log in
-            </button>
-            <div class="creat_account">
-              <input type="checkbox" id="f-option" name="selector" />
-              <label for="f-option">Remember me</label>
+<!--================Checkout Area =================-->
+<section class="checkout_area padding_top" id="projectLoadComplete">
+  <div class="container">
+    <!--       <div class="returning_customer">
+            <div class="check_title">
+              <h2>
+                Returning Customer?
+                <a href="#">Click here to login</a>
+              </h2>
             </div>
-            <a class="lost_pass" href="#">Lost your password?</a>
+            <p>
+              If you have shopped with us before, please enter your details in the
+              boxes below. If you are a new customer, please proceed to the
+              Billing & Shipping section.
+            </p>
+            <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" id="name" name="name" value=" " />
+                <span class="placeholder" data-placeholder="Username or Email"></span>
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <input type="password" class="form-control" id="password" name="password" value="" />
+                <span class="placeholder" data-placeholder="Password"></span>
+              </div>
+              <div class="col-md-12 form-group">
+                <button type="submit" value="submit" class="btn_3">
+                  log in
+                </button>
+                <div class="creat_account">
+                  <input type="checkbox" id="f-option" name="selector" />
+                  <label for="f-option">Remember me</label>
+                </div>
+                <a class="lost_pass" href="#">Lost your password?</a>
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-      <div class="cupon_area">
-        <div class="check_title">
-          <h2>
-            Have a coupon?
-            <a href="#">Click here to enter your code</a>
-          </h2>
-        </div>
-        <input type="text" placeholder="Enter coupon code" />
-        <a class="tp_btn" href="#">Apply Coupon</a>
-      </div> -->
-      <div class="billing_details">
-        <div class="row">
-          <div class="col-lg-7">
-            <h3>My Details</h3>
-                <%= form_for BillingAddress.new, remote: true do |f| %>
-                <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
-                  novalidate="novalidate"> -->
-              <div class="row contact_form">
-                <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="first" name="user[first_name]" placeholder="First name" value="<%= current_user.first_name %>" />
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="last" name="user[last_name]" placeholder="Last name" value="<%= current_user.last_name %>" />
-                </div>
-                <!-- <div class="col-md-12 form-group">
-                  <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
-                </div> -->
-                <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="number" name="user[contact_details]" placeholder="Phone number" value="<%= current_user.contact_details %>" />
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <input type="text" class="form-control" id="email" name="user[email]" placeholder="Email Address" value="<%= current_user.email %>" />
-                </div>
-<!--                   <div class="col-md-12">
+          <div class="cupon_area">
+            <div class="check_title">
+              <h2>
+                Have a coupon?
+                <a href="#">Click here to enter your code</a>
+              </h2>
+            </div>
+            <input type="text" placeholder="Enter coupon code" />
+            <a class="tp_btn" href="#">Apply Coupon</a>
+          </div> -->
+    <div class="billing_details">
+      <div class="row">
+        <div class="col-lg-7">
+          <h3>My Details</h3>
+          <%= form_for BillingAddress.new, remote: true do |f| %>
+            <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
+              novalidate="novalidate"> -->
+            <div class="row contact_form">
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" id="first" name="user[first_name]" placeholder="First name" value="<%= current_user.first_name %>" />
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" id="last" name="user[last_name]" placeholder="Last name" value="<%= current_user.last_name %>" />
+              </div>
+              <!-- <div class="col-md-12 form-group">
+                <input type="text" class="form-control" id="company" name="company" placeholder="Company name" />
+              </div> -->
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" id="number" name="user[contact_details]" placeholder="Phone number" value="<%= current_user.contact_details %>" />
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <input type="text" class="form-control" id="email" name="user[email]" placeholder="Email Address" value="<%= current_user.email %>" />
+              </div>
+              <!--                   <div class="col-md-12">
                     <div class="form-group">
                         <%#= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control', value: @billing_address.present? ? @billing_address.province_id : nil%>
                     </div>
@@ -183,65 +183,65 @@ font-weight: normal;
                       <%#= f.text_field(:postal_code, :class => 'form-control', placeholder: "Postal Code", required: true, value: @billing_address.present? ? @billing_address.postal_code: "") %>
                     </div>
                   </div> -->
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <%= f.text_field(:address, :class => 'form-control', placeholder: "Address", required: true, value: @billing_address.present? ? @billing_address.address: "", id: :autocomplete_address) %>
-                      <%= f.hidden_field(:is_primary, value: true) %>
-                      <%= f.hidden_field(:user_id, value: current_user.id ) %>
-                    </div>
-                  </div>
-                <!-- <div class="col-md-6 form-group p_star">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.text_field(:address, :class => 'form-control', placeholder: "Address", required: true, value: @billing_address.present? ? @billing_address.address: "", id: :autocomplete_address) %>
+                  <%= f.hidden_field(:is_primary, value: true) %>
+                  <%= f.hidden_field(:user_id, value: current_user.id ) %>
+                </div>
+              </div>
+              <!-- <div class="col-md-6 form-group p_star">
                   <%#= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @billing_address.present? ? @billing_address.street : "") %>
                 </div> -->
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @billing_address.present? ? @billing_address.complex : "") %>
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @billing_address.present? ? @billing_address.unit_no : "") %>
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @billing_address.present? ? @billing_address.house_no : "") %>                
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @billing_address.present? ? @billing_address.landmark : "") %>
-                </div>
-                <!-- <div class="col-md-6 form-group p_star">
+              <div class="col-md-6 form-group p_star">
+                <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @billing_address.present? ? @billing_address.complex : "") %>
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @billing_address.present? ? @billing_address.unit_no : "") %>
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <%= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @billing_address.present? ? @billing_address.house_no : "") %>
+              </div>
+              <div class="col-md-6 form-group p_star">
+                <%= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @billing_address.present? ? @billing_address.landmark : "") %>
+              </div>
+              <!-- <div class="col-md-6 form-group p_star">
                   <%#= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @billing_address.present? ? @billing_address.suburb : "") %>
                 </div> -->
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <%= f.text_field(:secondary_number, :class => 'form-control', placeholder: "Alternative Number", value: @billing_address.present? ? @billing_address.secondary_number : "") %>
-                  </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.text_field(:secondary_number, :class => 'form-control', placeholder: "Alternative Number", value: @billing_address.present? ? @billing_address.secondary_number : "") %>
                 </div>
-                  <div class="col-md-12">
-                    <div class="form-group">
-                      <%= f.text_area(:instruction, size: '40x5', :class => 'form-control', placeholder: "Instructions", value: @billing_address.present? ? @billing_address.instruction : "") %>
-                    </div>
-                  </div>
-                  <div class="col-md-12 text-right" style="display: none">
-                    <button type="submit" value="submit" class="btn_3 billing_address_1_submit">
-                      Submit Now
-                    </button>
-                  </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  <%= f.text_area(:instruction, size: '40x5', :class => 'form-control', placeholder: "Instructions", value: @billing_address.present? ? @billing_address.instruction : "") %>
                 </div>
-                <% end %>
+              </div>
+              <div class="col-md-12 text-right" style="display: none">
+                <button type="submit" value="submit" class="btn_3 billing_address_1_submit">
+                  Submit Now
+                </button>
+              </div>
+            </div>
+          <% end %>
 
-                <div class="col-md-12 form-group">
-                  <div class="creat_account custom-margin-style">
-                    <h3>Delivery Details</h3>
-                    <input type="checkbox" id="new-shippment">
+          <div class="col-md-12 form-group">
+            <div class="creat_account custom-margin-style">
+              <h3>Delivery Details</h3>
+              <input type="checkbox" id="new-shippment">
 
-                    <label for="f-option3">Deliver to a different address?</label>
-                    
-                    
-                  </div>
-                  <div id="shippment-address" style="display: none">
-                  <%= form_for BillingAddress.new, remote: true do |f| %>
-                  <div class="row contact_form">
+              <label for="f-option3">Deliver to a different address?</label>
+
+
+            </div>
+            <div id="shippment-address" style="display: none">
+              <%= form_for BillingAddress.new, remote: true do |f| %>
+                <div class="row contact_form">
                   <!-- <form class="row contact_form" action="contact_process.php" method="post" id="contactForm"
                   novalidate="novalidate"> -->
-                 
-<!--                   <div class="col-md-12">
+
+                  <!--                   <div class="col-md-12">
                     <div class="form-group">
                         <%#= f.collection_select :province_id, Province.all,:id,:title, include_blank: false, :class => 'form-control' %>
                     </div>
@@ -266,73 +266,73 @@ font-weight: normal;
                       <%= f.hidden_field(:user_id, value: current_user.id ) %>
                     </div>
                   </div>
-                <!--<div class="col-md-6 form-group p_star">
+                  <!--<div class="col-md-6 form-group p_star">
                   <%#= f.text_field(:street, :class => 'form-control', placeholder: "Street", value: @shipping_address.present? ? @shipping_address.street : "") %>
                 </div> -->
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @shipping_address.present? ? @shipping_address.complex : "") %>
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @shipping_address.present? ? @shipping_address.unit_no : "") %>
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @shipping_address.present? ? @shipping_address.house_no : "") %>                
-                </div>
-                <div class="col-md-6 form-group p_star">
-                  <%= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @shipping_address.present? ? @shipping_address.landmark : "") %>
-                </div>
-                <!-- <div class="col-md-6 form-group p_star">
+                  <div class="col-md-6 form-group p_star">
+                    <%= f.text_field(:complex, :class => 'form-control', placeholder: "Complex", value: @shipping_address.present? ? @shipping_address.complex : "") %>
+                  </div>
+                  <div class="col-md-6 form-group p_star">
+                    <%= f.text_field(:unit_no, :class => 'form-control', placeholder: "Unit Number", value: @shipping_address.present? ? @shipping_address.unit_no : "") %>
+                  </div>
+                  <div class="col-md-6 form-group p_star">
+                    <%= f.text_field(:house_no, :class => 'form-control', placeholder: "House Number", value: @shipping_address.present? ? @shipping_address.house_no : "") %>
+                  </div>
+                  <div class="col-md-6 form-group p_star">
+                    <%= f.text_field(:landmark, :class => 'form-control', placeholder: "Landmark", value: @shipping_address.present? ? @shipping_address.landmark : "") %>
+                  </div>
+                  <!-- <div class="col-md-6 form-group p_star">
                   <%#= f.text_field(:suburb, :class => 'form-control', placeholder: "Suburb", value: @shipping_address.present? ? @shipping_address.suburb : "") %>
                 </div> -->
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <%= f.text_field(:secondary_number, :class => 'form-control', placeholder: "Alternative Number", value: @shipping_address.present? ? @shipping_address.secondary_number : "") %>
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <%= f.text_field(:secondary_number, :class => 'form-control', placeholder: "Alternative Number", value: @shipping_address.present? ? @shipping_address.secondary_number : "") %>
+                    </div>
                   </div>
-                </div>
                   <div class="col-md-12 text-right" style="display: none">
                     <button type="submit" value="submit" class="btn_3 billing_address_2_submit">
                       Submit Now
                     </button>
                   </div>
-                <% end %>
-                    
-                  </div>
-                </div>
+              <% end %>
+
               </div>
+            </div>
           </div>
-          <div class="col-lg-5">
-            <div class="order_box">
-              <h2>Your Order</h2>
-              <ul class="list">
-                <li>
-                  <div class="row">
-                    <div class="col-md-10 col-9"><a href="" class="c-bold">Product</a></div>
-                    <div class="col-md-2 col-3"><a href="" class="c-bold">Total</a></div>
-                  </div>
-   
-                </li>
-                <% @cart.each do |cart| %>
+        </div>
+        <div class="col-lg-5">
+          <div class="order_box">
+            <h2>Your Order</h2>
+            <ul class="list">
+              <li>
+                <div class="row">
+                  <div class="col-md-10 col-9"><a href="" class="c-bold">Product</a></div>
+                  <div class="col-md-2 col-3"><a href="" class="c-bold">Total</a></div>
+                </div>
+
+              </li>
+              <% @cart.each do |cart| %>
 
                 <li>
                   <div class="" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
 
-                  <div class="row">
-                    <div class="col-md-7 col-7">
-                    <span><%= cart.product.print_description %><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></span>
-                    </div>
-                    <div class="col-md-2 col-2">
-                       <span class="middle">x <%= cart.quantity %></span>
-                    </div>
-                    <div class="col-md-3 col-3">
-                      <div class="custom-text-right">
-                          <span class="last custom-checkout-product-style " style="font-size: 14px;font-weight: 500;color: red">R <%= cart.sub_total.to_i %></span>
+                    <div class="row">
+                      <div class="col-md-7 col-7">
+                        <span><%= cart.product.print_description %><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></span>
                       </div>
-                     
+                      <div class="col-md-2 col-2">
+                        <span class="middle">x <%= cart.quantity %></span>
+                      </div>
+                      <div class="col-md-3 col-3">
+                        <div class="custom-text-right">
+                          <span class="last custom-checkout-product-style " style="font-size: 14px;font-weight: 500;color: red">R <%= cart.sub_total.to_i %></span>
+                        </div>
+
+                      </div>
+
                     </div>
-                    
                   </div>
-                </div>
-                <!--   <div class="d-flex justify-content-between" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
+                  <!--   <div class="d-flex justify-content-between" style="font-size: 14px;font-weight: normal;color: #797979;border-bottom: 1px solid #eeeeee;padding: 5px 0px;line-height: 25px;">
                     
                     <span><%= cart.product.print_description %><br><span class="product-color">Your Color Selection: </span><span class="product-color-slecion"><%= cart.color.present? ? cart.color.title : "" %></span></span>
                     <span class="middle">x <%= cart.quantity %></span>
@@ -340,38 +340,38 @@ font-weight: normal;
                      
                   </div> -->
                 </li>
-               
-                <% end %>
-              </ul>
-              <ul class="list list_2">
-                <li>
-                  <a href="">Subtotal
-                    <span style="color: red">R <%= @sum.to_i %></span>
-                  </a>
-                </li>
-                <li>
-                  <a href="">Delivery Fee
-                    <span style="color: red">R <%= @shipping_price.present? ? @shipping_price : "" %></span>
-                  </a>
-                </li>
-                <li>
-                  <a href="">Grand Total
-                    <span style="color: red">R <%= @sum.to_i + @shipping_price.to_i %></span>
-                  </a>
-                </li>
-              </ul>
-<!--               <div class="payment_item">
-                <div class="radion_btn">
-                  <input type="radio" id="f-option5" name="selector" />
-                  <label for="f-option5">Check payments</label>
-                  <div class="check"></div>
-                </div>
-                <p>
-                  Please send a check to Store Name, Store Street, Store Town,
-                  Store State / County, Store Postcode.
-                </p>
-              </div> -->
-<!--               <div class="payment_item active">
+
+              <% end %>
+            </ul>
+            <ul class="list list_2">
+              <li>
+                <a href="">Subtotal
+                  <span style="color: red">R <%= @sum.to_i %></span>
+                </a>
+              </li>
+              <li>
+                <a href="">Delivery Fee
+                  <span style="color: red">R <%= @shipping_price.present? ? @shipping_price : "" %></span>
+                </a>
+              </li>
+              <li>
+                <a href="">Grand Total
+                  <span style="color: red">R <%= @sum.to_i + @shipping_price.to_i %></span>
+                </a>
+              </li>
+            </ul>
+            <!--               <div class="payment_item">
+                            <div class="radion_btn">
+                              <input type="radio" id="f-option5" name="selector" />
+                              <label for="f-option5">Check payments</label>
+                              <div class="check"></div>
+                            </div>
+                            <p>
+                              Please send a check to Store Name, Store Street, Store Town,
+                              Store State / County, Store Postcode.
+                            </p>
+                          </div> -->
+            <!--               <div class="payment_item active">
                 <div class="radion_btn">
                   <input type="radio" id="f-option6" name="selector" checked="checked" />
                   <label for="f-option6">Payfast </label>
@@ -383,7 +383,7 @@ font-weight: normal;
                   Store State / County, Store Postcode.
                 </p>
               </div> -->
-<!--               <div class="creat_account">
+            <!--               <div class="creat_account">
                 <input type="checkbox" id="f-option4" name="selector" />
                 <label for="f-option4">I’ve read and accept the </label>
                 <a href="#">terms & conditions*</a>
@@ -398,39 +398,42 @@ font-weight: normal;
                 <input type="hidden" name="email_address" value=<%= current_user.email %>>
                 <input type="hidden" name="amount" value=<%= @sum %>>
                 <input type="hidden" name="item_name" value="General POS"> -->
-                <!-- <input type="submit" value="Submit"> -->
-                <!-- <button type="submit" class="payment-btn proceed_to_checkout">Proceed to Payfast</button>
-              </form> -->
-              <!-- <a class="btn_3 proceed_to_checkout" href="/confirmation">Proceed to Payfast</a> -->
+            <!-- <input type="submit" value="Submit"> -->
+            <!-- <button type="submit" class="payment-btn proceed_to_checkout">Proceed to Payfast</button>
+          </form> -->
+            <!-- <a class="btn_3 proceed_to_checkout" href="/confirmation">Proceed to Payfast</a> -->
 
-              <div class="payment_item active">
-                <div class="radion_btn">
-                  <input type="radio" id="f-option6" name="selector" checked="checked" />
-                  <label for="f-option6">Payment </label>
-                  <%=image_tag("img/product/single-product/card.jpg")%>
-                  <div class="check"></div>
-                </div>
-                 
-                  <%= link_to "Proceed to Payment", peach_payment_path, method: :post  , class: "payment-btn proceed_to_checkout_1", data: {confirm: "Kindly check your address, We only deliver in Gauteng."}  %>
-                  <!-- <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button> -->
-                
+            <div class="payment_item active">
+              <div class="radion_btn">
+                <input type="radio" id="f-option6" name="selector" checked="checked" />
+                <label for="f-option6">Payment </label>
+                <%=image_tag("img/product/single-product/card.jpg")%>
+                <div class="check"></div>
               </div>
+
+              <button type="button" class="payment-btn proceed_to_checkout_1">Proceed to Payment</button>
+              <%#= link_to "Proceed to Payment", peach_payment_path, method: :post  , class: "payment-btn proceed_to_checkout_1"  %>
+              <%#= button_to "Proceed to Payment", peach_payment_path, method: :post  , class: "payment-btn proceed_to_checkout_1"  %>
+<!--              data: {confirm: "Kindly check your address, We only deliver in Gauteng."}-->
+              <!-- <button type="submit" class="btn_3 proceed_to_checkout">Proceed to Payfast</button> -->
+
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-  <!--================End Checkout Area =================-->
+  </div>
+</section>
+<!--================End Checkout Area =================-->
 
 <!--     <div class="row contact_form" style="display: none">
       <%#= form_for new_checkout_path, remote: true do |f| %>
         <div class="col-md-12">
           <div class="form-group">
             <%#= f.hidden_field(:billing_address_id, value: current_user.billing_addresses.present? ? current_user.billing_addresses.last.id : nil) %>
-            <%#= f.hidden_field(:user_cart_id, value: current_user.user_cart.present? ? current_user.user_cart.id : nil ) %>
-            <%#= f.hidden_field(:user_id, value: current_user.id ) %>
-            <%#= f.hidden_field(:amount, value: @sum ) %>
+<%#= f.hidden_field(:user_cart_id, value: current_user.user_cart.present? ? current_user.user_cart.id : nil ) %>
+<%#= f.hidden_field(:user_id, value: current_user.id ) %>
+<%#= f.hidden_field(:amount, value: @sum ) %>
           </div>
         </div>
         <div class="col-md-12 text-right">
@@ -439,195 +442,258 @@ font-weight: normal;
           </button>
         <%# end %>
       </div> -->
-      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaILC4Z-JG0A-_TZ-o3BiJMSFqUvh6cKk&libraries=places&callback=initializeMap" async defer></script> -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaILC4Z-JG0A-_TZ-o3BiJMSFqUvh6cKk&libraries=places&callback=initializeMap" async defer></script> -->
 
-      <script type="text/javascript">
-        
-        $('#autocomplete_address').focusout(function() {
-          
-          setTimeout(function(){
-            $.ajax({
-                  headers: { 'X-CSRF-Token': Rails.csrfToken() },
-                  url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address').val(),
-                  // data: { cart_object: jsonObject },
-                  // dataType: 'json',
-                  type:'post',
-                  success:function (data) {
-                    if (data.message == "Kindly check your address, We only deliver in Gauteng."){
-                      alert(data.message);
-                      $('#autocomplete_address').val("");
-                    }
-                  }
+<script type="text/javascript">
+    let is_exit = false;
+    let error_message = `Kindly check your address, We only deliver in Gauteng.`;
 
-              });
-          }, 50);
-            
-        });
+    $('#autocomplete_address').focusout(function() {
 
-        $('#autocomplete_address_1').focusout(function() {
-          
-          setTimeout(function(){
-            $.ajax({
-                  headers: { 'X-CSRF-Token': Rails.csrfToken() },
-                  url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address_1').val(),
-                  // data: { cart_object: jsonObject },
-                  // dataType: 'json',
-                  type:'post',
-                  success:function (data) {
-                    if (data.message == "Kindly check your address, We only deliver in Gauteng."){
-                      alert(data.message);
-                      $('#autocomplete_address_1').val("");
-                    }
-                  }
-
-              });
-          }, 50);
-            
-        });
-
-        $('#new-shippment').on('click', function(e){
-          if(document.getElementById('new-shippment').checked) {
-                $("#shippment-address").css("display", "block");
-            } else {
-                $("#shippment-address").css("display", "none");
+        // setTimeout(function(){
+        $.ajax({
+            headers: { 'X-CSRF-Token': Rails.csrfToken() },
+            url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address').val(),
+            // data: { cart_object: jsonObject },
+            // dataType: 'json',
+            type:'post',
+            async: false,
+            success:function (data) {
+                if (data.message === "KindlyYYY check your address, We only deliver in Gauteng."){
+                    alert(data.message);
+                    $('#autocomplete_address').val("");
+                    is_exit = false;
+                }
             }
-        });
 
-        $('#new-shippment').on('click', function(e){
-          if(document.getElementById('new-shippment').checked) {
-                $("#shippment-address").css("display", "block");
-            } else {
-                $("#shippment-address").css("display", "none");
+        });
+        // }, 50);
+
+    });
+
+    $('#autocomplete_address_1').focusout(function() {
+        // setTimeout(function(){
+        $.ajax({
+            headers: { 'X-CSRF-Token': Rails.csrfToken() },
+            url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address_1').val(),
+            // data: { cart_object: jsonObject },
+            // dataType: 'json',
+            type:'post',
+            async: false,
+            success:function (data) {
+                if (data.message == "Kindly check your address, We only deliver in Gauteng."){
+                    alert(data.message);
+                    $('#autocomplete_address_1').val("");
+                    is_exit = false;
+                }
             }
-        });
 
-        $('.proceed_to_checkout').on('click', function(e){
-          if(document.getElementById('new-shippment').checked) {
+        });
+        // }, 50);
+
+    });
+
+    $('#new-shippment').on('click', function(e){
+        if(document.getElementById('new-shippment').checked) {
+            $("#shippment-address").css("display", "block");
+        } else {
+            $("#shippment-address").css("display", "none");
+        }
+    });
+
+    $('#new-shippment').on('click', function(e){
+        if(document.getElementById('new-shippment').checked) {
+            $("#shippment-address").css("display", "block");
+        } else {
+            $("#shippment-address").css("display", "none");
+        }
+    });
+
+    $('.proceed_to_checkout').on('click', function(e){
+        if(document.getElementById('new-shippment').checked) {
             $(".billing_address_2_submit").click();
             // setTimeout(function() {
             //   $(".checkout_submit").click();
             // },100);
-          }
-          else{
+        }
+        else{
             $(".billing_address_1_submit").click();
             // setTimeout(function() {
             //   $(".checkout_submit").click();
             // },100);
-          }
+        }
 
-        });
+    });
 
-        $('.proceed_to_checkout_1').on('click', function(e){
-            x = $('#autocomplete_address').val();
-            number = $('#number').val();
-            // landmark = $('#billing_address_landmark').val();
-            // street = $('#billing_address_street').val();
-            unit = $('#billing_address_unit_no').val();
-            // house = $('#billing_address_house_no').val();
-            // subrub = $('#billing_address_suburb').val();
-            complex = $('#billing_address_complex').val();
-            secondary_number = $('#billing_address_secondary_number').val();
-            instruction = $('#billing_address_instruction').val();
-            if (x == "") {
-              alert("Address can't be blank");
-              return false;
-            }
-            if (number == "") {
-              alert("Phone Number can't be blank");
-              return false;
-            }
-            // if (street == "") {
-            //   alert("Billing Details Street can't be blank");
-            //   return false;
-            // }
-            if (unit == "" && complex != "") {
-              alert("Unit Number cannot be blank");
-              return false;
-            }
-            // if (house == "") {
-            //   alert("House No can't be blank");
-            //   return false;
-            // }
-            // if (subrub == "") {
-            //   alert("Subrub can't be blank");
-            //   return false;
-            // }
-            // if (complex == "") {
-            //   alert("Complex can't be blank");
-            //   return false;
-            // }
-            if (secondary_number == "") {
-              alert("Alternative Number can't be blank");
-              return false;
-            }
-            // if (instruction == "") {
-            //   alert("Instruction can't be blank");
-            //   return false;
-            // }
-            if(document.getElementById('new-shippment').checked) {
-              y = $('#autocomplete_address_1').val();
-              if (y == "") {
+    $('.proceed_to_checkout_1').on('click', function(e){
+        x = $('#autocomplete_address').val();
+        number = $('#number').val();
+        // landmark = $('#billing_address_landmark').val();
+        // street = $('#billing_address_street').val();
+        unit = $('#billing_address_unit_no').val();
+        // house = $('#billing_address_house_no').val();
+        // subrub = $('#billing_address_suburb').val();
+        complex = $('#billing_address_complex').val();
+        secondary_number = $('#billing_address_secondary_number').val();
+        instruction = $('#billing_address_instruction').val();
+        if (x == "") {
+            alert("Address can't be blank");
+            return false;
+        }
+        if (number == "") {
+            alert("Phone Number can't be blank");
+            return false;
+        }
+        // if (street == "") {
+        //   alert("Billing Details Street can't be blank");
+        //   return false;
+        // }
+        if (unit == "" && complex != "") {
+            alert("Unit Number cannot be blank");
+            return false;
+        }
+        // if (house == "") {
+        //   alert("House No can't be blank");
+        //   return false;
+        // }
+        // if (subrub == "") {
+        //   alert("Subrub can't be blank");
+        //   return false;
+        // }
+        // if (complex == "") {
+        //   alert("Complex can't be blank");
+        //   return false;
+        // }
+        if (secondary_number == "") {
+            alert("Alternative Number can't be blank");
+            return false;
+        }
+        // if (instruction == "") {
+        //   alert("Instruction can't be blank");
+        //   return false;
+        // }
+        if(document.getElementById('new-shippment').checked) {
+            y = $('#autocomplete_address_1').val();
+            if (y == "") {
                 alert("Delivery Address can't be blank");
                 return false;
-              }
             }
-          if(document.getElementById('new-shippment').checked) {
+        }
+
+        $.ajax({
+            headers: {'X-CSRF-Token': Rails.csrfToken()},
+            url: '/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address').val(),
+            type: 'post',
+            async: false,
+            success: function (data) {
+                if (data.message === "Kindly check your address, We only deliver in Gauteng.") {
+                    is_exit = false;
+                    error_message = `Kindly check your address (${$('#autocomplete_address').val()}), We only deliver in Gauteng.`
+                    $('#autocomplete_address').val("");
+                    return false;
+                }else {
+                    is_exit = true;
+                }
+            }
+        });
+        if(!is_exit){
+            alert(error_message);
+            return false;
+        }
+
+        if (document.getElementById('new-shippment').checked) {
+            $.ajax({
+                headers: {'X-CSRF-Token': Rails.csrfToken()},
+                url: '/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address_1').val(),
+                type: 'post',
+                async: false,
+                success: function (data) {
+                    if (data.message === "Kindly check your address, We only deliver in Gauteng.") {
+                        is_exit = true;
+                        error_message = `Kindly check your delivery (${$('#autocomplete_address_1').val()}), We only deliver in Gauteng.`
+                        $('#autocomplete_address_1').val("");
+                        return false;
+                    }
+                }
+            });
+
+            if (is_exit) {
+                alert(error_message);
+                return false;
+            }
+        }
+
+        if(document.getElementById('new-shippment').checked) {
 
             $(".billing_address_2_submit").click();
-              $.ajax({
-                  headers: { 'X-CSRF-Token': Rails.csrfToken() },
-                  url:'/billing_addresses/save_address?billing_address[address]=' + $('#autocomplete_address').val() + '&billing_address[instruction]=' + $('#billing_address_instruction').val(),
-                  // data: { cart_object: jsonObject },
-                  // dataType: 'json',
-                  type:'post',
-                  success:function (data) {
+            $.ajax({
+                headers: { 'X-CSRF-Token': Rails.csrfToken() },
+                url:'/billing_addresses/save_address?billing_address[address]=' + $('#autocomplete_address').val() + '&billing_address[instruction]=' + $('#billing_address_instruction').val(),
+                // data: { cart_object: jsonObject },
+                // dataType: 'json',
+                type:'post',
+                async: false,
+                success:function (data) {
                     console.log(data);
-                  }
+                }
 
-              });
+            });
             // setTimeout(function() {
             //   $(".checkout_submit").click();
             // },100);
-          }
-          else{
+        }
+        else{
             $(".billing_address_1_submit").click();
             // setTimeout(function() {
             //   $(".checkout_submit").click();
             // },100);
-          }
+        }
 
-        });
+        if(is_exit){
+            console.log("Process!");
+            is_exit = false;
+            $.ajax({
+                headers: {'X-CSRF-Token': Rails.csrfToken()},
+                url: "<%= peach_payment_path %>",
+                type: 'post',
+                async: false,
+                success: function (data) {
+                }
+            });
+        }
 
-          function initializeAutocomplete(id) {     
-               var element = document.getElementById(id);
-               if (element) {
-                 var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'], componentRestrictions: {country: 'za'} });
-                 google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
-                 }
-          }
+    });
 
-          function onPlaceChanged() {
-               var place = this.getPlace();     
+    function initializeAutocomplete(id) {
+        var element = document.getElementById(id);
+        if (element) {
+            var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'], componentRestrictions: {country: 'za'} });
+            google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+        }
+    }
 
-               // console.log(place);  // Uncomment this line to view the full object returned by Google API.     
+    function onPlaceChanged() {
+        var place = this.getPlace();
 
-          for (var i in place.address_components) {
-           var component = place.address_components[i];
-           for (var j in component.types) {  // Some types are ["country", "political"]
-            var type_element = document.getElementById(component.types[j]);
-            if (type_element) {
-             type_element.value = component.long_name;
-             }
+        // console.log(place);  // Uncomment this line to view the full object returned by Google API.
+
+        for (var i in place.address_components) {
+            var component = place.address_components[i];
+            for (var j in component.types) {  // Some types are ["country", "political"]
+                var type_element = document.getElementById(component.types[j]);
+                if (type_element) {
+                    type_element.value = component.long_name;
+                }
             }
-           }
-          }
-          $(document).bind("projectLoadComplete", initializeAutocomplete('autocomplete_address'));
-          $(document).bind("projectLoadComplete", initializeAutocomplete('autocomplete_address_1'));
-            // google.maps.event.addDomListener(window, 'load', function() {
-            //    $(document).bind("projectLoadComplete", initialize);
-            //    initializeAutocomplete('autocomplete_address');
-            //    initializeAutocomplete('autocomplete_address_1'); 
-            // });
-      </script>
+        }
+    }
+    $(document).bind("projectLoadComplete", initializeAutocomplete('autocomplete_address'));
+    $(document).bind("projectLoadComplete", initializeAutocomplete('autocomplete_address_1'));
+    // google.maps.event.addDomListener(window, 'load', function() {
+    //    $(document).bind("projectLoadComplete", initialize);
+    //    initializeAutocomplete('autocomplete_address');
+    //    initializeAutocomplete('autocomplete_address_1');
+    // });
+</script>
 
 
