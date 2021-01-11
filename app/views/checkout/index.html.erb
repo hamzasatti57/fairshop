@@ -423,6 +423,31 @@
       </div>
     </div>
   </div>
+  <div class="modal" id="location_verification_modal" style="align-items: center;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title" >Location Verification</h4>
+          <button type="button" class="close close_1" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="m-3">
+          <p id="location_verification_message"></p>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body" style="display: inline-flex; margin: 0 auto;" >
+          <br>
+          <br>
+          <div class="checkout_btn_inner float-right">
+            <div  class="btn_1 checkout_btn_2" style="margin-left: 20px; cursor: pointer">Modify Address</div>
+          </div>
+<!--          <div class="checkout_btn_inner float-right">-->
+<!--            <a  class="btn_1 checkout_btn_1" href="">Proceed to payment</a>-->
+<!--          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!--================End Checkout Area =================-->
 
@@ -451,7 +476,7 @@
     $('#autocomplete_address').focusout(function() {
 
         // setTimeout(function(){
-        $.ajax({
+        /*$.ajax({
             headers: { 'X-CSRF-Token': Rails.csrfToken() },
             url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address').val(),
             // data: { cart_object: jsonObject },
@@ -459,21 +484,21 @@
             type:'post',
             async: false,
             success:function (data) {
-                if (data.message === "KindlyYYY check your address, We only deliver in Gauteng."){
+                if (data.message === "Kindly check your address, We only deliver in Gauteng."){
                     alert(data.message);
                     $('#autocomplete_address').val("");
                     is_exit = false;
                 }
             }
 
-        });
+        });*/
         // }, 50);
 
     });
 
     $('#autocomplete_address_1').focusout(function() {
         // setTimeout(function(){
-        $.ajax({
+        /*$.ajax({
             headers: { 'X-CSRF-Token': Rails.csrfToken() },
             url:'/billing_addresses/check_address?billing_address[address]=' + $('#autocomplete_address_1').val(),
             // data: { cart_object: jsonObject },
@@ -481,16 +506,21 @@
             type:'post',
             async: false,
             success:function (data) {
-                if (data.message == "Kindly check your address, We only deliver in Gauteng."){
+                if (data.message === "Kindly check your address, We only deliver in Gauteng."){
                     alert(data.message);
                     $('#autocomplete_address_1').val("");
                     is_exit = false;
                 }
             }
 
-        });
+        });*/
         // }, 50);
 
+    });
+
+    $('.checkout_btn_2').on('click', function (e){
+        $('#location_verification_message').text("");
+        $('#location_verification_modal').modal('hide');
     });
 
     $('#new-shippment').on('click', function(e){
@@ -597,7 +627,9 @@
             }
         });
         if(!is_exit){
-            alert(error_message);
+            // alert(error_message);
+            $('#location_verification_message').text(error_message);
+            $('#location_verification_modal').modal('show');
             return false;
         }
 
@@ -618,7 +650,9 @@
             });
 
             if (is_exit) {
-                alert(error_message);
+                // alert(error_message);
+                $('#location_verification_message').text(error_message);
+                $('#location_verification_modal').modal('show');
                 return false;
             }
         }
