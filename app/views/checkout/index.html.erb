@@ -618,7 +618,7 @@
             success: function (data) {
                 if (data.message === "Kindly check your address, We only deliver in Gauteng.") {
                     is_exit = false;
-                    error_message = `Kindly check your address (${$('#autocomplete_address').val()}), We only deliver in Gauteng.`
+                    error_message = `Kindly check your billing address (${$('#autocomplete_address').val()}), We only deliver in Gauteng.`
                     $('#autocomplete_address').val("");
                     return false;
                 }else {
@@ -633,6 +633,8 @@
             return false;
         }
 
+        is_exit = false;
+
         if (document.getElementById('new-shippment').checked) {
             $.ajax({
                 headers: {'X-CSRF-Token': Rails.csrfToken()},
@@ -641,20 +643,24 @@
                 async: false,
                 success: function (data) {
                     if (data.message === "Kindly check your address, We only deliver in Gauteng.") {
-                        is_exit = true;
-                        error_message = `Kindly check your delivery (${$('#autocomplete_address_1').val()}), We only deliver in Gauteng.`
+                        is_exit = false;
+                        error_message = `Kindly check your delivery address (${$('#autocomplete_address_1').val()}), We only deliver in Gauteng.`
                         $('#autocomplete_address_1').val("");
                         return false;
+                    }else {
+                        is_exit = true;
                     }
                 }
             });
 
-            if (is_exit) {
+            if (!is_exit) {
                 // alert(error_message);
                 $('#location_verification_message').text(error_message);
                 $('#location_verification_modal').modal('show');
                 return false;
             }
+
+            is_exit = false;
         }
 
         if(document.getElementById('new-shippment').checked) {
