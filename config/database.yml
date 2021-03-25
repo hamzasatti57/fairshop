@@ -15,19 +15,19 @@ default: &default
   host: localhost
   pool: 5
   username: postgres
-  password: furnishia_algorepublic
+  password: ZfQx3wek
 
 
 development:
   <<: *default
-  database: furnishia_development
+  database: fairprice_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: furnishia_test
+  database: fairprice_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -50,4 +50,4 @@ test:
 #
 production:
   <<: *default
-  database: furnishia_production
+  database: fairprice_production

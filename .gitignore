@@ -28,3 +28,6 @@
 /config/database.yml
 /db/schema.rb
 /.idea/
+
+# Ignore application configuration
+/config/application.yml

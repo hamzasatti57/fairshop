@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <Transaction>
+    <SalesHeader>
+      <InvoiceNumber>8104</InvoiceNumber>
+      <DateOfSale>2020-08-06 13:02:35 +0500</DateOfSale>
+      <CustomerName nil="true"/>
+      <TotalSalePriceAfterDiscount nil="true"/>
+      <DeliveryCharge>70.0000</DeliveryCharge>
+      <TotalVAT>130.4335</TotalVAT>
+    </SalesHeader>
+    <Details>
+      <SalesDetails type="array">
+        <SalesDetail>
+          <id type="integer">51</id>
+          <user-id type="integer">24</user-id>
+          <product-id type="integer">182</product-id>
+          <quantity type="integer">1</quantity>
+          <sub-total type="float">929.0</sub-total>
+          <created-at type="dateTime">2020-08-04T15:10:57Z</created-at>
+          <updated-at type="dateTime">2020-08-04T15:10:57Z</updated-at>
+          <user-cart-id type="integer">2</user-cart-id>
+        </SalesDetail>
+        <SalesDetail>
+          <id type="integer">52</id>
+          <user-id type="integer">24</user-id>
+          <product-id type="integer">43</product-id>
+          <quantity type="integer">2</quantity>
+          <sub-total type="float">2.0</sub-total>
+          <created-at type="dateTime">2020-08-06T08:01:14Z</created-at>
+          <updated-at type="dateTime">2020-08-06T08:01:30Z</updated-at>
+          <user-cart-id type="integer">2</user-cart-id>
+        </SalesDetail>
+      </SalesDetails>
+    </Details>
+    <DeliveryDetails>
+      <Province>WESTERN CAPE</Province>
+      <Suburb>Actonville Ext 4, Wattville, Actonville</Suburb>
+      <Street>Langeberg Street</Street>
+      <HouseNo>1724</HouseNo>
+      <Instructions>PLS CALL BEFORE DELIVERY..PLS DELIVERY ON MONDAY AFTER 14H00PM 
+Note: Delivery Date Requested:02 September 2019</Instructions>
+      <City>ALBERTINIA</City>
+      <Complex>1724</Complex>
+      <PostalCode>aaaa</PostalCode>
+      <UnitNo>1724</UnitNo>
+      <Latitude>-26.21578</Latitude>
+      <Longitude>28.31083</Longitude>
+      <CustomerName>YOUSUF OSMANY</CustomerName>
+      <DeliveryPrice>70.0000</DeliveryPrice>
+      <PhoneNo>0724073197</PhoneNo>
+      <PhoneNoAlternate>0673585458</PhoneNoAlternate>
+      <Landmark></Landmark>
+      <DeliveryDate>2019-09-02T00:00:00</DeliveryDate>
+      <Address>aaaa</Address>
+    </DeliveryDetails>
+  </Transaction>
+</hash>

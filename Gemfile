@@ -1,18 +1,23 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '2.6.3'
+ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 
-gem 'execjs'
-gem 'therubyracer', :platforms => :ruby
+gem 'image_processing'
+gem 'net-sftp'
+gem 'net-ssh'
+gem 'dotenv-rails'
 # Use mysql as the database for Active Record
 gem 'pg'
+gem 'whenever', require: false
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 gem 'jquery-rails'
+gem "geocoder"
+gem "figaro"
 gem 'cancancan', '~> 1.10'
 gem 'devise'
 gem 'simple_form'
@@ -22,6 +27,7 @@ gem 'mini_magick', '~>4.9'
 gem 'activestorage-validator'
 gem 'punching_bag'
 gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 gem 'toastr-rails'
 gem 'aws-sdk-s3'
 gem 'jquery-datatables'

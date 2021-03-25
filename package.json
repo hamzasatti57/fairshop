@@ -1,5 +1,7 @@
 {
   "name": "furnishia",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery-zoom": "^1.7.21"
+  }
 }

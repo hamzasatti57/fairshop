@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_075317) do
+ActiveRecord::Schema.define(version: 2020_11_13_143059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "admin_advertisements", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "advertisements", force: :cascade do |t|
     t.string "title"
     t.string "description"
@@ -43,6 +50,28 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_advertisements_on_user_id"
+  end
+
+  create_table "billing_addresses", force: :cascade do |t|
+    t.string "address"
+    t.string "postal_code"
+    t.integer "user_id"
+    t.integer "city_id"
+    t.integer "country_id"
+    t.boolean "is_primary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "province_id"
+    t.string "instruction"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "street"
+    t.string "house_no"
+    t.string "suburb"
+    t.string "unit_no"
+    t.string "landmark"
+    t.string "complex"
+    t.string "secondary_number"
   end
 
   create_table "blogs", force: :cascade do |t|
@@ -57,6 +86,17 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "parent_id"
+    t.float "shipping_price"
+    t.integer "category_type", default: 1
+  end
+
+  create_table "checkouts", force: :cascade do |t|
+    t.integer "billing_address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "user_cart_id"
+    t.float "amount"
   end
 
   create_table "cities", force: :cascade do |t|
@@ -64,6 +104,7 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "country_id"
+    t.integer "province_id"
     t.index ["country_id"], name: "index_cities_on_country_id"
   end
 
@@ -72,6 +113,8 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.string "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "stock_item_id"
+    t.integer "inventory", default: 0
   end
 
   create_table "colors_products", id: false, force: :cascade do |t|
@@ -88,6 +131,9 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.integer "parent_type"
     t.string "statement"
     t.bigint "user_id"
+    t.string "commentor_full_name"
+    t.string "commentor_email_address"
+    t.string "commentor_phone_number"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -100,6 +146,15 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "message"
+    t.string "name"
+    t.string "email"
+    t.string "subject"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "countries", force: :cascade do |t|
@@ -131,8 +186,31 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "peach_payments", force: :cascade do |t|
+    t.string "card_number"
+    t.string "expiry_date"
+    t.string "card_holder"
+    t.string "cvv"
+    t.float "amount"
+    t.string "checkout_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_categories", force: :cascade do |t|
     t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "super_category_id"
+    t.integer "category_id"
+  end
+
+  create_table "product_colors", force: :cascade do |t|
+    t.integer "color_id"
+    t.integer "product_id"
+    t.string "stock_item_id"
+    t.integer "inventory"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -157,6 +235,22 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.boolean "visibility"
     t.bigint "product_category_id"
     t.bigint "company_id"
+    t.integer "product_type_id"
+    t.boolean "clean_and_care"
+    t.boolean "warranty"
+    t.string "sub_category_material"
+    t.string "code"
+    t.string "m2"
+    t.boolean "is_discounted", default: false
+    t.string "stock_item_id"
+    t.string "stock_category_id"
+    t.string "stock_profile"
+    t.boolean "website_item"
+    t.datetime "website_listing_date"
+    t.datetime "website_expiry_date"
+    t.string "online_delivery_charges"
+    t.boolean "is_promotional_banner", default: false
+    t.integer "assembly_type"
     t.index ["company_id"], name: "index_products_on_company_id"
     t.index ["product_category_id"], name: "index_products_on_product_category_id"
   end
@@ -186,6 +280,13 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.index ["company_id"], name: "index_projects_on_company_id"
   end
 
+  create_table "provinces", force: :cascade do |t|
+    t.integer "country_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+  end
+
   create_table "punches", id: :serial, force: :cascade do |t|
     t.integer "punchable_id", null: false
     t.string "punchable_type", limit: 20, null: false
@@ -205,6 +306,68 @@ ActiveRecord::Schema.define(version: 2020_05_05_075317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
+  create_table "stores", force: :cascade do |t|
+    t.string "store_name"
+    t.string "store_address"
+    t.string "store_city"
+    t.string "store_country"
+    t.string "store_state"
+    t.string "store_zip"
+    t.string "store_phone"
+    t.string "store_email"
+    t.string "store_website"
+    t.string "store_link"
+    t.string "stroe_description"
+    t.integer "vender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "category_tags"
+    t.string "store_fax"
+    t.string "operating_hours"
+    t.string "long"
+    t.string "lat"
+  end
+
+  create_table "subscriber_emails", force: :cascade do |t|
+    t.string "email"
+    t.boolean "is_active", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "super_categories", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_cart_products", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.float "sub_total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_cart_id"
+    t.integer "color_id"
+  end
+
+  create_table "user_carts", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.string "otp_code"
+    t.string "sales_file_path"
+  end
+
+  create_table "user_payments", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
